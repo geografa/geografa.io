@@ -659,7 +659,7 @@ input, select, textarea {
 		}
 
 			ul.alt li {
-				border-top: solid 1px #ccc;
+				/* border-top: solid 1px #ccc; */
 				padding: 0.5em 0;
 			}
 
@@ -935,6 +935,17 @@ input, select, textarea {
 		#header h1 {
 			font-size: 2.25em;
 			font-weight: 700;
+		}
+
+/* Additional sites */
+
+	#secondHeading {
+		padding: 3em 2.25em 1.75em 2.25em ;
+	}
+
+		#header h2 {
+			font-size: 2.25em;
+			font-weight: 900;
 		}
 
 /* Footer */
