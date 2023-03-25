@@ -226,6 +226,11 @@ input, select, textarea {
 		font-size: 0.6rem;
 	}
 
+	.imageDesc {
+		font-size: 0.6rem;
+		margin-top: 0;
+	}
+
 	@media screen and (max-width: 736px) {
 
 		h1 {
