@@ -1,176 +1,563 @@
-<!DOCTYPE HTML>
-<!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="geografa.io" property="og:site_name" />
+    <meta content="geografa.io" property="og:title" />
+    <meta content="website" property="og:type" />
+    <meta content="Hire me!" property="og:description" />
+    <meta content="https://geografa.io/" property="og:url" />
+    <meta
+      content="https://geografa.io/img/apple-touch-icon.png"
+      property="og:image"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@geografa" />
+    <meta name="twitter:title" content="geografa.io" />
+    <meta name="twitter:url" content="https://geografa.io/" />
+    <meta name="twitter:description" content="geografa.io | Hire me!" />
+    <meta
+      name="twitter:image:src"
+      content="https://geografa.io/img/apple-touch-icon.png"
+    />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#263959" />
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#263959" />
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#263959" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://assets.calendly.com/assets/external/widget.js"
+      async
+    ></script>
 
-<head>
-	<title>rafa gutierrez</title>
-  <meta content="Rafa Gutierrez | geografa" property="og:site_name">
-	<meta content="Rafa Gutierrez | geografa" property="og:title">  
-	<meta content="website" property="og:type">
-	<meta content="Rafa Gutierrez | Hire me!" property="og:description">  
-  <meta content="https://geografa.io/" property="og:url">
-	<meta content="https://geografa.io/images/apple-touch-icon.png" property="og:image">
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:site" content="@">
-	<meta name="twitter:creator" content="@geografa">
-	<meta name="twitter:title" content="geografa.io">
-  <meta name="twitter:url" content="https://geografa.io/">  
-	<meta name="twitter:description" content="geografa.io | Hire me!">
-  <meta name="twitter:image:src" content="https://geografa.io/images/apple-touch-icon.png">
-	<meta name="description" content="">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-	<!-- Chrome, Firefox OS and Opera -->
-	<meta name="theme-color" content="#263959">
-	<!-- Windows Phone -->
-	<meta name="msapplication-navbutton-color" content="#263959">
-	<!-- iOS Safari -->
-	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<noscript>
-		<link rel="stylesheet" href="assets/css/noscript.css" />
-	</noscript>
-</head>
+    <!-- Calendly badge widget begin -->
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+    <title>geografa.io</title>
+    <style>
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+      }
+      #logo {
+        font-size: 2em;
+        font-weight: 600;
+        margin-right: auto;
+        margin-left: 20px;
+      }
+      .flex-container-nav {
+        display: flex;
+        /* flex-direction: column; for media query */
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        /* center the text in the middle */
+        gap: 80px;
+        flex-wrap: wrap;
+        background: linear-gradient(
+          to left,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 1) 90%
+        );
+        /* z-index: 1; */
+      }
+      /* hide nav items with media query */
+      @media (max-width: 800px) {
+        .nav-items {
+          display: none;
+        }
+      }
+      .nav-items {
+        height: 100px;
+        width: 100px;
+        color: #fff;
+        /* background-color: hsla(194, 77%, 66%, 0.5); */
+        padding-top: 20px;
+        text-align: left;
+      }
 
-<body class="is-preload">
+      .nav-items a {
+        color: #fff;
+        text-decoration: none;
+      }
 
-	<!-- Wrapper -->
-	<div id="wrapper">
-		<!-- Header -->
-		<header id="header">
-			<div class="logo">
-				<span class="icon fa-globe"></span>
-			</div>
-			<div class="content">
-				<div class="inner">
-					<h1>rafa gutierrez</h1>
-					<p>where. why. wow.</p>
-				</div>
-			</div>
-			<nav>
-				<ul>
-					<li><a href="#story">Story</a></li>
-					<li><a href="./maps">Portfolio</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<!-- <li><a href="#intro">ME</a></li> -->
-					<!--<li><a href="#elements">Elements</a></li>-->
-				</ul>
-			</nav>
-		</header>
+      /* create a hero section */
+      .flex-container-hero {
+        height: 60vh;
+        display: flex;
+        /* justify-content: left; */
+        align-items: center;
+        color: rgb(2, 2, 2);
+        font-weight: bold;
+        background: linear-gradient(
+          to left,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 1) 90%
+        );
+      }
+      .hero {
+        font-size: 1em;
+        padding: 0;
+        display: block;
+        margin-left: 40px;
+        font-weight: 400;
+        color: #ffffff;
+      }
+      .hero h2 {
+        font-size: 2.3em;
+        padding: 0;
+        display: inline;
+      }
+      /* media query for hero h2 */
+      @media (max-width: 800px) {
+        #logo {
+          display: block;
+          font-size: 1em;
+        }
+        .flex-container-hero {
+          flex-direction: column;
+          height: 40vh;
+          justify-self: flex-end;
+        }
+        .hero h2 {
+          font-size: 2em;
+        }
+        .hero p {
+          font-size: 0.8em;
+        }
+      }
+      /* blinking cursor */
+      .blinking-cursor {
+        font-weight: 200;
+        color: #ffffff;
+        -webkit-animation: 1s blink step-end infinite;
+        -moz-animation: 1s blink step-end infinite;
+        -ms-animation: 1s blink step-end infinite;
+        -o-animation: 1s blink step-end infinite;
+        animation: 1s blink step-end infinite;
+      }
 
-		<!-- Main -->
-		<div id="main">
+      @keyframes "blink" {
+        from,
+        to {
+          color: transparent;
+        }
+        50% {
+          color: #fff;
+        }
+      }
 
-			<!-- Intro -->
-			<article id="intro">
-			</article>
+      @-moz-keyframes blink {
+        from,
+        to {
+          color: transparent;
+        }
+        50% {
+          color: #fff;
+        }
+      }
 
-			<!-- Work -->
-			<article id="story">
-				<h2 class="major">Story</h2>
-				<!-- content -->
-				<p>I've spent a bit of time with maps. From Esri's ecosystem of "ArcProducts ™️" to open source tools like QGIS and 
-					OpenStreetMap, my career has been a journey of learning and discovery finding the right tools for the job. With 
-					titles like Analyst, Manager, or Cartographer, I always enjoyed crafting a story with a map. 
-				</p>
-				<span class="image main imageDesc"><img src="images/work-2.jpg" alt="Work 2 map" />Old GIS map.</span>
-				<p>Early days, as an Environmental Consultant, I used GIS in several capacities: fuel modeling for large managed forests
-					with Landsat data, mapping Desert Tortoise habitat in the Mojave Desert, and landcover analysis
-					for the Lower Columbia River. And I’m proud of the impacts these projects had towards the preservation and conservation 
-					of sensitive lands.
-				</p>
-					<span class="image main"><img src="https://api.mapbox.com/styles/v1/grafa/cio634qhz0008afnm4sqwpfts/static/-121.9865,45.6288,15.19,0,22/1200x750?access_token=pk.eyJ1IjoiZ3JhZmEiLCJhIjoiY2ptYjNtZWxnMDBrdDNwbnVicGJzOWg2NyJ9.9OulyCe3kEqMAXPbx1mKUA" alt="Work 2 map" /></span>
-				<p>
-					And maps have not only been at the center of my career but also as an avid orienteer competing in national races running
-					through the woods with nothing but a map, compass, and some navigational wit. What a nerd 🤓
-				</p>
+      @-webkit-keyframes "blink" {
+        from,
+        to {
+          color: transparent;
+        }
+        50% {
+          color: #fff;
+        }
+      }
 
-				<p>	
-					<iframe width='100%' height='400px' src="https://api.mapbox.com/styles/v1/grafa/ckeepi9oj03rm1aoykj4ni5io.html?title=false&access_token=pk.eyJ1IjoiZ3JhZmEiLCJhIjoiY2ptYjNtZWxnMDBrdDNwbnVicGJzOWg2NyJ9.9OulyCe3kEqMAXPbx1mKUA&zoomwheel=false#12.54/43.71155/7.25086/336.8/52"
-					title="Runner v8-updated" style="border:none;"></iframe>
-				</p>
-				<p>
-					Anyways, around 2013, I saw the writing on the wall -- web maps were hot and I leveled up my dev skills.
-					By championing the open source tools like Leaflet and OSM, I was able to connect with colleauges at Mapbox and soon
-					became their first dedicated support team member. I provided technical support to strategic customers 
-					worldwide. The diversity of customers kept me on my toes to understand the complexities of managing big data, working with
-					complex APIs and SDKs, and creating fast, beautiful maps. While becoming well versed on the technical side of maps, 
-					I also became obsessed with understanding customer loyalty which in turn helped with product development and sales (read all my hot takes on what customer loyalty means
-					to me <a
-						href="https://www.notion.so/Hot-Takes-from-the-Front-Lines-of-Support-58b082f66e8645c483e4224b11f592ce?pvs=4">here</a>).
-				</p>
-				<span class="image main"><img src="images/sup.gif" alt="SUP map" /></span>
-				<p>I've worked with hundreds of customers over the years on mapping problems. Everything from web to mobile,
-					imagery to vector tiles, and cartography to geomatics. Complex spatial problems are my wheelhouse and I've always enjoyed 
-					helping people launch or improve their applications. 
-				</p>
-				<p>
-					Well look at that, you made it this far. If you think we have some common ground, <a href="#contact">let's chat</a> 
-					or have a peek at my <a href="./maps">Portfolio</a> for some example work.
-				</p>
-				
-			</article>
-			<!-- Contact -->
-			<article id="contact">
-				<h2 class="major">Contact</h2>
-				<p>Let's connect</p>
-				<ul class="icons">
-					<li><a href="https://www.linkedin.com/in/geografa" class="icon brands fa-linkedin-in"><span
-								class="label">LinkedIn</span></a></li>
-					<!-- <li><a href="https://twitter.com/geografa" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li> -->
-					<li><a href="https://github.com/geografa" class="icon brands fa-github"><span class="label">GitHub</span></a>
-					</li>
-					<li><a href="https://twitter.com/geografa" class="icon brands fa-twitter"><span
-								class="label">Twitter</span></a></li>
-					<li><a href="mailto:soundofrafa@gmail.com" class="icon fa-envelope"><span
-									class="label">Twitter</span></a></li>
-				</ul>
+      @-ms-keyframes "blink" {
+        from,
+        to {
+          color: transparent;
+        }
+        50% {
+          color: #fff;
+        }
+      }
 
-				<span class="image main"><img src="images/rafa+hugo.jpg" alt="Rafa" /></span>
-				<p>Peru, Venezuela, Atlanta, Portland. Those are my places. They’re the backdrop, the soundtrack alongside which my story 
-					unfolds. In all of my efforts to unravel culture, aesthetic, and sense of place, it’s no wonder my professional wheelhouse 
-					turned up in Geography.
+      @-o-keyframes "blink" {
+        from,
+        to {
+          color: transparent;
+        }
+        50% {
+          color: #fff;
+        }
+      }
 
-					I’m interested in “what is where and why.” Maps, cartography, GIS...these are all extensions through which we discover and 
-					relate to those very things. Maps literally and figuratively help us find ourselves. Where we are and why may surprise us, 
-					but those are the very things also that anchor us. Maps will never cease to amaze me in that way -- a connection to place 
-					whether we're reading the map or building it 🤓
-				</p>
-				<p>
-					I’m here in Portland with my two sons and my dog. I play soccer, karaoke, SUP, and have a good dad joke or two. Hit me up.
-				</p>
+      .hero button {
+        background-color: #ec6157;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      /* Style the video: 100% width and height to cover the entire window */
+      #myVideo {
+        position: absolute;
+        right: 0;
+        top: 0;
+        min-width: 100%;
+        /* min-height: 100%; */
+        z-index: -1;
+      }
+      .company-title-container {
+        background-color: #e7e0d4;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .company-title {
+        text-align: center;
+      }
+      .flex-container-company {
+        background-color: #e7e0d4;
+        height: 40vh;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        align-items: normal;
+      }
+      /* media query for flex-container-company */
+      @media (max-width: 800px) {
+        .flex-container-company {
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+      }
+      .company-items {
+        height: 100px;
+        /* width: 800px; */
+        color: #333;
+        text-align: left;
+        margin: 0 40px;
+        font-weight: 400;
+      }
+      .company-items img {
+        border-radius: 5px;
+        float: inline-end;
+        margin-left: 80px;
+        /* light drop shadow */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+      /* media query for company-items img */
+      @media (max-width: 800px) {
+        .company-items img {
+          float: none;
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 300px;
+        }
+      }
+      /* media query for image to remove float and center the image */
+      @media (max-width: 800px) {
+        .flex-container-company {
+          flex-direction: column;
+          height: 70vh;
+        }
+        .company-items img {
+          float: none;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .company-items p {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      .flex-container-portfolio {
+        background-color: rgb(156, 174, 158);
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        align-items: baseline;
+        color: white;
+        font-weight: bold;
+        padding-bottom: 60px;
+      }
+      .portfolio-title-container {
+        background-color: rgb(156, 174, 158);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .portfolio-title {
+        margin-bottom: 20px; /* Adjust the spacing as needed */
+        text-align: center;
+      }
+      .portfolio-items {
+        width: 300px;
+        color: #fff;
+        padding: 20px;
+        text-align: left;
+        font-weight: 100;
+      }
+      .portfolio-items img {
+        border-radius: 5px;
+        float: inline-end;
+        margin-left: 80px;
+        margin-bottom: 10px;
+        /* light drop shadow */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 310px;
+      }
+      .flex-container-testimonials {
+        background-color: hsl(4, 80%, 63%);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        color: white;
+        font-weight: bold;
+        gap: 60px;
+        padding-bottom: 20px;
+      }
+      .testimonial-title-container {
+        background-color: hsl(4, 80%, 63%);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .testimonial-title {
+        margin-bottom: 20px; /* Adjust the spacing as needed */
+        text-align: center;
+      }
+      .testimonial-items {
+        /* height: 100px; */
+        width: 300px;
+        color: #fff;
+        /* background-color: hsla(194, 77%, 66%, 0.5); */
+        padding-top: 20px;
+        text-align: left;
+        font-weight: 300;
+        font-style: oblique;
+      }
+      .testimonial-items .author {
+        font-size: 0.8em;
+        font-style: oblique;
+      }
+      /* testimonial-items media query */
+      @media (max-width: 800px) {
+        .flex-container-testimonials {
+          flex-wrap: wrap;
+          /* height: 100vh; */
+        }
+      }
+      .contact-title-container {
+        background-color: #23646a;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .contact-title {
+        margin-bottom: 20px; /* Adjust the spacing as needed */
+        text-align: center;
+      }
+      .flex-container-contact {
+        background-color: #23646a;
+        height: 100vh;
+        display: block;
+        padding: 40px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container-nav">
+      <div id="logo" class="nav-items">geografa.io</div>
+      <div class="nav-items"><a href="#about">about</a></div>
+      <div class="nav-items"><a href="#portfolio">portfolio</a></div>
+      <div class="nav-items"><a href="#testimonials">testimonials</a></div>
+      <div class="nav-items"><a href="#contact">contact</a></div>
+    </div>
+    <div class="flex-container-hero">
+      <video autoplay muted loop id="myVideo">
+        <source src="./img/maphero.mp4" type="video/mp4" />
+      </video>
+      <div class="hero">
+        <h2>
+          Web mapping support at the ready
+          <span class="blinking-cursor">|</span>
+        </h2>
+        <p>
+          Get the most out of your web map applications and bring your location
+          data to life.
+        </p>
+        <a href="#contact"><button>Schedule a call...</button></a>
+        <!-- <button id="myBtn" onclick="myFunction()">Schedule a call...</button> -->
+      </div>
+    </div>
+    <div id="about" class="company-title-container">
+      <h2 class="company-title">Our Wheelhouse</h2>
+    </div>
+    <div class="flex-container-company">
+      <div class="company-items">
+        <img
+          src="./img/rafa-speaker.png"
+          alt="Rafa Gutierrez Oregon State University, 2019"
+        />
+        <p>
+          Geografa is your dev shop for all things web mapping. With over 20
+          years of geospatial experience, Rafa Gutierrez brings a wealth of web
+          mapping know-how to your project. Rafa has worked as GIS Manager with
+          SWCA Environmental and helped grow the Technical Support Engineering
+          team at Mapbox.
+        </p>
+        <p>
+          From scoping, to design, to finished applications, we help you get the
+          most out of your web map applications.
+        </p>
+      </div>
+    </div>
+    <div id="portfolio" class="portfolio-title-container">
+      <h2 class="portfolio-title">Work</h2>
+    </div>
+    <div class="flex-container-portfolio">
+      <div class="portfolio-items">
+        <img src="./img/climb.gif" alt="placeholder" />
+        <p>Data Animation</p>
+      </div>
+      <div class="portfolio-items">
+        <img src="./img/firefly.png" alt="placeholder" />
+        <p>Store Location</p>
+      </div>
+      <div class="portfolio-items">
+        <img src="./img/death-star.png" alt="placeholder" />
+        <p>3D Mapping</p>
+      </div>
+      <!-- <div class="portfolio-items">
+        <img src="./img/flight.gif" alt="placeholder" />
+        <p>3D Modeling</p>
+      </div> -->
+      <div class="portfolio-items">
+        <img src="./img/analysis.png" alt="placeholder" />
+        <p>Spatial Analysis</p>
+      </div>
+      <!-- examples -->
+      <div class="portfolio-items">
+        <img src="./img/isochrone.png" alt="placeholder" />
+        <p>Navigation APIs</p>
+      </div>
+      <div class="portfolio-items">
+        <img src="./img/earth-day.png" alt="Earth Day" />
+        <p>Earth Day</p>
+      </div>
+      <div class="portfolio-items">
+        <img
+          src="https://api.mapbox.com/styles/v1/grafa/clux2129f003901og97oj8nnk/static/34.6195,31.6413,5.15,0/320x200?access_token=pk.eyJ1IjoiZ3JhZmEiLCJhIjoiY2ptYjNtZWxnMDBrdDNwbnVicGJzOWg2NyJ9.9OulyCe3kEqMAXPbx1mKUA"
+          alt="placeholder"
+        />
+        <p>Vintage</p>
+      </div>
+      <div class="portfolio-items">
+        <img src="./img/matrix.png" alt="placeholder" />
+        <p>ETA Mapping with Traffic Cams</p>
+      </div>
+      <div class="portfolio-items">
+        <img src="./img/route-optimizer.png" alt="placeholder" />
+        <p>Run/Bike Route Optimizer</p>
+      </div>
+      <div class="portfolio-items">
+        <img src="./img/flight-tracker.png" alt="placeholder" />
+        <p>Flight Tracker</p>
+      </div>
+      <div class="portfolio-items">
+        <img src="./img/death-star.png" alt="placeholder" />
+        <p>Death Star</p>
+      </div>
+      <div class="portfolio-items">
+        <img src="./img/shark-week.png" alt="placeholder" />
+        <p>Shark Week</p>
+      </div>
+    </div>
+    <div id="testimonials" class="testimonial-title-container">
+      <h2 class="testimonial-title">Testimonials</h2>
+    </div>
+    <div class="flex-container-testimonials">
+      <div class="testimonial-items">
+        Consistently employs broad technical expertise across backend and web
+        technologies to troubleshoot, understand, and resolve the deepest
+        cross-platform bugs. This dogged determination to identify and obviate
+        complex technical challenges is matched by an empathetic approach to
+        communication for internal and external stakeholders.
+        <p class="author">
+          - Patrick Leonard, Senior SDK Engineer, Maps SDK at Mapbox
+        </p>
+      </div>
+      <div class="testimonial-items">
+        Talented GIS professional. Thoughtful attention to detail and client
+        deadlines assured me that all my mapping needs were of the highest
+        quality, while being completed on time.
+        <p class="author">- Stacey De Shazo, Evans & De Shazo, Inc.</p>
+      </div>
 
-
-
-
-			</article>
-		</div>
-
-		<!-- Footer -->
-		<footer id="footer">
-			<p class="copyright">&copy; Rafa Gutierrez 2023. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-		</footer>
-
-	</div>
-
-	<!-- BG -->
-	<div id="bg"></div>
-
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-
-</body>
-
+      <div class="testimonial-items">
+        Provided great technical support for many APAC customers when I was the
+        Technical Account Manager for APAC.
+        <p class="author">- Shaodun Lin, Project 44</p>
+      </div>
+    </div>
+    <div id="contact" class="contact-title-container">
+      <h2 class="contact-title">Contact</h2>
+    </div>
+    <div class="flex-container-contact">
+      <!-- Calendly inline widget begin -->
+      <div
+        class="calendly-inline-widget"
+        data-url="https://calendly.com/rafa_gutierrez/30min"
+        style="min-width: 320px; height: 700px"
+      ></div>
+      <script type="text/javascript">
+        window.onload = function () {
+          Calendly.initBadgeWidget({
+            url: "https://calendly.com/rafa_gutierrez/30min",
+            text: "📆",
+            color: "#e7e0d4",
+            textColor: "#3b7377",
+            branding: undefined,
+          });
+        };
+      </script>
+      <!-- Calendly inline widget end -->
+    </div>
+  </body>
 </html>
