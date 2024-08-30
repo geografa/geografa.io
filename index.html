@@ -161,7 +161,7 @@
         animation: 1s blink step-end infinite;
       }
 
-      @keyframes "blink" {
+      /* @keyframes "blink" {
         from,
         to {
           color: transparent;
@@ -209,7 +209,7 @@
         50% {
           color: #fff;
         }
-      }
+      } */
 
       .hero button {
         background-color: #ec6157;
@@ -263,7 +263,7 @@
         color: #333;
         text-align: left;
         margin: 0 40px;
-        font-weight: 400;
+        font-weight: 300;
       }
       .company-items img {
         border-radius: 5px;
@@ -271,6 +271,11 @@
         margin-left: 80px;
         /* light drop shadow */
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+      .company-items li {
+        list-style: circle;
+        /* display: inline; */
+        padding: 0;
       }
       /* media query for company-items img */
       @media (max-width: 800px) {
@@ -323,7 +328,7 @@
         color: #fff;
         padding: 20px;
         text-align: left;
-        font-weight: 100;
+        font-weight: 300;
       }
       .portfolio-items img {
         border-radius: 5px;
@@ -436,16 +441,28 @@
           alt="Rafa Gutierrez Oregon State University, 2019"
         />
         <p>
-          Geografa is your dev shop for all things web mapping. With over 20
-          years of geospatial experience, Rafa Gutierrez brings a wealth of web
-          mapping know-how to your project. Rafa has worked as GIS Manager with
-          SWCA Environmental and helped grow the Technical Support Engineering
-          team at Mapbox.
+          Our founder, Rafa Gutierrez, has over 20 years of geospatial
+          experience, from managing GIS in the environmental consulting sector
+          to building Mapbox's startup technical support engineering team. Rafa
+          brings a 360-degree perspective to your web mapping project and a
+          customer- and client-centric approach. If you're looking for
+          start-to-finish (or anywhere in between), Rafa is available to lead,
+          manage, execute, and/or customize a team to ensure you optimize your
+          digital mapping applications.
         </p>
-        <p>
-          From scoping, to design, to finished applications, we help you get the
-          most out of your web map applications.
-        </p>
+        <!-- <p>Select clients include:</p>
+        <ul>
+          <li>AggDirect</li>
+          <li>Straightaway</li>
+          <li>Ford</li>
+          <li>ANWB</li>
+          <li>Strava</li>
+          <li>Western Fire Chiefs Association</li>
+          <li>Wonder Foods</li>
+          <li>RoadTrippers</li>
+          <li>Instacart</li>
+          <li>Tableau</li>
+        </ul> -->
       </div>
     </div>
     <div id="portfolio" class="portfolio-title-container">
@@ -486,7 +503,7 @@
           src="https://api.mapbox.com/styles/v1/grafa/clux2129f003901og97oj8nnk/static/34.6195,31.6413,5.15,0/320x200?access_token=pk.eyJ1IjoiZ3JhZmEiLCJhIjoiY2ptYjNtZWxnMDBrdDNwbnVicGJzOWg2NyJ9.9OulyCe3kEqMAXPbx1mKUA"
           alt="placeholder"
         />
-        <p>Vintage</p>
+        <p>Custom Styles</p>
       </div>
       <div class="portfolio-items">
         <img src="./img/matrix.png" alt="placeholder" />
@@ -514,30 +531,71 @@
     </div>
     <div class="flex-container-testimonials">
       <div class="testimonial-items">
-        Consistently employs broad technical expertise across backend and web
-        technologies to troubleshoot, understand, and resolve the deepest
-        cross-platform bugs. This dogged determination to identify and obviate
-        complex technical challenges is matched by an empathetic approach to
-        communication for internal and external stakeholders.
+        A committed team-builder, Rafa taught me (and many other teammates) how
+        to engage successfully with technical customers and deliver a top-class
+        experience with every interaction. He consistently employs his broad
+        technical expertise across backend and web technologies to troubleshoot,
+        understand, and resolve the deepest cross-platform bugs. This dogged
+        determination to identify and obviate complex technical challenges is
+        matched by an empathetic approach to communication for internal and
+        external stakeholders. Rafa is a master of defusing tense situations and
+        conveying critical information calmly as he moves the situation towards
+        resolution. Countless times I have watched Rafa turn a frustrated
+        customer into a dedicated advocate; I could not recommend Rafa more
+        highly.
         <p class="author">
           - Patrick Leonard, Senior SDK Engineer, Maps SDK at Mapbox
         </p>
       </div>
+
       <div class="testimonial-items">
-        Talented GIS professional. Thoughtful attention to detail and client
-        deadlines assured me that all my mapping needs were of the highest
-        quality, while being completed on time.
-        <p class="author">- Stacey De Shazo, Evans & De Shazo, Inc.</p>
+        I worked with Rafa during my early days at Mapbox. In a fast pace
+        environment, he shined as an emphatic leader. Always ready to pair with
+        teammate or experiment with a new process to improve the team's
+        workflow, Rafa leads by example. I have always appreciated how Rafa
+        handles a new challenge with a level head and optimism. I am grateful
+        for all that I've learned from Rafa.
+        <p class="author">
+          - Katy Decorah, Senior Software Engineer at Microsoft
+        </p>
       </div>
 
       <div class="testimonial-items">
-        Provided great technical support for many APAC customers when I was the
-        Technical Account Manager for APAC.
-        <p class="author">- Shaodun Lin, Project 44</p>
+        Rafa and I have worked side-by-side helping Mapbox customers understand
+        our product and work through technical problems. The nature of the work
+        has changed, but Rafa's approach hasn't. He's one of the most
+        empathetic, encouraging, and relentlessly helpful people I've ever
+        worked with. Helping people succeed is the north star of everything he
+        does, and it shows in the work he does ever day at Mapbox. I will
+        forever be grateful for the careful, thoughtful, and thorough help Rafa
+        provided me when I was getting started. And I know the dozens of
+        customers he helps every day feel the same.
+        <p class="author">- Dan Swick, Frontend Platform Engineer at Mapbox</p>
       </div>
+
+      <div class="testimonial-items">
+        Not a day passes during which I'm not amazed by Rafa's institutional
+        knowledge of the Mapbox universe. He's a walking encyclopedia of our
+        products and the history behind them - why where they built, what was
+        unique about them, and which challenges did they help users solve? Rafa
+        dives deep to troubleshoot technical bugs and can succinctly communicate
+        customer needs back to product teams. I'm honored to work alongside
+        @geografa to ensure a positive experience for all 800,000 Mapbox users -
+        thanks Rafa!
+        <p class="author">- Technical Support Engineer</p>
+      </div>
+      <!-- 
+      <div class="testimonial-items">
+        Rafael is an amazingly talented GIS professional who was a great
+        pleasure to work with at SWCA Environmental. His thoughtful attention to
+        detail and client deadlines assured me that all my mapping needs were of
+        the highest quality, while being completed on time.
+        <p class="author">- Stacey De Shazo, Evans & De Shazo, Inc.</p>
+      </div> -->
     </div>
+
     <div id="contact" class="contact-title-container">
-      <h2 class="contact-title">Contact</h2>
+      <h2 class="contact-title">Let's talk!</h2>
     </div>
     <div class="flex-container-contact">
       <!-- Calendly inline widget begin -->
