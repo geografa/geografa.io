@@ -414,7 +414,7 @@
       }
       .flex-container-contact {
         background-color: #23646a;
-        height: 100vh;
+        /* height: 100vh; */
         display: block;
         padding: 40px;
         text-align: center;
@@ -633,26 +633,27 @@
 
     <div id="contact" class="contact-title-container">
       <h2 class="contact-title">Let's talk!</h2>
+      <iframe
+        src="https://app.hellobonsai.com/f/157cc11f6cb7541?embed=true"
+        frameborder="0"
+        width="100%"
+        height="100%"
+        style="border: none; min-height: 600px; z-index: 1"
+      ></iframe>
     </div>
-    <div class="flex-container-contact">
-      <!-- Calendly inline widget begin -->
-      <div
-        class="calendly-inline-widget"
-        data-url="https://calendly.com/rafa_gutierrez/30min"
-        style="min-width: 320px; height: 700px"
-      ></div>
-      <script type="text/javascript">
+
+    <!-- Calendly inline widget begin -->
+    <!-- <script type="text/javascript">
         window.onload = function () {
           Calendly.initBadgeWidget({
             url: "https://calendly.com/rafa_gutierrez/30min",
-            text: "📞",
-            color: "#e7e0d4",
+            text: "📅",
+            color: "#fff",
             textColor: "#3b7377",
             branding: undefined,
           });
         };
-      </script>
-      <!-- Calendly inline widget end -->
-    </div>
+      </script> -->
+    <!-- Calendly inline widget end -->
   </body>
 </html>
