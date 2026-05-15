@@ -9,6 +9,10 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.18.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --ink: #1a1208;
@@ -744,6 +748,77 @@
         padding-top: 48px;
       }
 
+      /* ─── TRIP MAP (Mapbox GL) ─── */
+      .trip-map-block {
+        margin-top: 2.5rem;
+      }
+
+      .cdmx-trip-map-inner {
+        width: 100%;
+        min-height: 480px;
+        height: 52vh;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        overflow: hidden;
+        box-shadow:
+          0 4px 24px rgba(26, 18, 8, 0.06),
+          0 1px 0 rgba(201, 147, 58, 0.12);
+        background: var(--card-bg);
+      }
+
+      .trip-map-popup-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.25;
+        margin-bottom: 0.35rem;
+        max-width: 240px;
+      }
+
+      .trip-map-popup-desc {
+        font-family: "DM Sans", sans-serif;
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 1.45;
+        color: var(--muted);
+        max-width: 260px;
+      }
+
+      .trip-map-popup-root {
+        padding: 4px 2px;
+      }
+
+      .trip-map-popup-gmaps {
+        display: inline-block;
+        margin-top: 0.65rem;
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(201, 147, 58, 0.35);
+      }
+
+      .trip-map-popup-gmaps:hover {
+        color: var(--gold-light);
+        border-bottom-color: var(--gold-light);
+      }
+
+      .mapboxgl-popup-content {
+        border-radius: 10px !important;
+        padding: 1rem 1.1rem !important;
+        border: 1px solid var(--border);
+        box-shadow: 0 8px 28px rgba(26, 18, 8, 0.12);
+      }
+
+      .mapboxgl-popup-close-button {
+        font-size: 20px !important;
+        padding: 4px 8px !important;
+        color: var(--muted);
+      }
+
       @media (max-width: 640px) {
         .day-card {
           grid-template-columns: 60px 1fr;
@@ -762,6 +837,10 @@
         }
         .accom-card {
           grid-template-columns: 1fr;
+        }
+        .cdmx-trip-map-inner {
+          min-height: 320px;
+          height: 42vh;
         }
         .nav-links {
           display: none;
@@ -1018,6 +1097,28 @@
               <strong style="color: var(--cream)">Sat Jun 13</strong>
             </div>
           </div>
+        </div>
+
+        <div class="trip-map-block">
+          <div class="section-label">Overview</div>
+          <h2 class="section-title">Trip Map</h2>
+          <p
+            style="
+              color: var(--muted);
+              font-size: 14px;
+              max-width: 42rem;
+              margin: 0 0 1.25rem;
+            "
+          >
+            Coordinates sourced via Mapbox Geocoding (build time). Tap markers
+            for venue notes.
+          </p>
+          <div
+            id="cdmx-trip-map"
+            class="cdmx-trip-map-inner"
+            role="application"
+            aria-label="Interactive map of CDMX itinerary stops"
+          ></div>
         </div>
       </div>
     </div>
@@ -1324,13 +1425,15 @@
                 <div class="event">
                   <span class="event-time">11:45</span>
                   <div class="event-body">
-                    <div class="event-name">Head to El Zócalo · Grab lunch en route</div>
+                    <div class="event-name">
+                      Head to El Zócalo · Grab lunch en route
+                    </div>
                     <div class="event-desc">
                       Metro Line 1 (Pink) toward Pino Suárez or Zócalo. Pick up
                       tacos al pastor from a street vendor near the plaza, or
                       duck into Mercado de San Juan a few blocks away. The
-                      streets will already be a sea of painted faces and
-                      green jerseys.
+                      streets will already be a sea of painted faces and green
+                      jerseys.
                     </div>
                     <span class="event-tag tag-food">Food</span>
                     <span class="event-tag tag-transit">Metro</span>
@@ -1344,12 +1447,12 @@
                     </div>
                     <div class="event-desc">
                       Kickoff 1:00 PM CDMX local time. The Zócalo is the
-                      official FIFA Fan Fest site in Mexico City — giant
-                      screens wrap the plaza, mariachis between halves, food
-                      stalls, and hundreds of thousands of fans watching their
-                      home team in the tournament opener. The game itself is
-                      being played just south of here at Azteca; the Zócalo
-                      will mirror its energy beat for beat.
+                      official FIFA Fan Fest site in Mexico City — giant screens
+                      wrap the plaza, mariachis between halves, food stalls, and
+                      hundreds of thousands of fans watching their home team in
+                      the tournament opener. The game itself is being played
+                      just south of here at Azteca; the Zócalo will mirror its
+                      energy beat for beat.
                     </div>
                     <span class="event-tag tag-football">FIFA Fan Fest</span>
                     <span class="event-tag tag-culture">Watch Party</span>
@@ -1368,8 +1471,8 @@
                     <div class="event-desc">
                       Win or lose, the city will be electric. Walk the Centro
                       back streets, then taxi or Metro to Condesa or Roma for
-                      mezcal, tacos, and the atmosphere of a country
-                      celebrating its tournament opener.
+                      mezcal, tacos, and the atmosphere of a country celebrating
+                      its tournament opener.
                     </div>
                     <span class="event-tag tag-food">Celebration</span>
                   </div>
@@ -1383,9 +1486,9 @@
                     <div class="event-desc">
                       Kickoff 8:00 PM CDMX, played up in Zapopan. Group A's
                       second match of opening day — directly relevant to
-                      Mexico's path through the tournament. Catch it on the
-                      big screens at Pata Negra or El Depósito in Condesa, or
-                      back at the Zócalo if it's still buzzing.
+                      Mexico's path through the tournament. Catch it on the big
+                      screens at Pata Negra or El Depósito in Condesa, or back
+                      at the Zócalo if it's still buzzing.
                     </div>
                     <span class="event-tag tag-football">Watch Party</span>
                   </div>
@@ -1640,8 +1743,8 @@
             <div class="transit-desc">
               Metro Line 1 (Pink) from Insurgentes to Pino Suárez or Zócalo.
               Plaza de la Constitución hosts the official FIFA Fan Fest with
-              giant screens, food stalls, and live music. Avoid driving on
-              match days — Centro shuts down to traffic.
+              giant screens, food stalls, and live music. Avoid driving on match
+              days — Centro shuts down to traffic.
             </div>
             <div class="transit-detail">
               Free entry · Arrive 60–90 min before kickoff for a screen view ·
@@ -1756,5 +1859,315 @@
         Mexico vs South Africa · June 11 · Watch Party at El Zócalo
       </div>
     </footer>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.18.0/mapbox-gl.js"></script>
+    <script>
+      (function () {
+        mapboxgl.accessToken =
+          "pk.eyJ1IjoiZ3JhZmEiLCJhIjoiY20wdTdlcTM3MTRsZDJxcGxmcW85MzQxMCJ9.H-wLHlLXdbtIQ9R1zsDuJg";
+
+        var places = [
+          {
+            lng: -99.157004,
+            lat: 19.426727,
+            title: "Home base · Colonia Juárez",
+            markerColor: "#2563eb",
+            mapsQuery:
+              "Calle Marsella 15, Colonia Juárez, Ciudad de México",
+            description:
+              "Five nights on Calle Marsella 15 · walkable to Reforma, Roma Norte & Ecobici.",
+          },
+          {
+            lng: -99.15921093,
+            lat: 19.44108279,
+            title: "El Califa de León",
+            description:
+              "Late arrival taquería stand-by · legendary steak tacos on Ribera de San Cosme.",
+          },
+          {
+            lng: -99.18627747,
+            lat: 19.42600514,
+            title: "Museo Nacional de Antropología",
+            description:
+              "Flagship archaeology & cultures collection · pair with Chapultepec bike loop.",
+          },
+          {
+            lng: -99.188775,
+            lat: 19.43042,
+            title: "Polanco",
+            description:
+              "Upscale lunch grids & stroller-friendly afternoons off Reforma.",
+          },
+          {
+            lng: -99.157694,
+            lat: 19.429419,
+            title: "Roma Norte",
+            description:
+              "Tree-lined avenues for café crawls · vintage boutiques & evening strolls.",
+          },
+          {
+            lng: -99.152035,
+            lat: 19.424124,
+            title: "Arena México",
+            description:
+              "Tuesday Martes Populares lucha • optional louder Viernes Espectacular shows.",
+          },
+          {
+            lng: -99.13160107,
+            lat: 19.43473107,
+            title: "Templo Mayor",
+            description:
+              "Aztec ceremonial core excavation & compact museum threading into the Zócalo.",
+          },
+          {
+            lng: -99.131424,
+            lat: 19.43252,
+            title: "Palacio Nacional",
+            description:
+              "Diego Rivera's epic fresco cycle · arrive early with passports for mural entry.",
+          },
+          {
+            lng: -99.14465481,
+            lat: 19.4298854,
+            title: "Mercado de San Juan (Pugibet)",
+            description:
+              "Gourmet hall for tlayudas, exotic produce & market-price tasting flights.",
+          },
+          {
+            lng: -99.133763,
+            lat: 19.433527,
+            title: "Zócalo · Plaza de la Constitución",
+            description:
+              "Fan Fest screens, cathedral backdrop & match-day kinetic energy hub.",
+          },
+          {
+            lng: -99.14122072,
+            lat: 19.43513872,
+            title: "Palacio de Bellas Artes",
+            description:
+              "Art Deco icon—catch façade glow at dusk and evening performance schedules.",
+          },
+          {
+            lng: -99.143898,
+            lat: 19.436092,
+            title: "Alameda Central",
+            description:
+              "Leafy centro park for leisurely Mexican breakfasts ahead of Reforma crossings.",
+          },
+          {
+            lng: -99.204514,
+            lat: 19.440496,
+            title: "Museo Soumaya (free)",
+            description:
+              "Slim museum highlight reel—Rodin, Dalí, Rivera—before midday Zócalo arrival.",
+          },
+          {
+            lng: -99.16726223,
+            lat: 19.4267632,
+            title: "El Ángel · Paseo de la Reforma",
+            description:
+              "Independence roundabout anchor • Saturday Ciclovía roll-outs head west from here.",
+          },
+          {
+            lng: -99.162464,
+            lat: 19.355181,
+            title: "Museo Frida Kahlo · Casa Azul",
+            description:
+              "Timed tickets required • cobalt walls, studios & guarded garden sanctuary.",
+          },
+          {
+            lng: -99.160978,
+            lat: 19.349237,
+            title: "Mercado de Coyoacán",
+            description:
+              "Colorful pavilion for tinga tostadas, aguas frescas & Canada match screens.",
+          },
+          {
+            lng: -99.163936,
+            lat: 19.348999,
+            title: "Coyoacán · Jardín Centenario",
+            description:
+              "Shaded plaza loop & nieves carts between market browsing and museo pacing.",
+          },
+          {
+            lng: -99.169432,
+            lat: 19.410426,
+            title: "Condesa",
+            description:
+              "Post-match tacos & mezcal orbit around Parque México–adjacent blocks.",
+          },
+          {
+            lng: -99.167206,
+            lat: 19.419603,
+            title: "Contramar",
+            description:
+              "Seafood pilgrimage—tuna tostadas & pescado a la talla · book Durango HQ.",
+          },
+          {
+            lng: -99.159705,
+            lat: 19.419821,
+            title: "Rosetta · Calle Colima 166",
+            description:
+              "Refined casa-MexItalian tasting · splurge-night reservations mandatory.",
+          },
+          {
+            lng: -99.201265,
+            lat: 19.431446,
+            title: "El Turix Polanco",
+            description:
+              "Cochinita pibil saloon for one last Saturday taco swing before outbound flights.",
+          },
+          {
+            lng: -99.07190319,
+            lat: 19.43607362,
+            title: "AICM · MEX Intl.",
+            description:
+              "Terminal 1 for United UA1272—pad 90+ minutes Saturdays & hydrate before desks.",
+          },
+        ];
+
+        var mapEl = document.getElementById("cdmx-trip-map");
+        if (!mapEl || typeof mapboxgl === "undefined") return;
+
+        var map = new mapboxgl.Map({
+          container: "cdmx-trip-map",
+          style: "mapbox://styles/grafa/cmolx8yzl002i01ss8ksl419j",
+          center: [-99.154, 19.397],
+          zoom: 10.75,
+          cooperativeGestures: true,
+          attributionControl: false,
+        });
+
+        map.addControl(
+          new mapboxgl.AttributionControl({ compact: true }),
+          "bottom-right",
+        );
+
+        map.addControl(new mapboxgl.NavigationControl(), "top-right");
+
+        var overviewCamera = null;
+        var restoreTimer = null;
+
+        function cancelScheduledRestore() {
+          if (restoreTimer !== null) {
+            clearTimeout(restoreTimer);
+            restoreTimer = null;
+          }
+        }
+
+        function scheduleRestoreOverview() {
+          cancelScheduledRestore();
+          restoreTimer = setTimeout(function () {
+            restoreTimer = null;
+            if (!overviewCamera) return;
+            map.easeTo({
+              center: overviewCamera.center,
+              zoom: overviewCamera.zoom,
+              bearing: overviewCamera.bearing,
+              pitch: overviewCamera.pitch,
+              duration: 1000,
+            });
+            overviewCamera = null;
+          }, 120);
+        }
+
+        function googleMapsSearchUrl(p) {
+          var q =
+            p.mapsQuery != null && String(p.mapsQuery).trim() !== ""
+              ? p.mapsQuery
+              : p.lat + "," + p.lng;
+          return (
+            "https://www.google.com/maps/search/?api=1&query=" +
+            encodeURIComponent(q)
+          );
+        }
+
+        function popupContent(p) {
+          var root = document.createElement("div");
+          root.className = "trip-map-popup-root";
+          var titleEl = document.createElement("div");
+          titleEl.className = "trip-map-popup-title";
+          titleEl.textContent = p.title;
+          var descEl = document.createElement("div");
+          descEl.className = "trip-map-popup-desc";
+          descEl.textContent = p.description;
+          var link = document.createElement("a");
+          link.className = "trip-map-popup-gmaps";
+          link.href = googleMapsSearchUrl(p);
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = "Open in Google Maps";
+          root.appendChild(titleEl);
+          root.appendChild(descEl);
+          root.appendChild(link);
+          return root;
+        }
+
+        function debounce(fn, ms) {
+          var t = null;
+          return function () {
+            clearTimeout(t);
+            var args = arguments;
+            t = setTimeout(function () {
+              fn.apply(null, args);
+            }, ms);
+          };
+        }
+
+        var bounds = new mapboxgl.LngLatBounds();
+        places.forEach(function (p) {
+          bounds.extend([p.lng, p.lat]);
+          var popup = new mapboxgl.Popup({
+            offset: 28,
+            maxWidth: "300px",
+            focusAfterOpen: false,
+            closeOnClick: true,
+          }).setDOMContent(popupContent(p));
+
+          popup.on("open", function () {
+            cancelScheduledRestore();
+            if (!overviewCamera) {
+              overviewCamera = {
+                center: map.getCenter().toArray(),
+                zoom: map.getZoom(),
+                bearing: map.getBearing(),
+                pitch: map.getPitch(),
+              };
+            }
+            map.easeTo({
+              center: [p.lng, p.lat],
+              zoom: 16.5,
+              pitch: 60,
+              bearing: overviewCamera.bearing,
+              duration: 1000,
+            });
+          });
+
+          popup.on("close", function () {
+            scheduleRestoreOverview();
+          });
+
+          new mapboxgl.Marker({ color: p.markerColor || "#c9933a" })
+            .setLngLat([p.lng, p.lat])
+            .setPopup(popup)
+            .addTo(map);
+        });
+
+        map.on("load", function () {
+          map.fitBounds(bounds, {
+            padding: { top: 56, right: 48, bottom: 44, left: 48 },
+            duration: 0,
+            maxZoom: 13,
+          });
+        });
+
+        window.addEventListener(
+          "resize",
+          debounce(function () {
+            map.resize();
+          }, 150),
+        );
+      })();
+    </script>
   </body>
 </html>
