@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Google Tag Manager -->
@@ -15,417 +15,803 @@
       })(window, document, "script", "dataLayer", "GTM-WKCF92FT");
     </script>
     <!-- End Google Tag Manager -->
-    <meta content="geografa.io" property="og:site_name" />
-    <meta content="geografa.io" property="og:title" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Twenty years of geospatial work — web map support at the ready. Geografa helps teams ship maps that hold up under pressure."
+    />
+    <meta content="Geografa · Web map support" property="og:site_name" />
+    <meta content="Geografa · Web map support" property="og:title" />
     <meta content="website" property="og:type" />
-    <meta content="Open to Work 🛠️" property="og:description" />
+    <meta
+      content="Twenty years of geospatial work — from environmental GIS to Mapbox startup support engineering. We help teams ship maps that hold up under pressure."
+      property="og:description"
+    />
     <meta content="https://geografa.io/" property="og:url" />
     <meta
       content="https://geografa.io/img/apple-touch-icon.png"
       property="og:image"
     />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@geografa" />
-    <meta name="twitter:title" content="geografa.io" />
+    <meta name="twitter:title" content="Geografa · Web map support" />
     <meta name="twitter:url" content="https://geografa.io/" />
-    <meta name="twitter:description" content="geografa.io | Hire me!" />
+    <meta
+      name="twitter:description"
+      content="Web map support at the ready — optimization, custom map products, and strategy."
+    />
     <meta
       name="twitter:image:src"
       content="https://geografa.io/img/apple-touch-icon.png"
     />
-    <meta name="description" content="" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
-    <!-- Chrome, Firefox OS and Opera -->
-    <meta name="theme-color" content="#263959" />
-    <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#263959" />
-    <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#263959" />
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
+    <meta name="theme-color" content="#1a1208" />
+    <meta name="msapplication-navbutton-color" content="#1a1208" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1a1208" />
+    <title>Geografa · Web map support</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <script
-      type="text/javascript"
-      src="https://assets.calendly.com/assets/external/widget.js"
-      async
-    ></script>
-
-    <!-- Calendly badge widget begin -->
-    <link
-      href="https://assets.calendly.com/assets/external/widget.css"
-      rel="stylesheet"
-    />
-    <title>geografa.io</title>
     <style>
-      body {
-        height: 100%;
+      :root {
+        --ink: #1a1208;
+        --cream: #f5f0e8;
+        --gold: #c9933a;
+        --gold-light: #e8b865;
+        --red: #b83232;
+        --green: #2d5a3d;
+        --muted: #6b5f4e;
+        --card-bg: #fffdf8;
+        --border: rgba(201, 147, 58, 0.25);
+      }
+
+      * {
         margin: 0;
-        font-family: "Poppins", sans-serif;
+        padding: 0;
+        box-sizing: border-box;
       }
-      #logo {
-        font-size: 1.2em;
-        font-weight: 600;
-        margin-right: auto;
-        margin-left: 20px;
-        width: 200px;
+
+      html {
+        scroll-padding-top: 56px;
       }
-      #logo img {
-        height: 50%;
+
+      body {
+        background: var(--cream);
+        color: var(--ink);
+        font-family: "DM Sans", sans-serif;
+        font-weight: 300;
+        line-height: 1.6;
+        overflow-x: hidden;
+        padding-top: 48px;
       }
-      .flex-container-nav {
+
+      /* ─── NAV ─── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(26, 18, 8, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(201, 147, 58, 0.15);
+        padding: 0 2rem;
+        height: 48px;
         display: flex;
-        /* flex-direction: column; for media query */
-        justify-content: center;
         align-items: center;
-        align-content: center;
-        /* center the text in the middle */
-        gap: 80px;
-        flex-wrap: wrap;
-        background: linear-gradient(
-          to left,
-          rgba(0, 0, 0, 0) 0%,
-          rgba(0, 0, 0, 1) 90%
-        );
-        /* z-index: 1; */
+        justify-content: space-between;
       }
-      /* hide nav items with media query */
-      @media (max-width: 800px) {
-        .nav-items {
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+      }
+
+      .nav-logo img {
+        height: 22px;
+        width: auto;
+      }
+
+      .nav-logo span {
+        font-family: "Playfair Display", serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--gold-light);
+        font-style: italic;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-links a {
+        font-family: "DM Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(245, 240, 232, 0.4);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: var(--gold-light);
+      }
+
+      /* ─── HERO ─── */
+      .hero {
+        min-height: calc(100vh - 48px);
+        background: var(--ink);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-video-wrap {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+
+      .hero-video-wrap video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(
+            to bottom,
+            rgba(26, 18, 8, 0.75) 0%,
+            rgba(26, 18, 8, 0.85) 50%,
+            rgba(26, 18, 8, 0.92) 100%
+          ),
+          radial-gradient(
+            ellipse 60% 40% at 50% 60%,
+            rgba(201, 147, 58, 0.12) 0%,
+            transparent 70%
+          ),
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 39px,
+            rgba(201, 147, 58, 0.04) 39px,
+            rgba(201, 147, 58, 0.04) 40px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 39px,
+            rgba(201, 147, 58, 0.04) 39px,
+            rgba(201, 147, 58, 0.04) 40px
+          );
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 720px;
+      }
+
+      .hero-tag {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        color: var(--gold);
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.5rem, 8vw, 5.5rem);
+        font-weight: 900;
+        color: var(--cream);
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+
+      .hero h1 em {
+        font-style: italic;
+        color: var(--gold-light);
+        display: block;
+        margin-top: 0.15em;
+      }
+
+      .hero-sub {
+        font-size: 15px;
+        color: rgba(245, 240, 232, 0.7);
+        margin-top: 1.75rem;
+        line-height: 1.7;
+        max-width: 540px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-cta {
+        margin-top: 2.5rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 100px;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s;
+      }
+
+      .btn-primary {
+        background: var(--gold);
+        color: var(--ink);
+        border: 1px solid var(--gold);
+      }
+
+      .btn-primary:hover {
+        background: var(--gold-light);
+        border-color: var(--gold-light);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--gold-light);
+        border: 1px solid rgba(201, 147, 58, 0.4);
+      }
+
+      .btn-ghost:hover {
+        background: rgba(201, 147, 58, 0.12);
+        border-color: var(--gold);
+      }
+
+      .scroll-hint {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(245, 240, 232, 0.3);
+        font-size: 11px;
+        font-family: "DM Mono", monospace;
+        letter-spacing: 0.1em;
+        animation: pulse 2s ease-in-out infinite;
+        z-index: 1;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+
+      /* ─── SECTION SHELL ─── */
+      .section {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 5rem 2rem;
+      }
+
+      .section-label {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .section-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 2.5rem;
+      }
+
+      hr.divider {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 0;
+      }
+
+      /* ─── DARK SECTION ─── */
+      .ink-bg {
+        background: var(--ink);
+        color: var(--cream);
+      }
+
+      .ink-bg .section-label {
+        color: var(--gold);
+      }
+
+      .ink-bg .section-title {
+        color: var(--cream);
+      }
+
+      .ink-bg .section-label::after {
+        background: rgba(201, 147, 58, 0.25);
+      }
+
+      /* ─── SERVICE CARDS ─── */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .service-card {
+        background: rgba(201, 147, 58, 0.06);
+        border: 1px solid rgba(201, 147, 58, 0.15);
+        border-radius: 12px;
+        padding: 1.75rem;
+      }
+
+      .service-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--cream);
+        margin-bottom: 0.75rem;
+      }
+
+      .service-card p {
+        font-size: 13px;
+        color: rgba(245, 240, 232, 0.65);
+        line-height: 1.65;
+      }
+
+      .section-intro {
+        font-size: 15px;
+        color: rgba(245, 240, 232, 0.6);
+        max-width: 42rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.7;
+      }
+
+      /* ─── FEATURED WORK ─── */
+      .work-featured-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        margin-bottom: 3rem;
+      }
+
+      .work-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: box-shadow 0.2s;
+      }
+
+      .work-card:hover {
+        box-shadow: 0 8px 28px rgba(26, 18, 8, 0.08);
+      }
+
+      .work-card img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .work-card-body {
+        padding: 1.25rem 1.5rem 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .work-tag {
+        font-family: "DM Mono", monospace;
+        font-size: 9px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.5rem;
+      }
+
+      .work-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        line-height: 1.25;
+      }
+
+      .work-card p {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.55;
+        flex: 1;
+        margin-bottom: 1rem;
+      }
+
+      .work-link {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(201, 147, 58, 0.35);
+        align-self: flex-start;
+      }
+
+      .work-link:hover {
+        color: var(--gold-light);
+        border-bottom-color: var(--gold-light);
+      }
+
+      .archive-label {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 1rem;
+      }
+
+      .work-chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+      }
+
+      .work-chip {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.4rem 0.75rem 0.4rem 0.4rem;
+        text-decoration: none;
+        color: var(--ink);
+        font-size: 12px;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+
+      .work-chip:hover {
+        border-color: var(--gold);
+        background: rgba(201, 147, 58, 0.06);
+      }
+
+      .work-chip img {
+        width: 36px;
+        height: 36px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+
+      .archive-cta {
+        text-align: center;
+      }
+
+      .archive-cta a {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(201, 147, 58, 0.35);
+      }
+
+      .archive-cta a:hover {
+        color: var(--gold-light);
+      }
+
+      /* ─── APPROACH ─── */
+      .approach-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 2.5rem;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 2.5rem;
+        align-items: start;
+      }
+
+      .approach-card p {
+        font-size: 15px;
+        color: var(--muted);
+        line-height: 1.75;
+        margin-bottom: 1.25rem;
+      }
+
+      .approach-card p:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .approach-signature {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 1.1rem;
+        color: var(--ink);
+        margin-top: 1.5rem;
+      }
+
+      .approach-photo {
+        width: 180px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        box-shadow: 0 4px 24px rgba(26, 18, 8, 0.06);
+      }
+
+      /* ─── TESTIMONIALS ─── */
+      .transit-bg {
+        background: var(--green);
+        color: var(--cream);
+      }
+
+      .transit-bg .section-label {
+        color: rgba(245, 240, 232, 0.5);
+      }
+
+      .transit-bg .section-label::after {
+        background: rgba(245, 240, 232, 0.15);
+      }
+
+      .transit-bg .section-title {
+        color: var(--cream);
+      }
+
+      .quotes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .quote-card {
+        background: rgba(245, 240, 232, 0.08);
+        border: 1px solid rgba(245, 240, 232, 0.15);
+        border-left: 3px solid var(--gold);
+        border-radius: 0 12px 12px 0;
+        padding: 1.5rem;
+      }
+
+      .quote-card blockquote {
+        font-size: 14px;
+        color: rgba(245, 240, 232, 0.85);
+        line-height: 1.65;
+        font-style: italic;
+        margin-bottom: 1rem;
+      }
+
+      .quote-author {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        color: var(--gold-light);
+      }
+
+      .quote-role {
+        font-size: 10px;
+        color: rgba(245, 240, 232, 0.45);
+        margin-top: 0.25rem;
+      }
+
+      /* ─── ABOUT / TIMELINE ─── */
+      .about-intro {
+        font-size: 15px;
+        color: var(--muted);
+        max-width: 42rem;
+        line-height: 1.75;
+        margin-bottom: 2.5rem;
+      }
+
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .timeline-row {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        gap: 1.5rem;
+        padding: 1.25rem 1.5rem;
+        background: var(--card-bg);
+        border-bottom: 1px solid var(--border);
+        align-items: baseline;
+      }
+
+      .timeline-row:last-child {
+        border-bottom: none;
+      }
+
+      .timeline-date {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        color: var(--gold);
+        white-space: nowrap;
+      }
+
+      .timeline-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 0.15rem;
+      }
+
+      .timeline-desc {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      /* ─── CONTACT ─── */
+      .contact-section {
+        text-align: center;
+      }
+
+      .contact-section .section-title em {
+        font-style: italic;
+        color: var(--gold-light);
+      }
+
+      .contact-body {
+        font-size: 15px;
+        color: rgba(245, 240, 232, 0.65);
+        max-width: 36rem;
+        margin: 0 auto 2.5rem;
+        line-height: 1.75;
+      }
+
+      .contact-links {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .contact-pill {
+        background: rgba(201, 147, 58, 0.15);
+        border: 1px solid rgba(201, 147, 58, 0.3);
+        color: var(--gold-light);
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        padding: 0.65rem 1.4rem;
+        border-radius: 100px;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+      }
+
+      .contact-pill:hover {
+        background: rgba(201, 147, 58, 0.25);
+        border-color: var(--gold);
+      }
+
+      .contact-pill.primary {
+        background: var(--gold);
+        color: var(--ink);
+        border-color: var(--gold);
+        text-transform: none;
+        letter-spacing: 0.05em;
+      }
+
+      .contact-pill.primary:hover {
+        background: var(--gold-light);
+        border-color: var(--gold-light);
+      }
+
+      /* ─── FOOTER ─── */
+      .footer {
+        background: var(--ink);
+        text-align: center;
+        padding: 3rem 2rem;
+        color: rgba(245, 240, 232, 0.3);
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+      }
+
+      .footer strong {
+        color: var(--gold);
+        font-weight: 500;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: rgba(245, 240, 232, 0.35);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .footer-links a:hover {
+        color: var(--gold-light);
+      }
+
+      @media (max-width: 768px) {
+        .work-featured-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .approach-card {
+          grid-template-columns: 1fr;
+        }
+
+        .approach-photo {
+          width: 100%;
+          max-width: 280px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav-links {
           display: none;
         }
-      }
-      .nav-items {
-        height: 100px;
-        width: 100px;
-        color: #fff;
-        /* background-color: hsla(194, 77%, 66%, 0.5); */
-        padding-top: 20px;
-        text-align: left;
-      }
 
-      .nav-items a {
-        color: #fff;
-        text-decoration: none;
-      }
-
-      /* create a hero section */
-      .flex-container-hero {
-        height: 60vh;
-        display: flex;
-        /* justify-content: left; */
-        align-items: center;
-        color: rgb(2, 2, 2);
-        font-weight: bold;
-        background: linear-gradient(
-          to left,
-          rgba(0, 0, 0, 0) 0%,
-          rgba(0, 0, 0, 1) 90%
-        );
-      }
-      .hero {
-        font-size: 1em;
-        padding: 0;
-        display: block;
-        margin-left: 40px;
-        font-weight: 400;
-        color: #ffffff;
-      }
-      .hero h2 {
-        font-size: 2.3em;
-        padding: 0;
-        display: inline;
-      }
-      /* media query for hero h2 */
-      @media (max-width: 800px) {
-        #logo {
-          display: block;
-          font-size: 1em;
+        .timeline-row {
+          grid-template-columns: 1fr;
+          gap: 0.35rem;
         }
-        .flex-container-hero {
+
+        .hero-cta {
           flex-direction: column;
-          height: 40vh;
-          justify-self: flex-end;
+          align-items: center;
         }
-        .hero h2 {
-          font-size: 2em;
-        }
-        .hero p {
-          font-size: 0.8em;
-        }
-      }
-      /* blinking cursor */
-      .blinking-cursor {
-        font-weight: 200;
-        color: #ffffff;
-        -webkit-animation: 1s blink step-end infinite;
-        -moz-animation: 1s blink step-end infinite;
-        -ms-animation: 1s blink step-end infinite;
-        -o-animation: 1s blink step-end infinite;
-        animation: 1s blink step-end infinite;
-      }
-
-      @keyframes blink {
-        from,
-        to {
-          color: transparent;
-        }
-        50% {
-          color: #fff;
-        }
-      }
-
-      @-moz-keyframes blink {
-        from,
-        to {
-          color: transparent;
-        }
-        50% {
-          color: #fff;
-        }
-      }
-
-      @-webkit-keyframes blink {
-        from,
-        to {
-          color: transparent;
-        }
-        50% {
-          color: #fff;
-        }
-      }
-
-      @-ms-keyframes blink {
-        from,
-        to {
-          color: transparent;
-        }
-        50% {
-          color: #fff;
-        }
-      }
-
-      @-o-keyframes blink {
-        from,
-        to {
-          color: transparent;
-        }
-        50% {
-          color: #fff;
-        }
-      }
-
-      .hero button {
-        background-color: #ec6157;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 8px;
-      }
-      /* Style the video: 100% width and height to cover the entire window */
-      #myVideo {
-        position: absolute;
-        right: 0;
-        top: 0;
-        min-width: 100%;
-        /* min-height: 100%; */
-        z-index: -1;
-      }
-      .company-title-container {
-        background-color: #e7e0d4;
-        color: #333;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .company-title {
-        text-align: center;
-      }
-      .flex-container-company {
-        background-color: #e7e0d4;
-        height: 40vh;
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        align-items: normal;
-      }
-      /* media query for flex-container-company */
-      @media (max-width: 800px) {
-        .flex-container-company {
-          flex-direction: column;
-          justify-content: flex-start;
-        }
-      }
-      .company-items {
-        height: 100px;
-        /* width: 800px; */
-        color: #333;
-        text-align: left;
-        margin: 0 40px;
-        font-weight: 300;
-      }
-      .company-items img {
-        border-radius: 5px;
-        float: inline-end;
-        margin-left: 80px;
-        /* light drop shadow */
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      }
-      .company-items li {
-        list-style: circle;
-        /* display: inline; */
-        padding: 0;
-      }
-      /* media query for company-items img */
-      @media (max-width: 800px) {
-        .company-items img {
-          float: none;
-          margin-left: auto;
-          margin-right: auto;
-          max-width: 300px;
-        }
-      }
-      /* media query for image to remove float and center the image */
-      @media (max-width: 800px) {
-        .flex-container-company {
-          flex-direction: column;
-          height: 70vh;
-        }
-        .company-items img {
-          float: none;
-          margin-left: auto;
-          margin-right: auto;
-        }
-        .company-items p {
-          margin-left: auto;
-          margin-right: auto;
-          font-size: 0.9em;
-        }
-      }
-      .flex-container-portfolio {
-        background-color: rgb(156, 174, 158);
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        align-items: baseline;
-        color: white;
-        font-weight: bold;
-        padding-bottom: 60px;
-      }
-      .portfolio-title-container {
-        background-color: rgb(156, 174, 158);
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .portfolio-title {
-        margin-bottom: 20px; /* Adjust the spacing as needed */
-        text-align: center;
-      }
-      .portfolio-items {
-        width: 300px;
-        color: #fff;
-        padding: 20px;
-        text-align: left;
-        font-weight: 300;
-      }
-      .portfolio-items img {
-        border-radius: 5px;
-        float: inline-end;
-        margin-left: 80px;
-        margin-bottom: 10px;
-        /* light drop shadow */
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 310px;
-      }
-      .portfolio-items a {
-        color: #ffe5e3;
-        text-decoration: underline;
-      }
-      .flex-container-testimonials {
-        background-color: hsl(4, 80%, 63%);
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
-        color: white;
-        font-weight: bold;
-        gap: 60px;
-        padding-bottom: 20px;
-      }
-      .testimonial-title-container {
-        background-color: hsl(4, 80%, 63%);
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .testimonial-title {
-        margin-bottom: 20px; /* Adjust the spacing as needed */
-        text-align: center;
-      }
-      .testimonial-items {
-        /* height: 100px; */
-        width: 300px;
-        color: #fff;
-        /* background-color: hsla(194, 77%, 66%, 0.5); */
-        padding-top: 20px;
-        text-align: left;
-        font-weight: 300;
-        font-style: oblique;
-      }
-      .testimonial-items .author {
-        font-size: 0.8em;
-        font-style: oblique;
-      }
-      /* testimonial-items media query */
-      @media (max-width: 800px) {
-        .flex-container-testimonials {
-          flex-wrap: wrap;
-          /* height: 100vh; */
-        }
-      }
-      .contact-title-container {
-        background-color: #23646a;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .contact-title {
-        margin-bottom: 20px; /* Adjust the spacing as needed */
-        text-align: center;
-      }
-      .flex-container-contact {
-        background-color: #23646a;
-        /* height: 100vh; */
-        display: block;
-        padding: 40px;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-weight: bold;
       }
     </style>
   </head>
@@ -440,249 +826,438 @@
       ></iframe
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div class="flex-container-nav">
-      <div id="logo" class="nav-items">
-        <img src="./img/logo-geografa.svg" alt="geografa logo" /> eografa.io
+
+    <nav>
+      <a href="#" class="nav-logo">
+        <img src="./img/logo-geografa.svg" alt="" />
+        <span>Geografa</span>
+      </a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="https://geografa.github.io/portfolio/">Archive</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </div>
-      <div class="nav-items"><a href="#about">about</a></div>
-      <div class="nav-items"><a href="#portfolio">portfolio</a></div>
-      <div class="nav-items"><a href="#testimonials">testimonials</a></div>
-      <div class="nav-items"><a href="#contact">contact</a></div>
-    </div>
-    <div class="flex-container-hero">
-      <video autoplay muted loop id="myVideo">
-        <source src="./img/maphero.mp4" type="video/mp4" />
-      </video>
-      <div class="hero">
-        <h2>
-          Web mapping support at the ready
-          <span class="blinking-cursor">|</span>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-video-wrap">
+        <video autoplay muted loop playsinline id="heroVideo">
+          <source src="./img/maphero.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="hero-tag">Geografa · est. 2001 · Portland, OR</div>
+        <h1>
+          Human-centered map design
+          <!-- <em>at every step</em> -->
+        </h1>
+        <p class="hero-sub">
+          Over twenty five years of geospatial work in one collective. We're web
+          mapping experts, GIS professionals, and web developers helping teams
+          ship maps that hold up under pressure.
+        </p>
+        <div class="hero-cta">
+          <a href="#selected" class="btn-primary">See the work →</a>
+          <a href="#contact" class="btn-ghost">Start a conversation</a>
+        </div>
+      </div>
+      <div class="scroll-hint">↓ scroll</div>
+    </section>
+
+    <!-- 01 · THE WORK -->
+    <div class="ink-bg" id="work">
+      <div class="section">
+        <div class="section-label">01 · The work</div>
+        <h2 class="section-title">
+          A small studio that scales like a collective.
         </h2>
-        <p>
-          Get the most out of your web map applications and bring your location
-          data to life.
+        <p class="section-intro">
+          Geografa runs lean by default and assembles the right team from a
+          trusted network of engineers, designers, and developers. You're
+          connected with one project manager so support and continuity stay
+          high-touch.
         </p>
-        <a href="#contact"><button>Get in touch...</button></a>
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Optimization</h3>
+            <p>
+              Slow tiles, heavy bundles, jittery interactions — we audit your
+              stack and bring map performance back into spec. Vector tile
+              pipelines, style refactors, render budgets.
+            </p>
+          </div>
+          <div class="service-card">
+            <h3>Custom map products</h3>
+            <p>
+              From a single embed to a full application — Mapbox GL, MapLibre,
+              Three.js, vector tiles, custom geocoding, geofencing, 3D models.
+              Delivered as code your team can own.
+            </p>
+          </div>
+          <div class="service-card">
+            <h3>Strategy &amp; advisory</h3>
+            <p>
+              Choosing a basemap provider, scoping a migration, hiring your
+              first geo engineer. Twenty years of "I've seen this before" is
+              applied to the decisions that matter most.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-    <div id="about" class="company-title-container">
-      <h2 class="company-title">Our Wheelhouse</h2>
-    </div>
-    <div class="flex-container-company">
-      <div class="company-items">
-        <img
-          src="./img/rafa-speaker.png"
-          alt="Rafa Gutierrez Oregon State University, 2019"
-        />
-        <p>
-          Geografa is a dev web-mapping shop founded by Rafa Gutierrez and
-          dedicated to optimizing your digital mapping applications. Rafa has
-          over 20 years of geospatial experience, from managing GIS in the
-          environmental consulting sector to building Mapbox's startup technical
-          support engineering team. Geografa is committed to its customer- and
-          client-centered approach. To that end, we tap a committed network of
-          engineers, designers, and developers to assemble just the right team
-          for each client project. Operating as a collective under Rafa’s P&E
-          management, Geografa is able to provide high-touch, consistent account
-          support and continuity. We flex to deliver the best possible
-          experience and outcomes for each project. Get in touch!
+
+    <hr class="divider" />
+
+    <!-- 02 · SELECTED WORK -->
+    <div id="selected">
+      <div class="section">
+        <div class="section-label">02 · Selected work</div>
+        <h2 class="section-title">
+          Maps in production, and a few in the wild.
+        </h2>
+        <p class="about-intro">
+          A mix of client work and personal experiments — most of the
+          experiments end up teaching us something we use the next time around.
         </p>
-        <!-- <p>Select clients include:</p>
-        <ul>
-          <li>AggDirect</li>
-          <li>Straightaway</li>
-          <li>Ford</li>
-          <li>ANWB</li>
-          <li>Strava</li>
-          <li>Western Fire Chiefs Association</li>
-          <li>Wonder Foods</li>
-          <li>RoadTrippers</li>
-          <li>Instacart</li>
-          <li>Tableau</li>
-        </ul> -->
+
+        <div class="work-featured-grid">
+          <article class="work-card">
+            <img src="./img/uber.png" alt="Uber Design" />
+            <div class="work-card-body">
+              <div class="work-tag">Navigation · Maplibre GL</div>
+              <h3>Uber Map Design</h3>
+              <p>
+                Various projects across Uber's map design team including map
+                tooling, brand map prototyping, Map UI kit component
+                development, and more.
+              </p>
+              <a
+                href="https://uber.design/"
+                class="work-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Visit Uber Design →</a
+              >
+            </div>
+          </article>
+
+          <article class="work-card">
+            <img src="./img/nyc-marathon.png" alt="NYC Marathon map" />
+            <div class="work-card-body">
+              <div class="work-tag">Recreation · Mapbox GL</div>
+              <h3>NYC Marathon</h3>
+              <p>
+                The NYC Marathon course, built with Mapbox GL and React. The map
+                is used to display the course and the runners' progress.
+                Broadcasted live on TV and online.
+              </p>
+              <a
+                href="https://www.youtube.com/live/fB5r6lHKyOc?si=KCI8j4LhcpoqSYbr&t=9445"
+                class="work-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View broadcast →</a
+              >
+            </div>
+          </article>
+          <article class="work-card">
+            <img src="./img/mtc.png" alt="Vital Signs - MTC" />
+            <div class="work-card-body">
+              <div class="work-tag">Healthcare · Client</div>
+              <h3>Vital Signs - MTC</h3>
+              <p>
+                A clinic locator and care-network explorer for a virtual-first
+                primary-care provider — built to feel calm under load.
+              </p>
+              <a
+                href="https://vitalsigns.mtc.ca.gov/"
+                class="work-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open project →</a
+              >
+            </div>
+          </article>
+        </div>
+
+        <div class="archive-label">More from the archive</div>
+        <div class="work-chip-row">
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/route-optimizer.png" alt="" />
+            Strava Routes
+          </a>
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/analysis.png" alt="" />
+            Simple Line Designer
+          </a>
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/climb.gif" alt="" />
+            Global Stadiums
+          </a>
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/matrix.png" alt="" />
+            leftfut.com
+          </a>
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/h4c.png" alt="" />
+            Visit Roosevelt Island
+          </a>
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/earth-day.png" alt="" />
+            Orienteering
+          </a>
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/vs-population.png" alt="" />
+            Climate Solutions
+          </a>
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/death-star.png" alt="" />
+            Model Swapper 3D
+          </a>
+        </div>
+
+        <div class="archive-cta">
+          <a
+            href="https://geografa.github.io/portfolio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Browse the full archive →</a
+          >
+        </div>
       </div>
     </div>
-    <div id="portfolio" class="portfolio-title-container">
-      <h2 class="portfolio-title">Work</h2>
-    </div>
-    <div class="flex-container-portfolio">
-      <div class="portfolio-items">
-        <img src="./img/climb.gif" alt="data animation" />
-        <p>Data Animation</p>
-      </div>
-      <div class="portfolio-items">
-        <img src="./img/firefly.png" alt="store locator" />
-        <p>Store Location</p>
-      </div>
-      <div class="portfolio-items">
-        <img src="./img/h4c.png" alt="real estate tools" />
-        <p>Real Estate Tools</p>
-      </div>
-      <!-- <div class="portfolio-items">
-        <img src="./img/flight.gif" alt="placeholder" />
-        <p>3D Modeling</p>
-      </div> -->
-      <div class="portfolio-items">
-        <img src="./img/analysis.png" alt="spatial analysis" />
-        <p>Spatial Analysis</p>
-      </div>
-      <!-- examples -->
-      <div class="portfolio-items">
-        <img src="./img/isochrone.png" alt="navigaiton apis" />
-        <p>Navigation APIs</p>
-      </div>
-      <div class="portfolio-items">
-        <img src="./img/earth-day.png" alt="Earth Day" />
-        <p>Earth Day</p>
-      </div>
-      <div class="portfolio-items">
-        <img
-          src="https://api.mapbox.com/styles/v1/grafa/clux2129f003901og97oj8nnk/static/34.6195,31.6413,5.15,0/320x200?access_token=pk.eyJ1IjoiZ3JhZmEiLCJhIjoiY20wdTdlcTM3MTRsZDJxcGxmcW85MzQxMCJ9.H-wLHlLXdbtIQ9R1zsDuJg"
-          alt="custom styles"
-        />
-        <p>Custom Styles</p>
-      </div>
-      <div class="portfolio-items">
-        <img src="./img/matrix.png" alt="ETA Mapping with Traffic Cams" />
-        <p>ETA Mapping with Traffic Cams</p>
-      </div>
-      <div class="portfolio-items">
-        <img src="./img/route-optimizer.png" alt="Optimizer" />
-        <p>Run/Bike Route Optimizer</p>
-      </div>
-      <div class="portfolio-items">
-        <img src="./img/flight-tracker.png" alt="flight tracker" />
-        <p>Flight Tracker</p>
-      </div>
-      <div class="portfolio-items">
-        <img src="./img/death-star.png" alt="3d mapping" />
-        <p>3D Mapping</p>
-      </div>
-      <div class="portfolio-items">
-        <img src="./img/shark-week.png" alt="shark week" />
-        <p>Shark Week</p>
-      </div>
-      <div class="portfolio-items">
-        <img src="./img/vs-population.png" alt="Vital Signs - Population" />
-        <p>Vital Signs</p>
-      </div>
-      <div class="portfolio-items">
-        <img
-          src="./img/vs-population-tracts.png"
-          alt="Vital Signs - Population Tracts"
-        />
-        <p>Vital Signs - Population Tracts</p>
-      </div>
-      <div class="portfolio-items">
-        <img
-          src="./img/vs-population-poverty.png"
-          alt="Vital Signs - Population Poverty"
-        />
-        <p>Vital Signs - Population Poverty</p>
-      </div>
-      <div class="portfolio-items">
-        <img
-          src="./img/spc.gif"
-          alt="Vital Signs - Street Pavement Condition"
-        />
-        <p>Vital Signs - Street Pavement Condition</p>
-      </div>
-      <div class="portfolio-items">
-        See the full portfolio
-        <a href="https://geografa.github.io/portfolio/">here</a>.
+
+    <hr class="divider" />
+
+    <!-- 03 · HOW WE WORK -->
+    <div id="approach">
+      <div class="section">
+        <div class="section-label">03 · How we work</div>
+        <h2 class="section-title">
+          Customer-centered, from first call to handoff.
+        </h2>
+        <div class="approach-card">
+          <div>
+            <p>
+              Geografa is committed to a <em>customer- and client-centered</em>
+              approach — assembling just the right team for each project, then
+              keeping the relationship close as it grows.
+            </p>
+            <p>
+              Most engagements start with a conversation, not a SOW. We listen
+              first, then scope: what's already working, where the bottlenecks
+              are, who on your team will own this after we hand it off.
+            </p>
+            <p>
+              From there, we tap a committed network of engineers, designers,
+              and developers and assemble the smallest team that can ship the
+              work well. Everything routes through one P&amp;E manager so you
+              get high-touch, consistent account support — no rotating contacts,
+              no relearning your stack on every new ticket.
+            </p>
+            <p>
+              And we leave you the code, the docs, and a clear way to keep going
+              without us.
+            </p>
+            <div class="approach-signature">— Rafa</div>
+          </div>
+          <img
+            src="./img/rafa-speaker.png"
+            alt="Rafa Gutierrez speaking at Oregon State University"
+            class="approach-photo"
+          />
+        </div>
       </div>
     </div>
-    <div id="testimonials" class="testimonial-title-container">
-      <h2 class="testimonial-title">Testimonials</h2>
-    </div>
-    <div class="flex-container-testimonials">
-      <div class="testimonial-items">
-        A committed team-builder, Rafa taught me (and many other teammates) how
-        to engage successfully with technical customers and deliver a top-class
-        experience with every interaction. He consistently employs his broad
-        technical expertise across backend and web technologies to troubleshoot,
-        understand, and resolve the deepest cross-platform bugs. This dogged
-        determination to identify and obviate complex technical challenges is
-        matched by an empathetic approach to communication for internal and
-        external stakeholders. Rafa is a master of defusing tense situations and
-        conveying critical information calmly as he moves the situation towards
-        resolution. Countless times I have watched Rafa turn a frustrated
-        customer into a dedicated advocate; I could not recommend Rafa more
-        highly.
-        <p class="author">
-          - Patrick Leonard, Senior SDK Engineer, Maps SDK at Mapbox
+
+    <hr class="divider" />
+
+    <!-- 04 · KIND WORDS -->
+    <div class="transit-bg" id="testimonials">
+      <div class="section">
+        <div class="section-label">04 · Kind words</div>
+        <h2 class="section-title">From the people we've worked alongside.</h2>
+        <p class="section-intro" style="color: rgba(245, 240, 232, 0.55)">
+          A few notes from former teammates at Mapbox — the kind of context that
+          doesn't fit on a résumé.
         </p>
+        <div class="quotes-grid">
+          <div class="quote-card">
+            <blockquote>
+              In a fast-paced environment, he shined as an empathetic leader.
+              Always ready to pair with a teammate or experiment with a new
+              process to improve the team's workflow, Rafa leads by example.
+            </blockquote>
+            <div class="quote-author">Former Mapbox colleague</div>
+            <div class="quote-role">Customer Solutions</div>
+          </div>
+          <div class="quote-card">
+            <blockquote>
+              Rafa and I worked side-by-side helping Mapbox customers understand
+              the product and work through technical problems. He's one of the
+              most empathetic, encouraging, and relentlessly helpful people I've
+              ever worked with.
+            </blockquote>
+            <div class="quote-author">Former Mapbox colleague</div>
+            <div class="quote-role">Technical Support Engineering</div>
+          </div>
+          <div class="quote-card">
+            <blockquote>
+              Not a day passes that I'm not amazed by Rafa's institutional
+              knowledge of the Mapbox universe. He's a walking encyclopedia of
+              our products and the history behind them — why they were built,
+              what was unique about them, which challenges they helped users
+              solve.
+            </blockquote>
+            <div class="quote-author">Former Mapbox colleague</div>
+            <div class="quote-role">Product</div>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class="testimonial-items">
-        I worked with Rafa during my early days at Mapbox. In a fast pace
-        environment, he shined as an emphatic leader. Always ready to pair with
-        teammate or experiment with a new process to improve the team's
-        workflow, Rafa leads by example. I have always appreciated how Rafa
-        handles a new challenge with a level head and optimism. I am grateful
-        for all that I've learned from Rafa.
-        <p class="author">
-          - Katy Decorah, Senior Software Engineer at Microsoft
+    <!-- 05 · ABOUT -->
+    <div id="about">
+      <div class="section">
+        <div class="section-label">05 · About</div>
+        <h2 class="section-title">Twenty years of paying attention to maps.</h2>
+        <p class="about-intro">
+          Portland · OR — Rafa Gutierrez has spent the last two decades in
+          geospatial — first as a GIS manager in environmental consulting, then
+          helping build out Mapbox's startup technical-support engineering team
+          during the years it grew from a small group into a global product.
+          Geografa is what he runs now: a focused dev shop for web map, with a
+          roster of long-time collaborators on call when projects call for more
+          hands.
         </p>
+        <div class="timeline">
+          <div class="timeline-row">
+            <div class="timeline-date">2024 →</div>
+            <div>
+              <div class="timeline-title">Geografa</div>
+              <div class="timeline-desc">Founder · web-mapping consultancy</div>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-date">2018 — 2024</div>
+            <div>
+              <div class="timeline-title">Mapbox</div>
+              <div class="timeline-desc">
+                Built &amp; led startup technical-support engineering
+              </div>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-date">2001 — 2018</div>
+            <div>
+              <div class="timeline-title">Environmental consulting</div>
+              <div class="timeline-desc">
+                GIS management · field-to-data workflows
+              </div>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-date">Always</div>
+            <div>
+              <div class="timeline-title">Maps in the open</div>
+              <div class="timeline-desc">40+ experiments in the archive</div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="testimonial-items">
-        Rafa and I have worked side-by-side helping Mapbox customers understand
-        our product and work through technical problems. The nature of the work
-        has changed, but Rafa's approach hasn't. He's one of the most
-        empathetic, encouraging, and relentlessly helpful people I've ever
-        worked with. Helping people succeed is the north star of everything he
-        does, and it shows in the work he does ever day at Mapbox. I will
-        forever be grateful for the careful, thoughtful, and thorough help Rafa
-        provided me when I was getting started. And I know the dozens of
-        customers he helps every day feel the same.
-        <p class="author">- Dan Swick, Frontend Platform Engineer at Mapbox</p>
-      </div>
-
-      <div class="testimonial-items">
-        Not a day passes during which I'm not amazed by Rafa's institutional
-        knowledge of the Mapbox universe. He's a walking encyclopedia of our
-        products and the history behind them - why where they built, what was
-        unique about them, and which challenges did they help users solve? Rafa
-        dives deep to troubleshoot technical bugs and can succinctly communicate
-        customer needs back to product teams. I'm honored to work alongside
-        @geografa to ensure a positive experience for all 800,000 Mapbox users -
-        thanks Rafa!
-        <p class="author">- Technical Support Engineer</p>
-      </div>
-      <!-- 
-      <div class="testimonial-items">
-        Rafael is an amazingly talented GIS professional who was a great
-        pleasure to work with at SWCA Environmental. His thoughtful attention to
-        detail and client deadlines assured me that all my mapping needs were of
-        the highest quality, while being completed on time.
-        <p class="author">- Stacey De Shazo, Evans & De Shazo, Inc.</p>
-      </div> -->
     </div>
 
-    <div id="contact" class="contact-title-container">
-      <!-- <h2 class="contact-title">Let's talk!</h2> -->
-      <iframe
-        src="https://app.hellobonsai.com/f/157cc11f6cb7541?embed=true"
-        frameborder="0"
-        width="100%"
-        height="100%"
-        style="border: none; min-height: 600px; z-index: 1"
-      ></iframe>
+    <hr class="divider" />
+
+    <!-- 06 · GET IN TOUCH -->
+    <div class="ink-bg" id="contact">
+      <div class="section contact-section">
+        <div class="section-label">06 · Get in touch</div>
+        <h2 class="section-title">Let's <em>make a map</em>.</h2>
+        <p class="contact-body">
+          Whether you're optimizing a stack you already have, scoping a new
+          product, or just trying to figure out which basemap to use — drop a
+          note. Most replies come within a day.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:rafa@geografa.io" class="contact-pill primary"
+            >rafa@geografa.io →</a
+          >
+          <a
+            href="https://www.linkedin.com/in/geografa"
+            class="contact-pill"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          <a
+            href="https://github.com/geografa"
+            class="contact-pill"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+        </div>
+      </div>
     </div>
 
-    <!-- Calendly inline widget begin -->
-    <!-- <script type="text/javascript">
-        window.onload = function () {
-          Calendly.initBadgeWidget({
-            url: "https://calendly.com/rafa_gutierrez/30min",
-            text: "📅",
-            color: "#fff",
-            textColor: "#3b7377",
-            branding: undefined,
-          });
-        };
-      </script> -->
-    <!-- Calendly inline widget end -->
+    <footer class="footer">
+      <div style="margin-bottom: 0.5rem">
+        <strong>Geografa</strong>
+      </div>
+      <div>© 2026 · Portland, OR · made on warm paper</div>
+      <div class="footer-links">
+        <a href="#work">Work</a>
+        <a href="https://geografa.github.io/portfolio/">Archive</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/geografa">GitHub</a>
+        <a href="mailto:rafa@geografa.io">Email</a>
+      </div>
+    </footer>
   </body>
 </html>
