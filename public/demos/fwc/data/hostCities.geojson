@@ -1,0 +1,229 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.264045, 42.091296]
+      },
+      "properties": {
+        "id": 188,
+        "name": "Gillette Stadium",
+        "city": "Foxborough, MA",
+        "capacity": 68756,
+        "host": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.331631, 47.595163]
+      },
+      "properties": {
+        "id": 196,
+        "name": "Lumen Field",
+        "city": "Seattle, WA",
+        "capacity": 67385,
+        "host": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-123.112031, 49.276722]
+      },
+      "properties": {
+        "id": 267,
+        "name": "BC Place Stadium",
+        "city": "Vancouver, BC",
+        "capacity": 54500,
+        "host": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.418556, 43.633205]
+      },
+      "properties": {
+        "id": 396,
+        "name": "BMO Field",
+        "city": "Toronto, ON",
+        "capacity": 30000,
+        "host": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-103.462629, 20.681774]
+      },
+      "properties": {
+        "id": 418,
+        "name": "Estadio Akron",
+        "city": "Zapopan, Jalisco",
+        "capacity": 46609,
+        "host": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-99.150388, 19.302825]
+      },
+      "properties": {
+        "id": 420,
+        "name": "Estadio Azteca",
+        "city": "Coyoacán",
+        "capacity": 106187,
+        "host": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-100.24315, 25.668786]
+      },
+      "properties": {
+        "id": 421,
+        "name": "Estadio BBVA Bancomer",
+        "city": "Guadalupe, Nuevo León",
+        "capacity": 51000,
+        "host": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.074367, 40.813553]
+      },
+      "properties": {
+        "id": 434,
+        "name": "MetLife Stadium",
+        "city": "East Rutherford, NJ",
+        "capacity": 82566,
+        "host": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-121.969776, 37.403227]
+      },
+      "properties": {
+        "id": 435,
+        "name": "Levi's Stadium",
+        "city": "Santa Clara, CA",
+        "capacity": 68500,
+        "host": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-95.410938, 29.684827]
+      },
+      "properties": {
+        "id": 436,
+        "name": "NRG Stadium",
+        "city": "Houston, TX",
+        "capacity": 71054,
+        "host": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.1675, 39.900833]
+      },
+      "properties": {
+        "id": 513,
+        "name": "Lincoln Financial Field",
+        "city": "Philadelphia, PA",
+        "capacity": 69176,
+        "host": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.092778, 32.747778]
+      },
+      "properties": {
+        "id": 918,
+        "name": "AT&T Stadium",
+        "city": "Arlington, TX",
+        "capacity": 105121,
+        "host": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-84.401075, 33.755406]
+      },
+      "properties": {
+        "id": 950,
+        "name": "Mercedes-Benz Stadium",
+        "city": "Atlanta, GA",
+        "capacity": 42500,
+        "host": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-80.23884, 25.957919]
+      },
+      "properties": {
+        "id": 1150,
+        "name": "Hard Rock Stadium",
+        "city": "Miami Gardens, FL",
+        "capacity": 74916,
+        "host": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-118.3409, 33.953389]
+      },
+      "properties": {
+        "id": 8725,
+        "name": "SoFi Stadium",
+        "city": "Inglewood, CA",
+        "capacity": 70240,
+        "host": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-94.483993, 39.048931]
+      },
+      "properties": {
+        "id": 10391,
+        "name": "GEHA Field at Arrowhead Stadium",
+        "city": "Kansas City, MO",
+        "capacity": 79416,
+        "host": true
+      }
+    }
+  ]
+}

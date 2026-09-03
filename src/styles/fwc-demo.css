@@ -1,0 +1,118 @@
+.fwc-panel {
+  position: absolute;
+  top: 3.5rem;
+  left: 1rem;
+  z-index: 2;
+  width: min(320px, calc(100vw - 2rem));
+  max-height: calc(100% - 5rem);
+  overflow-y: auto;
+  font-family: "DM Sans", sans-serif;
+  background: #fff;
+  border-radius: 10px;
+  padding: 0.75rem 1rem 1rem;
+  box-shadow: 0 4px 24px rgba(26, 18, 8, 0.25);
+  color: #1b4f26;
+}
+
+.fwc-panel__heading h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  color: #1b4f26;
+}
+
+.fwc-panel__heading p {
+  margin: 0.35rem 0 0.75rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #40564b;
+}
+
+.fwc-panel__icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.fwc-panel__icons img {
+  width: 28px;
+  height: 28px;
+}
+
+.fwc-panel__geocoder {
+  margin-bottom: 0.75rem;
+}
+
+.fwc-panel__geocoder .mapboxgl-ctrl-geocoder {
+  width: 100%;
+  max-width: none;
+  font-size: 0.8rem;
+  box-shadow: none;
+}
+
+.fwc-panel__geocoder .mapboxgl-ctrl-geocoder--input {
+  font-family: "DM Sans", sans-serif;
+}
+
+.fwc-panel__details h3 {
+  margin: 0 0 0.25rem;
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  color: #1b4f26;
+}
+
+.fwc-panel__details p {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.fwc-panel__distance {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.fwc-panel__distance img {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.fwc-panel__toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0.5rem auto 0;
+  padding: 0;
+}
+
+.fwc-panel__toggle img {
+  width: 30px;
+  height: 20px;
+}
+
+.fwc-panel--collapsed .fwc-panel__geocoder,
+.fwc-panel--collapsed .fwc-panel__icons,
+.fwc-panel--collapsed .fwc-panel__details {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .fwc-panel {
+    top: auto;
+    bottom: 1rem;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+
+  .fwc-panel__toggle {
+    display: block;
+  }
+}

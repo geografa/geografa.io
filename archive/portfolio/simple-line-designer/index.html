@@ -1,0 +1,527 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Line Designer</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.12.0/mapbox-gl.js"></script>
+    <script src="/mapbox-config.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+      #sidebar {
+        font-family: "Inter", sans-serif;
+        position: absolute;
+        color: aliceblue;
+        bottom: 50px;
+        left: 0;
+        width: 200px;
+        height: 75%;
+        background-color: rgb(56 56 56 / 70%);
+        backdrop-filter: blur(10px);
+        padding: 10px 20px 90px 10px;
+        z-index: 1;
+        overflow-y: scroll;
+        box-shadow: 0px 1px 2px 0px #1f1e241f;
+        border-radius: 6px;
+      }
+
+      /* From Uiverse.io by satisshTechie Slider style*/
+      .PB-range-slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 4px;
+        border-radius: 5px;
+        background: #d5dbe1;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+      }
+
+      .PB-range-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: #1a1829;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+      }
+
+      .PB-range-slider::-webkit-slider-thumb:hover {
+        box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.16);
+        transition: 0.3s ease-in-out;
+      }
+
+      .PB-range-slider::-moz-range-thumb {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: #000000;
+        cursor: pointer;
+      }
+
+      .PB-range-slider-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: 6px;
+        border: 1px solid #c6cace;
+        box-shadow: 0px 1px 2px 0px #1f1e241f;
+      }
+      .PB-range-slidervalue {
+        font-weight: 600;
+      }
+      /* From Uiverse.io by Madflows */
+      .toggle-switch {
+        position: absolute;
+        width: 80px;
+        margin: 20px 60px;
+        --light: #d8dbe0;
+        --dark: #28292c;
+        --sun: #f2bc19;
+        --link: rgb(27, 129, 112);
+        --link-hover: rgb(24, 94, 82);
+      }
+
+      .switch-label {
+        position: absolute;
+        width: 100%;
+        height: 30px;
+        background-color: var(--dark);
+        border-radius: 25px;
+        cursor: pointer;
+        /* border: 3px solid var(--dark); */
+      }
+
+      .checkbox {
+        position: absolute;
+        display: none;
+      }
+
+      .toggle-slider {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 25px;
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+      }
+
+      .checkbox:checked ~ .toggle-slider {
+        background-color: var(--light);
+      }
+
+      .toggle-slider::before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 8px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        -webkit-box-shadow: inset 12px -4px 0px 0px var(--light);
+        box-shadow: inset 12px -4px 0px 0px var(--light);
+        background-color: var(--dark);
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+      }
+
+      .checkbox:checked ~ .toggle-slider::before {
+        -webkit-transform: translateX(40px);
+        -ms-transform: translateX(40px);
+        transform: translateX(40px);
+        background-color: var(--sun);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="sidebar">
+      <!-- add an icon for copying the values -->
+      <span href="#" id="copyProps">📋</span>
+      <div id="lineWidth">
+        <pre
+          class="PB-range-slidervalue"
+        >line-width: <label for="lineWidth">1</label></pre>
+        <div class="PB-range-slider-div">
+          <input
+            type="range"
+            min="0"
+            max="20"
+            value="1"
+            class="PB-range-slider"
+            id="lineWidth"
+          />
+        </div>
+      </div>
+      <div id="lineBlur" class="slider">
+        <pre
+          class="PB-range-slidervalue"
+        >line-blur: <label for="lineBlur">0</label></pre>
+        <div class="PB-range-slider-div">
+          <input
+            type="range"
+            min="0"
+            max="10"
+            value="0"
+            class="PB-range-slider"
+            id="lineBlur"
+          />
+        </div>
+      </div>
+      <div id="lineOpacity" class="slider">
+        <pre
+          class="PB-range-slidervalue"
+        >line-opacity: <label for="lineOpacity">1</label></pre>
+        <div class="PB-range-slider-div">
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.05"
+            value="1"
+            class="PB-range-slider"
+            id="lineOpacity"
+          />
+        </div>
+      </div>
+      <div id="lineEmissiveStrength" class="slider">
+        <pre
+          class="PB-range-slidervalue"
+        >line-emissive-strength: <label for="lineEmissiveStrength">0</label></pre>
+        <div class="PB-range-slider-div">
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.1"
+            value="0"
+            class="PB-range-slider"
+            id="lineEmissiveStrength"
+          />
+        </div>
+      </div>
+      <div id="lineZOffset" class="slider">
+        <pre
+          class="PB-range-slidervalue"
+        >line-z-offset: <label for="lineZOffset">0</label></pre>
+        <div class="PB-range-slider-div">
+          <input
+            type="range"
+            min="0"
+            max="50"
+            value="0"
+            class="PB-range-slider"
+            id="lineZOffset"
+          />
+        </div>
+      </div>
+      <h3>Casing</h3>
+      <div id="lineCasingWidth" class="slider">
+        <pre
+          class="PB-range-slidervalue"
+        >line-width: <label for="lineCasingWidth">4</label></pre>
+        <div class="PB-range-slider-div">
+          <input
+            type="range"
+            min="1"
+            max="20"
+            value="4"
+            class="PB-range-slider"
+            id="lineCasingWidth"
+          />
+        </div>
+      </div>
+      <div id="lineCasingBlur" class="slider">
+        <pre
+          class="PB-range-slidervalue"
+        >line-blur: <label for="lineCasingBlur">0</label></pre>
+        <div class="PB-range-slider-div">
+          <input
+            type="range"
+            min="0"
+            max="10"
+            value="0"
+            class="PB-range-slider"
+            id="lineCasingBlur"
+          />
+        </div>
+      </div>
+      <div id="lineCasingOpacity" class="slider">
+        <pre
+          class="PB-range-slidervalue"
+        >line-opacity:<label for="lineCasingOpacity">1</label></pre>
+        <div class="PB-range-slider-div">
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.1"
+            value="1"
+            class="PB-range-slider"
+            id="lineCasingOpacity"
+          />
+        </div>
+      </div>
+      <div id="lineCasingOffset" class="slider">
+        <pre
+          class="PB-range-slidervalue"
+        >line-offset: <label for="lineCasingOffset">0</label></pre>
+        <div class="PB-range-slider-div">
+          <input
+            type="range"
+            min="-10"
+            max="10"
+            value="0"
+            class="PB-range-slider"
+            id="lineCasingOffset"
+          />
+        </div>
+      </div>
+
+      <div class="toggle-switch">
+        <label class="switch-label">
+          <input type="checkbox" class="checkbox" checked />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <script>
+      mapboxgl.accessToken = window.MAPBOX_ACCESS_TOKEN;
+      const map = new mapboxgl.Map({
+        container: "map", // container ID
+        center: [-115.173458, 36.11549],
+        zoom: 17,
+        bearing: 149,
+        pitch: 52,
+      });
+      map.on("style.load", () => {
+        map.setConfigProperty("basemap", "lightPreset", "day");
+      });
+
+      const fetchGeoJSONData = (url) => {
+        return fetch(url).then((response) => response.json());
+      };
+
+      const addGeoJSONSource = (map, sourceId, data) => {
+        map.addSource(sourceId, {
+          type: "geojson",
+          data: data,
+        });
+      };
+
+      const addLineLayer = (map, layerId, sourceId, layout, paint) => {
+        map.addLayer({
+          id: layerId,
+          type: "line",
+          source: sourceId,
+          layout: layout,
+          paint: paint,
+        });
+      };
+
+      map.on("load", () => {
+        fetchGeoJSONData("./data/vegas_line.geojson").then((lineData) => {
+          addGeoJSONSource(map, "line-source", lineData);
+
+          const lineLayout = {
+            "line-join": "round",
+            "line-cap": "round",
+            "line-z-offset": 0,
+          };
+          const linePaint = {
+            "line-color": "magenta",
+            "line-width": 4,
+            "line-opacity": 1,
+            "line-blur": 0,
+            "line-offset": 0,
+            "line-emissive-strength": 0,
+          };
+          const linePaintCasing = {
+            "line-color": "#888",
+            "line-width": 8,
+          };
+
+          addLineLayer(
+            map,
+            "line-layer-casing",
+            "line-source",
+            lineLayout,
+            linePaintCasing,
+          );
+          addLineLayer(map, "line-layer", "line-source", lineLayout, linePaint);
+        });
+      });
+      // listen for changes to the slider and change the width of the line
+      document.getElementById("lineWidth").addEventListener("input", (e) => {
+        map.setPaintProperty(
+          "line-layer",
+          "line-width",
+          parseInt(e.target.value),
+        );
+        document.querySelector("label[for=lineWidth]").textContent =
+          e.target.value;
+      });
+      document.getElementById("lineBlur").addEventListener("input", (e) => {
+        map.setPaintProperty(
+          "line-layer",
+          "line-blur",
+          parseInt(e.target.value),
+        );
+        document.querySelector("label[for=lineBlur]").textContent =
+          e.target.value;
+      });
+      document.getElementById("lineOpacity").addEventListener("input", (e) => {
+        map.setPaintProperty(
+          "line-layer",
+          "line-opacity",
+          parseFloat(e.target.value),
+        );
+        document.querySelector("label[for=lineOpacity]").textContent =
+          e.target.value;
+      });
+      // casing properties
+      document
+        .getElementById("lineEmissiveStrength")
+        .addEventListener("input", (e) => {
+          map.setPaintProperty(
+            "line-layer",
+            "line-emissive-strength",
+            parseFloat(e.target.value),
+          );
+          document.querySelector(
+            "label[for=lineEmissiveStrength]",
+          ).textContent = e.target.value;
+        });
+      document
+        .getElementById("lineCasingWidth")
+        .addEventListener("input", (e) => {
+          map.setPaintProperty(
+            "line-layer-casing",
+            "line-width",
+            parseInt(e.target.value),
+          );
+          document.querySelector("label[for=lineCasingWidth]").textContent =
+            e.target.value;
+        });
+      document
+        .getElementById("lineCasingBlur")
+        .addEventListener("input", (e) => {
+          map.setPaintProperty(
+            "line-layer-casing",
+            "line-blur",
+            parseInt(e.target.value),
+          );
+          document.querySelector("label[for=lineCasingBlur]").textContent =
+            e.target.value;
+        });
+      document
+        .getElementById("lineCasingOpacity")
+        .addEventListener("input", (e) => {
+          map.setPaintProperty(
+            "line-layer-casing",
+            "line-opacity",
+            parseFloat(e.target.value),
+          );
+          document.querySelector("label[for=lineCasingOpacity]").textContent =
+            e.target.value;
+        });
+      document
+        .getElementById("lineCasingOffset")
+        .addEventListener("input", (e) => {
+          map.setPaintProperty(
+            "line-layer-casing",
+            "line-offset",
+            parseInt(e.target.value),
+          );
+          document.querySelector("label[for=lineCasingOffset]").textContent =
+            e.target.value;
+        });
+      // Layout properties
+      document.getElementById("lineZOffset").addEventListener("input", (e) => {
+        map.setLayoutProperty(
+          "line-layer",
+          "line-z-offset",
+          parseInt(e.target.value),
+        );
+        document.querySelector("label[for=lineZOffset]").textContent =
+          e.target.value;
+      });
+
+      // map.setConfigProperty("basemap", "lightPreset", "night"); if the toggle is off
+      document.querySelector(".checkbox").addEventListener("change", (e) => {
+        if (e.target.checked) {
+          map.setConfigProperty("basemap", "lightPreset", "day");
+        } else {
+          map.setConfigProperty("basemap", "lightPreset", "night");
+        }
+      });
+      // Copy the values to the clipboard as a JSON object when the copy icon is clicked
+      document.getElementById("copyProps").addEventListener("click", () => {
+        const lineWidth = map.getPaintProperty("line-layer", "line-width");
+        const lineBlur = map.getPaintProperty("line-layer", "line-blur");
+        const lineOpacity = map.getPaintProperty("line-layer", "line-opacity");
+        const lineEmissiveStrength = map.getPaintProperty(
+          "line-layer",
+          "line-emissive-strength",
+        );
+        const lineZOffset = map.getLayoutProperty(
+          "line-layer",
+          "line-z-offset",
+        );
+        const lineCasingWidth = map.getPaintProperty(
+          "line-layer-casing",
+          "line-width",
+        );
+        const lineCasingBlur = map.getPaintProperty(
+          "line-layer-casing",
+          "line-blur",
+        );
+        const lineCasingOpacity = map.getPaintProperty(
+          "line-layer-casing",
+          "line-opacity",
+        );
+        const lineCasingOffset = map.getPaintProperty(
+          "line-layer-casing",
+          "line-offset",
+        );
+        const props = {
+          "line-width": lineWidth,
+          "line-blur": lineBlur,
+          "line-opacity": lineOpacity,
+          "line-emissive-strength": lineEmissiveStrength,
+          "line-z-offset": lineZOffset,
+          "line-casing-width": lineCasingWidth,
+          "line-casing-blur": lineCasingBlur,
+          "line-casing-opacity": lineCasingOpacity,
+          "line-casing-offset": lineCasingOffset,
+        };
+        navigator.clipboard.writeText(JSON.stringify(props, null, 2));
+        console.log("Copied to clipboard");
+      });
+    </script>
+  </body>
+</html>

@@ -1,38 +1,44 @@
 # Geografa design system
 
-**Warm paper** — an editorial layout system for Geografa marketing pages. It pairs serif headlines, mono labels, and a cream-and-ink palette with gold accents. The system reads like a well-typeset document rather than a typical SaaS landing page.
+**Warm paper** — an editorial layout system for Geografa marketing pages. Serif headlines, Oswald labels, and a sage-and-parchment palette with pale gold accents. Reads like a well-typeset document, not a typical SaaS landing page.
 
-**Primary implementation:** [`index.html`](index.html)  
-**Sibling reference:** [`mexico/index.html`](mexico/index.html) — same tokens and patterns, plus trip-specific components (itinerary, flights, Mapbox map)
+**Primary implementation:** React app in [`src/`](src/)  
+**Theme tokens:** [`src/theme/colors.ts`](src/theme/colors.ts) (canonical) → injected as CSS vars + [`src/styles/global.css`](src/styles/global.css)  
+**Map palette:** [`src/theme/mapColors.ts`](src/theme/mapColors.ts)  
+**Sibling reference:** [`public/mexico/index.html`](public/mexico/index.html) — static page; may lag behind token updates
 
-Styles live inline in each HTML file. There is no shared CSS bundle yet.
+```bash
+npm run dev    # local development
+npm run build  # production bundle → dist/
+```
 
 ---
 
 ## Principles
 
-1. **Editorial hierarchy** — Numbered section labels, serif titles, and mono metadata create a magazine-like rhythm.
-2. **Warm contrast** — Dark ink sections alternate with cream and green backgrounds; gold ties the palette together.
-3. **Restraint** — Light font weights, generous line-height, and subtle borders. No heavy shadows except on hover or photos.
-4. **Human-readable density** — Body copy stays at 13–15px; labels use wide letter-spacing instead of size for emphasis.
+1. **Editorial hierarchy** — Numbered section labels, serif titles, and Oswald metadata create a magazine-like rhythm.
+2. **Warm contrast** — Dark ink sections alternate with cream and green backgrounds; pale gold ties accents together.
+3. **Human-centered** — Copy and layout prioritize the people who use maps — their needs, contexts, and workflows.
+4. **Restraint** — Light font weights, generous line-height, and subtle borders. Shadows only on hover or photos.
+5. **Readable density** — Body copy at 13–15px; labels use letter-spacing and uppercase instead of size for emphasis.
 
 ---
 
 ## Color tokens
 
-All colors are CSS custom properties on `:root`.
+All colors are defined in [`src/theme/colors.ts`](src/theme/colors.ts) and applied at runtime via `applyTheme()` in [`src/main.tsx`](src/main.tsx). CSS uses matching custom properties on `:root`.
 
 | Token | Value | Role |
 | --- | --- | --- |
-| `--ink` | `#1a1208` | Primary text, dark section backgrounds, nav, footer |
-| `--cream` | `#f5f0e8` | Page background, hero headline text on dark |
-| `--gold` | `#c9933a` | Labels, links, accents, primary buttons |
-| `--gold-light` | `#e8b865` | Hover states, italic emphasis, nav logo |
+| `--ink` | `#162321` | Primary text, dark section backgrounds, nav, footer |
+| `--cream` | `#f4f1de` | Page background, hero headline text on dark |
+| `--gold` | `#eee9c5` | Labels on dark, links, accents, primary buttons |
+| `--gold-light` | `#eaeca3` | Hover states, italic emphasis, nav wordmark |
 | `--green` | `#2d5a3d` | Testimonial / accent section background |
-| `--red` | `#b83232` | Reserved for emphasis (e.g. match-day headings in Mexico page) |
-| `--muted` | `#6b5f4e` | Body copy on cream backgrounds |
+| `--red` | `#e07a5f` | Reserved for emphasis (e.g. match-day headings on Mexico page) |
+| `--muted` | `#40564b` | Body copy and dark section labels on cream |
 | `--card-bg` | `#fffdf8` | Card surfaces — slightly lighter than cream |
-| `--border` | `rgba(201, 147, 58, 0.25)` | Dividers, card borders, label rules |
+| `--border` | `#142623` | Dividers, card borders, label rules on light backgrounds |
 
 ### Semantic usage
 
@@ -46,9 +52,13 @@ All colors are CSS custom properties on `:root`.
 
 ### Overlays and transparency
 
-On dark sections, secondary text typically uses `rgba(245, 240, 232, 0.6–0.7)`. Nav links use `rgba(245, 240, 232, 0.4)` at rest, `--gold-light` on hover.
+On dark sections, secondary text uses `rgba(245, 240, 232, 0.6–0.7)`. Nav links use `rgba(245, 240, 232, 0.4)` at rest and `--gold-light` on hover.
 
-`theme-color` for mobile browser chrome: `#1a1208`.
+Nav bar background: `rgba(14, 22, 24, 0.92)` + `backdrop-filter: blur(12px)`.
+
+Hero video overlay stacks an ink gradient (`rgba(14, 22, 24, 0.75–0.92)`) with a radial lime-gold glow and a 40px grid at ~4% opacity.
+
+`theme-color` for mobile browser chrome: `#1a1208` (update to `#162321` when meta tags are synced).
 
 ---
 
@@ -58,30 +68,48 @@ On dark sections, secondary text typically uses `rgba(245, 240, 232, 0.6–0.7)`
 
 Loaded from Google Fonts:
 
-```
-Playfair Display — headlines, card titles, signatures
-DM Sans         — body copy (weights 300, 400, 500)
-DM Mono         — labels, tags, buttons, metadata, footer
+```html
+<link
+  href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=Oswald:wght@200..700&display=swap"
+  rel="stylesheet"
+/>
 ```
 
-### Roles
+| Font | Role |
+| --- | --- |
+| **Playfair Display** | Headlines, card titles, signatures, `<em>` emphasis in section titles |
+| **DM Sans** | Body copy (weights 300, 400, 500) |
+| **Oswald** | Labels, tags, buttons, nav, metadata, footer (weights 200–700) |
+
+### Type roles
 
 | Role | Font | Weight | Size | Notes |
 | --- | --- | --- | --- | --- |
-| Hero headline | Playfair Display | 900 | `clamp(2.5rem, 8vw, 5.5rem)` | `--cream` on dark; tight line-height (1.0) |
-| Hero emphasis | Playfair Display | italic | — | `--gold-light`; often on its own line |
+| Hero headline | Playfair Display | 900 | `clamp(2.5rem, 8vw, 5.5rem)` | `--cream`; line-height 1.0 |
+| Hero emphasis | Playfair Display | italic | — | `--gold-light`; optional second line in `<em>` |
 | Section title | Playfair Display | 700 | `clamp(2rem, 5vw, 3.2rem)` | Line-height 1.1 |
-| Section label | DM Mono | 400 | 10px | Uppercase, `letter-spacing: 0.25em`, gold |
-| Hero tag | DM Mono | 400 | 11px | Uppercase, `letter-spacing: 0.2em` |
+| Section label (dark bg) | Oswald | 400 | 10px | Uppercase; `--gold`; rule line `rgba(201, 147, 58, 0.25)` via `.ink-bg` |
+| Section label (light bg) | Oswald | 400 | 10px | `.section-label--dark` → `--muted` text, `--border` rule |
+| Hero tag | Oswald | 400 | 11px | Uppercase; may include inline logo `<img>` at 12px height |
+| Nav wordmark | Oswald | 400 | 14px | Uppercase; `--gold-light`; `letter-spacing: 0.15em` |
+| Nav links | Oswald | 400 | 12px | Uppercase; `letter-spacing: 0.25em` |
 | Body / intro | DM Sans | 300 | 15px | Line-height 1.7–1.75 |
 | Card body | DM Sans | 300 | 13px | `--muted` on cream |
-| Tags / links | DM Mono | 400 | 9–11px | Uppercase, tracked |
-| Nav links | DM Mono | 400 | 9px | Uppercase, `letter-spacing: 0.15em` |
-| Footer | DM Mono | 400–500 | 10px | `--gold` for emphasis |
+| Tags / links | Oswald | 400 | 9–12px | Uppercase, tracked |
+| Footer | Oswald | 400–500 | 10px | `--gold` for emphasis |
 
-### Label rule
+### Section label variants
 
-`.section-label` includes a flex-grow `::after` pseudo-element — a 1px gold-tinted line extending to the right edge. This is the signature “numbered section” motif (`01 · The work`).
+Base class `.section-label` — flex row with a extending rule via `::after`:
+
+| Modifier / context | Label color | Rule (`::after`) |
+| --- | --- | --- |
+| Default (dark sections) | `--gold` | `--border` |
+| `.section-label--dark` (cream sections) | `--muted` | `--border` |
+| Inside `.ink-bg` | `--gold` | `rgba(201, 147, 58, 0.25)` |
+| Inside `.transit-bg` | `rgba(245, 240, 232, 0.5)` | `rgba(245, 240, 232, 0.15)` |
+
+Numbered motif example: `01 · The work`
 
 ---
 
@@ -90,16 +118,28 @@ DM Mono         — labels, tags, buttons, metadata, footer
 | Property | Value |
 | --- | --- |
 | Content max-width | `960px` (`.section`) |
-| Section padding | `5rem 2rem` vertical/horizontal |
+| Section padding | `5rem 2rem` |
 | Nav height | `48px` |
-| Body offset | `padding-top: 48px` for fixed nav |
-| Scroll padding | `scroll-padding-top: 56px` for anchor links |
-| Grid gaps | `1.25rem` (cards), `1.5rem` (nav links, footer links) |
-| Border radius | `8px` chips · `12px` cards · `16px` large cards · `100px` pills |
+| Body offset | `padding-top: 48px` |
+| Scroll padding | `scroll-padding-top: 56px` |
+| Grid gaps | `1.25rem` (cards) · `1.5rem` (nav, footer links) |
+| Border radius | `8px` chips · `10px` buttons/pills · `12px` cards · `16px` large cards |
 
 ### Section backgrounds
 
-Pages alternate between cream, ink, and green bands, separated by `<hr class="divider">` (1px `--border`).
+Pages alternate cream (default), ink (`.ink-bg`), and green (`.transit-bg`) bands, separated by `<hr class="divider">` (1px `--border`).
+
+Landing page section map:
+
+| Section | Background | Label class |
+| --- | --- | --- |
+| Hero | `--ink` + video | — |
+| 01 · The work | `.ink-bg` | `.section-label` |
+| 02 · Selected work | cream | `.section-label--dark` |
+| 03 · How we work | cream | `.section-label--dark` |
+| 04 · Kind words | `.transit-bg` | `.section-label` |
+| 05 · About | cream | `.section-label--dark` |
+| 06 · Get in touch | `.ink-bg` | `.section-label` |
 
 ---
 
@@ -108,83 +148,84 @@ Pages alternate between cream, ink, and green bands, separated by `<hr class="di
 ### Navigation (`nav`)
 
 - Fixed top bar, `z-index: 100`
-- Background: `rgba(26, 18, 8, 0.92)` + `backdrop-filter: blur(12px)`
-- Logo: SVG mark + Playfair italic “Geografa” in `--gold-light`
-- Links: uppercase mono, muted cream, gold on hover
+- Logo: SVG mark + Oswald uppercase wordmark (`eografa`) in `--gold-light`
+- Links: uppercase Oswald, muted cream, `--gold-light` on hover
 - **Mobile (≤640px):** `.nav-links` hidden
 
 ### Hero (`.hero`)
 
-Full-viewport intro on `--ink`. Landing page adds:
+Full-viewport intro on `--ink`. Landing page layers:
 
-- `.hero-video-wrap` — full-bleed `<video>` with `object-fit: cover`
-- `.hero-overlay` — ink gradient + radial gold glow + 40px grid (same motif as Mexico static hero)
+- `.hero-video-wrap` — full-bleed `<video autoplay muted loop playsinline>` with `object-fit: cover`
+- `.hero-overlay` — ink gradient + radial glow + 40px grid
 - `.hero-content` — centered, `max-width: 720px`, `z-index: 1`
-- `.scroll-hint` — bottom-centered mono text with `pulse` animation (2s ease-in-out)
+- `.hero-tag` — optional inline logo before tagline text
+- `.scroll-hint` — bottom-centered Oswald text with `pulse` animation (2s ease-in-out)
 
-Mexico page uses a static hero with the grid baked into `::before` instead of video.
+Mexico page uses a static hero with the grid in `::before` instead of video.
 
 ### Buttons
 
 | Class | Style |
 | --- | --- |
-| `.btn-primary` | Gold fill, ink text, pill shape |
-| `.btn-ghost` | Transparent, gold-light text, gold border |
-| `.contact-pill` | Ghost pill for contact links |
-| `.contact-pill.primary` | Gold fill for email CTA |
+| `.btn-primary` | `--gold` fill, `--ink` text, `border-radius: 10px` |
+| `.btn-ghost` | Transparent, `--gold-light` text, gold-tint border |
+| `.contact-pill` | Ghost pill, `border-radius: 10px` |
+| `.contact-pill.primary` | Gold fill for email CTA; mixed case allowed |
 
-All buttons/links use DM Mono, uppercase (except `.contact-pill.primary`), `border-radius: 100px`, 0.2s transitions.
+All use Oswald, uppercase (except `.contact-pill.primary` email), 0.2s transitions.
 
 ### Section shell
 
 ```html
+<!-- Cream section -->
 <div class="section">
-  <div class="section-label">01 · The work</div>
+  <div class="section-label section-label--dark">02 · Selected work</div>
   <h2 class="section-title">Headline here.</h2>
-  <!-- content -->
+</div>
+
+<!-- Dark section -->
+<div class="ink-bg">
+  <div class="section">
+    <div class="section-label">01 · The work</div>
+    <h2 class="section-title">Headline here.</h2>
+  </div>
 </div>
 ```
 
-Optional intro paragraphs: `.section-intro` (on ink) or `.about-intro` (on cream).
+Intro paragraphs: `.section-intro` (on ink) or `.about-intro` (on cream).
 
 ### Service cards (`.service-card`)
 
-Used inside `.ink-bg`. Grid: `repeat(auto-fit, minmax(260px, 1fr))`.
-
-- Subtle gold-tinted background and border on ink
-- Playfair title + 13px muted body
+Inside `.ink-bg`. Grid: `repeat(auto-fit, minmax(260px, 1fr))`. Gold-tinted surface on ink; Playfair title + 13px body.
 
 ### Work cards (`.work-card`)
 
-Featured portfolio items in `.work-featured-grid` (3 columns → 1 on mobile).
-
-- Image top (`160px` height, `object-fit: cover`)
-- `.work-tag` — mono category label
-- `.work-link` — underlined mono “Open project →”
+`.work-featured-grid` — 3 columns, 1 on mobile. Image top (160px). `.work-tag` (Oswald), `.work-link` (Oswald, `--ink` text with underline).
 
 ### Archive chips (`.work-chip`)
 
-Compact linked rows with 36×36 thumbnail + label. Flex-wrap grid for secondary portfolio items.
+Flex-wrap row; 36×36 thumbnail + label. Hover: gold-tint border and background.
 
 ### Approach card (`.approach-card`)
 
-Two-column grid: prose + photo. Cream card, 16px radius. Signature line uses `.approach-signature` (Playfair italic).
+Two-column grid (prose + photo). `.approach-signature` — Playfair italic. Stacks single-column at ≤768px.
 
 ### Quote cards (`.quote-card`)
 
-Inside `.transit-bg` (green). Left gold border (3px), italic blockquote, mono author + muted role.
+Inside `.transit-bg`. Left `--gold` border (3px), italic blockquote, Oswald author + muted role.
 
 ### Timeline (`.timeline`)
 
-Stacked rows in a bordered card. Each `.timeline-row` is a 140px date column + content column. Date in gold mono; title in Playfair.
+Bordered card stack. `.timeline-date` — Oswald, `--ink`, 12px. `.timeline-title` — Playfair. Date column stacks above content at ≤640px.
 
 ### Contact (`.contact-section`)
 
-Centered inside `.ink-bg`. Title may use `<em>` for gold-light italic phrase. Pills in `.contact-links`.
+Centered in `.ink-bg`. Title `<em>` in `--gold-light`. Pills in `.contact-links`.
 
 ### Footer (`.footer`)
 
-Ink background, centered mono text. `.footer-links` echo nav. Tagline: *made on warm paper*.
+`--ink` background, centered Oswald. `.footer-links` echo nav. Tagline: *made on warm paper*.
 
 ---
 
@@ -192,7 +233,7 @@ Ink background, centered mono text. `.footer-links` echo nav. Tagline: *made on 
 
 | Name | Usage |
 | --- | --- |
-| `pulse` | Scroll hint opacity fade (0.3 ↔ 0.8, 2s infinite) |
+| `pulse` | Scroll hint opacity (0.3 ↔ 0.8, 2s infinite) |
 | `transition: 0.2s` | Links, buttons, chips, work-card shadow |
 
 No page-load animations. Hover states only.
@@ -204,31 +245,124 @@ No page-load animations. Hover states only.
 | Breakpoint | Behavior |
 | --- | --- |
 | `≤768px` | Featured work grid → 1 column; approach card → single column |
-| `≤640px` | Nav links hidden; timeline date stacks above content; hero CTAs stack vertically |
+| `≤640px` | Nav links hidden; timeline date stacks; hero CTAs stack vertically |
 
-Typography scales via `clamp()` on hero and section titles — no breakpoint overrides needed for type.
-
----
-
-## Grid and map motifs
-
-The hero overlay (and Mexico static hero) use a **40px gold grid** built from two `repeating-linear-gradient` layers at 4% opacity, plus a radial gold ellipse at 12% opacity. This reads as “graph paper on warm paper” and connects the brand to mapping without literal map UI.
+Typography scales via `clamp()` on hero and section titles.
 
 ---
 
-## Adding a new page
+## Grid motif
 
-1. Copy the `:root` tokens and base reset from `index.html` or `mexico/index.html`.
-2. Include the three Google Fonts weights in `<head>`.
-3. Use `nav` + `.section` + `.section-label` + `.section-title` for structure.
-4. Pick a section background: default cream, `.ink-bg`, or `.transit-bg`.
-5. Reuse card patterns from the component list above.
-6. Set `theme-color` to `#1a1208`.
-7. Account for fixed nav: `body { padding-top: 48px }` and `html { scroll-padding-top: 56px }`.
+Hero overlay and Mexico static hero use a **40px grid** from two `repeating-linear-gradient` layers (~4% opacity) plus a radial glow. Reads as graph paper on warm paper — mapping without literal map UI.
+
+---
+
+## Map colors (React)
+
+Map-specific tokens live in [`src/theme/mapColors.ts`](src/theme/mapColors.ts), derived from brand colors:
+
+```ts
+import { mapColors, mapPaint } from "@/theme";
+
+// Use in Mapbox GL / MapLibre style layers
+map.addLayer({
+  id: "water",
+  type: "fill",
+  paint: { "fill-color": mapColors.water },
+});
+
+// Or use pre-built paint expressions
+paint: { "fill-color": mapPaint.landFill[1] }
+```
+
+| Token | Default | Use |
+| --- | --- | --- |
+| `background` | cream | Map canvas / page backdrop |
+| `land` | muted | Land fill, parks |
+| `water` | ink | Water bodies |
+| `accent` | gold | Routes, highlights |
+| `highlight` | goldLight | Active/selected features |
+| `boundary` | border | Admin lines, borders |
+| `label` | ink | Text labels |
+
+---
+
+## Map demos
+
+Interactive portfolio demos live in the same Vite SPA as the landing page. Each demo gets a React Router path under `/portfolio/…` and can use shared map primitives.
+
+### Environment
+
+```bash
+cp .env.example .env.local
+# VITE_MAPBOX_ACCESS_TOKEN=pk.your_token_here
+```
+
+Vite exposes only `VITE_*` variables to the client. Read the token via [`src/config/env.ts`](src/config/env.ts) (`getMapboxToken()`). Use a **public** token with URL restrictions in Mapbox — it will appear in the built bundle.
+
+### Shared components
+
+| Component | Path | Purpose |
+| --- | --- | --- |
+| `MapDemoShell` | `components/map/MapDemoShell.tsx` | Full-viewport demo layout with back link |
+| `MapCanvas` | `components/map/MapCanvas.tsx` | Map container wired to `useMapbox` |
+| `MapSidebar` | `components/map/MapSidebar.tsx` | Floating control panel |
+| `MapSlider` / `MapToggle` | `components/map/` | Paint and layout controls |
+| `MapCopyButton` | `components/map/MapCopyButton.tsx` | Copy paint JSON to clipboard |
+| `MapMarker` / `MapPopup` | `components/map/` | Marker and popup helpers |
+| `MapAttribution` | `components/map/MapAttribution.tsx` | Nav + attribution controls |
+
+Styles: [`src/styles/map-demo.css`](src/styles/map-demo.css). Import `mapbox-gl/dist/mapbox-gl.css` once in [`src/main.tsx`](src/main.tsx).
+
+### Hooks and helpers
+
+- [`src/hooks/useMapbox.ts`](src/hooks/useMapbox.ts) — create/destroy Mapbox map, light preset on load
+- [`src/lib/map/layers.ts`](src/lib/map/layers.ts) — `fetchGeoJSON`, `addGeoJSONSource`, `addLineLayer`, paint helpers
+- [`src/lib/map/defaults.ts`](src/lib/map/defaults.ts) — style URL, shared viewports
+
+### Adding a demo
+
+1. Put static assets in `public/demos/{name}/` (GeoJSON, thumbnails).
+2. Create `src/demos/{name}/{Name}Demo.tsx` using `MapDemoShell` + `MapCanvas`.
+3. Register a route in [`src/App.tsx`](src/App.tsx).
+4. Optional: add an archive chip in [`src/data/site.ts`](src/data/site.ts) with an internal `href`.
+
+Example: [`src/demos/simple-line-designer/`](src/demos/simple-line-designer/) at `/portfolio/simple-line-designer`.
+
+GitHub Pages deep links: the build copies `index.html` → `404.html` so client-side routes resolve on refresh.
+
+---
+
+## React components
+
+| Component | Path | Purpose |
+| --- | --- | --- |
+| `Section` | `components/layout/Section.tsx` | Shell + background variant (`cream` \| `ink` \| `green`) |
+| `SectionLabel` | `components/layout/SectionLabel.tsx` | Numbered label with rule line |
+| `Nav` / `Footer` | `components/layout/` | Site chrome |
+| `Button` | `components/ui/Button.tsx` | Primary / ghost CTAs |
+| `WorkCard` / `WorkChip` | `components/ui/` | Portfolio items |
+| Map demo components | `components/map/` | Shared map demo shell, canvas, sidebar, controls |
+| Section components | `components/sections/` | Hero, Work, SelectedWork, etc. |
+
+Content is driven by [`src/data/site.ts`](src/data/site.ts) — edit data, not markup, to update copy or portfolio items.
+
+---
+
+## Adding a new section
+
+1. Add content to [`src/data/site.ts`](src/data/site.ts).
+2. Create a section component in `src/components/sections/`.
+3. Compose with `<Section variant="cream|ink|green" label="…">`.
+4. Import colors for map features from `@/theme` — do not hardcode hex values.
+
+Static pages (e.g. Mexico trip) can remain in `public/` as plain HTML.
 
 ---
 
 ## Future work
 
-- Extract shared tokens and components into a single `css/warm-paper.css` to avoid duplication between `index.html` and `mexico/index.html`
-- Favicon paths currently reference `/img/favicon.ico`; assets live under `img/favicon_io/`
+- Generate `global.css` `:root` from `colors.ts` at build time
+- Migrate [`public/mexico/index.html`](public/mexico/index.html) to React
+- Remove duplicate [`mexico/index.html`](mexico/index.html) at repo root
+- Favicon paths reference `/img/favicon.ico`; assets live under `public/img/favicon_io/`

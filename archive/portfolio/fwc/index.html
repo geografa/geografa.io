@@ -1,0 +1,897 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Travel Times ✈️ ⚽️ 🏨 ⛺️</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
+    <script src="/mapbox-config.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.3/mapbox-gl-geocoder.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.3/mapbox-gl-geocoder.css"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
+    <style>
+      :root {
+        --primary-light: #8abdff;
+        --primary: #1b4f26;
+        --primary-dark: #1b4f26;
+        --white: #ffffff;
+        --greyLight-1: #e4ebf5;
+        --greyLight-2: #c8d0e7;
+        --greyLight-3: #bec8e4;
+        --greyDark: #9f9d9d;
+      }
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+      /* MAPBOX */
+      .mapboxgl-popup {
+        max-width: 400px;
+        font:
+          12px/20px "Helvetica Neue",
+          Arial,
+          Helvetica,
+          sans-serif;
+        padding-bottom: 10px;
+      }
+      .mapboxgl-popup,
+      img {
+        max-width: 100%;
+      }
+      .mapboxgl-popup-content {
+        border-radius: 10px;
+        color: #333;
+        background: rgba(233, 233, 12, 0.78);
+      }
+      .mapboxgl-popup-content img {
+        background-color: rgba(255, 255, 255, 1);
+      }
+      .mapboxgl-popup-content a {
+        color: #333;
+        line-height: 2em;
+      }
+      .mapboxgl-popup-content h3 {
+        font-size: 1.6em;
+        line-height: 1em;
+        margin-bottom: 0;
+      }
+      .mapboxgl-popup-content p {
+        font-size: 1em;
+        font-weight: 600;
+        line-height: 2.2em;
+        margin-bottom: 0;
+      }
+      .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+        border-top-color: rgba(233, 233, 12, 0.78);
+      }
+      .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+        border-bottom-color: rgba(233, 233, 12, 0.78);
+      }
+      .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+        border-right-color: rgba(233, 233, 12, 0.78);
+      }
+      .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+        border-left-color: rgba(233, 233, 12, 0.78);
+      }
+      .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip {
+        border-bottom-color: rgba(233, 233, 12, 0.78);
+      }
+      .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+        border-bottom-color: rgba(233, 233, 12, 0.78);
+      }
+      .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip {
+        border-top-color: rgba(233, 233, 12, 0.78);
+      }
+      .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+        border-top-color: rgba(233, 233, 12, 0.78);
+      }
+
+      .ball-marker {
+        display: block;
+        border: none;
+        cursor: pointer;
+        height: 35px;
+        width: 35px;
+        /* anchor the marker to 20px above the circle */
+        transform: translate(-50%, -50%);
+        background-image: url("./img/copa/ball.png");
+      }
+
+      /* HEADER */
+      .container {
+        position: absolute;
+        font-family: "Poppins", sans-serif;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        top: 8px;
+        right: 15px;
+        /* transform: translateX(-50%); */
+        z-index: 1;
+      }
+      .heading {
+        text-align: center;
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+      }
+      .heading h2 {
+        padding-top: 0.5rem;
+        text-align: center;
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .heading h3 {
+        padding-top: 0.5rem;
+        text-align: center;
+        font-size: 1.2em;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .heading p {
+        font-family: "Arial Narrow Bold", sans-serif;
+        padding-bottom: 1.2em;
+        font-weight: 400;
+        font-size: 0.5em;
+        color: var(--primary);
+        text-align: center;
+      }
+      .byline {
+        font-size: 0.6rem;
+        font-style: italic;
+        color: var(--greyDark);
+        text-align: center;
+        margin-top: 10px;
+      }
+      .byline a {
+        color: var(--greyDark);
+      }
+
+      /* GEOCODER */
+      .geocoder {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .mapboxgl-ctrl-geocoder {
+        font-size: 0.8rem;
+      }
+      /* details */
+      #details {
+        position: relative;
+        padding: 10px;
+        line-height: 2em;
+        color: var(--primary-dark);
+      }
+
+      .details-image img {
+        width: 300px;
+        height: auto;
+      }
+
+      #modal-arrow {
+        width: 30px;
+        height: 20px;
+        /* margin-left: 10px; */
+        margin-top: 30px;
+        display: none;
+      }
+      #icons {
+        display: flex;
+        justify-content: center;
+        text-align: left;
+        margin-top: 0;
+      }
+
+      /* media queries */
+      @media only screen and (max-width: 600px) {
+        #modal-toggle {
+          display: block;
+          position: absolute;
+          /* center */
+          bottom: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .geocoder {
+          display: flex;
+          justify-content: center;
+          text-align: left;
+          margin-top: 0;
+        }
+        .container {
+          text-align: center;
+          /* margin-top: 10px; */
+          position: absolute;
+          font-family: "Poppins", sans-serif;
+          background-color: #fff;
+          /* background-image: url("./img/football-player.svg"); */
+          /* background-repeat: no-repeat; */
+          /* background-position: center; */
+          padding: 10px;
+          border-radius: 10px;
+          /* top: 0; */
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 1;
+          width: 90%;
+        }
+        #details {
+          color: var(--primary-dark);
+          text-align: left;
+        }
+
+        #details p {
+          font-size: 0.75rem;
+          font-weight: 400;
+          color: var(--primary-dark);
+          width: 100%;
+        }
+        #modal-arrow {
+          width: 30px;
+          height: 20px;
+          /* margin-left: 10px; */
+          margin-top: 30px;
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="heading">
+        <h2>Travel Times</h2>
+        <p>Host stadiums, basecamps, hotels, and airports.</p>
+        <div id="icons">
+          <img src="./img/fifa/sq-stadium.svg" alt="stadium" />
+          <img src="./img/fifa/sq-soccer.svg" alt="basecamp" />
+          <img src="./img/fifa/sq-hotel.svg" alt="hotel" />
+          <img src="./img/fifa/sq-airport.svg" alt="airport" />
+        </div>
+      </div>
+      <div id="geocoder" class="geocoder"></div>
+
+      <div id="details">
+        <h3 id="details-name"></h3>
+        <p id="details-city"></p>
+        <p id="distance-stadium"></p>
+        <p id="distance-airport"></p>
+        <p id="distance-basecamp"></p>
+        <p id="distance-hotel"></p>
+
+        <div>
+          <span id="details-image" class="details-image"></span>
+        </div>
+      </div>
+      <div>
+        <!-- Modal Toggle Button -->
+        <button
+          id="modal-toggle"
+          style="background: none; border: none; cursor: pointer"
+        >
+          <img id="modal-arrow" src="./img/fifa/open.svg" alt="Open details" />
+        </button>
+        <script>
+          // Modal open/close logic
+          const modalToggle = document.getElementById("modal-toggle");
+          const detailsPanel = document.getElementById("details");
+          const modalArrow = document.getElementById("modal-arrow");
+          let modalOpen = true;
+
+          modalToggle.addEventListener("click", () => {
+            modalOpen = !modalOpen;
+            if (modalOpen) {
+              detailsPanel.style.display = "block";
+              modalArrow.src = "./img/fifa/open.svg";
+              modalArrow.alt = "Open details";
+              // hide the geocoder and icons
+              document.getElementById("geocoder").style.display = "flex";
+              document.getElementById("icons").style.display = "flex";
+            } else {
+              // detailsPanel.style.display = "none";
+              modalArrow.src = "./img/fifa/close.svg";
+              modalArrow.alt = "Close details";
+              // show the geocoder and icons
+              document.getElementById("geocoder").style.display = "none";
+              document.getElementById("icons").style.display = "none";
+              document.getElementById("details").style.display = "none";
+            }
+          });
+        </script>
+      </div>
+    </div>
+
+    <div id="map"></div>
+    <script>
+      mapboxgl.accessToken = window.MAPBOX_ACCESS_TOKEN;
+      const initialMapSettings = {
+        container: "map", // container ID
+        style: "mapbox://styles/grafa/cmb5lcz4m00hp01sy4uamgt72", //Travel Times
+        // style: "mapbox://styles/grafa/cmay4ip6t005801syee6v02fu", // FWC26 Stadiums and Basecamps
+        center: [-99.937616, 37.524855],
+        zoom: 3,
+        bearing: 0,
+        pitch: 0,
+        attributionControl: false,
+      };
+
+      const map = new mapboxgl.Map(initialMapSettings);
+      map.addControl(
+        new mapboxgl.AttributionControl({
+          customAttribution: "Stadium Data: FIFA.com SportsData.io",
+        }),
+      );
+
+      // Fetch host cities and airports data
+      let hostCitiesData = { features: [] };
+      let basecampData = { features: [] };
+      let airports = { features: [] };
+
+      // Function to fetch host cities GeoJSON data
+      async function fetchHostCities() {
+        try {
+          const response = await fetch("./data/fifa/hostCities.geojson");
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("Error fetching host cities data:", error);
+        }
+      }
+      fetchHostCities().then((data) => {
+        hostCitiesData = data;
+      });
+
+      // Function to fetch host cities GeoJSON data
+      async function fetchBaseCamps() {
+        try {
+          const response = await fetch("./data/fifa/basecamps.geojson");
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("Error fetching host cities data:", error);
+        }
+      }
+      fetchBaseCamps().then((data) => {
+        basecampData = data;
+      });
+
+      // Function to fetch airports GeoJSON data
+      async function fetchAirports() {
+        try {
+          const response = await fetch("./data/fifa/airports_nearby.geojson");
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("Error fetching airports data:", error);
+        }
+      }
+      fetchAirports().then((data) => {
+        airports = data;
+      });
+
+      // Function to fetch hotels GeoJSON data
+      async function fetchHotels() {
+        try {
+          const response = await fetch("./data/fifa/hotels.geojson");
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error("Error fetching hotels data:", error);
+        }
+      }
+      fetchHotels().then((data) => {
+        hotelsData = data;
+      });
+
+      const metersToKm = (m) => (m / 1000).toFixed(0);
+      const metersToMiles = (m) => (m / 1609.344).toFixed(0);
+      const secondsToMinutes = (s) => (s / 60).toFixed(0);
+
+      /**
+       * Get the nearest features from two other layers to a clicked feature.
+       * @param {Object} clickedFeature - The clicked GeoJSON feature.
+       * @param {Object} layer1 - First GeoJSON FeatureCollection (e.g., host cities).
+       * @param {Object} layer2 - Second GeoJSON FeatureCollection (e.g., basecamps).
+       * @returns {Object} - Coordinates of the nearest feature in each layer.
+       */
+      function getNearestFeatures(clickedFeature, layer1, layer2, layer3) {
+        // Convert clicked feature to a Turf point
+        const clickedPoint = turf.point(clickedFeature.geometry.coordinates);
+
+        // Find nearest in layer1
+        const nearest1 = turf.nearestPoint(
+          clickedPoint,
+          turf.featureCollection(layer1.features),
+        );
+        // Find nearest in layer2
+        const nearest2 = turf.nearestPoint(
+          clickedPoint,
+          turf.featureCollection(layer2.features),
+        );
+        const nearest3 = turf.nearestPoint(
+          clickedPoint,
+          turf.featureCollection(layer3.features),
+        );
+        console.log("nearest1", nearest1);
+        console.log("nearest2", nearest2);
+        console.log("nearest3", nearest3);
+        return {
+          nearestLayer1: nearest1.geometry.coordinates,
+          nearestLayer2: nearest2.geometry.coordinates,
+          nearestLayer3: nearest3.geometry.coordinates,
+          featureLayer1: nearest1,
+          featureLayer2: nearest2,
+          featureLayer3: nearest3,
+        };
+      }
+
+      /**
+       * Request a 1x4 Mapbox Directions Matrix.
+       * @param {Array} sourceCoord - [lng, lat] of the source (clicked feature).
+       * @param {Array} dest1 - [lng, lat] of destination 1 (layer1).
+       * @param {Array} dest2 - [lng, lat] of destination 2 (layer2).
+       * @param {Array} dest3 - [lng, lat] of destination 3 (layer3).
+       * @param {string} accessToken - Your Mapbox access token.
+       * @returns {Promise<Object>} - The API response as JSON.
+       */
+      async function getMatrix1x4(
+        sourceCoord,
+        dest1,
+        dest2,
+        dest3,
+        accessToken,
+      ) {
+        // Build the coordinates string: source;dest1;dest2;dest3
+        const coords = [
+          sourceCoord.join(","),
+          dest1.join(","),
+          dest2.join(","),
+          dest3.join(","),
+        ].join(";");
+
+        // sources=0 (the first coordinate is the source), destinations=1;2;3
+        const url = `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${coords}?sources=0&destinations=1;2;3&annotations=distance,duration&access_token=${accessToken}`;
+
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error("Matrix API request failed");
+        }
+        return await response.json();
+      }
+
+      map.on("load", () => {
+        // add hotels layer
+        fetchHotels().then((data) => {
+          map.addSource("hotels-source", {
+            type: "geojson",
+            data: data,
+          });
+          map.addLayer({
+            id: "hotels-layer",
+            type: "symbol",
+            source: "hotels-source",
+            layout: {
+              "icon-image": "sq-hotel",
+              "icon-size": 1,
+              "icon-allow-overlap": true,
+            },
+          });
+        });
+        // add a basecamp layer
+        fetchBaseCamps().then((data) => {
+          map.addSource("basecamp-source", {
+            type: "geojson",
+            data: data,
+          });
+          map.addLayer({
+            id: "basecamp-layer",
+            type: "symbol",
+            source: "basecamp-source",
+            layout: {
+              "icon-image": "sq-soccer",
+              "icon-size": 1,
+              "icon-allow-overlap": true,
+            },
+          });
+        });
+
+        // add a airports layer
+        fetchAirports().then((data) => {
+          map.addSource("airport-source", {
+            type: "geojson",
+            data: data,
+          });
+          map.addLayer({
+            id: "airports-layer",
+            type: "symbol",
+            source: "airport-source",
+            layout: {
+              "icon-image": "sq-airport",
+              "icon-size": 1,
+              "icon-allow-overlap": true,
+            },
+          });
+        });
+
+        // add a host cities layer
+        fetchHostCities().then((data) => {
+          map.addSource("stadiums-source", {
+            type: "geojson",
+            data: data,
+          });
+          map.addLayer({
+            id: "stadiums-layer",
+            type: "symbol",
+            source: "stadiums-source",
+            layout: {
+              "icon-image": "sq-stadium",
+              "icon-size": 1,
+              "icon-allow-overlap": true,
+            },
+          });
+        });
+
+        // INTERACTIONS
+        // -------------------------------------------------
+
+        // create a popup to display the venue name and city
+        const popup = new mapboxgl.Popup({
+          closeButton: false,
+          closeOnClick: true,
+        });
+      });
+      // add a click event to the airports layer
+      map.on("click", "airports-layer", (e) => {
+        const clickedFeature = e.features[0];
+        // hostCitiesData and basecampData must be loaded and available as FeatureCollections
+        const nearest = getNearestFeatures(
+          clickedFeature,
+          hostCitiesData,
+          basecampData,
+          hotelsData,
+        );
+
+        // Call the matrix function
+        getMatrix1x4(
+          clickedFeature.geometry.coordinates,
+          nearest.nearestLayer1,
+          nearest.nearestLayer2,
+          nearest.nearestLayer3,
+          mapboxgl.accessToken, // or your token variable
+        )
+          .then((matrixResult) => {
+            console.log("Matrix API result:", matrixResult);
+            // Helper to convert meters to km and miles with 2 decimals
+
+            // Stadiums layer: show duration and miles for each destination
+            document.getElementById("distance-stadium").innerHTML =
+              `<img src="./img/fifa/sq-stadium.svg" alt="stadium"> ${
+                nearest.featureLayer1.properties.name
+              }: ${secondsToMinutes(
+                matrixResult.durations[0][0],
+              )} min / ${metersToMiles(matrixResult.distances[0][0])} mi`;
+            document.getElementById("distance-basecamp").innerHTML =
+              `<img src="./img/fifa/sq-soccer.svg" alt="soccer" /> ${
+                nearest.featureLayer2.properties.name
+              }: ${secondsToMinutes(
+                matrixResult.durations[0][1],
+              )} min / ${metersToMiles(matrixResult.distances[0][1])} mi`;
+            document.getElementById("distance-hotel").innerHTML =
+              `<img src="./img/fifa/sq-hotel.svg" alt="hotel"/> ${
+                nearest.featureLayer3.properties.name
+              }: ${secondsToMinutes(
+                matrixResult.durations[0][2],
+              )} min / ${metersToMiles(matrixResult.distances[0][2])} mi`;
+            if (document.getElementById("distance-airport")) {
+              document.getElementById("distance-airport").innerHTML = "";
+            }
+
+            // Use matrixResult.distances and matrixResult.durations as needed
+          })
+          .catch((err) => {
+            console.error("Matrix API error:", err);
+          });
+
+        map.getCanvas().style.cursor = "pointer";
+        const coordinates = e.lngLat;
+        const IATA = e.features[0].properties.iata;
+        const name = e.features[0].properties.name;
+
+        // Overwrite the details panel
+        document.getElementById("details-name").textContent = IATA || "";
+        document.getElementById("details-city").textContent = "";
+      });
+      map.on("mouseenter", "airports-layer", () => {
+        map.getCanvas().style.cursor = "pointer";
+      });
+      map.on("mouseleave", "airports-layer", () => {
+        map.getCanvas().style.cursor = "";
+      });
+
+      map.on("click", "basecamp-layer", (e) => {
+        const clickedFeature = e.features[0];
+        // hostCitiesData, airports, and hotelsData must be loaded and available as FeatureCollections
+        const nearest = getNearestFeatures(
+          clickedFeature,
+          hostCitiesData,
+          airports,
+          hotelsData,
+        );
+
+        // Call the matrix function
+        getMatrix1x4(
+          clickedFeature.geometry.coordinates,
+          nearest.nearestLayer1,
+          nearest.nearestLayer2,
+          nearest.nearestLayer3,
+          mapboxgl.accessToken,
+        )
+          .then((matrixResult) => {
+            document.getElementById("distance-stadium").innerHTML =
+              `<img src="./img/fifa/sq-stadium.svg" alt="stadium"> ${
+                nearest.featureLayer1.properties.name
+              }: ${secondsToMinutes(
+                matrixResult.durations[0][0],
+              )} min / ${metersToMiles(matrixResult.distances[0][0])} mi`;
+            document.getElementById("distance-airport").innerHTML =
+              `<img src="./img/fifa/sq-airport.svg" alt="airport" /> ${
+                nearest.featureLayer2.properties.name
+              }: ${secondsToMinutes(
+                matrixResult.durations[0][1],
+              )} min / ${metersToMiles(matrixResult.distances[0][1])} mi`;
+            document.getElementById("distance-hotel").innerHTML =
+              `<img src="./img/fifa/sq-hotel.svg" alt="hotel"/> ${
+                nearest.featureLayer3.properties.name
+              }: ${secondsToMinutes(
+                matrixResult.durations[0][2],
+              )} min / ${metersToMiles(matrixResult.distances[0][2])} mi`;
+            // if document.getElementById("distance-basecamp") exists, empty it
+            if (document.getElementById("distance-basecamp")) {
+              document.getElementById("distance-basecamp").innerHTML = "";
+            }
+          })
+          .catch((err) => {
+            console.error("Matrix API error:", err);
+          });
+
+        map.getCanvas().style.cursor = "pointer";
+        const coordinates = e.lngLat;
+        const name = e.features[0].properties.name;
+
+        document.getElementById("details-name").textContent = name || "";
+        document.getElementById("details-city").textContent = "";
+      });
+      map.on("mouseenter", "basecamp-layer", () => {
+        map.getCanvas().style.cursor = "pointer";
+      });
+      map.on("mouseleave", "basecamp-layer", () => {
+        map.getCanvas().style.cursor = "";
+      });
+
+      map.on("click", "hotels-layer", (e) => {
+        const clickedFeature = e.features[0];
+        // hostCitiesData, airports, and basecampData must be loaded and available as FeatureCollections
+        const nearest = getNearestFeatures(
+          clickedFeature,
+          hostCitiesData,
+          airports,
+          basecampData,
+        );
+
+        // Call the matrix function
+        getMatrix1x4(
+          clickedFeature.geometry.coordinates,
+          nearest.nearestLayer1,
+          nearest.nearestLayer2,
+          nearest.nearestLayer3,
+          mapboxgl.accessToken,
+        )
+          .then((matrixResult) => {
+            document.getElementById("distance-stadium").innerHTML =
+              `<img src="./img/fifa/sq-stadium.svg" alt="stadium"> ${
+                nearest.featureLayer1.properties.name
+              }: ${secondsToMinutes(
+                matrixResult.durations[0][0],
+              )} min / ${metersToMiles(matrixResult.distances[0][0])} mi`;
+            document.getElementById("distance-airport").innerHTML =
+              `<img src="./img/fifa/sq-airport.svg" alt="airport" /> ${
+                nearest.featureLayer2.properties.name
+              }: ${secondsToMinutes(
+                matrixResult.durations[0][1],
+              )} min / ${metersToMiles(matrixResult.distances[0][1])} mi`;
+            document.getElementById("distance-basecamp").innerHTML =
+              `<img src="./img/fifa/sq-soccer.svg" alt="soccer" /> ${
+                nearest.featureLayer3.properties.name
+              }: ${secondsToMinutes(
+                matrixResult.durations[0][2],
+              )} min / ${metersToMiles(matrixResult.distances[0][2])} mi`;
+            // if document.getElementById("distance-hotel") exists, empty it
+            if (document.getElementById("distance-hotel")) {
+              document.getElementById("distance-hotel").innerHTML = "";
+            }
+          })
+          .catch((err) => {
+            console.error("Matrix API error:", err);
+          });
+
+        map.getCanvas().style.cursor = "pointer";
+        const coordinates = e.lngLat;
+        const name = e.features[0].properties.name;
+
+        document.getElementById("details-name").textContent = name || "";
+        document.getElementById("details-city").textContent = "";
+      });
+      map.on("mouseenter", "hotels-layer", () => {
+        map.getCanvas().style.cursor = "pointer";
+      });
+      map.on("mouseleave", "hotels-layer", () => {
+        map.getCanvas().style.cursor = "";
+      });
+
+      map.on("click", "stadiums-layer", (e) => {
+        const clickedFeature = e.features[0];
+        // hostCitiesData, airports, basecampData, and hotelsData must be loaded and available as FeatureCollections
+        const nearest = getNearestFeatures(
+          clickedFeature,
+          airports,
+          basecampData,
+          hotelsData,
+        );
+        map.flyTo({
+          center: clickedFeature.geometry.coordinates,
+          zoom: 17,
+          pitch: 60,
+          bearing: 0,
+        });
+
+        // Call the matrix function
+        getMatrix1x4(
+          clickedFeature.geometry.coordinates,
+          nearest.nearestLayer1,
+          nearest.nearestLayer2,
+          nearest.nearestLayer3,
+          mapboxgl.accessToken,
+        )
+          .then((matrixResult) => {
+            document.getElementById("distance-airport").innerHTML =
+              `<img src="./img/fifa/sq-airport.svg" alt="airport" /> ${
+                nearest.featureLayer1.properties.name
+              }: ${secondsToMinutes(
+                matrixResult.durations[0][0],
+              )} min / ${metersToMiles(matrixResult.distances[0][0])} mi`;
+            document.getElementById("distance-basecamp").innerHTML =
+              `<img src="./img/fifa/sq-soccer.svg" alt="soccer" /> ${
+                nearest.featureLayer2.properties.name
+              }: ${secondsToMinutes(
+                matrixResult.durations[0][1],
+              )} min / ${metersToMiles(matrixResult.distances[0][1])} mi`;
+            document.getElementById("distance-hotel").innerHTML =
+              `<img src="./img/fifa/sq-hotel.svg" alt="hotel"/> ${
+                nearest.featureLayer3.properties.name
+              }: ${secondsToMinutes(
+                matrixResult.durations[0][2],
+              )} min / ${metersToMiles(matrixResult.distances[0][2])} mi`;
+            // if document.getElementById("distance-stadium") exists, empty it
+            if (document.getElementById("distance-stadium")) {
+              document.getElementById("distance-stadium").innerHTML = "";
+            }
+          })
+          .catch((err) => {
+            console.error("Matrix API error:", err);
+          });
+
+        map.getCanvas().style.cursor = "pointer";
+        const coordinates = e.lngLat;
+        const name = clickedFeature.properties.name;
+
+        document.getElementById("details-name").innerHTML = name || "";
+      });
+      map.on("mouseenter", "stadiums-layer", () => {
+        map.getCanvas().style.cursor = "pointer";
+      });
+      map.on("mouseleave", "stadiums-layer", () => {
+        map.getCanvas().style.cursor = "";
+      });
+
+      // add a click event to the map to remove the popup
+      map.on("moveend", () => {
+        document.querySelectorAll(".ball-marker").forEach((marker) => {
+          marker.remove();
+        });
+      });
+      // supplement the geocoder with the venues data
+      function forwardGeocoder(query) {
+        const matchingFeatures = [];
+        // Combine all features into one array
+        const allFeatures = [
+          ...(hostCitiesData.features || []),
+          ...(basecampData.features || []),
+          ...(airports.features || []),
+          ...(hotelsData.features || []),
+        ];
+
+        for (const feature of allFeatures) {
+          // Handle queries with different capitalization
+          if (
+            feature.properties.name &&
+            feature.properties.name.toLowerCase().includes(query.toLowerCase())
+          ) {
+            if (feature.properties && feature.properties.name) {
+              if (feature.properties.hasOwnProperty("iata_code")) {
+                feature["place_name"] =
+                  `<img src="./img/fifa/sq-airport.svg" alt="airport" /> ${feature.properties.name}`;
+              } else {
+                feature["place_name"] = `⚽️ ${feature.properties.name}`;
+              }
+            }
+            feature["center"] = feature.geometry.coordinates;
+            matchingFeatures.push(feature);
+          }
+        }
+        return matchingFeatures;
+      }
+      // Add the control to the map.
+      const geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        localGeocoder: forwardGeocoder,
+        types: "place, address",
+        marker: false,
+        placeholder: "City, Venue, or Airport",
+        mapboxgl: mapboxgl,
+      });
+      document.getElementById("geocoder").appendChild(geocoder.onAdd(map));
+
+      geocoder.on("result", (e) => {
+        // flyTo location
+        map.flyTo({
+          center: e.result.center,
+          zoom: 12,
+        });
+        // show the details panel
+        document.getElementById("details").style.display = "block";
+        // switch arrow to close
+        modalArrow.src = "./img/fifa/close.svg";
+        modalArrow.alt = "Close details";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,677 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Greenbrier"
+      },
+      "geometry": {
+        "coordinates": [-80.30796, 37.786037],
+        "type": "Point"
+      },
+      "id": "02b2ed67a03a4e9cf9c51adeac0ec512"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Northern Quest Resort & Casino"
+      },
+      "geometry": {
+        "coordinates": [-117.562551, 47.658978],
+        "type": "Point"
+      },
+      "id": "03c9813ad60842da9da1538fda730859"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Westin Dallas Stonebriar"
+      },
+      "geometry": {
+        "coordinates": [-96.841493, 33.091721],
+        "type": "Point"
+      },
+      "id": "0908d1e3870782ab1936a2bbeea4614a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kimpton Cardinal Hotel"
+      },
+      "geometry": {
+        "coordinates": [-80.243705, 36.098801],
+        "type": "Point"
+      },
+      "id": "0bdb05c4fb613cb4f932f37b8efa546a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Embassy Suites by Hilton Denton Convention Center"
+      },
+      "geometry": {
+        "coordinates": [-97.168926, 33.223371],
+        "type": "Point"
+      },
+      "id": "1e5e112bcd5c8ef25760e7405d02f0c4"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kimpton Santo San Antonio - Riverwalk"
+      },
+      "geometry": {
+        "coordinates": [-98.488704, 29.419339],
+        "type": "Point"
+      },
+      "id": "22660102c98780be6d9e782d7f8501a3"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sheraton Oklahoma City Downtown Hotel"
+      },
+      "geometry": {
+        "coordinates": [-97.514971, 35.467085],
+        "type": "Point"
+      },
+      "id": "2346706eb65a1528ecb6210d76022b52"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Unbound Collection by Hyatt"
+      },
+      "geometry": {
+        "coordinates": [-94.584581, 39.098908],
+        "type": "Point"
+      },
+      "id": "23c5e6356bbabbc77ec7e9b3936e3cfa"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hotel Polaris at the U.S. Air Force Academy",
+        "city": "Colorado Springs, CO"
+      },
+      "geometry": {
+        "coordinates": [-104.83866, 39.022915],
+        "type": "Point"
+      },
+      "id": "24f6aa8a6307e79a5ced1ced6ebdf1e0"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Westin Guadalajara"
+      },
+      "geometry": {
+        "coordinates": [-103.389363, 20.653183],
+        "type": "Point"
+      },
+      "id": "2592d011b45100f3b8524b6693278555"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Oread Lawrence, Tapestry Collection by Hilton"
+      },
+      "geometry": {
+        "coordinates": [-95.242547, 38.962126],
+        "type": "Point"
+      },
+      "id": "2b3242c58208de425a986497d6130112"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Courtyard Mesa at Wrigleyville West"
+      },
+      "geometry": {
+        "coordinates": [-111.879329, 33.431053],
+        "type": "Point"
+      },
+      "id": "41ec98b5546f5b2a2a47e09f841b298d"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Grand Fiesta Americana"
+      },
+      "geometry": {
+        "coordinates": [-103.376509, 20.70312],
+        "type": "Point"
+      },
+      "id": "4c55711c2815d6f1b42e6affd3ffc956"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Detroit Marriott Troy"
+      },
+      "geometry": {
+        "coordinates": [-83.151726, 42.563439],
+        "type": "Point"
+      },
+      "id": "63c2fd588e81b5aa77a50419faa43306"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hyatt Regency Lake Washington at Seattle's Southport"
+      },
+      "geometry": {
+        "coordinates": [-122.204988, 47.502909],
+        "type": "Point"
+      },
+      "id": "67eb22cf560d80058711581f5bc7e503"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hotel AKA",
+        "city": "Alexandria, VA"
+      },
+      "geometry": {
+        "coordinates": [-77.043364, 38.815375],
+        "type": "Point"
+      },
+      "id": "6ba0cac2248425f4250d513bd3d60666"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hotel Hacienda Jurica by Brisas"
+      },
+      "geometry": {
+        "coordinates": [-100.454516, 20.674851],
+        "type": "Point"
+      },
+      "id": "7484774c04241ac58da7b044ad0d2271"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "PGA National Resort"
+      },
+      "geometry": {
+        "coordinates": [-80.141198, 26.829755],
+        "type": "Point"
+      },
+      "id": "7657e9bc373056df10d64ec2a66f0624"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Fiesta Inn Pachuca Gran Patio"
+      },
+      "geometry": {
+        "coordinates": [-98.75802, 20.094507],
+        "type": "Point"
+      },
+      "id": "78b9611824667a8fc612b7fb544bfc01"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "InterContinental by IHG",
+        "city": "Atlanta, GA"
+      },
+      "geometry": {
+        "coordinates": [-84.368183, 33.845634],
+        "type": "Point"
+      },
+      "id": "7c2674c68bcd3955e7898f58f45ede83"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Real Salt Lake Training Academy and Facility"
+      },
+      "geometry": {
+        "coordinates": [-111.979129, 40.482791],
+        "type": "Point"
+      },
+      "id": "7cc6d52c6aa04824f4e3a8078a40ab3e"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Omni Louisville Hotel"
+      },
+      "geometry": {
+        "coordinates": [-85.754393, 38.252174],
+        "type": "Point"
+      },
+      "id": "7f56da2f72e90013f3e35dbe59567ec8"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Marriott Irvine Spectrum"
+      },
+      "geometry": {
+        "coordinates": [-117.748343, 33.657502],
+        "type": "Point"
+      },
+      "id": "7fd4b37bd62a3bf0a9777612c7cb6261"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sandpiper Bay All-Inclusive Resort"
+      },
+      "geometry": {
+        "coordinates": [-80.311941, 27.244292],
+        "type": "Point"
+      },
+      "id": "802193263e4969aac4f1a53fd0f0daa1"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sheraton Chapel Hill",
+        "city": "Chapel Hill, NC"
+      },
+      "geometry": {
+        "coordinates": [-79.017545, 35.941024],
+        "type": "Point"
+      },
+      "id": "82be8a83bd1a2602320e2d82bee8fb4c"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Westward Look Wyndham Grand Resort and Spa"
+      },
+      "geometry": {
+        "coordinates": [-110.9653, 32.342633],
+        "type": "Point"
+      },
+      "id": "8c65889707fd7d116cf0b427dd7beaad"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Renaissance Indianapolis North Hotel"
+      },
+      "geometry": {
+        "coordinates": [-86.156279, 39.964675],
+        "type": "Point"
+      },
+      "id": "8ecaa432236c273753234bdc03581419"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sheraton Fort Worth Downtown Hotel"
+      },
+      "geometry": {
+        "coordinates": [-97.325192, 32.747574],
+        "type": "Point"
+      },
+      "id": "93d4b424469e119fcef5b42bcefe23fd"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Grand Hyatt Tampa Bay"
+      },
+      "geometry": {
+        "coordinates": [-82.550086, 27.965196],
+        "type": "Point"
+      },
+      "id": "953fe08d73467b9234745a30c1cffe62"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hotel Azul Talavera Country Club"
+      },
+      "geometry": {
+        "coordinates": [-103.369064, 25.516562],
+        "type": "Point"
+      },
+      "id": "9c7e180791e165f1e6232079972285f9"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Magnolia Hotel St. Louis, a Tribute Portfolio Hotel"
+      },
+      "geometry": {
+        "coordinates": [-90.192126, 38.630008],
+        "type": "Point"
+      },
+      "id": "9f5eb5036265a225b1a1a89b39ec6186"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Renaissance Oklahoma City Downtown Bricktown Hotel"
+      },
+      "geometry": {
+        "coordinates": [-97.510324, 35.466285],
+        "type": "Point"
+      },
+      "id": "9f77c48a6263513be20f689a72c573e5"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Omni Las Colinas Hotel"
+      },
+      "geometry": {
+        "coordinates": [-96.937849, 32.867677],
+        "type": "Point"
+      },
+      "id": "9f96f9c35f5fdbdef4692805086e2e4f"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Centro de Alto Rendimiento"
+      },
+      "geometry": {
+        "coordinates": [-99.141118, 19.244851],
+        "type": "Point"
+      },
+      "id": "a13acd3e699fae901c92c440cd082fc7"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "DoubleTree by Hilton Toluca"
+      },
+      "geometry": {
+        "coordinates": [-99.626474, 19.302502],
+        "type": "Point"
+      },
+      "id": "a3b150289e0b4fd770d5ff8cf17bd265"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Le Méridien Columbus, The Joseph"
+      },
+      "geometry": {
+        "coordinates": [-83.002743, 39.975176],
+        "type": "Point"
+      },
+      "id": "a4d779b4a55a22edff453d0fc9b65f38"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Courtyard Boise West/Meridian",
+        "city": "Boise, ID"
+      },
+      "geometry": {
+        "coordinates": [-116.355162, 43.588768],
+        "type": "Point"
+      },
+      "id": "a69fd317ed6637c3dff93805d71d1af4"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Penn Stater Hotel & Conference Center"
+      },
+      "geometry": {
+        "coordinates": [-77.844585, 40.831004],
+        "type": "Point"
+      },
+      "id": "a7f703e842bed022712e71f48ca2397e"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Boca Raton Marriott at Boca Center",
+        "city": "Boca Raton, FL"
+      },
+      "geometry": {
+        "coordinates": [-80.123321, 26.362318],
+        "type": "Point"
+      },
+      "id": "abe45bf74618ffc62f191aef76cdaaa1"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Renaissance Cincinnati Downtown Hotel",
+        "city": "Cincinnati, OH"
+      },
+      "geometry": {
+        "coordinates": [-84.511262, 39.100474],
+        "type": "Point"
+      },
+      "id": "b3fa8f2b847f72eeed906f1ff94113aa"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "HOTEL DU PONT"
+      },
+      "geometry": {
+        "coordinates": [-75.547846, 39.746484],
+        "type": "Point"
+      },
+      "id": "b4d0e1f7a3d07fbce97c36592de39a9e"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Royal Sonesta Chase Park Plaza St. Louis"
+      },
+      "geometry": {
+        "coordinates": [-90.264074, 38.644304],
+        "type": "Point"
+      },
+      "id": "b5b406272f00f747eb787b421a92d9ae"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Crowne Plaza Lansing by IHG"
+      },
+      "geometry": {
+        "coordinates": [-84.640874, 42.722869],
+        "type": "Point"
+      },
+      "id": "b9b946b4ffa37ecf1d3fc86846527b51"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Ellie Beach Resort Myrtle Beach, Tapestry by Hilton"
+      },
+      "geometry": {
+        "coordinates": [-78.919492, 33.657519],
+        "type": "Point"
+      },
+      "id": "bb294aaefae99f474993d98e56e63ad6"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Nines Hotel",
+        "city": "Portland, OR"
+      },
+      "geometry": {
+        "coordinates": [-122.677668, 45.518771],
+        "type": "Point"
+      },
+      "id": "bdf8064688d2b0f800ceba2958e31092"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Read House Hotel",
+        "city": "Chattanooga, TN"
+      },
+      "geometry": {
+        "coordinates": [-85.310864, 35.045999],
+        "type": "Point"
+      },
+      "id": "c0a1fa273ee7cebd0935055c799fe10f"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sheraton Atlantic City Convention Center Hotel"
+      },
+      "geometry": {
+        "coordinates": [-74.438656, 39.361985],
+        "type": "Point"
+      },
+      "id": "c0d13d7aa91465dd57d9a29350646102"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "DoubleTree Resort by Hilton Myrtle Beach Oceanfront"
+      },
+      "geometry": {
+        "coordinates": [-78.920444, 33.656764],
+        "type": "Point"
+      },
+      "id": "cb5e9055dbeb6d3cbbda5bb59642a941"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Macon Marriott City Center"
+      },
+      "geometry": {
+        "coordinates": [-83.618091, 32.842731],
+        "type": "Point"
+      },
+      "id": "d37f0a08e453d66c0915c905ada522c6"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Westin Dallas Downtown"
+      },
+      "geometry": {
+        "coordinates": [-96.801803, 32.780419],
+        "type": "Point"
+      },
+      "id": "d4a11cdb55a0a9e667635d49ec0ff83e"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Westin Monterrey Valle"
+      },
+      "geometry": {
+        "coordinates": [-100.356161, 25.658939],
+        "type": "Point"
+      },
+      "id": "d4cf910331ff4f58dda33ecfb0c00958"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Omni Houston Hotel"
+      },
+      "geometry": {
+        "coordinates": [-95.459373, 29.761304],
+        "type": "Point"
+      },
+      "id": "e137e726ab2c3b4f57e3bd6b2683916e"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sheraton Overland Park Hotel at the Convention Center"
+      },
+      "geometry": {
+        "coordinates": [-94.656602, 38.928644],
+        "type": "Point"
+      },
+      "id": "e25281d1a4309d51a0b477802602510c"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Camino Real Pachuca"
+      },
+      "geometry": {
+        "coordinates": [-98.770757, 20.095527],
+        "type": "Point"
+      },
+      "id": "e92a09f9caeec940f81568afb67e9343"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hilton Garden Inn Dallas/Arlington South"
+      },
+      "geometry": {
+        "coordinates": [-97.10113, 32.680146],
+        "type": "Point"
+      },
+      "id": "ed9ead02e6ed521a65b4523cacbd7384"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Grandover Resort & Spa, A Wyndham Grand Hotel"
+      },
+      "geometry": {
+        "coordinates": [-79.8804, 35.9919],
+        "type": "Point"
+      },
+      "id": "edc271a8eea640e1ce766bee422c7bd8"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Wynfrey Hotel",
+        "city": "Birmingham, AL"
+      },
+      "geometry": {
+        "coordinates": [-86.806693, 33.380035],
+        "type": "Point"
+      },
+      "id": "f68eaaa3b9e7041d5656cc66a56845c5"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lake Nona Wave Hotel"
+      },
+      "geometry": {
+        "coordinates": [-81.28157, 28.373864],
+        "type": "Point"
+      },
+      "id": "fc0c05edd6af33538825bbd01d797c0b"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Graduate by Hilton Columbia, S.C.",
+        "city": "Columbia, SC"
+      },
+      "geometry": {
+        "coordinates": [-81.02487, 34.001203],
+        "type": "Point"
+      },
+      "id": "fc53b37910d573b50b24d57f43bfbf39"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "JW Marriott Atlanta Buckhead Hotel",
+        "city": "Atlanta, GA"
+      },
+      "geometry": {
+        "coordinates": [-84.359564, 33.846033],
+        "type": "Point"
+      },
+      "id": "ff5c51943835877623ab5c14b15ff948"
+    }
+  ],
+  "type": "FeatureCollection"
+}

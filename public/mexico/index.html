@@ -1,0 +1,2272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CDMX — Gutierrez Family · June 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.18.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #1a1208;
+        --cream: #f5f0e8;
+        --gold: #c9933a;
+        --gold-light: #e8b865;
+        --red: #b83232;
+        --green: #2d5a3d;
+        --muted: #6b5f4e;
+        --card-bg: #fffdf8;
+        --border: rgba(201, 147, 58, 0.25);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--cream);
+        color: var(--ink);
+        font-family: "DM Sans", sans-serif;
+        font-weight: 300;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* ─── HERO ─── */
+      .hero {
+        min-height: 100vh;
+        background: var(--ink);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 60% 40% at 50% 60%,
+            rgba(201, 147, 58, 0.12) 0%,
+            transparent 70%
+          ),
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 39px,
+            rgba(201, 147, 58, 0.04) 39px,
+            rgba(201, 147, 58, 0.04) 40px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 39px,
+            rgba(201, 147, 58, 0.04) 39px,
+            rgba(201, 147, 58, 0.04) 40px
+          );
+      }
+
+      .hero-tag {
+        font-family: "Oswald", sans-serif;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        color: var(--gold);
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(3.5rem, 10vw, 8rem);
+        font-weight: 900;
+        color: var(--cream);
+        line-height: 0.9;
+        position: relative;
+        letter-spacing: -0.02em;
+      }
+
+      .hero h1 em {
+        font-style: italic;
+        color: var(--gold-light);
+      }
+
+      .hero-sub {
+        font-family: "Oswald", sans-serif;
+        font-size: 12px;
+        color: rgba(245, 240, 232, 0.5);
+        margin-top: 2rem;
+        letter-spacing: 0.15em;
+        position: relative;
+      }
+
+      .hero-badge {
+        margin-top: 3rem;
+        display: inline-flex;
+        gap: 2rem;
+        position: relative;
+      }
+
+      .badge-pill {
+        background: rgba(201, 147, 58, 0.15);
+        border: 1px solid rgba(201, 147, 58, 0.3);
+        color: var(--gold-light);
+        font-family: "Oswald", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        padding: 0.5rem 1.2rem;
+        border-radius: 100px;
+        text-transform: uppercase;
+      }
+
+      .scroll-hint {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(245, 240, 232, 0.3);
+        font-size: 11px;
+        font-family: "Oswald", sans-serif;
+        letter-spacing: 0.1em;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+
+      /* ─── SECTION SHELL ─── */
+      .section {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 5rem 2rem;
+      }
+
+      .section-label {
+        font-family: "Oswald", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .section-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 2.5rem;
+      }
+
+      hr.divider {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 0;
+      }
+
+      /* ─── FLIGHT SECTION ─── */
+      .flights-bg {
+        background: var(--ink);
+        color: var(--cream);
+      }
+
+      .flights-bg .section-label {
+        color: var(--gold);
+      }
+      .flights-bg .section-title {
+        color: var(--cream);
+      }
+
+      .conf-box {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        background: rgba(201, 147, 58, 0.1);
+        border: 1px solid rgba(201, 147, 58, 0.25);
+        border-radius: 8px;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .conf-label {
+        font-family: "Oswald", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        color: var(--gold);
+        text-transform: uppercase;
+      }
+
+      .conf-code {
+        font-family: "Oswald", sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--gold-light);
+        letter-spacing: 0.1em;
+      }
+
+      .flights-grid {
+        display: grid;
+        gap: 1px;
+        background: rgba(201, 147, 58, 0.15);
+        border: 1px solid rgba(201, 147, 58, 0.15);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .flight-row {
+        background: rgba(26, 18, 8, 0.95);
+        display: grid;
+        grid-template-columns: 80px 1fr 1fr 1fr;
+        align-items: center;
+        padding: 1.25rem 1.5rem;
+        gap: 1rem;
+        transition: background 0.2s;
+      }
+
+      .flight-row:hover {
+        background: rgba(201, 147, 58, 0.06);
+      }
+
+      .flight-row.header {
+        background: rgba(201, 147, 58, 0.1);
+        padding: 0.6rem 1.5rem;
+      }
+
+      .flight-row.header span {
+        font-family: "Oswald", sans-serif;
+        font-size: 9px;
+        letter-spacing: 0.18em;
+        color: var(--gold);
+        text-transform: uppercase;
+      }
+
+      .flight-num {
+        font-family: "Oswald", sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--gold-light);
+      }
+
+      .flight-route {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--cream);
+      }
+
+      .route-arrow {
+        color: var(--gold);
+        font-size: 10px;
+      }
+
+      .airport-code {
+        font-family: "Oswald", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .flight-times {
+        font-family: "Oswald", sans-serif;
+        font-size: 12px;
+        color: rgba(245, 240, 232, 0.6);
+      }
+
+      .flight-date {
+        font-size: 12px;
+        color: rgba(245, 240, 232, 0.4);
+      }
+
+      .seat-tag {
+        font-family: "Oswald", sans-serif;
+        font-size: 11px;
+        color: rgba(245, 240, 232, 0.5);
+      }
+
+      .travelers-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .traveler-card {
+        background: rgba(201, 147, 58, 0.06);
+        border: 1px solid rgba(201, 147, 58, 0.15);
+        border-radius: 10px;
+        padding: 1.25rem 1.5rem;
+      }
+
+      .traveler-name {
+        font-family: "Playfair Display", serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--cream);
+        margin-bottom: 0.4rem;
+      }
+
+      .traveler-ticket {
+        font-family: "Oswald", sans-serif;
+        font-size: 10px;
+        color: var(--gold);
+        letter-spacing: 0.1em;
+        margin-bottom: 0.75rem;
+      }
+
+      .seat-row {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .seat-chip {
+        background: rgba(201, 147, 58, 0.15);
+        border: 1px solid rgba(201, 147, 58, 0.2);
+        border-radius: 4px;
+        padding: 2px 8px;
+        font-family: "Oswald", sans-serif;
+        font-size: 10px;
+        color: var(--gold-light);
+      }
+
+      /* ─── ACCOMMODATION ─── */
+      .accom-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 2rem;
+        align-items: start;
+      }
+
+      .accom-address {
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        font-weight: 400;
+        font-style: italic;
+        color: var(--ink);
+        line-height: 1.4;
+        margin-bottom: 1rem;
+      }
+
+      .accom-detail {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin-bottom: 0.5rem;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .accom-icon {
+        width: 16px;
+        height: 16px;
+        color: var(--gold);
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .accom-dates {
+        background: var(--ink);
+        border-radius: 10px;
+        padding: 1.5rem;
+        text-align: center;
+        min-width: 130px;
+      }
+
+      .accom-dates .night-count {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--gold-light);
+        line-height: 1;
+      }
+
+      .accom-dates .night-label {
+        font-family: "Oswald", sans-serif;
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        color: var(--gold);
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+
+      .accom-dates .date-range {
+        font-family: "Oswald", sans-serif;
+        font-size: 10px;
+        color: rgba(245, 240, 232, 0.5);
+        line-height: 1.8;
+      }
+
+      /* ─── ITINERARY DAYS ─── */
+      .days-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+      }
+
+      .day-card {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 2rem;
+        position: relative;
+      }
+
+      .day-card::before {
+        content: "";
+        position: absolute;
+        left: 100px;
+        top: 0;
+        bottom: -3rem;
+        width: 1px;
+        background: var(--border);
+      }
+
+      .day-card:last-child::before {
+        display: none;
+      }
+
+      .day-number {
+        text-align: right;
+        padding-right: 2rem;
+        padding-top: 0.25rem;
+        flex-shrink: 0;
+      }
+
+      .day-num-big {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--gold);
+        line-height: 1;
+      }
+
+      .day-name {
+        font-family: "Oswald", sans-serif;
+        font-size: 9px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .day-content {
+        padding-left: 2rem;
+        border-left: none;
+      }
+
+      .day-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 0.25rem;
+      }
+
+      .day-subtitle {
+        font-size: 12px;
+        color: var(--muted);
+        font-family: "Oswald", sans-serif;
+        letter-spacing: 0.08em;
+        margin-bottom: 1.25rem;
+      }
+
+      .event-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .event {
+        display: grid;
+        grid-template-columns: 65px 1fr;
+        gap: 1rem;
+        align-items: start;
+      }
+
+      .event-time {
+        font-family: "Oswald", sans-serif;
+        font-size: 11px;
+        color: var(--gold);
+        text-align: right;
+        padding-top: 2px;
+        white-space: nowrap;
+      }
+
+      .event-name {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink);
+        margin-bottom: 1px;
+      }
+
+      .event-desc {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .event-tag {
+        display: inline-block;
+        font-family: "Oswald", sans-serif;
+        font-size: 9px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 2px 7px;
+        border-radius: 4px;
+        margin-right: 4px;
+        margin-top: 4px;
+      }
+
+      .tag-football {
+        background: rgba(45, 90, 61, 0.12);
+        color: var(--green);
+        border: 1px solid rgba(45, 90, 61, 0.2);
+      }
+      .tag-culture {
+        background: rgba(201, 147, 58, 0.12);
+        color: #a07020;
+        border: 1px solid rgba(201, 147, 58, 0.2);
+      }
+      .tag-food {
+        background: rgba(184, 50, 50, 0.1);
+        color: var(--red);
+        border: 1px solid rgba(184, 50, 50, 0.15);
+      }
+      .tag-transit {
+        background: rgba(60, 80, 140, 0.1);
+        color: #3c508c;
+        border: 1px solid rgba(60, 80, 140, 0.15);
+      }
+      .tag-art {
+        background: rgba(100, 60, 120, 0.1);
+        color: #643c78;
+        border: 1px solid rgba(100, 60, 120, 0.15);
+      }
+      .tag-adventure {
+        background: rgba(30, 100, 80, 0.1);
+        color: #1e6450;
+        border: 1px solid rgba(30, 100, 80, 0.15);
+      }
+
+      .tip-box {
+        background: rgba(201, 147, 58, 0.07);
+        border-left: 3px solid var(--gold);
+        border-radius: 0 8px 8px 0;
+        padding: 0.75rem 1rem;
+        margin-top: 0.75rem;
+        font-size: 12px;
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      /* ─── TRANSIT SECTION ─── */
+      .transit-bg {
+        background: var(--green);
+        color: var(--cream);
+      }
+
+      .transit-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .transit-card {
+        background: rgba(245, 240, 232, 0.08);
+        border: 1px solid rgba(245, 240, 232, 0.15);
+        border-radius: 12px;
+        padding: 1.5rem;
+      }
+
+      .transit-icon {
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+        display: block;
+      }
+
+      .transit-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--cream);
+        margin-bottom: 0.5rem;
+      }
+
+      .transit-desc {
+        font-size: 12px;
+        color: rgba(245, 240, 232, 0.65);
+        line-height: 1.6;
+      }
+
+      .transit-detail {
+        margin-top: 0.75rem;
+        font-family: "Oswald", sans-serif;
+        font-size: 10px;
+        color: var(--gold-light);
+        letter-spacing: 0.05em;
+      }
+
+      /* ─── ESSENTIALS ─── */
+      .essentials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .essential-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+      }
+
+      .essential-icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+        display: block;
+      }
+
+      .essential-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .essential-list {
+        list-style: none;
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.9;
+      }
+
+      .essential-list li::before {
+        content: "→ ";
+        color: var(--gold);
+        font-family: "Oswald", sans-serif;
+      }
+
+      /* ─── FOOTER ─── */
+      .footer {
+        background: var(--ink);
+        text-align: center;
+        padding: 3rem 2rem;
+        color: rgba(245, 240, 232, 0.3);
+        font-family: "Oswald", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+      }
+
+      .footer strong {
+        color: var(--gold);
+        font-weight: 500;
+      }
+
+      /* ─── NAV ─── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(26, 18, 8, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(201, 147, 58, 0.15);
+        padding: 0 2rem;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nav-logo {
+        font-family: "Playfair Display", serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--gold-light);
+        font-style: italic;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-links a {
+        font-family: "Oswald", sans-serif;
+        font-size: 9px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(245, 240, 232, 0.4);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: var(--gold-light);
+      }
+
+      body {
+        padding-top: 48px;
+      }
+
+      /* ─── TRIP MAP (Mapbox GL) ─── */
+      .trip-map-block {
+        margin-top: 2.5rem;
+      }
+
+      .cdmx-trip-map-inner {
+        width: 100%;
+        min-height: 480px;
+        height: 52vh;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        overflow: hidden;
+        box-shadow:
+          0 4px 24px rgba(26, 18, 8, 0.06),
+          0 1px 0 rgba(201, 147, 58, 0.12);
+        background: var(--card-bg);
+      }
+
+      .trip-map-popup-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.25;
+        margin-bottom: 0.35rem;
+        max-width: 240px;
+      }
+
+      .trip-map-popup-desc {
+        font-family: "DM Sans", sans-serif;
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 1.45;
+        color: var(--muted);
+        max-width: 260px;
+      }
+
+      .trip-map-popup-root {
+        padding: 4px 2px;
+      }
+
+      .trip-map-popup-gmaps {
+        display: inline-block;
+        margin-top: 0.65rem;
+        font-family: "Oswald", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(201, 147, 58, 0.35);
+      }
+
+      .trip-map-popup-gmaps:hover {
+        color: var(--gold-light);
+        border-bottom-color: var(--gold-light);
+      }
+
+      .mapboxgl-popup-content {
+        border-radius: 10px !important;
+        padding: 1rem 1.1rem !important;
+        border: 1px solid var(--border);
+        box-shadow: 0 8px 28px rgba(26, 18, 8, 0.12);
+      }
+
+      .mapboxgl-popup-close-button {
+        font-size: 20px !important;
+        padding: 4px 8px !important;
+        color: var(--muted);
+      }
+
+      @media (max-width: 640px) {
+        .day-card {
+          grid-template-columns: 60px 1fr;
+        }
+        .day-card::before {
+          left: 60px;
+        }
+        .flight-row {
+          grid-template-columns: 60px 1fr 1fr;
+        }
+        .flight-row .flight-times {
+          display: none;
+        }
+        .travelers-grid {
+          grid-template-columns: 1fr;
+        }
+        .accom-card {
+          grid-template-columns: 1fr;
+        }
+        .cdmx-trip-map-inner {
+          min-height: 320px;
+          height: 42vh;
+        }
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <span class="nav-logo">CDMX '26</span>
+      <div class="nav-links">
+        <a href="#flights">Flights</a>
+        <a href="#stay">Stay</a>
+        <a href="#itinerary">Itinerary</a>
+        <a href="#transit">Getting Around</a>
+        <a href="#essentials">Essentials</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-tag">Gutierrez Family · World Cup 2026</div>
+      <h1>Ciudad<br />de <em>México</em></h1>
+      <div class="hero-sub">
+        Jun 08 — Jun 13, 2026 &nbsp;·&nbsp; 5 nights &nbsp;·&nbsp; CDMX
+      </div>
+      <div class="hero-badge">
+        <span class="badge-pill">⚽ Mexico Watch Party · Zócalo · Jun 11</span>
+        <span class="badge-pill">✈ UA · PJJJCQ</span>
+        <span class="badge-pill">2 Adults</span>
+      </div>
+      <div class="scroll-hint">↓ scroll</div>
+    </section>
+
+    <!-- FLIGHTS -->
+    <div class="flights-bg" id="flights">
+      <div class="section">
+        <div class="section-label">Flight Information</div>
+        <h2 class="section-title" style="color: var(--cream)">Your Journey</h2>
+
+        <div class="conf-box">
+          <span class="conf-label">Confirmation</span>
+          <span class="conf-code">PJJJCQ</span>
+          <span class="conf-label" style="margin-left: 1rem"
+            >United Airlines</span
+          >
+        </div>
+
+        <p
+          style="
+            font-family: &quot;Oswald&quot;, sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+          "
+        >
+          Outbound · Mon June 8
+        </p>
+        <div class="flights-grid" style="margin-bottom: 2rem">
+          <div class="flight-row header">
+            <span>Flight</span><span>Route</span><span>Times</span
+            ><span>Seats</span>
+          </div>
+          <div class="flight-row">
+            <span class="flight-num">UA1596</span>
+            <div class="flight-route">
+              <span class="airport-code">PDX</span>
+              <span class="route-arrow">→</span>
+              <span class="airport-code">SFO</span>
+            </div>
+            <div class="flight-times">
+              08:35 AM → 10:25 AM<br /><span class="flight-date"
+                >Economy (XN)</span
+              >
+            </div>
+            <div class="seat-tag">Hugo: 37B &nbsp;·&nbsp; Rafael: 37C</div>
+          </div>
+          <div class="flight-row">
+            <span class="flight-num">UA817</span>
+            <div class="flight-route">
+              <span class="airport-code">SFO</span>
+              <span class="route-arrow">→</span>
+              <span class="airport-code">MEX</span>
+            </div>
+            <div class="flight-times">
+              03:05 PM → 08:35 PM<br /><span class="flight-date"
+                >Economy (XN)</span
+              >
+            </div>
+            <div class="seat-tag">Hugo: 30A &nbsp;·&nbsp; Rafael: 30B</div>
+          </div>
+        </div>
+
+        <p
+          style="
+            font-family: &quot;Oswald&quot;, sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+          "
+        >
+          Return · Sat June 13
+        </p>
+        <div class="flights-grid">
+          <div class="flight-row header">
+            <span>Flight</span><span>Route</span><span>Times</span
+            ><span>Seats</span>
+          </div>
+          <div class="flight-row">
+            <span class="flight-num">UA1272</span>
+            <div class="flight-route">
+              <span class="airport-code">MEX</span>
+              <span class="route-arrow">→</span>
+              <span class="airport-code">SFO</span>
+            </div>
+            <div class="flight-times">
+              05:15 PM → 09:00 PM<br /><span class="flight-date"
+                >Economy (YN)</span
+              >
+            </div>
+            <div class="seat-tag">Hugo: 32A &nbsp;·&nbsp; Rafael: 32B</div>
+          </div>
+          <div class="flight-row">
+            <span class="flight-num">UA2384</span>
+            <div class="flight-route">
+              <span class="airport-code">SFO</span>
+              <span class="route-arrow">→</span>
+              <span class="airport-code">PDX</span>
+            </div>
+            <div class="flight-times">
+              10:52 PM → 12:50 AM+1<br /><span class="flight-date"
+                >Economy (YN)</span
+              >
+            </div>
+            <div class="seat-tag">Hugo: 34F &nbsp;·&nbsp; Rafael: 34E</div>
+          </div>
+        </div>
+
+        <div class="travelers-grid">
+          <div class="traveler-card">
+            <div class="traveler-name">Hugo E. Ungar Gutiérrez</div>
+            <div class="traveler-ticket">eTicket: 0162399698055</div>
+            <div class="seat-row">
+              <span class="seat-chip">PDX→SFO 37B</span>
+              <span class="seat-chip">SFO→MEX 30A</span>
+              <span class="seat-chip">MEX→SFO 32A</span>
+              <span class="seat-chip">SFO→PDX 34F</span>
+            </div>
+          </div>
+          <div class="traveler-card">
+            <div class="traveler-name">Rafael Gutiérrez</div>
+            <div class="traveler-ticket">
+              eTicket: 0162399698054 &nbsp;·&nbsp; UA-XXXXX819
+            </div>
+            <div class="seat-row">
+              <span class="seat-chip">PDX→SFO 37C</span>
+              <span class="seat-chip">SFO→MEX 30B</span>
+              <span class="seat-chip">MEX→SFO 32B</span>
+              <span class="seat-chip">SFO→PDX 34E</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- STAY -->
+    <div id="stay">
+      <div class="section">
+        <div class="section-label">Accommodation</div>
+        <h2 class="section-title">Home Base</h2>
+        <div class="accom-card">
+          <div>
+            <div class="accom-address">
+              C. Marsella 15, Juárez,<br />Cuauhtémoc, CDMX
+            </div>
+            <div class="accom-detail">
+              <svg
+                class="accom-icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              <span
+                >Colonia Juárez — walkable to Paseo de la Reforma, Zona Rosa,
+                and Roma Norte. Excellent central location.</span
+              >
+            </div>
+            <div class="accom-detail">
+              <svg
+                class="accom-icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                />
+              </svg>
+              <span
+                >Nearest Metro: Insurgentes (Line 1, Pink) — 5 min walk. Ecobici
+                bike station on Marsella St.</span
+              >
+            </div>
+            <div class="accom-detail">
+              <svg
+                class="accom-icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M12 3v1m0 16v1m8.66-13l-.86.5M4.2 17.5l-.86.5M20.66 17.5l-.86-.5M4.2 6.5l-.86-.5M21 12h-1M4 12H3"
+                />
+              </svg>
+              <span
+                >June in Juárez is warm (~78°F highs) with afternoon showers.
+                Bring a light rain layer.</span
+              >
+            </div>
+          </div>
+          <div class="accom-dates">
+            <div class="night-count">5</div>
+            <div class="night-label">Nights</div>
+            <div class="date-range">
+              Check-in<br />
+              <strong style="color: var(--cream)">Mon Jun 8</strong><br />
+              <br />
+              Check-out<br />
+              <strong style="color: var(--cream)">Sat Jun 13</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="trip-map-block">
+          <div class="section-label">Overview</div>
+          <h2 class="section-title">Trip Map</h2>
+          <p
+            style="
+              color: var(--muted);
+              font-size: 14px;
+              max-width: 42rem;
+              margin: 0 0 1.25rem;
+            "
+          >
+            Tap markers for venue notes.
+          </p>
+          <div
+            id="cdmx-trip-map"
+            class="cdmx-trip-map-inner"
+            role="application"
+            aria-label="Interactive map of CDMX itinerary stops"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- ITINERARY -->
+    <div id="itinerary">
+      <div class="section">
+        <div class="section-label">Day by Day</div>
+        <h2 class="section-title">The Itinerary</h2>
+
+        <div class="days-wrapper">
+          <!-- DAY 1 -->
+          <div class="day-card">
+            <div class="day-number">
+              <div class="day-num-big">8</div>
+              <div class="day-name">Monday<br />June</div>
+            </div>
+            <div class="day-content">
+              <div class="day-title">Arrival Day</div>
+              <div class="day-subtitle">PDX → SFO → MEX · Arrive 8:35 PM</div>
+              <div class="event-list">
+                <div class="event">
+                  <span class="event-time">08:35</span>
+                  <div class="event-body">
+                    <div class="event-name">Depart Portland (PDX)</div>
+                    <div class="event-desc">
+                      UA1596 · Seats 37B/37C. 4.5hr layover in SFO — grab a bite
+                      at the airport.
+                    </div>
+                    <span class="event-tag tag-transit">Flight</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">15:05</span>
+                  <div class="event-body">
+                    <div class="event-name">Depart San Francisco (SFO)</div>
+                    <div class="event-desc">
+                      UA817 · Seats 30A/30B. ~5.5hr flight. Window seat 30A has
+                      a great approach view over CDMX.
+                    </div>
+                    <span class="event-tag tag-transit">Flight</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">20:35</span>
+                  <div class="event-body">
+                    <div class="event-name">Arrive Mexico City (MEX)</div>
+                    <div class="event-desc">
+                      Clear customs & immigration. Take the official airport
+                      taxi (pay at booth inside terminal — avoid street taxis).
+                      ~30 min to Colonia Juárez.
+                    </div>
+                    <span class="event-tag tag-transit">Arrival</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">22:00</span>
+                  <div class="event-body">
+                    <div class="event-name">Late dinner: El Califa de León</div>
+                    <div class="event-desc">
+                      Good, classic tacos — a solid night-one stop. Closer still
+                      and open 24 hours: Tacos La Chula Roma (walkable from
+                      Marsella).
+                    </div>
+                    <span class="event-tag tag-food">Food</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DAY 2 -->
+          <div class="day-card">
+            <div class="day-number">
+              <div class="day-num-big">9</div>
+              <div class="day-name">Tuesday<br />June</div>
+            </div>
+            <div class="day-content">
+              <div class="day-title">Anthropology & Roma Norte</div>
+              <div class="day-subtitle">
+                Museo Nacional · Chapultepec · Lucha Libre
+              </div>
+              <div class="event-list">
+                <div class="event">
+                  <span class="event-time">09:00</span>
+                  <div class="event-body">
+                    <div class="event-name">Ecobici to Chapultepec</div>
+                    <div class="event-desc">
+                      Pick up bikes from the station on Marsella. Ride Reforma's
+                      dedicated bike lane through Bosque de Chapultepec — one of
+                      the world's great urban bike rides.
+                    </div>
+                    <span class="event-tag tag-adventure">Bike</span>
+                    <span class="event-tag tag-transit">Ecobici</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">10:00</span>
+                  <div class="event-body">
+                    <div class="event-name">Museo Nacional de Antropología</div>
+                    <div class="event-desc">
+                      One of the world's great museums. The Aztec Sun Stone,
+                      Maya rooms, and Teotihuacan halls alone are worth half a
+                      day. Budget 3–4 hours. Buy tickets online in advance. The
+                      central courtyard with its iconic umbrella-pillar is a
+                      perfect photo moment.
+                    </div>
+                    <span class="event-tag tag-culture">Museum</span>
+                    <div class="tip-box">
+                      🎟 Pre-book at mna.inah.gob.mx. ~$5 USD. Closed Mondays.
+                      Audio guides available — worth it for teens.
+                    </div>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">14:00</span>
+                  <div class="event-body">
+                    <div class="event-name">Lunch in Polanco</div>
+                    <div class="event-desc">
+                      Walk to nearby Polanco — Mercado Antara or a casual spot
+                      in the neighborhood. Save Contramar for Roma (Friday
+                      splurge; reservations required).
+                    </div>
+                    <span class="event-tag tag-food">Food</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">16:30</span>
+                  <div class="event-body">
+                    <div class="event-name">Explore Roma Norte</div>
+                    <div class="event-desc">
+                      Metro Line 1 back toward Insurgentes. Walk Álvaro Obregón
+                      — the tree-lined median boulevard is perfect for a
+                      late-afternoon stroll. Browse the vintage shops and
+                      murals.
+                    </div>
+                    <span class="event-tag tag-culture">Neighborhood</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">19:30</span>
+                  <div class="event-body">
+                    <div class="event-name">
+                      🎭 Lucha Libre — Martes Populares
+                    </div>
+                    <div class="event-desc">
+                      Arena México hosts Martes Populares every Tuesday at 7:30
+                      PM. This is the most authentic, local-crowd night of the
+                      week. Doors open 6:30 PM. Get there early to soak up the
+                      pre-fight atmosphere and buy a souvenir mask. Seats $11–25
+                      USD.
+                    </div>
+                    <span class="event-tag tag-adventure">Lucha Libre</span>
+                    <div class="tip-box">
+                      🎟 Book via ticketmaster.com.mx. Arena México, Dr. Lavista
+                      197, Colonia Doctores. Grab street tacos from the vendors
+                      outside before going in.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DAY 3 -->
+          <div class="day-card">
+            <div class="day-number">
+              <div class="day-num-big">10</div>
+              <div class="day-name">Wednesday<br />June</div>
+            </div>
+            <div class="day-content">
+              <div class="day-title">Centro Histórico & Zócalo Fan Fest</div>
+              <div class="day-subtitle">
+                World Cup Fan Fest · Templo Mayor · Bellas Artes
+              </div>
+              <div class="event-list">
+                <div class="event">
+                  <span class="event-time">09:30</span>
+                  <div class="event-body">
+                    <div class="event-name">Metro to Centro Histórico</div>
+                    <div class="event-desc">
+                      Line 1 (Pink) from Insurgentes to Pino Suárez or Zócalo.
+                      One of the city's great rides — fast, cheap, and packed
+                      with local life.
+                    </div>
+                    <span class="event-tag tag-transit">Metro</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">10:00</span>
+                  <div class="event-body">
+                    <div class="event-name">Templo Mayor</div>
+                    <div class="event-desc">
+                      The ruins of the Aztec empire's great temple, excavated
+                      right in the city center. The museum is compact but
+                      extraordinary. Context for everything you'll see at the
+                      Anthropology Museum.
+                    </div>
+                    <span class="event-tag tag-culture">Ruins</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">12:00</span>
+                  <div class="event-body">
+                    <div class="event-name">Palacio Nacional murals (free)</div>
+                    <div class="event-desc">
+                      Diego Rivera's epic mural of Mexican history wraps around
+                      the interior courtyards. Free entry with ID. Give it 30–45
+                      min.
+                    </div>
+                    <span class="event-tag tag-art">Art</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">12:30</span>
+                  <div class="event-body">
+                    <div class="event-name">
+                      Antiguo Colegio de San Ildefonso · Orozco murals
+                    </div>
+                    <div class="event-desc">
+                      The former Jesuit school (CENCROPAM) holds killer José
+                      Clemente Orozco murals — a compact stop between the
+                      Palacio and lunch downtown.
+                    </div>
+                    <span class="event-tag tag-art">Murals</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">13:30</span>
+                  <div class="event-body">
+                    <div class="event-name">
+                      Lunch downtown · CHARCO (reservation)
+                    </div>
+                    <div class="event-desc">
+                      Stay in Centro for market energy without trekking to San
+                      Juan (great, but not close to the Zócalo). Book CHARCO on
+                      República de Guatemala — or grab Sin Nombre / Bósforo on
+                      Luis Moya en route.
+                    </div>
+                    <span class="event-tag tag-food">Food</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">15:00</span>
+                  <div class="event-body">
+                    <div class="event-name">
+                      ⚽ FIFA World Cup Fan Fest — Zócalo
+                    </div>
+                    <div class="event-desc">
+                      The Zócalo is one of the official WC 2026 Fan Fest
+                      locations. Giant screens, live entertainment, food stalls,
+                      and the electric buzz of the opening days of the
+                      tournament. Mexico's first game is just tomorrow — the
+                      energy will be absolutely electric.
+                    </div>
+                    <span class="event-tag tag-football">FIFA Fan Fest</span>
+                    <div class="tip-box">
+                      📍 Plaza de la Constitución (El Zócalo). Free entry.
+                      Arrive by 2:30 PM to get a good spot — it will be packed.
+                      Wear sunscreen; bring water.
+                    </div>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">18:30</span>
+                  <div class="event-body">
+                    <div class="event-name">Palacio de Bellas Artes</div>
+                    <div class="event-desc">
+                      Walk past this Art Nouveau gem at dusk — the exterior
+                      alone is worth it. Check the schedule; occasional evening
+                      performances happen at this hour.
+                    </div>
+                    <span class="event-tag tag-art">Architecture</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DAY 4 — MATCH DAY -->
+          <div class="day-card">
+            <div class="day-number">
+              <div class="day-num-big">11</div>
+              <div class="day-name">Thursday<br />June</div>
+            </div>
+            <div class="day-content">
+              <div class="day-title" style="color: var(--red)">
+                🇲🇽 MATCH DAY — Zócalo Watch Party
+              </div>
+              <div class="day-subtitle">
+                Mexico vs South Africa · Tournament opener · Watch at El Zócalo
+              </div>
+              <div class="event-list">
+                <div class="event">
+                  <span class="event-time">08:30</span>
+                  <div class="event-body">
+                    <div class="event-name">Mexican breakfast</div>
+                    <div class="event-desc">
+                      Fuel up properly. El Cardinal near the Alameda, or a local
+                      café on Marsella for chilaquiles, huevos rancheros, and
+                      café de olla.
+                    </div>
+                    <span class="event-tag tag-food">Food</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">10:00</span>
+                  <div class="event-body">
+                    <div class="event-name">Museo Jumex</div>
+                    <div class="event-desc">
+                      Contemporary art in Polanco/Ecatepec corridor — swap for
+                      Soumaya if you want a sharper, more focused collection.
+                      Keep it to ~90 min so you can stake out a spot at the
+                      Zócalo.
+                    </div>
+                    <span class="event-tag tag-art">Museum</span>
+                    <span class="event-tag tag-culture">Free</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">11:45</span>
+                  <div class="event-body">
+                    <div class="event-name">
+                      Head to El Zócalo · Grab lunch en route
+                    </div>
+                    <div class="event-desc">
+                      Metro Line 1 (Pink) toward Pino Suárez or Zócalo. Pick up
+                      tacos al pastor from a street vendor near the plaza, or
+                      lunch downtown (Sin Nombre / Bósforo on Luis Moya). The
+                      streets will already be a sea of painted faces and green
+                      jerseys.
+                    </div>
+                    <span class="event-tag tag-food">Food</span>
+                    <span class="event-tag tag-transit">Metro</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">13:00</span>
+                  <div class="event-body">
+                    <div class="event-name">
+                      ⚽ Mexico vs South Africa — Watch Party at El Zócalo
+                    </div>
+                    <div class="event-desc">
+                      Kickoff 1:00 PM CDMX local time. The Zócalo is the
+                      official FIFA Fan Fest site in Mexico City — giant screens
+                      wrap the plaza, mariachis between halves, food stalls, and
+                      hundreds of thousands of fans watching their home team in
+                      the tournament opener. The game itself is being played
+                      just south of here at Azteca; the Zócalo will mirror its
+                      energy beat for beat.
+                    </div>
+                    <span class="event-tag tag-football">FIFA Fan Fest</span>
+                    <span class="event-tag tag-culture">Watch Party</span>
+                    <div class="tip-box">
+                      📍 Plaza de la Constitución. Free entry. Arrive by 11:30
+                      AM to claim a spot near a screen. Bring sunscreen, water,
+                      and a small Mexican flag if you can find one. Phones in
+                      front pockets — it'll be packed.
+                    </div>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">16:00</span>
+                  <div class="event-body">
+                    <div class="event-name">Celebrate in Centro & Condesa</div>
+                    <div class="event-desc">
+                      Win or lose, the city will be electric. Walk the Centro
+                      back streets, then taxi or Metro to Condesa or Roma for
+                      mezcal, tacos, and the atmosphere of a country celebrating
+                      its tournament opener.
+                    </div>
+                    <span class="event-tag tag-food">Celebration</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">20:00</span>
+                  <div class="event-body">
+                    <div class="event-name">
+                      ⚽ Optional: South Korea vs Czechia (Group A)
+                    </div>
+                    <div class="event-desc">
+                      Kickoff 8:00 PM CDMX, played up in Zapopan. Group A's
+                      second match of opening day — directly relevant to
+                      Mexico's path through the tournament. Catch it on the big
+                      screens at Pata Negra or El Depósito in Condesa, or back
+                      at the Zócalo if it's still buzzing.
+                    </div>
+                    <span class="event-tag tag-football">Watch Party</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DAY 5 -->
+          <div class="day-card">
+            <div class="day-number">
+              <div class="day-num-big">12</div>
+              <div class="day-name">Friday<br />June</div>
+            </div>
+            <div class="day-content">
+              <div class="day-title">Frida, Coyoacán & Art</div>
+              <div class="day-subtitle">
+                Frida Kahlo Museum · Coyoacán Markets · Slow Day
+              </div>
+              <div class="event-list">
+                <div class="event">
+                  <span class="event-time">09:00</span>
+                  <div class="event-body">
+                    <div class="event-name">Metro + walk to Coyoacán</div>
+                    <div class="event-desc">
+                      Line 3 (Green) to Viveros, then a 10-min walk through
+                      shaded colonial streets. Coyoacán feels like a village
+                      inside the megacity.
+                    </div>
+                    <span class="event-tag tag-transit">Metro</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">10:00</span>
+                  <div class="event-body">
+                    <div class="event-name">
+                      Museo Frida Kahlo — La Casa Azul
+                    </div>
+                    <div class="event-desc">
+                      Frida's intensely personal home is now a museum. The
+                      cobalt-blue walls, her studio, Rivera's belongings, and
+                      the garden are all deeply moving. Mandatory pre-booking —
+                      tickets sell out days in advance.
+                    </div>
+                    <span class="event-tag tag-art">Museum</span>
+                    <div class="tip-box">
+                      🎟 museofridakahlo.org.mx. Book at least 3–5 days ahead.
+                      Timed entry. ~$10 USD. Closed Mondays.
+                    </div>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">12:30</span>
+                  <div class="event-body">
+                    <div class="event-name">
+                      Mercado de Coyoacán · Quesadillas El Güero
+                    </div>
+                    <div class="event-desc">
+                      Queue at Quesadillas El Güero for the market-famous
+                      quesadillas, then wander for elote and agua de Jamaica. Mi
+                      Compa Chava nearby if you want seafood instead. Most
+                      cantinas will have Canada vs Bosnia & Herzegovina (kickoff
+                      1:00 PM CDMX) on the screens.
+                    </div>
+                    <span class="event-tag tag-food">Market</span>
+                    <span class="event-tag tag-football">Canada vs BIH</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">14:30</span>
+                  <div class="event-body">
+                    <div class="event-name">Wander Coyoacán Zócalo</div>
+                    <div class="event-desc">
+                      Street performers, artisan stalls, shaded plazas.
+                      Unstructured time. Grab an ice cream from one of the
+                      famous nieves vendors.
+                    </div>
+                    <span class="event-tag tag-culture">Downtime</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">17:00</span>
+                  <div class="event-body">
+                    <div class="event-name">
+                      Viernes Espectacular — Lucha Libre (optional)
+                    </div>
+                    <div class="event-desc">
+                      Friday night at Arena México (8:30 PM) is the biggest
+                      weekly show — premium luchadores, louder crowd, higher
+                      energy. A great alternative if you missed Tuesday's show
+                      or want to go twice.
+                    </div>
+                    <span class="event-tag tag-adventure">Optional</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">19:00</span>
+                  <div class="event-body">
+                    <div class="event-name">
+                      ⚽ Optional: USA vs Paraguay (Group D)
+                    </div>
+                    <div class="event-desc">
+                      Kickoff 7:00 PM CDMX, played at SoFi Stadium in LA. If
+                      you're skipping lucha libre, grab seats at a Roma or
+                      Condesa sports bar — Pinche Gringo BBQ and El Depósito
+                      both project the games. Or swing back through the Zócalo
+                      Fan Fest for the full crowd experience.
+                    </div>
+                    <span class="event-tag tag-football">Watch Party</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">21:00</span>
+                  <div class="event-body">
+                    <div class="event-name">
+                      Dinner: Contramar (Roma) or Rosetta
+                    </div>
+                    <div class="event-desc">
+                      Splurge night. Contramar in Roma (cooler room than
+                      Polanco) — tuna tostadas and grilled fish; reservations
+                      required. Or Rosetta on Colima for refined
+                      Mexican-Italian. Book in advance.
+                    </div>
+                    <span class="event-tag tag-food">Dinner</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DAY 6 — DEPARTURE -->
+          <div class="day-card">
+            <div class="day-number">
+              <div class="day-num-big">13</div>
+              <div class="day-name">Saturday<br />June</div>
+            </div>
+            <div class="day-content">
+              <div class="day-title">Last Morning & Departure</div>
+              <div class="day-subtitle">Flight MEX → SFO at 5:15 PM</div>
+              <div class="event-list">
+                <div class="event">
+                  <span class="event-time">09:00</span>
+                  <div class="event-body">
+                    <div class="event-name">Final Reforma bike ride</div>
+                    <div class="event-desc">
+                      Saturday mornings, Paseo de la Reforma closes to cars —
+                      "Paseo Ciclista." One of the world's great urban cycling
+                      experiences. Ride from your neighborhood all the way to
+                      Chapultepec and back.
+                    </div>
+                    <span class="event-tag tag-adventure">Bike</span>
+                    <div class="tip-box">
+                      🚲 Reforma goes car-free Sundays too, but Saturday
+                      mornings are also partially open to bikes. Confirm the
+                      schedule at ecobici.cdmx.gob.mx.
+                    </div>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">11:00</span>
+                  <div class="event-body">
+                    <div class="event-name">Final tacos & café</div>
+                    <div class="event-desc">
+                      El Turix (Polanco) for cochinita pibil tacos, or any
+                      taquería near your apartment. Save room for a final café
+                      de olla.
+                    </div>
+                    <span class="event-tag tag-food">Food</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">13:00</span>
+                  <div class="event-body">
+                    <div class="event-name">Taxi to MEX Airport</div>
+                    <div class="event-desc">
+                      Allow 90 min minimum on a Saturday. Book a confirmed taxi
+                      or use Uber. Terminal 1 for United. Check-in closes ~2
+                      hours before departure. If you've got time at the gate,
+                      Brazil vs Morocco kicks off 4:00 PM CDMX — most airport
+                      bars will have it on.
+                    </div>
+                    <span class="event-tag tag-transit">Departure</span>
+                    <span class="event-tag tag-football">Game On</span>
+                  </div>
+                </div>
+                <div class="event">
+                  <span class="event-time">17:15</span>
+                  <div class="event-body">
+                    <div class="event-name">Depart MEX · UA1272</div>
+                    <div class="event-desc">
+                      Seats 32A/32B → SFO 9:00 PM. Connection to UA2384 at 10:52
+                      PM → PDX arrives 12:50 AM.
+                    </div>
+                    <span class="event-tag tag-transit">Flight</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /days-wrapper -->
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- TRANSIT -->
+    <div class="transit-bg" id="transit">
+      <div class="section">
+        <div class="section-label" style="color: rgba(245, 240, 232, 0.5)">
+          Getting Around
+        </div>
+        <h2 class="section-title">Transportation</h2>
+        <div class="transit-grid">
+          <div class="transit-card">
+            <span class="transit-icon">🚇</span>
+            <div class="transit-title">Metro (STC)</div>
+            <div class="transit-desc">
+              The fastest way around the city. Your apartment at Marsella is a
+              5-min walk to Insurgentes (Line 1, Pink). Clean, frequent, very
+              cheap.
+            </div>
+            <div class="transit-detail">
+              ~$0.25 USD per ride · Tap card or tokens · Avoid 7–9 AM / 5–8 PM
+              rush
+            </div>
+          </div>
+          <div class="transit-card">
+            <span class="transit-icon">🚲</span>
+            <div class="transit-title">Ecobici Bike Share</div>
+            <div class="transit-desc">
+              CDMX has an excellent bike-share network with dedicated lanes on
+              Reforma and throughout Condesa/Roma. Perfect for your
+              neighborhood. 45-min trips are free with a day/week pass.
+            </div>
+            <div class="transit-detail">
+              Register at ecobici.cdmx.gob.mx · Week pass ~$3 USD · Station on
+              Marsella
+            </div>
+          </div>
+          <div class="transit-card">
+            <span class="transit-icon">🚕</span>
+            <div class="transit-title">Uber / InDrive</div>
+            <div class="transit-desc">
+              Uber works well in CDMX and is much safer than hailing street
+              taxis. Use for trips that are too long to bike, especially at
+              night or with luggage.
+            </div>
+            <div class="transit-detail">
+              $3–8 USD for most crosstown trips · InDrive often cheaper
+            </div>
+          </div>
+          <div class="transit-card">
+            <span class="transit-icon">⚽</span>
+            <div class="transit-title">Zócalo Fan Fest</div>
+            <div class="transit-desc">
+              Metro Line 1 (Pink) from Insurgentes to Pino Suárez or Zócalo.
+              Plaza de la Constitución hosts the official FIFA Fan Fest with
+              giant screens, food stalls, and live music. Avoid driving on match
+              days — Centro shuts down to traffic.
+            </div>
+            <div class="transit-detail">
+              Free entry · Arrive 60–90 min before kickoff for a screen view ·
+              Best Mexico-game atmosphere outside Azteca
+            </div>
+          </div>
+          <div class="transit-card">
+            <span class="transit-icon">🛬</span>
+            <div class="transit-title">Airport Transfer</div>
+            <div class="transit-desc">
+              On arrival: buy an official taxi voucher inside Terminal 1 (fixed
+              price, much safer). On departure, Uber or a booked taxi from your
+              address. ~30–45 min to/from Juárez.
+            </div>
+            <div class="transit-detail">
+              Official taxi ~$15 USD · Uber slightly cheaper · Allow 90 min on
+              departure day
+            </div>
+          </div>
+          <div class="transit-card">
+            <span class="transit-icon">🚌</span>
+            <div class="transit-title">Metrobús</div>
+            <div class="transit-desc">
+              BRT buses running on dedicated lanes. Line 1 runs along
+              Insurgentes — useful for Coyoacán and southern neighborhoods.
+              Needs a separate card (buy at any station).
+            </div>
+            <div class="transit-detail">
+              ~$0.50 USD · Faster than Metro for north-south trips
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESSENTIALS -->
+    <div id="essentials">
+      <div class="section">
+        <div class="section-label">Travel Notes</div>
+        <h2 class="section-title">Essentials</h2>
+        <div class="essentials-grid">
+          <div class="essential-card">
+            <span class="essential-icon">🎟</span>
+            <div class="essential-title">Book Ahead</div>
+            <ul class="essential-list">
+              <li>Frida Kahlo Museum — museofridakahlo.org.mx</li>
+              <li>Lucha Libre Tickets — ticketmaster.com.mx</li>
+              <li>Museo Antropología — mna.inah.gob.mx</li>
+              <li>Dinner reservations (CHARCO, Contramar Roma, Rosetta)</li>
+            </ul>
+          </div>
+          <div class="essential-card">
+            <span class="essential-icon">💸</span>
+            <div class="essential-title">Money</div>
+            <ul class="essential-list">
+              <li>Withdraw pesos from Banamex / HSBC ATMs</li>
+              <li>Many places are cash-only (markets, taquerias)</li>
+              <li>Notify your bank before traveling</li>
+              <li>$1 USD ≈ 17–18 MXN (May 2026)</li>
+            </ul>
+          </div>
+          <div class="essential-card">
+            <span class="essential-icon">☁️</span>
+            <div class="essential-title">June Weather</div>
+            <ul class="essential-list">
+              <li>Highs ~78°F · Lows ~56°F at night</li>
+              <li>Rainy season: afternoon showers daily</li>
+              <li>Pack a compact rain jacket or poncho</li>
+              <li>7,350 ft altitude — take it easy day one</li>
+            </ul>
+          </div>
+          <div class="essential-card">
+            <span class="essential-icon">📱</span>
+            <div class="essential-title">Apps to Download</div>
+            <ul class="essential-list">
+              <li>Uber (reliable, safe)</li>
+              <li>Ecobici (bike share)</li>
+              <li>Google Maps (offline CDMX map)</li>
+              <li>Google Translate (camera mode)</li>
+            </ul>
+          </div>
+          <div class="essential-card">
+            <span class="essential-icon">🌮</span>
+            <div class="essential-title">Don't Miss</div>
+            <ul class="essential-list">
+              <li>Tacos al pastor from a street trompo</li>
+              <li>Café de olla (cinnamon-spiced drip coffee)</li>
+              <li>Elote or esquites from a cart</li>
+              <li>Agua de jamaica or horchata</li>
+            </ul>
+          </div>
+          <div class="essential-card">
+            <span class="essential-icon">🛡</span>
+            <div class="essential-title">Safety Tips</div>
+            <ul class="essential-list">
+              <li>Condesa, Roma, Polanco, Juárez = very safe</li>
+              <li>Always use Uber over street taxis at night</li>
+              <li>Keep phones in pockets on the Metro</li>
+              <li>Buy water in large jugs — don't drink tap</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div style="margin-bottom: 0.5rem">
+        <strong>Gutierrez Family · CDMX June 2026</strong>
+      </div>
+      <div>Confirmation PJJJCQ · United Airlines · 2 Travelers</div>
+      <div style="margin-top: 0.75rem; font-size: 9px; opacity: 0.5">
+        Mexico vs South Africa · June 11 · Watch Party at El Zócalo
+      </div>
+    </footer>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.18.0/mapbox-gl.js"></script>
+    <script>
+      (function () {
+        mapboxgl.accessToken =
+          "pk.eyJ1IjoiZ3JhZmEiLCJhIjoiY20wdTdlcTM3MTRsZDJxcGxmcW85MzQxMCJ9.H-wLHlLXdbtIQ9R1zsDuJg";
+
+        function parseGoogleMapsCoords(url) {
+          if (!url || typeof url !== "string") return null;
+          var m = url.match(/!3d(-?\d+(?:\.\d+)?)!4d(-?\d+(?:\.\d+)?)/);
+          if (m) return { lat: parseFloat(m[1]), lng: parseFloat(m[2]) };
+          m = url.match(/!8m2!3d(-?\d+(?:\.\d+)?)!4d(-?\d+(?:\.\d+)?)/);
+          if (m) return { lat: parseFloat(m[1]), lng: parseFloat(m[2]) };
+          m = url.match(/@(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)(?:,|z)/);
+          if (m) return { lat: parseFloat(m[1]), lng: parseFloat(m[2]) };
+          return null;
+        }
+
+        function resolvePlaceCoords(p) {
+          if (!p.mapsUrl) return;
+          var fromUrl = parseGoogleMapsCoords(p.mapsUrl);
+          if (fromUrl) {
+            p.lat = fromUrl.lat;
+            p.lng = fromUrl.lng;
+          }
+        }
+
+        var places = [
+          {
+            lng: -99.157004,
+            lat: 19.426727,
+            title: "Home base · Colonia Juárez",
+            markerColor: "#2563eb",
+            mapsQuery: "Calle Marsella 15, Colonia Juárez, Ciudad de México",
+            description:
+              "Five nights on Calle Marsella 15 · walkable to Reforma, Roma Norte & Ecobici.",
+          },
+          {
+            lng: -99.159267,
+            lat: 19.4410673,
+            title: "El Califa de León",
+            mapsUrl:
+              "https://www.google.com/maps/place/El+Califa+de+Le%C3%B3n/@19.4410723,-99.1618419,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1f8cfab01d80d:0x913045c236575e79!8m2!3d19.4410673!4d-99.159267!16s%2Fg%2F1hhhvlsv5",
+            description:
+              "Good, classic tacos — legendary steak tacos on Ribera de San Cosme.",
+          },
+          {
+            lng: -99.1684286,
+            lat: 19.4055356,
+            title: "Tacos La Chula Roma",
+            mapsUrl:
+              "https://www.google.com/maps/place/Tacos+La+Chula+Roma/@19.4055356,-99.3085043,12z/data=!4m10!1m2!2m1!1sla+chula+cdmx!3m6!1s0x85d1ffe556a5900b:0xf86f133699dc233a!8m2!3d19.4055356!4d-99.1684286",
+            description:
+              "Closer to home than Califa · great tacos · open 24 hours.",
+          },
+          {
+            lng: -99.18627747,
+            lat: 19.42600514,
+            title: "Museo Nacional de Antropología",
+            description:
+              "Flagship archaeology & cultures collection · pair with Chapultepec bike loop.",
+          },
+          {
+            lng: -99.188775,
+            lat: 19.43042,
+            title: "Polanco",
+            description:
+              "Upscale lunch grids & stroller-friendly afternoons off Reforma.",
+          },
+          {
+            lng: -99.157694,
+            lat: 19.429419,
+            title: "Roma Norte",
+            description:
+              "Tree-lined avenues for café crawls · vintage boutiques & evening strolls.",
+          },
+          {
+            lng: -99.152035,
+            lat: 19.424124,
+            title: "Arena México",
+            description:
+              "Tuesday Martes Populares lucha • optional louder Viernes Espectacular shows.",
+          },
+          {
+            lng: -99.13160107,
+            lat: 19.43473107,
+            title: "Templo Mayor",
+            description:
+              "Aztec ceremonial core excavation & compact museum threading into the Zócalo.",
+          },
+          {
+            lng: -99.131424,
+            lat: 19.43252,
+            title: "Palacio Nacional",
+            description:
+              "Diego Rivera's epic fresco cycle · arrive early with passports for mural entry.",
+          },
+          {
+            lng: -99.1325964,
+            lat: 19.4351938,
+            title: "CHARCO",
+            mapsUrl:
+              "https://www.google.com/maps?q=CHARCO,+Rep%C3%BAblica+de+Guatemala+24,+Centro+Hist%C3%B3rico+de+la+Cdad.+de+M%C3%A9xico,+Centro,+Cuauht%C3%A9moc,+06020+Ciudad+de+M%C3%A9xico,+CDMX&ftid=0x85d1f957305af43d:0x4369bbd8318f459f",
+            description:
+              "Centro Histórico lunch · book a reservation · República de Guatemala 24.",
+          },
+          {
+            lng: -99.1285742,
+            lat: 19.4365611,
+            title: "Antiguo Colegio de San Ildefonso",
+            mapsUrl:
+              "https://www.google.com/maps?q=CENCROPAM,+San+Ildefonso+no.+60+Centro+Alcald%C3%ADa,+Cuauht%C3%A9moc,+06000+Ciudad+de+M%C3%A9xico,+CDMX&ftid=0x85d1f93483e11c05:0xc977b205a371893",
+            description:
+              "Killer José Clemente Orozco murals in the former Jesuit school (CENCROPAM).",
+          },
+          {
+            lng: -99.1454493,
+            lat: 19.4310588,
+            title: "Sin Nombre",
+            mapsUrl:
+              "https://www.google.com/maps?q=Sin+Nombre,+Luis+Moya+31-Local+4-5-6,+Colonia+Centro,+Centro,+Cuauht%C3%A9moc,+06010+Ciudad+de+M%C3%A9xico,+CDMX&ftid=0x85d1f9003c5839b1:0xfafd0bb9ed1268df",
+            description: "Great food downtown · Luis Moya 31, locals 4–6.",
+          },
+          {
+            lng: -99.14542,
+            lat: 19.43105,
+            title: "Bósforo",
+            mapsUrl:
+              "https://www.google.com/maps?q=B%C3%B3sforo,+Luis+Moya+31-local+2,+Colonia+Centro,+Centro,+Cuauht%C3%A9moc,+06010+Ciudad+de+M%C3%A9xico,+CDMX&ftid=0x85d1f92aaea10391:0xb11ea2856b2f3c18",
+            description: "Great food downtown · Luis Moya 31, local 2.",
+          },
+          {
+            lng: -99.133763,
+            lat: 19.433527,
+            title: "Zócalo · Plaza de la Constitución",
+            description:
+              "Fan Fest screens, cathedral backdrop & match-day kinetic energy hub.",
+          },
+          {
+            lng: -99.14122072,
+            lat: 19.43513872,
+            title: "Palacio de Bellas Artes",
+            description:
+              "Art Deco icon—catch façade glow at dusk and evening performance schedules.",
+          },
+          {
+            lng: -99.143898,
+            lat: 19.436092,
+            title: "Alameda Central",
+            description:
+              "Leafy centro park for leisurely Mexican breakfasts ahead of Reforma crossings.",
+          },
+          {
+            lng: -99.2038782,
+            lat: 19.4404054,
+            title: "Museo Jumex",
+            mapsUrl:
+              "https://www.google.com/maps/place/Museo+Jumex/@19.4404054,-99.2388971,14z/data=!3m1!5s0x85d2021a61ed71c1:0xb24313802cb61eee!4m10!1m2!2m1!1sJumex!3m6!1s0x85d2021a61dc42bf:0x4fa8779fdff375c1!8m2!3d19.4404054!4d-99.2038782",
+            description:
+              "Contemporary art in Polanco — pre-match morning stop before the Zócalo.",
+          },
+          {
+            lng: -99.16726223,
+            lat: 19.4267632,
+            title: "El Ángel · Paseo de la Reforma",
+            description:
+              "Independence roundabout anchor • Saturday Ciclovía roll-outs head west from here.",
+          },
+          {
+            lng: -99.162464,
+            lat: 19.355181,
+            title: "Museo Frida Kahlo · Casa Azul",
+            description:
+              "Timed tickets required • cobalt walls, studios & guarded garden sanctuary.",
+          },
+          {
+            lng: -99.160978,
+            lat: 19.349237,
+            title: "Mercado de Coyoacán",
+            description:
+              "Colorful pavilion · queue at Quesadillas El Güero · Canada match screens.",
+          },
+          {
+            lng: -99.1556391,
+            lat: 19.3498573,
+            title: "Quesadillas El Güero",
+            mapsUrl:
+              "https://www.google.com/maps?q=Quesadillas+El+G%C3%BCero,+Coyoac%C3%A1n,+04000+Ciudad+de+M%C3%A9xico,+CDMX&ftid=0x85d1ffe493ca98bb:0x9cfbb08dc4629de",
+            description:
+              "Market-famous quesadillas inside Mercado de Coyoacán.",
+          },
+          {
+            lng: -99.162126,
+            lat: 19.4152372,
+            title: "Mi Compa Chava",
+            mapsUrl:
+              "https://www.google.com/maps?q=Mi+Compa+Chava,+PRESIDENTE+VENUSTIANO+CARRANZA,+Felipe+Carrillo+Puerto+ESQ,+Coyoac%C3%A1n,+04000+Ciudad+de+M%C3%A9xico,+CDMX&ftid=0x85d1ff8112f88301:0x9b4b568966c3e2a6",
+            description: "Seafood in Coyoacán · near the market loop.",
+          },
+          {
+            lng: -99.163936,
+            lat: 19.348999,
+            title: "Coyoacán · Jardín Centenario",
+            description:
+              "Shaded plaza loop & nieves carts between market browsing and museo pacing.",
+          },
+          {
+            lng: -99.169432,
+            lat: 19.410426,
+            title: "Condesa",
+            description:
+              "Post-match tacos & mezcal orbit around Parque México–adjacent blocks.",
+          },
+          {
+            lng: -99.1671526,
+            lat: 19.4195793,
+            title: "Contramar · Roma",
+            mapsUrl:
+              "https://www.google.com/maps/place/Contramar/@19.4195843,-99.1697275,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1ff2fbf2f3f7b:0xe8a4468e5f14a3f!8m2!3d19.4195793!4d-99.1671526!16s%2Fg%2F1tkp03yg",
+            description:
+              "Roma location (cooler room) · tuna tostadas & pescado a la talla · reservations required.",
+          },
+          {
+            lng: -99.159705,
+            lat: 19.419821,
+            title: "Rosetta · Calle Colima 166",
+            description:
+              "Refined casa-MexItalian tasting · splurge-night reservations mandatory.",
+          },
+          {
+            lng: -99.201265,
+            lat: 19.431446,
+            title: "El Turix Polanco",
+            description:
+              "Cochinita pibil saloon for one last Saturday taco swing before outbound flights.",
+          },
+          {
+            lng: -99.07190319,
+            lat: 19.43607362,
+            title: "AICM · MEX Intl.",
+            description:
+              "Terminal 1 for United UA1272—pad 90+ minutes Saturdays & hydrate before desks.",
+          },
+        ];
+
+        var mapEl = document.getElementById("cdmx-trip-map");
+        if (!mapEl || typeof mapboxgl === "undefined") return;
+
+        var map = new mapboxgl.Map({
+          container: "cdmx-trip-map",
+          style: "mapbox://styles/grafa/cmolx8yzl002i01ss8ksl419j",
+          center: [-99.154, 19.397],
+          zoom: 10.75,
+          cooperativeGestures: true,
+          attributionControl: false,
+        });
+
+        map.addControl(
+          new mapboxgl.AttributionControl({ compact: true }),
+          "bottom-right",
+        );
+
+        map.addControl(new mapboxgl.NavigationControl(), "top-right");
+
+        var overviewCamera = null;
+        var restoreTimer = null;
+
+        function cancelScheduledRestore() {
+          if (restoreTimer !== null) {
+            clearTimeout(restoreTimer);
+            restoreTimer = null;
+          }
+        }
+
+        function scheduleRestoreOverview() {
+          cancelScheduledRestore();
+          restoreTimer = setTimeout(function () {
+            restoreTimer = null;
+            if (!overviewCamera) return;
+            map.easeTo({
+              center: overviewCamera.center,
+              zoom: overviewCamera.zoom,
+              bearing: overviewCamera.bearing,
+              pitch: overviewCamera.pitch,
+              duration: 1000,
+            });
+            overviewCamera = null;
+          }, 120);
+        }
+
+        function googleMapsHref(p) {
+          if (p.mapsUrl) return p.mapsUrl;
+          var q =
+            p.mapsQuery != null && String(p.mapsQuery).trim() !== ""
+              ? p.mapsQuery
+              : p.lat + "," + p.lng;
+          return (
+            "https://www.google.com/maps/search/?api=1&query=" +
+            encodeURIComponent(q)
+          );
+        }
+
+        function popupContent(p) {
+          var root = document.createElement("div");
+          root.className = "trip-map-popup-root";
+          var titleEl = document.createElement("div");
+          titleEl.className = "trip-map-popup-title";
+          titleEl.textContent = p.title;
+          var descEl = document.createElement("div");
+          descEl.className = "trip-map-popup-desc";
+          descEl.textContent = p.description;
+          var link = document.createElement("a");
+          link.className = "trip-map-popup-gmaps";
+          link.href = googleMapsHref(p);
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = "Open in Google Maps";
+          root.appendChild(titleEl);
+          root.appendChild(descEl);
+          root.appendChild(link);
+          return root;
+        }
+
+        function debounce(fn, ms) {
+          var t = null;
+          return function () {
+            clearTimeout(t);
+            var args = arguments;
+            t = setTimeout(function () {
+              fn.apply(null, args);
+            }, ms);
+          };
+        }
+
+        places.forEach(resolvePlaceCoords);
+
+        var bounds = new mapboxgl.LngLatBounds();
+        places.forEach(function (p) {
+          bounds.extend([p.lng, p.lat]);
+          var popup = new mapboxgl.Popup({
+            offset: 28,
+            maxWidth: "300px",
+            focusAfterOpen: false,
+            closeOnClick: true,
+          }).setDOMContent(popupContent(p));
+
+          popup.on("open", function () {
+            cancelScheduledRestore();
+            if (!overviewCamera) {
+              overviewCamera = {
+                center: map.getCenter().toArray(),
+                zoom: map.getZoom(),
+                bearing: map.getBearing(),
+                pitch: map.getPitch(),
+              };
+            }
+            map.easeTo({
+              center: [p.lng, p.lat],
+              zoom: 16.5,
+              pitch: 60,
+              bearing: overviewCamera.bearing,
+              duration: 1000,
+            });
+          });
+
+          popup.on("close", function () {
+            scheduleRestoreOverview();
+          });
+
+          new mapboxgl.Marker({ color: p.markerColor || "#c9933a" })
+            .setLngLat([p.lng, p.lat])
+            .setPopup(popup)
+            .addTo(map);
+        });
+
+        map.on("load", function () {
+          map.fitBounds(bounds, {
+            padding: { top: 56, right: 48, bottom: 44, left: 48 },
+            duration: 0,
+            maxZoom: 13,
+          });
+        });
+
+        window.addEventListener(
+          "resize",
+          debounce(function () {
+            map.resize();
+          }, 150),
+        );
+      })();
+    </script>
+  </body>
+</html>

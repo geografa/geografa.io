@@ -1,0 +1,29 @@
+{
+  "name": "geografa.io",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^5.1.2",
+    "@turf/turf": "^7.4.0",
+    "mapbox-gl": "^3.30.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^6.30.6"
+  },
+  "devDependencies": {
+    "@types/mapbox__mapbox-gl-geocoder": "^5.1.2",
+    "@types/mapbox-gl": "^3.4.1",
+    "@types/node": "^26.4.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.0"
+  }
+}

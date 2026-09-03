@@ -1,0 +1,1077 @@
+{
+  "type": "FeatureCollection",
+  "name": "airports_nearby",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "CYTZ",
+        "iata": "YTZ",
+        "name": "Billy Bishop Toronto City Centre Airport",
+        "city": "Toronto",
+        "state": "Ontario",
+        "elevation": 252,
+        "tz": "America/Toronto"
+      },
+      "geometry": { "type": "Point", "coordinates": [-79.396202, 43.627499] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "CYVR",
+        "iata": "YVR",
+        "name": "Vancouver International Airport",
+        "city": "Vancouver",
+        "state": "British Columbia",
+        "elevation": 14,
+        "tz": "America/Vancouver"
+      },
+      "geometry": { "type": "Point", "coordinates": [-123.183998, 49.193901] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "CYZD",
+        "iata": "YZD",
+        "name": "Downsview Airport",
+        "city": "Toronto",
+        "state": "Ontario",
+        "elevation": 652,
+        "tz": "America/Toronto"
+      },
+      "geometry": { "type": "Point", "coordinates": [-79.465599, 43.7425] }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KACY",
+        "iata": "ACY",
+        "name": "Atlantic City International Airport",
+        "city": "Atlantic City",
+        "state": "New-Jersey",
+        "elevation": 75,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-74.577202, 39.4576] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KADS",
+        "iata": "ADS",
+        "name": "Addison Airport",
+        "city": "Dallas",
+        "state": "Texas",
+        "elevation": 644,
+        "tz": "America/Chicago"
+      },
+      "geometry": { "type": "Point", "coordinates": [-96.836403, 32.968601] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KAFF",
+        "iata": "AFF",
+        "name": "USAF Academy Airfield",
+        "city": "Colorado Springs",
+        "state": "Colorado",
+        "elevation": 6572,
+        "tz": "America/Denver"
+      },
+      "geometry": { "type": "Point", "coordinates": [-104.813003, 38.9697] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KATL",
+        "iata": "ATL",
+        "name": "Hartsfield Jackson Atlanta International Airport",
+        "city": "Atlanta",
+        "state": "Georgia",
+        "elevation": 1026,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-84.428101, 33.6367] }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KBCT",
+        "iata": "BCT",
+        "name": "Boca Raton Airport",
+        "city": "Boca Raton",
+        "state": "Florida",
+        "elevation": 13,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-80.107697, 26.3785] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KBFI",
+        "iata": "BFI",
+        "name": "Boeing Field King County International Airport",
+        "city": "Seattle",
+        "state": "Washington",
+        "elevation": 21,
+        "tz": "America/Los_Angeles"
+      },
+      "geometry": { "type": "Point", "coordinates": [-122.302002, 47.529999] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KBOI",
+        "iata": "BOI",
+        "name": "Boise Air Terminal/Gowen field",
+        "city": "Boise",
+        "state": "Idaho",
+        "elevation": 2871,
+        "tz": "America/Boise"
+      },
+      "geometry": { "type": "Point", "coordinates": [-116.223, 43.5644] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KCAE",
+        "iata": "CAE",
+        "name": "Columbia Metropolitan Airport",
+        "city": "Columbia",
+        "state": "South-Carolina",
+        "elevation": 236,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-81.119499, 33.938801] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KCDW",
+        "iata": "CDW",
+        "name": "Essex County Airport",
+        "city": "Caldwell",
+        "state": "New-Jersey",
+        "elevation": 173,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-74.281403, 40.875198] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KCHA",
+        "iata": "CHA",
+        "name": "Lovell Field",
+        "city": "Chattanooga",
+        "state": "Tennessee",
+        "elevation": 683,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-85.203796, 35.035301] }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KCMH",
+        "iata": "CMH",
+        "name": "Port Columbus International Airport",
+        "city": "Columbus",
+        "state": "Ohio",
+        "elevation": 815,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-82.891899, 39.998001] }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KCPS",
+        "iata": "CPS",
+        "name": "St Louis Downtown Airport",
+        "city": "Cahokia/St Louis",
+        "state": "Illinois",
+        "elevation": 413,
+        "tz": "America/Chicago"
+      },
+      "geometry": { "type": "Point", "coordinates": [-90.156197, 38.570702] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KCUB",
+        "iata": "CUB",
+        "name": "Jim Hamilton L.B. Owens Airport",
+        "city": "Columbia",
+        "state": "South-Carolina",
+        "elevation": 193,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-80.995201, 33.970501] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KDAA",
+        "iata": "DAA",
+        "name": "Davison Army Air Field",
+        "city": "Fort Belvoir",
+        "state": "Virginia",
+        "elevation": 73,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.181, 38.715] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KDAL",
+        "iata": "DAL",
+        "name": "Dallas Love Field",
+        "city": "Dallas",
+        "state": "Texas",
+        "elevation": 487,
+        "tz": "America/Chicago"
+      },
+      "geometry": { "type": "Point", "coordinates": [-96.851799, 32.847099] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KDCA",
+        "iata": "DCA",
+        "name": "Ronald Reagan Washington National Airport",
+        "city": "Washington",
+        "state": "Virginia",
+        "elevation": 15,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.037697, 38.8521] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KDFW",
+        "iata": "DFW",
+        "name": "Dallas Fort Worth International Airport",
+        "city": "Dallas-Fort Worth",
+        "state": "Texas",
+        "elevation": 607,
+        "tz": "America/Chicago"
+      },
+      "geometry": { "type": "Point", "coordinates": [-97.038002, 32.896801] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KDMA",
+        "iata": "DMA",
+        "name": "Davis Monthan Air Force Base",
+        "city": "Tucson",
+        "state": "Arizona",
+        "elevation": 2704,
+        "tz": "America/Phoenix"
+      },
+      "geometry": { "type": "Point", "coordinates": [-110.883003, 32.1665] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KEWR",
+        "iata": "EWR",
+        "name": "Newark Liberty International Airport",
+        "city": "Newark",
+        "state": "New-Jersey",
+        "elevation": 18,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-74.168701, 40.692501] }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KFFZ",
+        "iata": "MSC",
+        "name": "Falcon Field",
+        "city": "Mesa",
+        "state": "Alabama",
+        "elevation": 1394,
+        "tz": "America/Phoenix"
+      },
+      "geometry": { "type": "Point", "coordinates": [-111.727997, 33.4608] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KFLL",
+        "iata": "FLL",
+        "name": "Fort Lauderdale Hollywood International Airport",
+        "city": "Fort Lauderdale",
+        "state": "Florida",
+        "elevation": 9,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-80.152702, 26.072599] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KFXE",
+        "iata": "FXE",
+        "name": "Fort Lauderdale Executive Airport",
+        "city": "Fort Lauderdale",
+        "state": "Florida",
+        "elevation": 13,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-80.1707, 26.1973] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KGEG",
+        "iata": "GEG",
+        "name": "Spokane International Airport",
+        "city": "Spokane",
+        "state": "Washington",
+        "elevation": 2376,
+        "tz": "America/Los_Angeles"
+      },
+      "geometry": { "type": "Point", "coordinates": [-117.533997, 47.6199] }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KGSO",
+        "iata": "GSO",
+        "name": "Piedmont Triad International Airport",
+        "city": "Greensboro",
+        "state": "North-Carolina",
+        "elevation": 925,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-79.937302, 36.097801] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KHOU",
+        "iata": "HOU",
+        "name": "William P Hobby Airport",
+        "city": "Houston",
+        "state": "Texas",
+        "elevation": 46,
+        "tz": "America/Chicago"
+      },
+      "geometry": { "type": "Point", "coordinates": [-95.2789, 29.645399] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KISM",
+        "iata": "ISM",
+        "name": "Kissimmee Gateway Airport",
+        "city": "Orlando",
+        "state": "Florida",
+        "elevation": 82,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-81.437103, 28.289801] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KIWA",
+        "iata": "AZA",
+        "name": "Phoenix-Mesa-Gateway Airport",
+        "city": "Phoenix",
+        "state": "Arizona",
+        "elevation": 1382,
+        "tz": "America/Phoenix"
+      },
+      "geometry": { "type": "Point", "coordinates": [-111.654999, 33.3078] }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KLAX",
+        "iata": "LAX",
+        "name": "Los Angeles International Airport",
+        "city": "Los Angeles",
+        "state": "California",
+        "elevation": 125,
+        "tz": "America/Los_Angeles"
+      },
+      "geometry": { "type": "Point", "coordinates": [-118.407997, 33.942501] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KLDJ",
+        "iata": "LDJ",
+        "name": "Linden Airport",
+        "city": "Linden",
+        "state": "New-Jersey",
+        "elevation": 23,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-74.244598, 40.617401] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KLOU",
+        "iata": "LOU",
+        "name": "Bowman Field",
+        "city": "Louisville",
+        "state": "Kentucky",
+        "elevation": 546,
+        "tz": "America/Kentucky/Louisville"
+      },
+      "geometry": { "type": "Point", "coordinates": [-85.663696, 38.228001] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KLUK",
+        "iata": "LUK",
+        "name": "Cincinnati Municipal Airport Lunken Field",
+        "city": "Cincinnati",
+        "state": "Ohio",
+        "elevation": 483,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-84.418602, 39.103298] }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KMAC",
+        "iata": "MAC",
+        "name": "Macon Downtown Airport",
+        "city": "Macon",
+        "state": "Georgia",
+        "elevation": 437,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-83.561996, 32.822102] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KMCF",
+        "iata": "MCF",
+        "name": "MacDill Air Force Base",
+        "city": "Tampa",
+        "state": "Florida",
+        "elevation": 14,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-82.521202, 27.8493] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KMCI",
+        "iata": "MCI",
+        "name": "Kansas City International Airport",
+        "city": "Kansas City",
+        "state": "Missouri",
+        "elevation": 1026,
+        "tz": "America/Chicago"
+      },
+      "geometry": { "type": "Point", "coordinates": [-94.713898, 39.2976] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KMCN",
+        "iata": "MCN",
+        "name": "Middle Georgia Regional Airport",
+        "city": "Macon",
+        "state": "Georgia",
+        "elevation": 354,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-83.6492, 32.692799] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KMCO",
+        "iata": "MCO",
+        "name": "Orlando International Airport",
+        "city": "Orlando",
+        "state": "Florida",
+        "elevation": 96,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-81.308998, 28.429399] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KMGE",
+        "iata": "MGE",
+        "name": "Dobbins Air Reserve Base Airport",
+        "city": "Marietta",
+        "state": "Georgia",
+        "elevation": 1068,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-84.516296, 33.915401] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KMIA",
+        "iata": "MIA",
+        "name": "Miami International Airport",
+        "city": "Miami",
+        "state": "Florida",
+        "elevation": 8,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-80.290604, 25.7932] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KMKC",
+        "iata": "MKC",
+        "name": "Charles B. Wheeler Downtown Airport",
+        "city": "Kansas City",
+        "state": "Missouri",
+        "elevation": 759,
+        "tz": "America/Chicago"
+      },
+      "geometry": { "type": "Point", "coordinates": [-94.592796, 39.123199] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KMYR",
+        "iata": "MYR",
+        "name": "Myrtle Beach International Airport",
+        "city": "Myrtle Beach",
+        "state": "South-Carolina",
+        "elevation": 25,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-78.928299, 33.679699] }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KNUQ",
+        "iata": "NUQ",
+        "name": "Moffett Federal Airfield",
+        "city": "Mountain View",
+        "state": "California",
+        "elevation": 32,
+        "tz": "America/Los_Angeles"
+      },
+      "geometry": { "type": "Point", "coordinates": [-122.049004, 37.4161] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KOPF",
+        "iata": "OPF",
+        "name": "Opa-locka Executive Airport",
+        "city": "Miami",
+        "state": "Florida",
+        "elevation": 8,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-80.278397, 25.907] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KOSU",
+        "iata": "OSU",
+        "name": "Ohio State University Airport",
+        "city": "Columbus",
+        "state": "Ohio",
+        "elevation": 905,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-83.072998, 40.0798] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KOUN",
+        "iata": "OUN",
+        "name": "University of Oklahoma Westheimer Airport",
+        "city": "Norman",
+        "state": "Oklahoma",
+        "elevation": 1182,
+        "tz": "America/Chicago"
+      },
+      "geometry": { "type": "Point", "coordinates": [-97.472099, 35.245602] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KOWD",
+        "iata": "OWD",
+        "name": "Norwood Memorial Airport",
+        "city": "Norwood",
+        "state": "Massachusetts",
+        "elevation": 49,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-71.172897, 42.190498] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KPAO",
+        "iata": "PAO",
+        "name": "Palo Alto Airport of Santa Clara County",
+        "city": "Palo Alto",
+        "state": "California",
+        "elevation": 4,
+        "tz": "America/Los_Angeles"
+      },
+      "geometry": { "type": "Point", "coordinates": [-122.114998, 37.461102] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KPBI",
+        "iata": "PBI",
+        "name": "Palm Beach International Airport",
+        "city": "West Palm Beach",
+        "state": "Florida",
+        "elevation": 19,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-80.095596, 26.683201] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KPDX",
+        "iata": "PDX",
+        "name": "Portland International Airport",
+        "city": "Portland",
+        "state": "Oregon",
+        "elevation": 31,
+        "tz": "America/Los_Angeles"
+      },
+      "geometry": { "type": "Point", "coordinates": [-122.598, 45.588699] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KPHL",
+        "iata": "PHL",
+        "name": "Philadelphia International Airport",
+        "city": "Philadelphia",
+        "state": "Pennsylvania",
+        "elevation": 36,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-75.241096, 39.871899] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KPIE",
+        "iata": "PIE",
+        "name": "St Petersburg Clearwater International Airport",
+        "city": "St Petersburg-Clearwater",
+        "state": "Florida",
+        "elevation": 11,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-82.687401, 27.9102] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KPMP",
+        "iata": "PPM",
+        "name": "Pompano Beach Airpark",
+        "city": "Pompano Beach",
+        "state": "Florida",
+        "elevation": 19,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-80.111099, 26.247101] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KRBD",
+        "iata": "RBD",
+        "name": "Dallas Executive Airport",
+        "city": "Dallas",
+        "state": "Texas",
+        "elevation": 660,
+        "tz": "America/Chicago"
+      },
+      "geometry": { "type": "Point", "coordinates": [-96.868202, 32.680901] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KRHV",
+        "iata": "RHV",
+        "name": "Reid Hillview of Santa Clara County Airport",
+        "city": "San Jose",
+        "state": "California",
+        "elevation": 135,
+        "tz": "America/Los_Angeles"
+      },
+      "geometry": { "type": "Point", "coordinates": [-121.819, 37.332901] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KRND",
+        "iata": "RND",
+        "name": "Randolph Air Force Base",
+        "city": "Universal City",
+        "state": "Texas",
+        "elevation": 761,
+        "tz": "America/Chicago"
+      },
+      "geometry": { "type": "Point", "coordinates": [-98.2789, 29.529699] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KSAT",
+        "iata": "SAT",
+        "name": "San Antonio International Airport",
+        "city": "San Antonio",
+        "state": "Texas",
+        "elevation": 809,
+        "tz": "America/Chicago"
+      },
+      "geometry": { "type": "Point", "coordinates": [-98.469803, 29.533701] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KSBA",
+        "iata": "SBA",
+        "name": "Santa Barbara Municipal Airport",
+        "city": "Santa Barbara",
+        "state": "California",
+        "elevation": 13,
+        "tz": "America/Los_Angeles"
+      },
+      "geometry": { "type": "Point", "coordinates": [-119.839996, 34.426201] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KSDF",
+        "iata": "SDF",
+        "name": "Louisville International Standiford Field",
+        "city": "Louisville",
+        "state": "Kentucky",
+        "elevation": 501,
+        "tz": "America/Kentucky/Louisville"
+      },
+      "geometry": { "type": "Point", "coordinates": [-85.736, 38.1744] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KSEA",
+        "iata": "SEA",
+        "name": "Seattle Tacoma International Airport",
+        "city": "Seattle",
+        "state": "Washington",
+        "elevation": 433,
+        "tz": "America/Los_Angeles"
+      },
+      "geometry": { "type": "Point", "coordinates": [-122.308998, 47.449001] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KSJC",
+        "iata": "SJC",
+        "name": "Norman Y. Mineta San Jose International Airport",
+        "city": "San Jose",
+        "state": "California",
+        "elevation": 62,
+        "tz": "America/Los_Angeles"
+      },
+      "geometry": { "type": "Point", "coordinates": [-121.929001, 37.362598] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KSMO",
+        "iata": "SMO",
+        "name": "Santa Monica Municipal Airport",
+        "city": "Santa Monica",
+        "state": "California",
+        "elevation": 177,
+        "tz": "America/Los_Angeles"
+      },
+      "geometry": { "type": "Point", "coordinates": [-118.450996, 34.0158] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KSTL",
+        "iata": "STL",
+        "name": "Lambert St Louis International Airport",
+        "city": "St Louis",
+        "state": "Missouri",
+        "elevation": 618,
+        "tz": "America/Chicago"
+      },
+      "geometry": { "type": "Point", "coordinates": [-90.370003, 38.748699] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KSUA",
+        "iata": "SUA",
+        "name": "Witham Field",
+        "city": "Stuart",
+        "state": "Florida",
+        "elevation": 16,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-80.2211, 27.1817] }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KTEB",
+        "iata": "TEB",
+        "name": "Teterboro Airport",
+        "city": "Teterboro",
+        "state": "New-Jersey",
+        "elevation": 9,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-74.060799, 40.850101] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KTPA",
+        "iata": "TPA",
+        "name": "Tampa International Airport",
+        "city": "Tampa",
+        "state": "Florida",
+        "elevation": 26,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-82.533203, 27.9755] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KTPF",
+        "iata": "TPF",
+        "name": "Peter O Knight Airport",
+        "city": "Tampa",
+        "state": "Florida",
+        "elevation": 8,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-82.449303, 27.9156] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KTUS",
+        "iata": "TUS",
+        "name": "Tucson International Airport",
+        "city": "Tucson",
+        "state": "Arizona",
+        "elevation": 2643,
+        "tz": "America/Phoenix"
+      },
+      "geometry": { "type": "Point", "coordinates": [-110.941002, 32.1161] }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KUNV",
+        "iata": "SCE",
+        "name": "University Park Airport",
+        "city": "State College",
+        "state": "Pennsylvania",
+        "elevation": 1239,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.848701, 40.8493] }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KVKX",
+        "iata": "VKX",
+        "name": "Potomac Airfield",
+        "city": "Friendly",
+        "state": "Maryland",
+        "elevation": 118,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-76.957199, 38.747601] }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "KWRB",
+        "iata": "WRB",
+        "name": "Robins Air Force Base",
+        "city": "Warner Robins",
+        "state": "Georgia",
+        "elevation": 294,
+        "tz": "America/New_York"
+      },
+      "geometry": { "type": "Point", "coordinates": [-83.591904, 32.640099] }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "MMAN",
+        "iata": "NTR",
+        "name": "Del Norte International Airport",
+        "city": null,
+        "state": "Nuevo-Leon",
+        "elevation": 1476,
+        "tz": "America/Monterrey"
+      },
+      "geometry": { "type": "Point", "coordinates": [-100.237, 25.865601] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "MMCB",
+        "iata": "CVJ",
+        "name": "General Mariano Matamoros Airport",
+        "city": null,
+        "state": "Morelos",
+        "elevation": 4277,
+        "tz": "America/Mexico_City"
+      },
+      "geometry": { "type": "Point", "coordinates": [-99.261299, 18.834801] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "MMJC",
+        "iata": "AZP",
+        "name": "Atizapan De Zaragoza Airport",
+        "city": null,
+        "state": "Mexico",
+        "elevation": 8120,
+        "tz": "America/Mexico_City"
+      },
+      "geometry": { "type": "Point", "coordinates": [-99.288803, 19.5748] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "MMMX",
+        "iata": "MEX",
+        "name": "Licenciado Benito Juarez International Airport",
+        "city": "Mexico City",
+        "state": "Mexico-City",
+        "elevation": 7316,
+        "tz": "America/Mexico_City"
+      },
+      "geometry": { "type": "Point", "coordinates": [-99.072098, 19.4363] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "MMMY",
+        "iata": "MTY",
+        "name": "General Mariano Escobedo International Airport",
+        "city": "Monterrey",
+        "state": "Nuevo-Leon",
+        "elevation": 1278,
+        "tz": "America/Monterrey"
+      },
+      "geometry": { "type": "Point", "coordinates": [-100.107002, 25.7785] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "MMPB",
+        "iata": "PBC",
+        "name": "Hermanos Serdan International Airport",
+        "city": "Puebla",
+        "state": "Puebla",
+        "elevation": 7361,
+        "tz": "America/Mexico_City"
+      },
+      "geometry": { "type": "Point", "coordinates": [-98.371399, 19.1581] }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "MMTC",
+        "iata": "TRC",
+        "name": "Francisco Sarabia International Airport",
+        "city": "Torreon",
+        "state": "Coahuila",
+        "elevation": 3688,
+        "tz": "America/Monterrey"
+      },
+      "geometry": { "type": "Point", "coordinates": [-103.411003, 25.5683] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "icao": "MMTO",
+        "iata": "TLC",
+        "name": "Licenciado Adolfo Lopez Mateos International Airport",
+        "city": "Toluca",
+        "state": "Mexico",
+        "elevation": 8466,
+        "tz": "America/Mexico_City"
+      },
+      "geometry": { "type": "Point", "coordinates": [-99.566002, 19.337099] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "iata": "GDL",
+        "name": "Guadalajara International Airport",
+        "city": "Guadalajara",
+        "state": "Mexico",
+        "elevation": 8466,
+        "tz": "America/Mexico_City"
+      },
+      "geometry": { "type": "Point", "coordinates": [-103.306057, 20.526909] }
+    }
+  ]
+}

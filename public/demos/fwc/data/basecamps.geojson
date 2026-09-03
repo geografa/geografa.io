@@ -1,0 +1,652 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pachuca CF Pachuca Estadio Hidalgo"
+      },
+      "geometry": {
+        "coordinates": [-98.756234, 20.105158],
+        "type": "Point"
+      },
+      "id": "0192238386a9124e818a59ec81165ee5"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gardens North County Park"
+      },
+      "geometry": {
+        "coordinates": [-80.115762, 26.850397],
+        "type": "Point"
+      },
+      "id": "0bb8bba3e7ce35df10f812170e4eb08b"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "US Air Force Academy, Colorado Springs"
+      },
+      "geometry": {
+        "coordinates": [-104.892855, 39.014708],
+        "type": "Point"
+      },
+      "id": "15f37864fb5a0b5849ad65c90f76f061"
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "coordinates": [-79.812605, 36.070155],
+        "type": "Point"
+      },
+      "id": "170f7b9afc615873a608d7b12a6dc3a2"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Harder Stadium, Santa Barbara CA"
+      },
+      "geometry": {
+        "coordinates": [-119.854342, 34.420597],
+        "type": "Point"
+      },
+      "id": "20deebc7b2afc7a3e43c2e0cd23637cf"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Orlando City SC Training Grounds at Osceola Heritage Park"
+      },
+      "geometry": {
+        "coordinates": [-81.365427, 28.29939],
+        "type": "Point"
+      },
+      "id": "211bc96037e82a4f4b2e9cb12437bba6"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "DBU, Dallas"
+      },
+      "geometry": {
+        "coordinates": [-96.944739, 32.709972],
+        "type": "Point"
+      },
+      "id": "250773c16773e3fd0da71777549d078d"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Baylor School, Chattanooga"
+      },
+      "geometry": {
+        "coordinates": [-85.333222, 35.092691],
+        "type": "Point"
+      },
+      "id": "25ce2296da9b1ef4f0868588e7fec371"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Myrtle Beach Coastal Carolina University"
+      },
+      "geometry": {
+        "coordinates": [-78.995547, 33.799919],
+        "type": "Point"
+      },
+      "id": "29805a76a9289636ced086fbb8d0b1ea"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "University of Dallas"
+      },
+      "geometry": {
+        "coordinates": [-96.926559, 32.846102],
+        "type": "Point"
+      },
+      "id": "2992d9a70a4ea5e6d641421d656db96a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tucson Kino Sports Complex"
+      },
+      "geometry": {
+        "coordinates": [-110.933948, 32.174653],
+        "type": "Point"
+      },
+      "id": "2bd3bbd30e8c2725c29a6438265e1c4f"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Academia Atlas, Guadalajara"
+      },
+      "geometry": {
+        "coordinates": [-103.543442, 20.749978],
+        "type": "Point"
+      },
+      "id": "3602e329647a5c6a611e3be617956366"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "New York New Jersey Rutgers University"
+      },
+      "geometry": {
+        "coordinates": [-74.175777, 40.739709],
+        "type": "Point"
+      },
+      "id": "3e11a60901dc6fad6e76017cf0d7260c"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "FC Dallas Stadium, Dallas"
+      },
+      "geometry": {
+        "coordinates": [-96.835514, 33.156844],
+        "type": "Point"
+      },
+      "id": "3f4f2a50358aac5cb6d3d648149739ad"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UNC Chapel Hill"
+      },
+      "geometry": {
+        "coordinates": [-79.044453, 35.908691],
+        "type": "Point"
+      },
+      "id": "43e6b33dd6e3b27f88883c488aba7c3c"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Louisville Champions Park"
+      },
+      "geometry": {
+        "coordinates": [-85.709212, 38.269605],
+        "type": "Point"
+      },
+      "id": "45b67a8bcb14f5284ab374fe6c24ee3c"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kennesaw State University"
+      },
+      "geometry": {
+        "coordinates": [-84.570929, 34.030132],
+        "type": "Point"
+      },
+      "id": "4854443761c3a6fff7c47f63ac40602a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Philadelphia Philadelphia Union"
+      },
+      "geometry": {
+        "coordinates": [-75.379127, 39.832734],
+        "type": "Point"
+      },
+      "id": "4baffbe4f53f92e923de94ea0df1f76b"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mercer University, Macon"
+      },
+      "geometry": {
+        "coordinates": [-83.64653, 32.826907],
+        "type": "Point"
+      },
+      "id": "4f77263bd2e0c5f56b28fb5bc2944d30"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mexico City Centro de Alto Rendimiento CAR"
+      },
+      "geometry": {
+        "coordinates": [-99.141421, 19.244617],
+        "type": "Point"
+      },
+      "id": "521d5a26ad2f796a19a99db0c95cb426"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "TCU, Dallas Fort Worth"
+      },
+      "geometry": {
+        "coordinates": [-97.368886, 32.703127],
+        "type": "Point"
+      },
+      "id": "530c3ccb09c0583a23d04ca3b7d77815"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Indianapolis Westfield Grand Park Sports Campus"
+      },
+      "geometry": {
+        "coordinates": [-86.150216, 40.062758],
+        "type": "Point"
+      },
+      "id": "543574bd29a5a214139c264e37c61e34"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Spokane Gonzaga University"
+      },
+      "geometry": {
+        "coordinates": [-117.402122, 47.664819],
+        "type": "Point"
+      },
+      "id": "54766f6a747862a836d4712cbbed1cc7"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "St Louis Saint Louis University"
+      },
+      "geometry": {
+        "coordinates": [-90.230378, 38.63471],
+        "type": "Point"
+      },
+      "id": "547e7f3eeef52956953ef0ef9f72eec2"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Monterrey Rayados Training Centre"
+      },
+      "geometry": {
+        "coordinates": [-100.182093, 25.461863],
+        "type": "Point"
+      },
+      "id": "578083dd6cc45faeda98e7af9655c3db"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Santa Barbara Westmont College"
+      },
+      "geometry": {
+        "coordinates": [-119.663989, 34.447458],
+        "type": "Point"
+      },
+      "id": "642ec7d2f70386722abfd84ef0a280b1"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Herriman RSL Training Centre"
+      },
+      "geometry": {
+        "coordinates": [-111.977204, 40.484447],
+        "type": "Point"
+      },
+      "id": "650f8c8aa83e9a56355293bec251ac63"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Houston Houston Sports Park"
+      },
+      "geometry": {
+        "coordinates": [-95.395286, 29.635733],
+        "type": "Point"
+      },
+      "id": "6792e9b8f58061025318e6640322fc2a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Oklahoma City University of Oklahoma"
+      },
+      "geometry": {
+        "coordinates": [-97.448747, 35.188362],
+        "type": "Point"
+      },
+      "id": "6f22cc93b54ec8ef8c9a09b9f42f0b66"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tampa Waters Sportsplex"
+      },
+      "geometry": {
+        "coordinates": [-82.543012, 28.023741],
+        "type": "Point"
+      },
+      "id": "7059aad67f5b098b32aa6647b5141548"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Chivas Verde Valle, Guadalajara"
+      },
+      "geometry": {
+        "coordinates": [-103.440697, 20.68965],
+        "type": "Point"
+      },
+      "id": "70bc2dc24609b7c12149ca87bbb4f3b7"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "University of South Carolina, Columbia "
+      },
+      "geometry": {
+        "coordinates": [-81.02479, 33.987814],
+        "type": "Point"
+      },
+      "id": "721ae3c33c45bdd72c65997d243f6a7d"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kansas City Sporting KC Training Centre"
+      },
+      "geometry": {
+        "coordinates": [-94.803958, 39.126346],
+        "type": "Point"
+      },
+      "id": "7b9755e46e67327a44db7e00884864d1"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kansas City KC Current Training Facility"
+      },
+      "geometry": {
+        "coordinates": [-94.636559, 39.165205],
+        "type": "Point"
+      },
+      "id": "7c6e6583f62c8d5af2cd96937aea2f54"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Greenbrier Sports Performance Centre, Greenbrier County"
+      },
+      "geometry": {
+        "coordinates": [-80.307868, 37.781068],
+        "type": "Point"
+      },
+      "id": "7c71a898e204d9da714f299daeea4444"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Columbus Crew Performance Centre, Columbus"
+      },
+      "geometry": {
+        "coordinates": [-82.992469, 40.009013],
+        "type": "Point"
+      },
+      "id": "83c55d165d350acf53bedc7f4f73e639"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Torreon Club Santos Facilities"
+      },
+      "geometry": {
+        "coordinates": [-103.380353, 25.626433],
+        "type": "Point"
+      },
+      "id": "8e420b4388ede678f1724f593a6ef156"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mexico City La Nueva Casa del Futbol Toluca"
+      },
+      "geometry": {
+        "coordinates": [-99.58894, 19.361112],
+        "type": "Point"
+      },
+      "id": "9022ebcefd842aec4f342df58f2be603"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "State College Penn State University Jeffrey Field"
+      },
+      "geometry": {
+        "coordinates": [-77.860517, 40.810387],
+        "type": "Point"
+      },
+      "id": "924766d4006ec1d19b18ac60115aaf3a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Renton Seattle Sounders FC Performance Centre and Clubhouse"
+      },
+      "geometry": {
+        "coordinates": [-122.23606, 47.46095],
+        "type": "Point"
+      },
+      "id": "930a308b5da98d0ca9c06a59aa62b5be"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Boise State University"
+      },
+      "geometry": {
+        "coordinates": [-116.202966, 43.600261],
+        "type": "Point"
+      },
+      "id": "97f0b08bf287319e4537b0a22cd0d554"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Port St Lucie RPS Soccer Academy"
+      },
+      "geometry": {
+        "coordinates": [-80.311209, 27.24669],
+        "type": "Point"
+      },
+      "id": "9e81892c16c99e6c4991681e4abe17d2"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "University of North Texas, Dallas-Denton"
+      },
+      "geometry": {
+        "coordinates": [-97.160301, 33.197605],
+        "type": "Point"
+      },
+      "id": "a265891811634c7bea4a79b5e764862c"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Florida Atlantic University"
+      },
+      "geometry": {
+        "coordinates": [-80.101647, 26.376137],
+        "type": "Point"
+      },
+      "id": "a7d30cda35cd003e6e6351ea612b6b12"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Oakland University, Metro Detroit"
+      },
+      "geometry": {
+        "coordinates": [-83.209013, 42.673622],
+        "type": "Point"
+      },
+      "id": "abb543f13048d8655a62fe912a4851ae"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "FC Cincinnati Training Facility, Cincinnati"
+      },
+      "geometry": {
+        "coordinates": [-84.270795, 39.169355],
+        "type": "Point"
+      },
+      "id": "ba259726a71209f652326efefde6240f"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Queretaro La Loma Centro Deportivo Queretaro"
+      },
+      "geometry": {
+        "coordinates": [-100.424267, 20.672786],
+        "type": "Point"
+      },
+      "id": "c7970365114f86365d9b53f6b85412d7"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Atlanta United Training Centre"
+      },
+      "geometry": {
+        "coordinates": [-84.498024, 33.933392],
+        "type": "Point"
+      },
+      "id": "d4bb96269404da818841d101b24bf9db"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "University of Portland"
+      },
+      "geometry": {
+        "coordinates": [-122.72729, 45.574795],
+        "type": "Point"
+      },
+      "id": "d560bd97aa4f72af8bd48a9a948d2151"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "St Louis St Louis CITY High Performance Centre"
+      },
+      "geometry": {
+        "coordinates": [-90.211511, 38.628935],
+        "type": "Point"
+      },
+      "id": "d593d2ac22b4d0ae24d8c54d2e90de58"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Irvine Great Park Sports Complex"
+      },
+      "geometry": {
+        "coordinates": [-117.739318, 33.674348],
+        "type": "Point"
+      },
+      "id": "d90206a6a7e950be42317cc17750444e"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "High Point Carolina Core Elite Performance Centre"
+      },
+      "geometry": {
+        "coordinates": [-80.046134, 36.006779],
+        "type": "Point"
+      },
+      "id": "dedd184cec5946dfbe934d9fc81af36a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Birmingham Legion FC Training Facility"
+      },
+      "geometry": {
+        "coordinates": [-86.66207, 33.3711],
+        "type": "Point"
+      },
+      "id": "e3a1b77c43d4346a9f3c215b9f6e00fa"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mesa Arizona Athletic Grounds"
+      },
+      "geometry": {
+        "coordinates": [-111.626386, 33.29744],
+        "type": "Point"
+      },
+      "id": "eac7360c057fd814c79ab0111e442311"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Totyota Field, San Antonio TX"
+      },
+      "geometry": {
+        "coordinates": [-98.39458, 29.539396],
+        "type": "Point"
+      },
+      "id": "ed9786cf48b90a5accfb4aee936e854e"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pachuca CF Pachuca Universidad Del Futbol"
+      },
+      "geometry": {
+        "coordinates": [-98.811654, 20.138502],
+        "type": "Point"
+      },
+      "id": "f254c985640624ed59590c2b53f05902"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "New York New Jersey Atlantic City Stockton University"
+      },
+      "geometry": {
+        "coordinates": [-74.532332, 39.489324],
+        "type": "Point"
+      },
+      "id": "f2c4e293b49764e82234a8688630888a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Episcopal High School, Alexandria VA"
+      },
+      "geometry": {
+        "coordinates": [-77.097414, 38.824907],
+        "type": "Point"
+      },
+      "id": "f7bc43a1cd15aaab1446c5424964407b"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Michigan State University, Greater Lansing "
+      },
+      "geometry": {
+        "coordinates": [-84.490797, 42.732722],
+        "type": "Point"
+      },
+      "id": "fb7346db9d0abdfa3133d3cc0f41bf69"
+    }
+  ],
+  "type": "FeatureCollection"
+}

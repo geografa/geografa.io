@@ -1,0 +1,1288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-WKCF92FT");
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Twenty years of geospatial work — web map support at the ready. Geografa helps teams ship maps that hold up under pressure."
+    />
+    <meta content="Geografa · Web map support" property="og:site_name" />
+    <meta content="Geografa · Web map support" property="og:title" />
+    <meta content="website" property="og:type" />
+    <meta
+      content="Twenty years of geospatial work — from environmental GIS to Mapbox startup support engineering. We help teams ship maps that hold up under pressure."
+      property="og:description"
+    />
+    <meta content="https://geografa.io/" property="og:url" />
+    <meta
+      content="https://geografa.io/img/apple-touch-icon.png"
+      property="og:image"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@geografa" />
+    <meta name="twitter:title" content="Geografa · Web map support" />
+    <meta name="twitter:url" content="https://geografa.io/" />
+    <meta
+      name="twitter:description"
+      content="Web map support at the ready — optimization, custom map products, and strategy."
+    />
+    <meta
+      name="twitter:image:src"
+      content="https://geografa.io/img/apple-touch-icon.png"
+    />
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <meta name="theme-color" content="#1a1208" />
+    <meta name="msapplication-navbutton-color" content="#1a1208" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1a1208" />
+    <title>Geografa · Web map support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #162321;
+        --cream: #f4f1de;
+        --gold: #eee9c5;
+        --gold-light: #eaeca3;
+        --red: #e07a5f;
+        --green: #2d5a3d;
+        --muted: #40564b;
+        --card-bg: #fffdf8;
+        --border: #142623;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-padding-top: 56px;
+      }
+
+      body {
+        background: var(--cream);
+        color: var(--ink);
+        font-family: "DM Sans", sans-serif;
+        font-weight: 300;
+        line-height: 1.6;
+        overflow-x: hidden;
+        padding-top: 48px;
+      }
+
+      /* ─── NAV ─── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(14, 22, 24, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(201, 147, 58, 0.15);
+        padding: 0 2rem;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        /* gap: 0.5rem; */
+        text-decoration: none;
+      }
+
+      .nav-logo img {
+        height: 22px;
+        width: auto;
+        margin-right: 0.2rem;
+      }
+
+      .nav-logo span {
+        font-family: "Oswald", serif;
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--gold-light);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-links a {
+        font-family: "Oswald", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: rgba(245, 240, 232, 0.4);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: var(--gold-light);
+      }
+
+      /* ─── HERO ─── */
+      .hero {
+        min-height: calc(100vh - 48px);
+        background: var(--ink);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-video-wrap {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+
+      .hero-video-wrap video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(
+            to bottom,
+            rgba(14, 22, 24, 0.75) 0%,
+            rgba(14, 22, 24, 0.85) 50%,
+            rgba(14, 22, 24, 0.92) 100%
+          ),
+          radial-gradient(
+            ellipse 60% 40% at 50% 60%,
+            rgba(198, 202, 48, 0.12) 0%,
+            transparent 70%
+          ),
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 39px,
+            rgba(198, 202, 48, 0.04) 39px,
+            rgba(201, 147, 58, 0.04) 40px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 39px,
+            rgba(198, 202, 48, 0.04) 39px,
+            rgba(198, 202, 48, 0.04) 40px
+          );
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 720px;
+      }
+
+      .hero-tag {
+        font-family: "Oswald", sans-serif;
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        color: var(--gold);
+        text-transform: uppercase;
+        margin-bottom: 1.2rem;
+      }
+      .hero-tag img {
+        height: 12px;
+        width: auto;
+        margin-right: 0.15rem;
+      }
+
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.5rem, 8vw, 5.5rem);
+        font-weight: 900;
+        color: var(--cream);
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+
+      .hero h1 em {
+        font-style: italic;
+        color: var(--gold-light);
+        display: block;
+        margin-top: 0.15em;
+      }
+
+      .hero-sub {
+        font-size: 15px;
+        color: rgba(245, 240, 232, 0.7);
+        margin-top: 1.75rem;
+        line-height: 1.7;
+        max-width: 540px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-cta {
+        margin-top: 2.5rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        font-family: "Oswald", sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 10px;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s;
+      }
+
+      .btn-primary {
+        background: var(--gold);
+        color: var(--ink);
+        border: 1px solid var(--gold);
+      }
+
+      .btn-primary:hover {
+        background: var(--gold-light);
+        border-color: var(--gold-light);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--gold-light);
+        border: 1px solid rgba(201, 147, 58, 0.4);
+      }
+
+      .btn-ghost:hover {
+        background: rgba(201, 147, 58, 0.12);
+        border-color: var(--gold);
+      }
+
+      .scroll-hint {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(245, 240, 232, 0.3);
+        font-size: 11px;
+        font-family: "Oswald", sans-serif;
+        letter-spacing: 0.1em;
+        animation: pulse 2s ease-in-out infinite;
+        z-index: 1;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+
+      /* ─── SECTION SHELL ─── */
+      .section {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 5rem 2rem;
+      }
+
+      .section-label {
+        font-family: "Oswald", sans-serif;
+        font-size: 10px;
+        font-weight: 400;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      /* Light/cream sections — muted ink label + gold-tint rule */
+      .section-label--dark {
+        color: var(--muted);
+      }
+
+      .section-label--dark::after {
+        background: var(--border);
+      }
+
+      .section-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 2.5rem;
+      }
+
+      hr.divider {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 0;
+      }
+
+      /* ─── DARK SECTION ─── */
+      .ink-bg {
+        background: var(--ink);
+        color: var(--cream);
+      }
+
+      .ink-bg .section-label {
+        color: var(--gold);
+      }
+
+      .ink-bg .section-title {
+        color: var(--cream);
+      }
+
+      .ink-bg .section-label::after {
+        background: rgba(201, 147, 58, 0.25);
+      }
+
+      /* ─── SERVICE CARDS ─── */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .service-card {
+        background: rgba(201, 147, 58, 0.06);
+        border: 1px solid rgba(201, 147, 58, 0.15);
+        border-radius: 12px;
+        padding: 1.75rem;
+      }
+
+      .service-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--cream);
+        margin-bottom: 0.75rem;
+      }
+
+      .service-card p {
+        font-size: 13px;
+        color: rgba(245, 240, 232, 0.65);
+        line-height: 1.65;
+      }
+
+      .section-intro {
+        font-size: 15px;
+        color: rgba(245, 240, 232, 0.6);
+        max-width: 42rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.7;
+      }
+
+      /* ─── FEATURED WORK ─── */
+      .work-featured-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        margin-bottom: 3rem;
+      }
+
+      .work-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: box-shadow 0.2s;
+      }
+
+      .work-card:hover {
+        box-shadow: 0 8px 28px rgba(26, 18, 8, 0.08);
+      }
+
+      .work-card img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .work-card-body {
+        padding: 1.25rem 1.5rem 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .work-tag {
+        font-family: "Oswald", sans-serif;
+        font-size: 9px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.5rem;
+      }
+
+      .work-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        line-height: 1.25;
+      }
+
+      .work-card p {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.55;
+        flex: 1;
+        margin-bottom: 1rem;
+      }
+
+      .work-link {
+        font-family: "Oswald", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 400;
+        color: var(--ink);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(201, 147, 58, 0.35);
+        align-self: flex-start;
+      }
+
+      .work-link:hover {
+        color: var(--gold-light);
+        border-bottom-color: var(--gold-light);
+      }
+
+      .archive-label {
+        font-family: "Oswald", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 1rem;
+      }
+
+      .work-chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+      }
+
+      .work-chip {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.4rem 0.75rem 0.4rem 0.4rem;
+        text-decoration: none;
+        color: var(--ink);
+        font-size: 12px;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+
+      .work-chip:hover {
+        border-color: var(--gold);
+        background: rgba(201, 147, 58, 0.06);
+      }
+
+      .work-chip img {
+        width: 36px;
+        height: 36px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+
+      .archive-cta {
+        text-align: center;
+      }
+
+      .archive-cta a {
+        font-family: "Oswald", sans-serif;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(201, 147, 58, 0.35);
+      }
+
+      .archive-cta a:hover {
+        color: var(--gold-light);
+      }
+
+      /* ─── APPROACH ─── */
+      .approach-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 2.5rem;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 2.5rem;
+        align-items: start;
+      }
+
+      .approach-card p {
+        font-size: 15px;
+        color: var(--muted);
+        line-height: 1.75;
+        margin-bottom: 1.25rem;
+      }
+
+      .approach-card p:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .approach-signature {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 1.1rem;
+        color: var(--ink);
+        margin-top: 1.5rem;
+      }
+
+      .approach-photo {
+        width: 180px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        box-shadow: 0 4px 24px rgba(26, 18, 8, 0.06);
+      }
+
+      /* ─── TESTIMONIALS ─── */
+      .transit-bg {
+        background: var(--green);
+        color: var(--cream);
+      }
+
+      .transit-bg .section-label {
+        color: rgba(245, 240, 232, 0.5);
+      }
+
+      .transit-bg .section-label::after {
+        background: rgba(245, 240, 232, 0.15);
+      }
+
+      .transit-bg .section-title {
+        color: var(--cream);
+      }
+
+      .quotes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .quote-card {
+        background: rgba(245, 240, 232, 0.08);
+        border: 1px solid rgba(245, 240, 232, 0.15);
+        border-left: 3px solid var(--gold);
+        border-radius: 0 12px 12px 0;
+        padding: 1.5rem;
+      }
+
+      .quote-card blockquote {
+        font-size: 14px;
+        color: rgba(245, 240, 232, 0.85);
+        line-height: 1.65;
+        font-style: italic;
+        margin-bottom: 1rem;
+      }
+
+      .quote-author {
+        font-family: "Oswald", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        color: var(--gold-light);
+      }
+
+      .quote-role {
+        font-size: 10px;
+        color: rgba(245, 240, 232, 0.45);
+        margin-top: 0.25rem;
+      }
+
+      /* ─── ABOUT / TIMELINE ─── */
+      .about-intro {
+        font-size: 15px;
+        color: var(--muted);
+        max-width: 42rem;
+        line-height: 1.75;
+        margin-bottom: 2.5rem;
+      }
+
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .timeline-row {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        gap: 1.5rem;
+        padding: 1.25rem 1.5rem;
+        background: var(--card-bg);
+        border-bottom: 1px solid var(--border);
+        align-items: baseline;
+      }
+
+      .timeline-row:last-child {
+        border-bottom: none;
+      }
+
+      .timeline-date {
+        font-family: "Oswald", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+
+      .timeline-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 0.15rem;
+      }
+
+      .timeline-desc {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      /* ─── CONTACT ─── */
+      .contact-section {
+        text-align: center;
+      }
+
+      .contact-section .section-title em {
+        font-style: italic;
+        color: var(--gold-light);
+      }
+
+      .contact-body {
+        font-size: 15px;
+        color: rgba(245, 240, 232, 0.65);
+        max-width: 36rem;
+        margin: 0 auto 2.5rem;
+        line-height: 1.75;
+      }
+
+      .contact-links {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .contact-pill {
+        background: rgba(201, 147, 58, 0.15);
+        border: 1px solid rgba(201, 147, 58, 0.3);
+        color: var(--gold-light);
+        font-family: "Oswald", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.15em;
+        padding: 0.65rem 1.4rem;
+        border-radius: 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+      }
+
+      .contact-pill:hover {
+        background: rgba(201, 147, 58, 0.25);
+        border-color: var(--gold);
+      }
+
+      .contact-pill.primary {
+        background: var(--gold);
+        color: var(--ink);
+        border-color: var(--gold);
+        text-transform: none;
+        font-weight: 400;
+        letter-spacing: 0.15em;
+      }
+
+      .contact-pill.primary:hover {
+        background: var(--gold-light);
+        border-color: var(--gold-light);
+      }
+
+      /* ─── FOOTER ─── */
+      .footer {
+        background: var(--ink);
+        text-align: center;
+        padding: 3rem 2rem;
+        color: rgba(245, 240, 232, 0.3);
+        font-family: "Oswald", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+      }
+
+      .footer strong {
+        color: var(--gold);
+        font-weight: 500;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: rgba(245, 240, 232, 0.35);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .footer-links a:hover {
+        color: var(--gold-light);
+      }
+
+      @media (max-width: 768px) {
+        .work-featured-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .approach-card {
+          grid-template-columns: 1fr;
+        }
+
+        .approach-photo {
+          width: 100%;
+          max-width: 280px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav-links {
+          display: none;
+        }
+
+        .timeline-row {
+          grid-template-columns: 1fr;
+          gap: 0.35rem;
+        }
+
+        .hero-cta {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-WKCF92FT"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <nav>
+      <a href="#" class="nav-logo">
+        <img src="./img/logo-geografa.svg" alt="Geografa logo" />
+        <span>eografa</span>
+      </a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="https://geografa.github.io/portfolio/">Archive</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-video-wrap">
+        <video autoplay muted loop playsinline id="heroVideo">
+          <source src="./img/maphero.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="hero-tag">
+          <img src="./img/logo-geografa.svg" alt="Geografa logo" />eografa ·
+          est. 2001 · Portland, OR
+        </div>
+
+        <h1>
+          Human-centered map design
+          <!-- <em>at every step</em> -->
+        </h1>
+        <p class="hero-sub">
+          Over twenty five years of geospatial work in one collective. We're web
+          mapping experts, GIS professionals, and web developers helping teams
+          ship maps that hold up under pressure.
+        </p>
+        <div class="hero-cta">
+          <a href="#selected" class="btn-primary">See the work →</a>
+          <a href="#contact" class="btn-ghost">Start a conversation</a>
+        </div>
+      </div>
+      <div class="scroll-hint">↓ scroll</div>
+    </section>
+
+    <!-- 01 · THE WORK -->
+    <div class="ink-bg" id="work">
+      <div class="section">
+        <div class="section-label">01 · The work</div>
+        <h2 class="section-title">
+          A small studio that scales like a collective.
+        </h2>
+        <p class="section-intro">
+          Geografa runs lean by default and assembles the right team from a
+          trusted network of engineers, designers, and developers. You're
+          connected with one project manager so support and continuity stay
+          high-touch.
+        </p>
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Optimization</h3>
+            <p>
+              Slow tiles, heavy bundles, jittery interactions — we audit your
+              stack and bring map performance back into spec. Vector tile
+              pipelines, style refactors, render budgets.
+            </p>
+          </div>
+          <div class="service-card">
+            <h3>Custom map products</h3>
+            <p>
+              From a single embed to a full application — Mapbox GL, MapLibre,
+              Three.js, vector tiles, custom geocoding, geofencing, 3D models.
+              Delivered as code your team can own.
+            </p>
+          </div>
+          <div class="service-card">
+            <h3>Strategy &amp; advisory</h3>
+            <p>
+              Choosing a basemap provider, scoping a migration, hiring your
+              first geo engineer. Twenty years of "I've seen this before" is
+              applied to the decisions that matter most.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- 02 · SELECTED WORK -->
+    <div id="selected">
+      <div class="section">
+        <div class="section-label section-label--dark">02 · Selected work</div>
+        <h2 class="section-title">
+          Maps in production, and a few in the wild.
+        </h2>
+        <p class="about-intro">
+          A mix of client work and personal experiments — most of the
+          experiments end up teaching us something we use the next time around.
+        </p>
+
+        <div class="work-featured-grid">
+          <article class="work-card">
+            <img src="./img/uber.png" alt="Uber Design" />
+            <div class="work-card-body">
+              <div class="work-tag">Navigation · Maplibre GL</div>
+              <h3>Uber Map Design</h3>
+              <p>
+                Various projects across Uber's map design team including map
+                tooling, brand map prototyping, Map UI kit component
+                development, and more.
+              </p>
+              <a
+                href="https://uber.design/"
+                class="work-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Visit Uber Design →</a
+              >
+            </div>
+          </article>
+
+          <article class="work-card">
+            <img src="./img/nyc-marathon.png" alt="NYC Marathon map" />
+            <div class="work-card-body">
+              <div class="work-tag">Recreation · Mapbox GL</div>
+              <h3>NYC Marathon</h3>
+              <p>
+                The NYC Marathon course, built with Mapbox GL and React. The map
+                is used to display the course and the runners' progress.
+                Broadcasted live on TV and online.
+              </p>
+              <a
+                href="https://www.youtube.com/live/fB5r6lHKyOc?si=KCI8j4LhcpoqSYbr&t=9445"
+                class="work-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View broadcast →</a
+              >
+            </div>
+          </article>
+          <article class="work-card">
+            <img src="./img/mtc.png" alt="Vital Signs - MTC" />
+            <div class="work-card-body">
+              <div class="work-tag">Healthcare · Client</div>
+              <h3>Vital Signs - MTC</h3>
+              <p>
+                A clinic locator and care-network explorer for a virtual-first
+                primary-care provider — built to feel calm under load.
+              </p>
+              <a
+                href="https://vitalsigns.mtc.ca.gov/"
+                class="work-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Visit Vital Signs →</a
+              >
+            </div>
+          </article>
+        </div>
+
+        <div class="archive-label">More from the archive</div>
+        <div class="work-chip-row">
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/route-optimizer.png" alt="" />
+            Strava Routes
+          </a>
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/analysis.png" alt="" />
+            Simple Line Designer
+          </a>
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/climb.gif" alt="" />
+            Global Stadiums
+          </a>
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/matrix.png" alt="" />
+            leftfut.com
+          </a>
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/h4c.png" alt="" />
+            Visit Roosevelt Island
+          </a>
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/earth-day.png" alt="" />
+            Orienteering
+          </a>
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/vs-population.png" alt="" />
+            Climate Solutions
+          </a>
+          <a
+            href="https://geografa.github.io/portfolio/"
+            class="work-chip"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/death-star.png" alt="" />
+            Model Swapper 3D
+          </a>
+        </div>
+
+        <div class="archive-cta">
+          <a
+            href="https://geografa.github.io/portfolio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Browse the full archive →</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- 03 · HOW WE WORK -->
+    <div id="approach">
+      <div class="section">
+        <div class="section-label section-label--dark">03 · How we work</div>
+        <h2 class="section-title">
+          Customer-centered, from first call to handoff.
+        </h2>
+        <div class="approach-card">
+          <div>
+            <p>
+              Geografa is committed to a <em>customer- and client-centered</em>
+              approach — assembling just the right team for each project, then
+              keeping the relationship close as it grows.
+            </p>
+            <p>
+              Most engagements start with a conversation, not a SOW. We listen
+              first, then scope: what's already working, where the bottlenecks
+              are, who on your team will own this after we hand it off.
+            </p>
+            <p>
+              From there, we tap a committed network of engineers, designers,
+              and developers and assemble the smallest team that can ship the
+              work well. Everything routes through one P&amp;E manager so you
+              get high-touch, consistent account support — no rotating contacts,
+              no relearning your stack on every new ticket.
+            </p>
+            <p>
+              And we leave you the code, the docs, and a clear way to keep going
+              without us.
+            </p>
+            <div class="approach-signature">— Rafa</div>
+          </div>
+          <img
+            src="./img/rafa-speaker.png"
+            alt="Rafa Gutierrez speaking at Oregon State University"
+            class="approach-photo"
+          />
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- 04 · KIND WORDS -->
+    <div class="transit-bg" id="testimonials">
+      <div class="section">
+        <div class="section-label">04 · Kind words</div>
+        <h2 class="section-title">From the people we've worked alongside.</h2>
+        <p class="section-intro" style="color: rgba(245, 240, 232, 0.55)">
+          A few notes from former teammates at Mapbox — the kind of context that
+          doesn't fit on a résumé.
+        </p>
+        <div class="quotes-grid">
+          <div class="quote-card">
+            <blockquote>
+              In a fast-paced environment, he shined as an empathetic leader.
+              Always ready to pair with a teammate or experiment with a new
+              process to improve the team's workflow, Rafa leads by example.
+            </blockquote>
+            <div class="quote-author">Former Mapbox colleague</div>
+            <div class="quote-role">Customer Solutions</div>
+          </div>
+          <div class="quote-card">
+            <blockquote>
+              Rafa and I worked side-by-side helping Mapbox customers understand
+              the product and work through technical problems. He's one of the
+              most empathetic, encouraging, and relentlessly helpful people I've
+              ever worked with.
+            </blockquote>
+            <div class="quote-author">Former Mapbox colleague</div>
+            <div class="quote-role">Technical Support Engineering</div>
+          </div>
+          <div class="quote-card">
+            <blockquote>
+              Not a day passes that I'm not amazed by Rafa's institutional
+              knowledge of the Mapbox universe. He's a walking encyclopedia of
+              our products and the history behind them — why they were built,
+              what was unique about them, which challenges they helped users
+              solve.
+            </blockquote>
+            <div class="quote-author">Former Mapbox colleague</div>
+            <div class="quote-role">Product</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 · ABOUT -->
+    <div id="about">
+      <div class="section">
+        <div class="section-label section-label--dark">05 · About</div>
+        <h2 class="section-title">Twenty years of paying attention to maps.</h2>
+        <p class="about-intro">
+          Portland · OR — Rafa Gutierrez has spent the last two decades in
+          geospatial — first as a GIS manager in environmental consulting, then
+          helping build out Mapbox's startup technical-support engineering team
+          during the years it grew from a small group into a global product.
+          Geografa is what he runs now: a focused dev shop for web map, with a
+          roster of long-time collaborators on call when projects call for more
+          hands.
+        </p>
+        <div class="timeline">
+          <div class="timeline-row">
+            <div class="timeline-date">2024 →</div>
+            <div>
+              <div class="timeline-title">Geografa</div>
+              <div class="timeline-desc">Founder · web-mapping consultancy</div>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-date">2018 — 2024</div>
+            <div>
+              <div class="timeline-title">Mapbox</div>
+              <div class="timeline-desc">
+                Built &amp; led startup technical-support engineering
+              </div>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-date">2001 — 2018</div>
+            <div>
+              <div class="timeline-title">Environmental consulting</div>
+              <div class="timeline-desc">
+                GIS management · field-to-data workflows
+              </div>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-date">Always</div>
+            <div>
+              <div class="timeline-title">Maps in the open</div>
+              <div class="timeline-desc">40+ experiments in the archive</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- 06 · GET IN TOUCH -->
+    <div class="ink-bg" id="contact">
+      <div class="section contact-section">
+        <div class="section-label">06 · Get in touch</div>
+        <h2 class="section-title">Let's <em>start mapping</em>.</h2>
+        <p class="contact-body">
+          Whether you're optimizing a stack you already have, scoping a new
+          product, or just trying to figure out which basemap to use — drop a
+          note. Most replies come within a day.
+        </p>
+        <div class="contact-links">
+          <!-- <a href="mailto:rafa@geografa.io" class="contact-pill primary"
+            >rafa@geografa.io →</a
+          > -->
+          <a
+            href="https://www.linkedin.com/in/geografa"
+            class="contact-pill"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          <a
+            href="https://github.com/geografa"
+            class="contact-pill"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div style="margin-bottom: 0.5rem">
+        <strong>Geografa</strong>
+      </div>
+      <div>© 2026 · Portland, OR · more heart, less vibes</div>
+      <div class="footer-links">
+        <a href="#work">Work</a>
+        <a href="https://geografa.github.io/portfolio/">Archive</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+        <a href="https://github.com/geografa">GitHub</a>
+        <a href="mailto:rafa@geografa.io">Email</a>
+      </div>
+    </footer>
+  </body>
+</html>
