@@ -46,6 +46,9 @@ See [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) for full token and component documentat
 
 Pushes to `main`/`master` trigger [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which builds and deploys `dist/` to GitHub Pages.
 
-**One-time setup:** In repo Settings → Pages, set Source to **GitHub Actions**.
+**One-time setup:**
 
-Custom domain `geografa.io` is included via `public/CNAME`.
+1. Repo **Settings → Pages → Build and deployment → Source** must be **GitHub Actions** (not “Deploy from a branch”). If Pages serves the repo root, the browser loads `/src/main.tsx` and fails with a MIME type error.
+2. Repo **Settings → Secrets and variables → Actions** — add `VITE_MAPBOX_ACCESS_TOKEN` so map demos work in production (Vite inlines this at build time).
+
+Custom domain `geografa.io` is included via `public/CNAME`. `public/.nojekyll` disables Jekyll processing so `/assets/*.js` is served correctly.
