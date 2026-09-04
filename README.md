@@ -1,6 +1,6 @@
 # geografa.io
 
-Marketing site for Geografa — Vite + React + TypeScript.
+All things maps. Geografa — Vite + React + TypeScript.
 
 ## Development
 
