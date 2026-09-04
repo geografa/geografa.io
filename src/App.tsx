@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { DemoLayer } from "@/components/layout/DemoLayer";
+import { ErrorBoundary } from "@/components/layout/ErrorBoundary";
 import { RouteEffects } from "@/components/layout/RouteEffects";
 import { LandingPage } from "@/pages/LandingPage";
 import { SimpleLineDesignerDemo } from "@/demos/simple-line-designer/SimpleLineDesignerDemo";
@@ -9,35 +10,34 @@ function isDemoPath(pathname: string): boolean {
   return pathname.startsWith("/portfolio/");
 }
 
-function LandingRoute() {
-  const { pathname, key } = useLocation();
-  const prevPathnameRef = useRef(pathname);
-  const [remountKey, setRemountKey] = useState(0);
-
-  useEffect(() => {
-    const prevPathname = prevPathnameRef.current;
-    prevPathnameRef.current = pathname;
-
-    if (isDemoPath(prevPathname) && pathname === "/") {
-      setRemountKey((value) => value + 1);
-    }
-  }, [pathname]);
-
-  return <LandingPage key={`${key}-${remountKey}`} />;
-}
-
 export function App() {
+  const { pathname } = useLocation();
+  const isDemo = isDemoPath(pathname);
+
   return (
     <>
-      <RouteEffects />
-      <Routes>
-        <Route path="/" element={<LandingRoute />} />
-        <Route
-          path="/portfolio/simple-line-designer"
-          element={<SimpleLineDesignerDemo />}
-        />
-        <Route path="/portfolio/fwc" element={<FwcTravelTimesDemo />} />
-      </Routes>
+      <RouteEffects isDemo={isDemo} />
+      <div
+        className={
+          isDemo ? "landing-page landing-page--inactive" : "landing-page"
+        }
+        aria-hidden={isDemo}
+      >
+        <LandingPage inactive={isDemo} />
+      </div>
+      {isDemo ? (
+        <ErrorBoundary key={pathname}>
+          <DemoLayer>
+            <Routes>
+              <Route
+                path="/portfolio/simple-line-designer"
+                element={<SimpleLineDesignerDemo />}
+              />
+              <Route path="/portfolio/fwc" element={<FwcTravelTimesDemo />} />
+            </Routes>
+          </DemoLayer>
+        </ErrorBoundary>
+      ) : null}
     </>
   );
 }

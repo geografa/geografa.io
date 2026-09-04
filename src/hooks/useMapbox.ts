@@ -1,8 +1,8 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import mapboxgl, { type Map, type MapOptions } from "mapbox-gl";
 import { getMapboxToken } from "@/config/env";
 import { applyStandardLightPreset } from "@/lib/map/defaults";
-import { resetPageAfterMap } from "@/lib/map/resetPageAfterMap";
+import { markMapDetached } from "@/lib/map/safety";
 
 export interface UseMapboxOptions extends Omit<MapOptions, "container"> {
   lightPreset?: "day" | "night";
@@ -24,36 +24,32 @@ export function useMapbox(options: UseMapboxOptions = {}): UseMapboxResult {
 
   const { lightPreset = "day", ...mapOptions } = options;
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    let mapInstance: Map | null = null;
     let cancelled = false;
+    let mapInstance: Map;
 
     try {
       mapboxgl.accessToken = getMapboxToken();
+      mapInstance = new mapboxgl.Map({ container, ...mapOptions });
     } catch (err) {
       setError(err instanceof Error ? err : new Error(String(err)));
       return;
     }
 
-    mapInstance = new mapboxgl.Map({
-      container,
-      ...mapOptions,
-    });
-
     mapRef.current = mapInstance;
     setMap(mapInstance);
 
     const onLoad = () => {
-      if (cancelled || !mapInstance) return;
+      if (cancelled) return;
       applyStandardLightPreset(mapInstance, lightPreset);
       setIsLoaded(true);
     };
 
     const onStyleLoad = () => {
-      if (cancelled || !mapInstance) return;
+      if (cancelled) return;
       applyStandardLightPreset(mapInstance, lightPreset);
     };
 
@@ -62,12 +58,20 @@ export function useMapbox(options: UseMapboxOptions = {}): UseMapboxResult {
 
     return () => {
       cancelled = true;
-      if (!mapInstance) return;
-      mapInstance.off("load", onLoad);
-      mapInstance.off("style.load", onStyleLoad);
-      mapInstance.remove();
       mapRef.current = null;
-      resetPageAfterMap();
+      markMapDetached(mapInstance);
+
+      // Sibling/child cleanups still hold this instance and run after this one,
+      // so destroy it once the current commit has finished.
+      queueMicrotask(() => {
+        try {
+          mapInstance.off("load", onLoad);
+          mapInstance.off("style.load", onStyleLoad);
+          mapInstance.remove();
+        } catch {
+          // already destroyed
+        }
+      });
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- map init once per mount
   }, []);

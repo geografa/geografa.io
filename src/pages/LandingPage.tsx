@@ -9,11 +9,15 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 
-export function LandingPage() {
+interface LandingPageProps {
+  inactive?: boolean;
+}
+
+export function LandingPage({ inactive = false }: LandingPageProps) {
   return (
     <>
       <Nav />
-      <Hero />
+      <Hero inactive={inactive} />
       <WorkSection />
       <Divider />
       <SelectedWorkSection />

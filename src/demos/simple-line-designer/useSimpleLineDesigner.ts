@@ -4,7 +4,9 @@ import {
   addGeoJSONSource,
   addLineLayer,
   fetchGeoJSON,
+  isMapUsable,
   setLayerVisibility,
+  withMap,
 } from "@/lib/map";
 import { applyStandardLightPreset } from "@/lib/map/defaults";
 import { mapColors } from "@/theme";
@@ -43,20 +45,12 @@ const initialState: LineDesignerState = {
   dayPreset: true,
 };
 
-function mapIsUsable(map: Map | null): map is Map {
-  try {
-    return Boolean(map?.getStyle());
-  } catch {
-    return false;
-  }
-}
-
 export function useSimpleLineDesigner(map: Map | null, isLoaded: boolean) {
   const [state, setState] = useState<LineDesignerState>(initialState);
   const [layersReady, setLayersReady] = useState(false);
 
   useEffect(() => {
-    if (!mapIsUsable(map) || !isLoaded || layersReady) return;
+    if (!isMapUsable(map) || !isLoaded || layersReady) return;
 
     let cancelled = false;
 
@@ -99,20 +93,25 @@ export function useSimpleLineDesigner(map: Map | null, isLoaded: boolean) {
   }, [map, isLoaded, layersReady]);
 
   useEffect(() => {
-    if (!mapIsUsable(map) || !layersReady) return;
+    if (!isMapUsable(map) || !layersReady) return;
 
     return () => {
-      if (!mapIsUsable(map)) return;
-      if (map.getLayer(LINE_LAYER_ID)) map.removeLayer(LINE_LAYER_ID);
-      if (map.getLayer(LINE_CASING_LAYER_ID)) {
-        map.removeLayer(LINE_CASING_LAYER_ID);
-      }
-      if (map.getSource(LINE_SOURCE_ID)) map.removeSource(LINE_SOURCE_ID);
+      withMap(map, (liveMap) => {
+        if (liveMap.getLayer(LINE_LAYER_ID)) {
+          liveMap.removeLayer(LINE_LAYER_ID);
+        }
+        if (liveMap.getLayer(LINE_CASING_LAYER_ID)) {
+          liveMap.removeLayer(LINE_CASING_LAYER_ID);
+        }
+        if (liveMap.getSource(LINE_SOURCE_ID)) {
+          liveMap.removeSource(LINE_SOURCE_ID);
+        }
+      });
     };
   }, [map, layersReady]);
 
   useEffect(() => {
-    if (!mapIsUsable(map) || !layersReady) return;
+    if (!isMapUsable(map) || !layersReady) return;
 
     map.setPaintProperty(LINE_LAYER_ID, "line-width", state.lineWidth);
     map.setPaintProperty(LINE_LAYER_ID, "line-blur", state.lineBlur);
@@ -154,7 +153,7 @@ export function useSimpleLineDesigner(map: Map | null, isLoaded: boolean) {
   ]);
 
   useEffect(() => {
-    if (!mapIsUsable(map) || !layersReady) return;
+    if (!isMapUsable(map) || !layersReady) return;
     applyStandardLightPreset(map, state.dayPreset ? "day" : "night");
   }, [map, layersReady, state.dayPreset]);
 
@@ -163,7 +162,7 @@ export function useSimpleLineDesigner(map: Map | null, isLoaded: boolean) {
   }, []);
 
   const copyProps = useCallback((): Record<string, unknown> => {
-    if (!map || !layersReady) return {};
+    if (!isMapUsable(map) || !layersReady) return {};
     return {
       "line-width": map.getPaintProperty(LINE_LAYER_ID, "line-width"),
       "line-blur": map.getPaintProperty(LINE_LAYER_ID, "line-blur"),

@@ -2,15 +2,37 @@ import { useEffect, useRef } from "react";
 import { hero } from "@/data/site";
 import { Button } from "@/components/ui/Button";
 
-export function Hero() {
+interface HeroProps {
+  inactive?: boolean;
+}
+
+export function Hero({ inactive = false }: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
+    if (inactive) {
+      video.pause();
+      return;
+    }
+
     video.currentTime = 0;
     void video.play().catch(() => {});
-  }, []);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          void video.play().catch(() => {});
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [inactive]);
 
   return (
     <section className="hero">

@@ -164,16 +164,16 @@ export const testimonials: Testimonial[] = [
 
 export const aboutSection = {
   label: "05 · About",
-  title: "Twenty years of paying attention to maps.",
+  title: "Twenty years of geospatial engineering.",
   intro:
-    "Portland · OR — Rafa Gutierrez has spent the last two decades in geospatial — first as a GIS manager in environmental consulting, then helping build out Mapbox's startup technical-support engineering team during the years it grew from a small group into a global product. Geografa is what he runs now: a focused dev shop for web map, with a roster of long-time collaborators on call when projects call for more hands.",
+    "With 20 years of geospatial engineering experience, Portland-based Rafa Gutierrez runs Geografa, a dedicated web-mapping dev shop. His background includes serving as a GIS manager in environmental consulting and helping scale Mapbox's technical support team from local startup to global product. For larger builds, Geografa leverages a reliable network of experienced on-call collaborators.",
 };
 
 export const timeline: TimelineEntry[] = [
-  { date: "2024 →", title: "Geografa", description: "Founder · web-mapping consultancy" },
-  { date: "2018 — 2024", title: "Mapbox", description: "Built & led startup technical-support engineering" },
-  { date: "2001 — 2018", title: "Environmental consulting", description: "GIS management · field-to-data workflows" },
-  { date: "Always", title: "Maps in the open", description: "40+ experiments in the archive" },
+  { date: "2024 →", title: "Geografa", description: "Owner · web-mapping consultancy" },
+  { date: "2013 — 2023", title: "Mapbox", description: "Lead Technical Support Engineer & Navigation API SME" },
+  { date: "2002 — 2012", title: "SWCA Environmental", description: "GIS manager" },
+  // { date: "Always", title: "Maps in the open", description: "40+ experiments in the archive" },
 ];
 
 export const contactSection = {

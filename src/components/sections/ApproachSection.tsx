@@ -8,9 +8,9 @@ export function ApproachSection() {
       <div className="approach-card">
         <div>
           <p>
-            Geografa is committed to a <em>customer- and client-centered</em>{" "}
-            approach — assembling just the right team for each project, then
-            keeping the relationship close as it grows.
+            Geografa is committed to a customer and client-centered approach. We
+            assemble the right team for each project, then keep the relationship
+            close as it grows.
           </p>
           <p>
             Most engagements start with a conversation, not a SOW. We listen
@@ -21,8 +21,8 @@ export function ApproachSection() {
             From there, we tap a committed network of engineers, designers, and
             developers and assemble the smallest team that can ship the work
             well. Everything routes through one P&amp;E manager so you get
-            high-touch, consistent account support — no rotating contacts, no
-            relearning your stack on every new ticket.
+            high-touch, consistent account support. There's no rotating
+            contacts, no relearning your stack on every new ticket.
           </p>
           <p>
             And we leave you the code, the docs, and a clear way to keep going

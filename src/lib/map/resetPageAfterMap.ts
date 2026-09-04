@@ -1,3 +1,11 @@
+const MAPBOX_LEAK_SELECTORS = [
+  ".mapboxgl-scroll-zoom-blocker",
+  ".mapboxgl-touch-pan-blocker",
+  ".mapboxgl-cooperative-gesture-screen",
+  ".mapboxgl-map",
+  "canvas.mapboxgl-canvas",
+].join(", ");
+
 /** Undo document-level side effects Mapbox GL may leave after unmount. */
 export function resetPageAfterMap(): void {
   document.body.style.removeProperty("overflow");
@@ -16,24 +24,7 @@ export function resetPageAfterMap(): void {
     root.style.removeProperty("overflow");
   }
 
-  document
-    .querySelectorAll(
-      [
-        ".mapboxgl-scroll-zoom-blocker",
-        ".mapboxgl-touch-pan-blocker",
-        ".mapboxgl-cooperative-gesture-screen",
-      ].join(", "),
-    )
-    .forEach((node) => node.remove());
-
-  // Remove orphaned map instances Mapbox may leave outside #root.
-  document.querySelectorAll(".mapboxgl-map").forEach((node) => {
-    if (!root?.contains(node)) {
-      node.remove();
-    }
-  });
-
-  document.querySelectorAll("canvas.mapboxgl-canvas").forEach((node) => {
+  document.querySelectorAll(MAPBOX_LEAK_SELECTORS).forEach((node) => {
     if (!root?.contains(node)) {
       node.remove();
     }

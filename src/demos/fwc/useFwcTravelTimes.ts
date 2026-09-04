@@ -4,7 +4,7 @@ import mapboxgl, { type Map } from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import nearestPoint from "@turf/nearest-point";
 import { point, featureCollection } from "@turf/helpers";
-import { fetchGeoJSON, addMapImagesFromUrls } from "@/lib/map";
+import { fetchGeoJSON, addMapImagesFromUrls, withMap } from "@/lib/map";
 import { getMapboxToken } from "@/config/env";
 import type {
   DistanceKey,
@@ -179,7 +179,7 @@ export function useFwcTravelTimes(
   );
 
   useEffect(() => {
-    if (!map || !isLoaded || layersReady) return;
+    if (!map || !isLoaded) return;
 
     let cancelled = false;
 
@@ -231,25 +231,23 @@ export function useFwcTravelTimes(
 
     return () => {
       cancelled = true;
-      if (map.getLayer(FWC_LAYER_IDS.stadiums)) {
-        map.removeLayer(FWC_LAYER_IDS.stadiums);
-      }
-      if (map.getLayer(FWC_LAYER_IDS.airports)) {
-        map.removeLayer(FWC_LAYER_IDS.airports);
-      }
-      if (map.getLayer(FWC_LAYER_IDS.basecamps)) {
-        map.removeLayer(FWC_LAYER_IDS.basecamps);
-      }
-      if (map.getLayer(FWC_LAYER_IDS.hotels)) {
-        map.removeLayer(FWC_LAYER_IDS.hotels);
-      }
-      for (const sourceId of Object.values(FWC_SOURCE_IDS)) {
-        if (map.getSource(sourceId)) {
-          map.removeSource(sourceId);
+      setLayersReady(false);
+      dataRef.current = null;
+
+      withMap(map, (liveMap) => {
+        for (const layerId of Object.values(FWC_LAYER_IDS)) {
+          if (liveMap.getLayer(layerId)) {
+            liveMap.removeLayer(layerId);
+          }
         }
-      }
+        for (const sourceId of Object.values(FWC_SOURCE_IDS)) {
+          if (liveMap.getSource(sourceId)) {
+            liveMap.removeSource(sourceId);
+          }
+        }
+      });
     };
-  }, [map, isLoaded, layersReady]);
+  }, [map, isLoaded]);
 
   useEffect(() => {
     if (!map || !layersReady || !dataRef.current) return;
@@ -266,8 +264,10 @@ export function useFwcTravelTimes(
       map.on("mouseenter", layerId, onEnter);
       map.on("mouseleave", layerId, onLeave);
       return () => {
-        map.off("mouseenter", layerId, onEnter);
-        map.off("mouseleave", layerId, onLeave);
+        withMap(map, (liveMap) => {
+          liveMap.off("mouseenter", layerId, onEnter);
+          liveMap.off("mouseleave", layerId, onLeave);
+        });
       };
     };
 
@@ -344,10 +344,12 @@ export function useFwcTravelTimes(
     });
 
     return () => {
-      map.off("click", FWC_LAYER_IDS.airports, onAirportClick);
-      map.off("click", FWC_LAYER_IDS.basecamps, onBasecampClick);
-      map.off("click", FWC_LAYER_IDS.hotels, onHotelClick);
-      map.off("click", FWC_LAYER_IDS.stadiums, onStadiumClick);
+      withMap(map, (liveMap) => {
+        liveMap.off("click", FWC_LAYER_IDS.airports, onAirportClick);
+        liveMap.off("click", FWC_LAYER_IDS.basecamps, onBasecampClick);
+        liveMap.off("click", FWC_LAYER_IDS.hotels, onHotelClick);
+        liveMap.off("click", FWC_LAYER_IDS.stadiums, onStadiumClick);
+      });
       unbindPointer.forEach((fn) => fn());
     };
   }, [map, layersReady, handleLayerClick]);
@@ -376,7 +378,11 @@ export function useFwcTravelTimes(
     });
 
     return () => {
-      geocoder.onRemove();
+      try {
+        geocoder.onRemove();
+      } catch {
+        // map was already destroyed
+      }
     };
   }, [map, layersReady, geocoderRef]);
 

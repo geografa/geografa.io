@@ -1,48 +1,43 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   resetPageAfterMap,
   resetPageAfterMapDeferred,
 } from "@/lib/map/resetPageAfterMap";
 
-function isDemoPath(pathname: string): boolean {
-  return pathname.startsWith("/portfolio/");
+interface RouteEffectsProps {
+  isDemo: boolean;
 }
 
 /** Reset scroll and page chrome when moving between landing and map demos. */
-export function RouteEffects() {
+export function RouteEffects({ isDemo }: RouteEffectsProps) {
   const navigate = useNavigate();
-  const { pathname, hash, key } = useLocation();
-  const prevPathnameRef = useRef(pathname);
+  const { hash } = useLocation();
+  const wasDemoRef = useRef(isDemo);
 
-  useLayoutEffect(() => {
-    const prevPathname = prevPathnameRef.current;
-    prevPathnameRef.current = pathname;
+  useEffect(() => {
+    const wasDemo = wasDemoRef.current;
+    wasDemoRef.current = isDemo;
 
-    const returnedFromDemo = isDemoPath(prevPathname) && pathname === "/";
-    const enteredDemo = isDemoPath(pathname);
-
-    if (returnedFromDemo && (hash || window.location.hash)) {
-      navigate({ pathname: "/", hash: "" }, { replace: true });
+    if (wasDemo && !isDemo) {
+      if (hash || window.location.hash) {
+        navigate({ pathname: "/", hash: "" }, { replace: true });
+      }
+      window.scrollTo(0, 0);
+      resetPageAfterMap();
+      resetPageAfterMapDeferred();
+      return;
     }
 
-    if (returnedFromDemo || enteredDemo) {
+    if (isDemo) {
       window.scrollTo(0, 0);
     }
-
-    resetPageAfterMap();
-  }, [pathname, hash, key, navigate]);
-
-  // Map teardown runs in effect cleanups, which fire after layout effects.
-  useEffect(() => {
-    resetPageAfterMap();
-    resetPageAfterMapDeferred();
-  }, [pathname, key]);
+  }, [isDemo, hash, navigate]);
 
   useEffect(() => {
     const onPageShow = (event: PageTransitionEvent) => {
-      if (!event.persisted) return;
-      if (window.location.hash && pathname === "/") {
+      if (!event.persisted || isDemo) return;
+      if (window.location.hash) {
         navigate({ pathname: "/", hash: "" }, { replace: true });
       }
       window.scrollTo(0, 0);
@@ -52,7 +47,7 @@ export function RouteEffects() {
 
     window.addEventListener("pageshow", onPageShow);
     return () => window.removeEventListener("pageshow", onPageShow);
-  }, [navigate, pathname]);
+  }, [isDemo, navigate]);
 
   return null;
 }

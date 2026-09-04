@@ -18,3 +18,4 @@ export {
   addMapImagesFromUrls,
 } from "./icons";
 export { resetPageAfterMap, resetPageAfterMapDeferred } from "./resetPageAfterMap";
+export { isMapUsable, markMapDetached, withMap } from "./safety";
