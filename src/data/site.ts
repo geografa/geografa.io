@@ -16,7 +16,7 @@ export const siteMeta = {
 
 export const navLinks: NavLink[] = [
   { label: "Work", href: "#work" },
-  { label: "Archive", href: "https://geografa.github.io/portfolio/", external: true },
+  // { label: "Archive", href: "https://geografa.github.io/portfolio/", external: true },
   { label: "Approach", href: "#approach" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
@@ -112,15 +112,16 @@ export const featuredWork: WorkItem[] = [
 ];
 
 export const archiveChips: ArchiveChip[] = [
-  { label: "Simple Line Designer", image: "/img/analysis.png", href: "/portfolio/simple-line-designer" },
-  { label: "Travel Times", image: "/img/earth-day.png", href: "/portfolio/fwc" },
-  { label: "leftfut.com", image: "/img/matrix.png", href: "https://leftfut.com/" },
-  { label: "Strava Routes", image: "/img/route-optimizer.png", href: "https://geografa.github.io/portfolio/" },
-  // { label: "Global Stadiums", image: "/img/climb.gif", href: "https://geografa.github.io/portfolio/" },
   { label: "Visit Roosevelt Island", image: "/img/ri-nyc.png", href: "https://visitri.nyc/" },
-  { label: "Orienteering", image: "/img/earth-day.png", href: "https://geografa.github.io/portfolio/" },
-  { label: "Climate Solutions", image: "/img/vs-population.png", href: "https://geografa.github.io/portfolio/" },
-  { label: "Model Swapper 3D", image: "/img/death-star.png", href: "https://geografa.github.io/portfolio/" },
+  { label: "Firefly Health", image: "/img/card-firefly.png", href: "https://www.fireflyhealth.com/firefly-nearby/" },
+  { label: "Travel Times", image: "/img/earth-day.png", href: "/portfolio/fwc" },
+  { label: "Leftfut", image: "/img/card-leftfut.png", href: "https://leftfut.com/" },
+  { label: "Line Designer", image: "/img/card-sld.png", href: "/portfolio/simple-line-designer" },
+  // { label: "Global Stadiums", image: "/img/climb.gif", href: "https://geografa.github.io/portfolio/" },
+  // { label: "Strava Routes", image: "/img/route-optimizer.png", href: "https://geografa.github.io/portfolio/" },
+  // { label: "Orienteering", image: "/img/earth-day.png", href: "https://geografa.github.io/portfolio/" },
+  // { label: "Climate Solutions", image: "/img/vs-population.png", href: "https://geografa.github.io/portfolio/" },
+  // { label: "Model Swapper 3D", image: "/img/death-star.png", href: "https://geografa.github.io/portfolio/" },
 ];
 
 export const approachSection = {
