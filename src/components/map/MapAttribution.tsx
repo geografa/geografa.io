@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import mapboxgl, { type Map } from "mapbox-gl";
 
 interface MapAttributionProps {
@@ -10,7 +10,7 @@ export function MapAttribution({
   map,
   showNavigation = true,
 }: MapAttributionProps) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const nav = showNavigation
       ? new mapboxgl.NavigationControl({ visualizePitch: true })
       : null;
@@ -22,8 +22,18 @@ export function MapAttribution({
     map.addControl(attribution, "bottom-right");
 
     return () => {
-      if (nav) map.removeControl(nav);
-      map.removeControl(attribution);
+      if (nav) {
+        try {
+          map.removeControl(nav);
+        } catch {
+          // map may already be removed
+        }
+      }
+      try {
+        map.removeControl(attribution);
+      } catch {
+        // map may already be removed
+      }
     };
   }, [map, showNavigation]);
 

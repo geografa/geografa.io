@@ -17,3 +17,4 @@ export {
   addMapImageFromUrl,
   addMapImagesFromUrls,
 } from "./icons";
+export { resetPageAfterMap, resetPageAfterMapDeferred } from "./resetPageAfterMap";

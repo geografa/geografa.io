@@ -10,7 +10,7 @@ export function WorkChip({ item }: { item: ArchiveChip }) {
 
   if (isInternalHref(item.href)) {
     return (
-      <Link to={item.href} className={className}>
+      <Link to={item.href} replace className={className}>
         <img src={item.image} alt="" />
         {item.label}
       </Link>

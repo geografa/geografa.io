@@ -4,7 +4,7 @@ export const DEFAULT_MAP_STYLE = "mapbox://styles/mapbox/standard";
 
 export const DEFAULT_MAP_OPTIONS: Partial<MapOptions> = {
   style: DEFAULT_MAP_STYLE,
-  cooperativeGestures: true,
+  cooperativeGestures: false,
 };
 
 export function applyStandardLightPreset(map: Map, preset: "day" | "night"): void {

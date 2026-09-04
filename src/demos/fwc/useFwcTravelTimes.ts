@@ -231,6 +231,23 @@ export function useFwcTravelTimes(
 
     return () => {
       cancelled = true;
+      if (map.getLayer(FWC_LAYER_IDS.stadiums)) {
+        map.removeLayer(FWC_LAYER_IDS.stadiums);
+      }
+      if (map.getLayer(FWC_LAYER_IDS.airports)) {
+        map.removeLayer(FWC_LAYER_IDS.airports);
+      }
+      if (map.getLayer(FWC_LAYER_IDS.basecamps)) {
+        map.removeLayer(FWC_LAYER_IDS.basecamps);
+      }
+      if (map.getLayer(FWC_LAYER_IDS.hotels)) {
+        map.removeLayer(FWC_LAYER_IDS.hotels);
+      }
+      for (const sourceId of Object.values(FWC_SOURCE_IDS)) {
+        if (map.getSource(sourceId)) {
+          map.removeSource(sourceId);
+        }
+      }
     };
   }, [map, isLoaded, layersReady]);
 

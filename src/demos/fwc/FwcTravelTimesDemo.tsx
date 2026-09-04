@@ -14,10 +14,11 @@ function MapContextSync({
 }: {
   map: Map;
   isLoaded: boolean;
-  onReady: (ctx: { map: Map; isLoaded: boolean }) => void;
+  onReady: (ctx: { map: Map; isLoaded: boolean } | null) => void;
 }) {
   useEffect(() => {
     onReady({ map, isLoaded });
+    return () => onReady(null);
   }, [map, isLoaded, onReady]);
 
   return null;

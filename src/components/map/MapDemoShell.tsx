@@ -19,7 +19,11 @@ export function MapDemoShell({
   return (
     <div className="map-demo-shell">
       <header className="map-demo-shell__header">
-        <Link to={backHref} className="map-demo-shell__back">
+        <Link
+          replace
+          to={{ pathname: backHref, hash: "" }}
+          className="map-demo-shell__back"
+        >
           {backLabel}
         </Link>
         <h1 className="map-demo-shell__title">{title}</h1>

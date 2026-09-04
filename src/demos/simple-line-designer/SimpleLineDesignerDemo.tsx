@@ -12,6 +12,8 @@ import {
 import { DEFAULT_MAP_OPTIONS, vegasLineDesignerViewport } from "@/lib/map";
 import { useSimpleLineDesigner } from "./useSimpleLineDesigner";
 
+type MapContext = { map: Map; isLoaded: boolean };
+
 function MapContextSync({
   map,
   isLoaded,
@@ -19,16 +21,17 @@ function MapContextSync({
 }: {
   map: Map;
   isLoaded: boolean;
-  onReady: (ctx: { map: Map; isLoaded: boolean }) => void;
+  onReady: (ctx: MapContext | null) => void;
 }) {
   useEffect(() => {
     onReady({ map, isLoaded });
+    return () => onReady(null);
   }, [map, isLoaded, onReady]);
 
   return null;
 }
 
-function LineDesignerSidebar({
+function LineDesignerContent({
   map,
   isLoaded,
 }: {
@@ -135,16 +138,18 @@ function LineDesignerSidebar({
 }
 
 export function SimpleLineDesignerDemo() {
-  const [mapCtx, setMapCtx] = useState<{
-    map: Map;
-    isLoaded: boolean;
-  } | null>(null);
+  const [mapCtx, setMapCtx] = useState<MapContext | null>(null);
 
   return (
     <MapDemoShell
       title="Simple Line Designer"
       map={
-        <MapCanvas {...DEFAULT_MAP_OPTIONS} {...vegasLineDesignerViewport}>
+        <MapCanvas
+          {...DEFAULT_MAP_OPTIONS}
+          {...vegasLineDesignerViewport}
+          cooperativeGestures={false}
+          attributionControl={false}
+        >
           {({ map, isLoaded }) => (
             <>
               <MapContextSync
@@ -159,7 +164,7 @@ export function SimpleLineDesignerDemo() {
       }
       sidebar={
         mapCtx?.isLoaded ? (
-          <LineDesignerSidebar map={mapCtx.map} isLoaded={mapCtx.isLoaded} />
+          <LineDesignerContent map={mapCtx.map} isLoaded={mapCtx.isLoaded} />
         ) : null
       }
     />

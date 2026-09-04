@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 import { navLinks } from "@/data/site";
 
 export function Nav() {
   return (
     <nav>
-      <a href="#" className="nav-logo">
+      <Link to="/" className="nav-logo">
         <img src="/img/logo-geografa.svg" alt="Geografa logo" />
         <span>eografa</span>
-      </a>
+      </Link>
       <div className="nav-links">
         {navLinks.map((link) => (
           <a

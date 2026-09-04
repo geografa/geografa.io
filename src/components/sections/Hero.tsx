@@ -1,11 +1,28 @@
+import { useEffect, useRef } from "react";
 import { hero } from "@/data/site";
 import { Button } from "@/components/ui/Button";
 
 export function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.currentTime = 0;
+    void video.play().catch(() => {});
+  }, []);
+
   return (
     <section className="hero">
       <div className="hero-video-wrap">
-        <video autoPlay muted loop playsInline id="heroVideo">
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          id="heroVideo"
+        >
           <source src={hero.videoSrc} type="video/mp4" />
         </video>
       </div>
