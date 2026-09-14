@@ -32,9 +32,9 @@ export interface Testimonial {
 }
 
 export interface TimelineEntry {
-  date: string;
+  year: string;
   title: string;
-  description: string;
+  description?: string;
 }
 
 export type SectionVariant = "cream" | "ink" | "green";

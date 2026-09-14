@@ -1,11 +1,6 @@
-import {
-  archiveChips,
-  featuredWork,
-  selectedWorkSection,
-} from "@/data/site";
+import { featuredWork, selectedWorkSection } from "@/data/site";
 import { Section } from "@/components/layout/Section";
 import { WorkCard } from "@/components/ui/WorkCard";
-import { WorkChip } from "@/components/ui/WorkChip";
 
 export function SelectedWorkSection() {
   return (
@@ -17,23 +12,6 @@ export function SelectedWorkSection() {
         {featuredWork.map((item) => (
           <WorkCard key={item.title} item={item} />
         ))}
-      </div>
-
-      <div className="archive-label">{selectedWorkSection.archiveLabel}</div>
-      <div className="work-chip-row">
-        {archiveChips.map((chip) => (
-          <WorkChip key={chip.label} item={chip} />
-        ))}
-      </div>
-
-      <div className="archive-cta">
-        <a
-          href={selectedWorkSection.archiveCta.href}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {selectedWorkSection.archiveCta.label}
-        </a>
       </div>
     </Section>
   );

@@ -1,5 +1,4 @@
 import type {
-  ArchiveChip,
   NavLink,
   Service,
   Testimonial,
@@ -16,7 +15,7 @@ export const siteMeta = {
 
 export const navLinks: NavLink[] = [
   { label: "Work", href: "#work" },
-  // { label: "Archive", href: "https://geografa.github.io/portfolio/", external: true },
+  { label: "Portfolio", href: "#selected" },
   { label: "Approach", href: "#approach" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
@@ -70,19 +69,14 @@ export const selectedWorkSection = {
   label: "02 · Selected work",
   title: "Maps in production, and a few in the wild.",
   intro:
-    "A mix of client work and personal experiments — most of the experiments end up teaching us something we use the next time around.",
-  archiveLabel: "More from the archive",
-  archiveCta: {
-    label: "Browse the full archive →",
-    href: "https://geografa.github.io/portfolio/",
-  },
+    "A mix of client work and personal experiments — most of the experiments end up teaching us something we use the next time around.",  
 };
 
 export const featuredWork: WorkItem[] = [
   {
     image: "/img/uber.png",
     imageAlt: "Uber Design",
-    tag: "Navigation · Maplibre GL",
+    tag: "Navigation · Client",
     title: "Uber Map Design",
     description:
       "Various projects across Uber's map design team including map tooling, brand map prototyping, Map UI kit component development, and more.",
@@ -92,7 +86,7 @@ export const featuredWork: WorkItem[] = [
   {
     image: "/img/nyc-marathon.png",
     imageAlt: "NYC Marathon map",
-    tag: "Recreation · Mapbox GL",
+    tag: "Recreation · Client",
     title: "NYC Marathon",
     description:
       "The NYC Marathon course, built with Mapbox GL and React. The map is used to display the course and the runners' progress. Broadcasted live on TV and online.",
@@ -102,26 +96,83 @@ export const featuredWork: WorkItem[] = [
   {
     image: "/img/mtc.png",
     imageAlt: "Vital Signs - MTC",
-    tag: "Healthcare · Client",
+    tag: "Transportation · Client",
     title: "Vital Signs - MTC",
     description:
-      "A clinic locator and care-network explorer for a virtual-first primary-care provider — built to feel calm under load.",
+      "Vital Signs is an interactive website by the Metropolitan Transportation Commission (MTC) and Association of Bay Area Governments (ABAG) that offers data, visualizations, and contextualized narratives on important trends in the San Francisco Bay Area related to land use, transportation, the environment, the economy and equity.",
     href: "https://vitalsigns.mtc.ca.gov/",
     linkLabel: "Visit Vital Signs →",
   },
-];
-
-export const archiveChips: ArchiveChip[] = [
-  { label: "Visit Roosevelt Island", image: "/img/ri-nyc.png", href: "https://visitri.nyc/" },
-  { label: "Firefly Health", image: "/img/card-firefly.png", href: "https://www.fireflyhealth.com/firefly-nearby/" },
-  { label: "Travel Times", image: "/img/earth-day.png", href: "/portfolio/fwc" },
-  { label: "Leftfut", image: "/img/card-leftfut.png", href: "https://leftfut.com/" },
-  { label: "Line Designer", image: "/img/card-sld.png", href: "/portfolio/simple-line-designer" },
-  // { label: "Global Stadiums", image: "/img/climb.gif", href: "https://geografa.github.io/portfolio/" },
-  // { label: "Strava Routes", image: "/img/route-optimizer.png", href: "https://geografa.github.io/portfolio/" },
-  // { label: "Orienteering", image: "/img/earth-day.png", href: "https://geografa.github.io/portfolio/" },
-  // { label: "Climate Solutions", image: "/img/vs-population.png", href: "https://geografa.github.io/portfolio/" },
-  // { label: "Model Swapper 3D", image: "/img/death-star.png", href: "https://geografa.github.io/portfolio/" },
+  {
+    image: "/img/ri-nyc.png",
+    imageAlt: "Visit Roosevelt Island",
+    tag: "Recreation · Client",
+    title: "Visit Roosevelt Island",
+    description:
+      "Explore what Roosevelt Island has to offer, from local events to businesses and community resources, all in one place.",
+    href: "https://visitri.nyc/",
+    linkLabel: "Visit site →",
+  },
+  {
+    image: "/img/card-firefly.png",
+    imageAlt: "Firefly Health",
+    tag: "Healthcare · Client",
+    title: "Firefly Health",
+    description:
+      "We're continually adding new partner locations to offer our members more convenient and accessible options for in-person care.",
+    href: "https://www.fireflyhealth.com/firefly-nearby/",
+    linkLabel: "Visit Firefly Nearby →",
+  },
+  {
+    image: "/img/card-sld.png",
+    imageAlt: "Line Designer",
+    tag: "Cartography · Utility",
+    title: "Line Designer",
+    description:
+      "A utility for styling line features using Mapbox GL JS and the style spec.",
+    href: "/portfolio/simple-line-designer",
+    linkLabel: "Open tool →",
+  },
+  {
+    image: "/img/model-mapper.png",
+    imageAlt: "Model Mapper",
+    tag: "Cartography · Utility",
+    title: "Model Mapper",
+    description:
+      "A utility for testing 3D models using Mapbox GL JS.",
+    href: "/portfolio/model-mapper",
+    linkLabel: "Open tool →",
+  },
+  {
+    image: "/img/pdxtraffic.png",
+    imageAlt: "PDX Traffic live cams map",
+    tag: "Cartography · Demo",
+    title: "PDX Traffic",
+    description:
+      "Live Portland area traffic and ODOT cameras. Utilizing Mapbox Matrix API for real-time ETAs.",
+    href: "https://pdxtraffic.com",
+    linkLabel: "Visit PDX Traffic →",
+  },
+  {
+    image: "/img/earth-day.png",
+    imageAlt: "Travel Times",
+    tag: "Cartography · Demo",
+    title: "Travel Times",
+    description:
+      "Estimated travel times between host cities, hotels, and stadiums for the FIFA World Cup 2026.",
+    href: "/portfolio/fwc",
+    linkLabel: "Open demo →",
+  },
+  {
+    image: "/img/card-leftfut.png",
+    imageAlt: "Leftfut",
+    tag: "Cartography · Demo",
+    title: "Leftfut",
+    description:
+      "Stadiums of the world by capacity.",
+    href: "https://leftfut.com/",
+    linkLabel: "Visit Leftfut →",
+  },
 ];
 
 export const approachSection = {
@@ -164,16 +215,32 @@ export const testimonials: Testimonial[] = [
 
 export const aboutSection = {
   label: "05 · About",
-  title: "Twenty years of geospatial engineering.",
+  title: "Over twenty years of geospatial engineering.",
   intro:
     "With 20 years of geospatial engineering experience, Portland-based Rafa Gutierrez runs Geografa, a dedicated web-mapping dev shop. His background includes serving as a GIS manager in environmental consulting and helping scale Mapbox's technical support team from local startup to global product. For larger builds, Geografa leverages a reliable network of experienced on-call collaborators.",
 };
 
 export const timeline: TimelineEntry[] = [
-  { date: "2024 →", title: "Geografa", description: "Owner · web-mapping consultancy" },
-  { date: "2013 — 2023", title: "Mapbox", description: "Lead Technical Support Engineer & Navigation API SME" },
-  { date: "2002 — 2012", title: "SWCA Environmental", description: "GIS manager" },
-  // { date: "Always", title: "Maps in the open", description: "40+ experiments in the archive" },
+  {
+    year: "2026",
+    title: "Uber",
+    description: "Map Design Team · Tooling and Prototyping",
+  },
+  {
+    year: "2024",
+    title: "Metropolitan Transportation Commission",
+    description: "Vital Signs · map refactor and redesign",
+  },
+  {
+    year: "2013",
+    title: "Mapbox",
+    description: "Lead Technical Support Engineer & Navigation API SME",
+  },
+  {
+    year: "2002",
+    title: "SWCA Environmental",
+    description: "GIS Manager",
+  },
 ];
 
 export const contactSection = {

@@ -6,17 +6,20 @@ export function AboutSection() {
     <Section id="about" variant="cream" label={aboutSection.label}>
       <h2 className="section-title">{aboutSection.title}</h2>
       <p className="about-intro">{aboutSection.intro}</p>
-      <div className="timeline">
+      <ol className="timeline">
         {timeline.map((entry) => (
-          <div key={entry.title} className="timeline-row">
-            <div className="timeline-date">{entry.date}</div>
-            <div>
+          <li key={`${entry.year}-${entry.title}`} className="timeline-item">
+            <span className="timeline-marker" aria-hidden="true" />
+            <div className="timeline-content">
+              <div className="timeline-year">{entry.year}</div>
               <div className="timeline-title">{entry.title}</div>
-              <div className="timeline-desc">{entry.description}</div>
+              {entry.description ? (
+                <div className="timeline-desc">{entry.description}</div>
+              ) : null}
             </div>
-          </div>
+          </li>
         ))}
-      </div>
+      </ol>
     </Section>
   );
 }

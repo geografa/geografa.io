@@ -5,6 +5,7 @@ import { RouteEffects } from "@/components/layout/RouteEffects";
 import { LandingPage } from "@/pages/LandingPage";
 import { SimpleLineDesignerDemo } from "@/demos/simple-line-designer/SimpleLineDesignerDemo";
 import { FwcTravelTimesDemo } from "@/demos/fwc/FwcTravelTimesDemo";
+import { ModelMapperDemo } from "@/demos/model-mapper/ModelMapperDemo";
 
 function isDemoPath(pathname: string): boolean {
   return pathname.startsWith("/portfolio/");
@@ -32,6 +33,10 @@ export function App() {
               <Route
                 path="/portfolio/simple-line-designer"
                 element={<SimpleLineDesignerDemo />}
+              />
+              <Route
+                path="/portfolio/model-mapper"
+                element={<ModelMapperDemo />}
               />
               <Route path="/portfolio/fwc" element={<FwcTravelTimesDemo />} />
             </Routes>

@@ -217,7 +217,7 @@ Inside `.transit-bg`. Left `--gold` border (3px), italic blockquote, Oswald auth
 
 ### Timeline (`.timeline`)
 
-Bordered card stack. `.timeline-date` — Oswald, `--ink`, 12px. `.timeline-title` — Playfair. Date column stacks above content at ≤640px.
+Vertical spine on the left (`::before`), each `.timeline-item` with a stub + dot (`.timeline-marker`). `.timeline-year` — Oswald, large. `.timeline-title` — DM Sans medium. `.timeline-desc` — muted, optional.
 
 ### Contact (`.contact-section`)
 

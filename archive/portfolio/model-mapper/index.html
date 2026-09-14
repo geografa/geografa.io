@@ -1,0 +1,646 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Model Swapper</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.js"></script>
+    <script src="/mapbox-config.js"></script>
+    <script src="https://unpkg.com/@turf/turf/turf.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.0/mapbox-gl-draw.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.0/mapbox-gl-draw.css"
+      type="text/css"
+    />
+    <!-- Load the `mapbox-gl-geocoder` plugin. -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.3/mapbox-gl-geocoder.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.3/mapbox-gl-geocoder.css"
+      type="text/css"
+    />
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- add a color picker -->
+    <script src="https://unpkg.com/vanilla-picker@2"></script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        filter: blur(5px);
+      }
+      #sidebar {
+        font-family: "Futura", sans-serif;
+        position: absolute;
+        overflow: scroll;
+        height: 600px;
+        border-radius: 8px;
+        top: 10px;
+        left: 10px;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 15px;
+        text-align: left;
+        display: none;
+      }
+      #sidebar h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: 2em;
+        font-weight: 600;
+        margin-top: 0;
+      }
+      #sidebar h3 {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-size: 0.7em;
+      }
+      #copy-button {
+        /* margin-top: 10px; */
+        display: none;
+        cursor: pointer;
+        border: none;
+      }
+      .copy-box {
+        font-size: 0.75em;
+        font-family: monospace;
+        position: relative;
+        word-wrap: anywhere;
+        white-space: pre-wrap;
+        padding: 10px;
+        /* inset border */
+        border: 1px solid #b1b1b1;
+        text-align: left;
+        color: #222;
+        background: #e6e6e6;
+      }
+      /* light switch */
+      .toggle-switch {
+        position: absolute;
+        width: 80px;
+        top: 62px;
+        --light: #999b9d;
+        --dark: #28292c;
+        --sun: #f2bc19;
+        --link: rgb(27, 129, 112);
+        --link-hover: rgb(24, 94, 82);
+      }
+
+      .switch-label {
+        position: absolute;
+        width: 75%;
+        height: 16px;
+        background-color: var(--dark);
+        border-radius: 25px;
+        cursor: pointer;
+        /* border: 3px solid var(--dark); */
+        /* right: 0px; */
+      }
+
+      .light-checkbox {
+        position: absolute;
+        display: none;
+      }
+
+      .toggle-slider {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 25px;
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+      }
+
+      .light-checkbox:checked ~ .toggle-slider {
+        background-color: var(--light);
+      }
+
+      .toggle-slider::before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 3px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        -webkit-box-shadow: inset 12px -4px 0px 0px var(--light);
+        box-shadow: inset 12px -4px 0px 0px var(--light);
+        background-color: var(--dark);
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+      }
+
+      .light-checkbox:checked ~ .toggle-slider::before {
+        -webkit-transform: translateX(40px);
+        -ms-transform: translateX(40px);
+        transform: translateX(40px);
+        background-color: var(--sun);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      /* footer */
+      img {
+        width: 30px;
+        border: 0.7px solid;
+        border-radius: 5px;
+      }
+
+      .logo {
+        margin-top: 40px;
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.8em;
+        font-weight: 600;
+        width: 200px;
+        color: #23646a;
+      }
+      .logo a {
+        color: #23646a;
+        text-decoration: none;
+      }
+      #intro-modal {
+        font-family: "Poppins", sans-serif;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgb(59, 59, 59);
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="sidebar">
+      <h2>Model Swapper</h2>
+      <div class="toggle-switch">
+        <label class="switch-label">
+          <input type="checkbox" class="light-checkbox" checked />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div id="upload-model">
+        <h3>Link to model</h3>
+        <input type="text" id="model-uri" value="/models/van.glb" />
+        <button id="update-model">Update</button>
+      </div>
+      <div>
+        <h3>Coordinates:</h3>
+        <div id="coords" class="copy-box"></div>
+      </div>
+      <h3>Rotate</h3>
+      <input
+        id="slider-rotate"
+        type="range"
+        min="0"
+        max="360"
+        step="1"
+        value="0"
+      />
+      <label id="model-rotate-text"></label>
+      <h3>Scale</h3>
+      <input
+        id="slider-scale"
+        type="range"
+        min="1"
+        max="10"
+        step="0.1"
+        value="1"
+      />
+      <label id="model-scale-text"></label>
+      <h3>Color Intensity</h3>
+      <input
+        id="slider-intensity"
+        type="range"
+        min="0"
+        max="1"
+        step="0.1"
+        value="0"
+      />
+      <label id="model-intensity-text"></label>
+      <h3>Opacity</h3>
+      <input
+        id="slider-opacity"
+        type="range"
+        min="0"
+        max="1"
+        step="0.1"
+        value="1"
+      />
+      <label id="model-opacity-text"></label>
+
+      <div id="color-picker">
+        <h3>Color</h3>
+        <input id="model-color-text" class="copy-box" type="text" value="" />
+      </div>
+      <div>
+        <h3>Model Properties <button id="copy-button">📋</button></h3>
+        <div id="modelProps" class="copy-box"></div>
+      </div>
+
+      <div id="logo" class="logo">
+        <a href="https://geografa.io/"
+          ><img src="./img/logo-geografa.svg" alt="geografa.io"
+        /></a>
+        geografa.io
+      </div>
+    </div>
+    <!-- footer  -->
+
+    <!-- intro -->
+    <div id="intro-modal">
+      <h2>Add a Model to the Map</h2>
+      <p>1. Double-click anywhere to get started and position the model.</p>
+      <p>2. Link to a different model (GLB/GLTF format).</p>
+      <p>3. Clip (remove) existing buildings with the draw polygon tool.</p>
+      <p>4. Adjust the properties as needed.</p>
+      <button id="close-modal">Get Started</button>
+    </div>
+    <script>
+      mapboxgl.accessToken = window.MAPBOX_ACCESS_TOKEN;
+      // top left corner of the model's base
+      const start = [-77.036679, 38.896945];
+      let modelUri;
+      const map = new mapboxgl.Map({
+        container: "map",
+        // style: "mapbox://styles/grafa/cm4noofna009j01s5gji15azp",
+        style: "mapbox://styles/grafa/cmh0wpbck002l01spd3c08pnl", // tmep style
+        // style: "mapbox://styles/grafa/cmhartmw1000d01rg898ng33a", // tmep style
+        center: start, // starting position
+        zoom: 17,
+        bearing: -24,
+        pitch: 56,
+        hash: true,
+      });
+      // draw tools
+      //  create an empty feature collection called eraseArea to store the drawn polygon
+      let eraseArea = {
+        type: "FeatureCollection",
+        features: [],
+      };
+      const draw = new MapboxDraw({
+        displayControlsDefault: false,
+        controls: {
+          polygon: true,
+          trash: true,
+        },
+      });
+      map.addControl(draw);
+
+      // geocoder
+      map.addControl(
+        new MapboxGeocoder({
+          accessToken: mapboxgl.accessToken,
+          mapboxgl: mapboxgl,
+        }),
+      );
+
+      const showModal = (modalId) => {
+        document.getElementById(modalId).style.display = "block";
+      };
+
+      const hideModal = (modalId) => {
+        document.getElementById(modalId).style.display = "none";
+      };
+
+      const updateModelProps = () => {
+        if (map.getLayer("custom-model")) {
+          const modelPaintProps = map.getLayer("custom-model").paint;
+          document.getElementById("modelProps").innerHTML = JSON.stringify(
+            modelPaintProps,
+            null,
+            2,
+          );
+        } else {
+          document.getElementById("modelProps").innerHTML =
+            "Layer does not exist.";
+        }
+      };
+
+      // disable the double click zoom
+      map.doubleClickZoom.disable();
+
+      // create a function that listens to the draw.create event and updates the eraseArea feature collection with the drawn polygon
+      map.on("draw.create", (e) => {
+        eraseArea = e.features[0].geometry;
+        // get the coordinates of the drawn polygon and update the eraseArea feature collection
+        map.getSource("eraser").setData({
+          type: "FeatureCollection",
+          features: [
+            {
+              type: "Feature",
+              properties: {},
+              geometry: eraseArea,
+            },
+          ],
+        });
+      });
+
+      // listen for the update button click event and update the model uri value
+      document.getElementById("update-model").addEventListener("click", () => {
+        // get the coordinates of the model from the input fields in the sidebar
+        let coords = document.getElementById("coords").textContent;
+        let modelUri = document.getElementById("model-uri").value;
+        // display the copy button
+
+        modelUri = document.getElementById("model-uri").value;
+        // perform error checking to ensure the model uri is not empty and the coordinates are valid before updating the model source
+        if (modelUri === "") {
+          alert("Please enter a valid model URI.");
+          return;
+        }
+        if (coords === "") {
+          alert("Please click on the map to set the model's coordinates.");
+          return;
+        }
+        // if the source exists, update the source data and layer
+        if (map.getSource("custom-model")) {
+          map.getSource("custom-model").setData({
+            type: "Feature",
+            properties: {
+              "model-uri": modelUri,
+            },
+            geometry: {
+              type: "Point",
+              coordinates: coords.split(","),
+            },
+          });
+        }
+      });
+      document.getElementById("copy-button").addEventListener("click", () => {
+        const modelProps = document.getElementById("modelProps").textContent;
+        console.log(modelProps);
+        navigator.clipboard
+          .writeText(modelProps)
+          .then(() => {
+            alert("Properties copied to clipboard");
+          })
+          .catch((err) => {
+            console.error("Failed to copy: ", err);
+          });
+      });
+
+      map.on("style.load", () => {
+        // set the light preset to be in day mode.
+        map.setConfigProperty("basemap", "lightPreset", "day");
+      });
+      map.on("load", () => {
+        // add the eraser source and layer to the map
+        map.addSource("eraser", {
+          type: "geojson",
+          data: eraseArea,
+        });
+        map.addLayer({
+          id: "eraser-line",
+          type: "line",
+          source: "eraser",
+          layout: {
+            "line-cap": "round",
+            "line-join": "round",
+          },
+          paint: {
+            "line-color": "#333",
+            "line-opacity": 0.15,
+            "line-width": 4,
+            "line-dasharray": [3, 2],
+          },
+        });
+        map.addLayer({
+          id: "eraser",
+          type: "clip",
+          source: "eraser",
+          layout: {
+            // specify the layer types to be removed by this clip layer
+            "clip-layer-types": ["symbol", "model"],
+            "clip-layer-scope": ["basemap"],
+          },
+          paint: {
+            "fill-color": "rgba(0,255,220,0.5)",
+            "fill-opacity": 0.5,
+          },
+        });
+      });
+
+      // add a 3D model to the map
+      map.on("dblclick", (e) => {
+        document.getElementById("copy-button").style.display = "inline";
+        // get the current model uri value
+        modelUri = document.getElementById("model-uri").value;
+
+        ((document.getElementById("coords").innerHTML =
+          // `e.lngLat` is the longitude, latitude geographical position of the event.
+          // just get the longitude and latitude values
+          // set e.lngLat.lng + ", " + e.lngLat.lat) to 6 decimal places
+          e.lngLat.lng.toFixed(8) + ", " + e.lngLat.lat.toFixed(8)),
+          null,
+          2);
+        // if the source does not exist, create a new one and add the layer
+        if (!map.getSource("custom-model")) {
+          map.addSource("custom-model", {
+            type: "geojson",
+            data: {
+              type: "Feature",
+              properties: {
+                "model-uri": modelUri,
+              },
+              geometry: {
+                type: "Point",
+                coordinates: [e.lngLat.lng, e.lngLat.lat],
+              },
+            },
+          });
+          map.addLayer({
+            id: "custom-model",
+            type: "model",
+            source: "custom-model",
+            layout: {
+              "model-id": ["get", "model-uri"],
+            },
+            paint: {
+              "model-color-mix-intensity": 0,
+              "model-color": "rgba(0,0, 0, 1)",
+              "model-scale": [1, 1, 1],
+              "model-rotation": [0, 0, 0],
+              "model-opacity": 1,
+              // emissive color
+              "model-emissive-strength": 1,
+            },
+          });
+
+          // if the source exists, update the source data and layer
+        } else {
+          map.getSource("custom-model").setData({
+            type: "Feature",
+            properties: {
+              "model-uri": modelUri,
+            },
+            geometry: {
+              type: "Point",
+              coordinates: [e.lngLat.lng, e.lngLat.lat],
+            },
+          });
+        }
+        // Check if the layer exists before getting its properties
+        if (map.getLayer("custom-model")) {
+          const modelProps = map.getLayer("custom-model").paint;
+          document.getElementById("modelProps").innerHTML = JSON.stringify(
+            modelProps,
+            null,
+            2,
+          );
+        } else {
+          document.getElementById("modelProps").innerHTML =
+            "Layer does not exist.";
+        }
+      });
+
+      // create a function that updates the model's rotation and scale based on the slider values in the sidebar
+      document
+        .getElementById("slider-rotate")
+        .addEventListener("input", (e) => {
+          const rotate = parseFloat(e.target.value); // Ensure the value is a number
+          map.setPaintProperty("custom-model", "model-rotation", [
+            0,
+            0,
+            rotate,
+          ]);
+          document.getElementById("model-rotate-text").textContent =
+            `${rotate}`;
+        });
+      document.getElementById("slider-scale").addEventListener("input", (e) => {
+        const scale = parseFloat(e.target.value); // Ensure the value is a number
+
+        map.setPaintProperty("custom-model", "model-scale", [
+          scale,
+          scale,
+          scale,
+        ]);
+        document.getElementById("model-scale-text").textContent = `${scale}`;
+      });
+      document
+        .getElementById("slider-intensity")
+        .addEventListener("input", (e) => {
+          const intensity = parseFloat(e.target.value); // Ensure the value is a number
+
+          map.setPaintProperty(
+            "custom-model",
+            "model-color-mix-intensity",
+            intensity,
+          );
+          document.getElementById("model-intensity-text").textContent =
+            `${intensity}`;
+        });
+      document
+        .getElementById("slider-opacity")
+        .addEventListener("input", (e) => {
+          const opacity = parseFloat(e.target.value); // Ensure the value is a number
+
+          map.setPaintProperty("custom-model", "model-opacity", opacity);
+          document.getElementById("model-opacity-text").textContent =
+            `${opacity}`;
+        });
+      // if the slider-scale value is changed, or the slider-rotate value is changed, update the modelProps value
+      document.getElementById("slider-rotate").addEventListener("input", () => {
+        const modelProps = map.getLayer("custom-model").paint;
+        document.getElementById("modelProps").innerHTML = JSON.stringify(
+          modelProps,
+          null,
+          2,
+        );
+      });
+      document.getElementById("slider-scale").addEventListener("input", () => {
+        const modelProps = map.getLayer("custom-model").paint;
+        document.getElementById("modelProps").innerHTML = JSON.stringify(
+          modelProps,
+          null,
+          2,
+        );
+      });
+      document
+        .getElementById("slider-intensity")
+        .addEventListener("input", () => {
+          const modelProps = map.getLayer("custom-model").paint;
+          document.getElementById("modelProps").innerHTML = JSON.stringify(
+            modelProps,
+            null,
+            2,
+          );
+        });
+      document
+        .getElementById("slider-opacity")
+        .addEventListener("input", () => {
+          const modelProps = map.getLayer("custom-model").paint;
+          document.getElementById("modelProps").innerHTML = JSON.stringify(
+            modelProps,
+            null,
+            2,
+          );
+        });
+      // create a function that updates the model's color based on the color picker value in the sidebar
+      const picker = new Picker({
+        parent: document.getElementById("color-picker"),
+        popup: "bottom",
+        color: "0,255,0,1",
+      });
+      picker.onChange = function (color) {
+        console.log(color.rgbaString); // Output: "rgba(255,0,0,1)"
+        map.setPaintProperty("custom-model", "model-color", color.rgbaString);
+        // set the value of the color picker input to the selected color value
+        document.getElementById("model-color-text").value = color.rgbaString;
+      };
+      // add the color picker value to the modelProps value when the color picker value is changed
+      document
+        .getElementById("model-color-text")
+        .addEventListener("input", () => {
+          const modelPaintProps = map.getLayer("custom-model").paint;
+          document.getElementById("modelProps").innerHTML = JSON.stringify(
+            modelPaintProps,
+            null,
+            2,
+          );
+        });
+      // Show the intro modal when the page loads
+      window.onload = () => {
+        showModal("intro-modal");
+      };
+
+      // Close the modal when the button is clicked
+      document.getElementById("close-modal").addEventListener("click", () => {
+        hideModal("intro-modal");
+        document.getElementById("map").style.filter = "none";
+        document.getElementById("sidebar").style.display = "block";
+      });
+      // change the basemap light preset based on the checkbox value
+      document
+        .querySelector(".light-checkbox")
+        .addEventListener("change", (e) => {
+          if (e.target.checked) {
+            map.setConfigProperty("basemap", "lightPreset", "day");
+          } else {
+            map.setConfigProperty("basemap", "lightPreset", "night");
+          }
+        });
+    </script>
+  </body>
+</html>
