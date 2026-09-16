@@ -154,6 +154,16 @@ export const featuredWork: WorkItem[] = [
     linkLabel: "Visit PDX Traffic →",
   },
   {
+    image: "/img/ghosts.png",
+    imageAlt: "Trick or Treat ghost map",
+    tag: "Cartography · Demo",
+    title: "Trick or Treat",
+    description:
+      "Animated 3D ghosts floating over Portland — click to send them skyward.",
+    href: "/portfolio/ghosts",
+    linkLabel: "Open demo →",
+  },
+  {
     image: "/img/earth-day.png",
     imageAlt: "Travel Times",
     tag: "Cartography · Demo",

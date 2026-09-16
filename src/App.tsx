@@ -6,6 +6,7 @@ import { LandingPage } from "@/pages/LandingPage";
 import { SimpleLineDesignerDemo } from "@/demos/simple-line-designer/SimpleLineDesignerDemo";
 import { FwcTravelTimesDemo } from "@/demos/fwc/FwcTravelTimesDemo";
 import { ModelMapperDemo } from "@/demos/model-mapper/ModelMapperDemo";
+import { GhostsDemo } from "@/demos/ghosts/GhostsDemo";
 
 function isDemoPath(pathname: string): boolean {
   return pathname.startsWith("/portfolio/");
@@ -38,6 +39,7 @@ export function App() {
                 path="/portfolio/model-mapper"
                 element={<ModelMapperDemo />}
               />
+              <Route path="/portfolio/ghosts" element={<GhostsDemo />} />
               <Route path="/portfolio/fwc" element={<FwcTravelTimesDemo />} />
             </Routes>
           </DemoLayer>
