@@ -7,6 +7,10 @@ import { SimpleLineDesignerDemo } from "@/demos/simple-line-designer/SimpleLineD
 import { FwcTravelTimesDemo } from "@/demos/fwc/FwcTravelTimesDemo";
 import { ModelMapperDemo } from "@/demos/model-mapper/ModelMapperDemo";
 import { GhostsDemo } from "@/demos/ghosts/GhostsDemo";
+import { PortlandTreesDemo } from "@/demos/portland-trees/PortlandTreesDemo";
+import { BoiseLightsDemo } from "@/demos/boise-lights/BoiseLightsDemo";
+import { HexVotesDemo } from "@/demos/hexvotes/HexVotesDemo";
+import { WillamettePaddlesDemo } from "@/demos/willamette-paddles/WillamettePaddlesDemo";
 
 function isDemoPath(pathname: string): boolean {
   return pathname.startsWith("/portfolio/");
@@ -40,6 +44,19 @@ export function App() {
                 element={<ModelMapperDemo />}
               />
               <Route path="/portfolio/ghosts" element={<GhostsDemo />} />
+              <Route
+                path="/portfolio/portland-trees"
+                element={<PortlandTreesDemo />}
+              />
+              <Route
+                path="/portfolio/boise-lights"
+                element={<BoiseLightsDemo />}
+              />
+              <Route
+                path="/portfolio/willamette-paddles"
+                element={<WillamettePaddlesDemo />}
+              />
+              <Route path="/portfolio/hexvotes" element={<HexVotesDemo />} />
               <Route path="/portfolio/fwc" element={<FwcTravelTimesDemo />} />
             </Routes>
           </DemoLayer>

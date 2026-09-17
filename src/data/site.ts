@@ -159,12 +159,62 @@ export const featuredWork: WorkItem[] = [
     tag: "Cartography · Demo",
     title: "Trick or Treat",
     description:
-      "Animated 3D ghosts floating over Portland — click to send them skyward.",
+      "Animated 3D ghosts floating over Portland. Click to send them skyward.",
     href: "/portfolio/ghosts",
     linkLabel: "Open demo →",
   },
   {
-    image: "/img/earth-day.png",
+    image: "/img/portland-trees.png",
+    imageAlt: "Portland street trees in 3D",
+    tag: "Cartography · Demo",
+    title: "Portland Trees",
+    description:
+      "Portland street trees, conifer and deciduous scaled by size. Data from the City of Portland.",
+    href: "/portfolio/portland-trees",
+    linkLabel: "Open demo →",
+  },
+  {
+    image: "/img/boise-lights.png",
+    imageAlt: "Boise streetlights glowing at night",
+    tag: "Cartography · Demo",
+    title: "Boise Lights",
+    description:
+      "Every streetlight in Boise mapped at night — a soft glow at city scale built from open infrastructure data, City of Boise.",
+    href: "/portfolio/boise-lights",
+    linkLabel: "Open demo →",
+  },
+  {
+    image: "/img/strava.png",
+    imageAlt: "Standup paddleboard routes on the Willamette River",
+    tag: "Cartography · Demo",
+    title: "Strava Paddles",
+    description:
+      "A personal log of my SUP paddles in the Willamette River, Oregon.",
+    href: "/portfolio/willamette-paddles",
+    linkLabel: "Open demo →",
+  },
+  {
+    image: "/img/strava-race.png",
+    imageAlt: "Rose City SUP Classic GPX routes around Ross Island",
+    tag: "Cartography · Demo",
+    title: "Strava Race Tracking",
+    description:
+      "Strava Race Tracking. GPX routes recorded 2021, Rose City SUP Classic.",
+    href: "https://geografa.github.io/strava/",
+    linkLabel: "Open demo →",
+  },
+  {
+    image: "/img/hexvotes.png",
+    imageAlt: "Hexvotes territory game on a US hex grid",
+    tag: "Cartography · Demo",
+    title: "Hexvotes",
+    description:
+      "Claim H3 hexes for Red or Blue across the US or Texas — enclose rivals, then win by longest contiguous path.",
+    href: "/portfolio/hexvotes",
+    linkLabel: "Open demo →",
+  },
+  {
+    image: "/img/travel-times.png",
     imageAlt: "Travel Times",
     tag: "Cartography · Demo",
     title: "Travel Times",
@@ -199,7 +249,7 @@ export const testimonialsSection = {
   label: "04 · Kind words",
   title: "From the people we've worked alongside.",
   intro:
-    "A few notes from former teammates at Mapbox — the kind of context that doesn't fit on a résumé.",
+    "A few notes from former teammates at Mapbox.",
 };
 
 export const testimonials: Testimonial[] = [

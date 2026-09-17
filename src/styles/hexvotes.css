@@ -1,0 +1,163 @@
+.hexvotes-panel {
+  position: absolute;
+  top: 3.5rem;
+  left: 1rem;
+  z-index: 2;
+  width: min(220px, calc(100vw - 2rem));
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  font-family: "DM Sans", sans-serif;
+  color: #222;
+}
+
+.hexvotes-panel__row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hexvotes-panel__label {
+  flex: 1;
+  font-size: 0.85rem;
+}
+
+.hexvotes-panel__value {
+  min-width: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.hexvotes-panel__row select {
+  flex: 1;
+  max-width: 7rem;
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.hexvotes-panel__row input[type="range"] {
+  flex: 1;
+  accent-color: #1da0e2;
+}
+
+.hexvotes-panel__button {
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  padding: 0.45rem 0.75rem;
+  background: #162321;
+  color: #fff;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.hexvotes-panel__button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.hexvotes-panel__hint,
+.hexvotes-panel__status,
+.hexvotes-panel__error {
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: #555;
+}
+
+.hexvotes-panel__error {
+  color: #952127;
+}
+
+.hexvotes-switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.hexvotes-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.hexvotes-switch__slider {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  border-radius: 34px;
+  background: #952127;
+  transition: 0.25s;
+}
+
+.hexvotes-switch__slider::before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  border-radius: 50%;
+  background: #fff;
+  transition: 0.25s;
+}
+
+.hexvotes-switch input:checked + .hexvotes-switch__slider {
+  background: #1da0e2;
+}
+
+.hexvotes-switch input:checked + .hexvotes-switch__slider::before {
+  transform: translateX(24px);
+}
+
+.hexvotes-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  font-family: "DM Sans", sans-serif;
+}
+
+.hexvotes-modal__content {
+  position: relative;
+  width: min(520px, 90%);
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: #222;
+}
+
+.hexvotes-modal__content h2 {
+  margin: 0 0 0.5rem;
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+}
+
+.hexvotes-modal__content p {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+.hexvotes-modal__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  border: none;
+  background: transparent;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #444;
+}
