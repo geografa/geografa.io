@@ -1,0 +1,160 @@
+.trails-panel {
+  position: absolute;
+  top: 3.5rem;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 2;
+  width: min(280px, calc(100vw - 2rem));
+  display: flex;
+  flex-direction: column;
+  background: rgba(243, 245, 244, 0.96);
+  border: 1px solid rgba(22, 35, 33, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgba(14, 22, 24, 0.18);
+  overflow: hidden;
+  color: #575958;
+}
+
+.trails-panel__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1rem 0.75rem;
+  border-bottom: 1px solid rgba(87, 89, 88, 0.15);
+}
+
+.trails-panel__header h2 {
+  margin: 0;
+  font-family: "Oswald", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #162321;
+}
+
+.trails-panel__header p {
+  margin: 0.2rem 0 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  color: #575958;
+}
+
+.trails-panel__close,
+.trails-panel__reopen {
+  font-family: "Oswald", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #162321;
+  background: #fff;
+  border: 1px solid rgba(22, 35, 33, 0.18);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.trails-panel__close {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.trails-panel__reopen {
+  position: absolute;
+  top: 4rem;
+  left: 1rem;
+  z-index: 2;
+  padding: 0.55rem 0.85rem;
+  box-shadow: 0 4px 16px rgba(14, 22, 24, 0.16);
+}
+
+.trails-panel__status {
+  margin: 0;
+  padding: 1rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+}
+
+.trails-panel__status--error {
+  color: #b42318;
+}
+
+.trails-panel__list {
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem 0 1rem;
+  overflow-y: auto;
+}
+
+.trails-panel__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.55rem 1rem;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #575958;
+  cursor: pointer;
+}
+
+.trails-panel__item:hover {
+  background: rgba(22, 35, 33, 0.05);
+}
+
+.trails-panel__item.is-active {
+  color: #162321;
+  background: rgba(236, 97, 87, 0.12);
+}
+
+.trails-panel__item--all {
+  border-bottom: 1px solid rgba(87, 89, 88, 0.12);
+  font-family: "Oswald", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.trails-panel__dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ddd;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.trails-panel__item.is-active .trails-panel__dot {
+  background: #2196f3;
+}
+
+.trails-panel__item.is-active .trails-panel__dot::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+@media (max-width: 700px) {
+  .trails-panel {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: 55vh;
+    border-radius: 12px 12px 0 0;
+  }
+}

@@ -204,6 +204,16 @@ export const featuredWork: WorkItem[] = [
     linkLabel: "Open demo →",
   },
   {
+    image: "/img/washington-park-trails.png",
+    imageAlt: "Washington Park trails map in Portland",
+    tag: "Cartography · Demo",
+    title: "Washington Park Trails, Portland OR",
+    description:
+      "Selected trail viewer for Washington Park, Portland, OR.",
+    href: "/portfolio/washington-park-trails",
+    linkLabel: "Open demo →",
+  },
+  {
     image: "/img/hexvotes.png",
     imageAlt: "Hexvotes territory game on a US hex grid",
     tag: "Cartography · Demo",

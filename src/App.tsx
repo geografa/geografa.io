@@ -11,6 +11,7 @@ import { PortlandTreesDemo } from "@/demos/portland-trees/PortlandTreesDemo";
 import { BoiseLightsDemo } from "@/demos/boise-lights/BoiseLightsDemo";
 import { HexVotesDemo } from "@/demos/hexvotes/HexVotesDemo";
 import { WillamettePaddlesDemo } from "@/demos/willamette-paddles/WillamettePaddlesDemo";
+import { WashingtonParkTrailsDemo } from "@/demos/washington-park-trails/WashingtonParkTrailsDemo";
 
 function isDemoPath(pathname: string): boolean {
   return pathname.startsWith("/portfolio/");
@@ -55,6 +56,10 @@ export function App() {
               <Route
                 path="/portfolio/willamette-paddles"
                 element={<WillamettePaddlesDemo />}
+              />
+              <Route
+                path="/portfolio/washington-park-trails"
+                element={<WashingtonParkTrailsDemo />}
               />
               <Route path="/portfolio/hexvotes" element={<HexVotesDemo />} />
               <Route path="/portfolio/fwc" element={<FwcTravelTimesDemo />} />
