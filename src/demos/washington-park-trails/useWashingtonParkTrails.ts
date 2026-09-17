@@ -60,7 +60,7 @@ function writeTrailHash(name: string | null): void {
 function applyDefaultPaint(map: Map): void {
   map.setPaintProperty(TRAILS_LAYER_ID, "line-width", DEFAULT_LINE_WIDTH);
   map.setPaintProperty(TRAILS_LAYER_ID, "line-color", DEFAULT_LINE_COLOR);
-  map.setPaintProperty(TRAILS_LAYER_ID, "line-dasharray", null);
+  map.setPaintProperty(TRAILS_LAYER_ID, "line-dasharray", undefined);
   map.setPaintProperty(TRAILS_CASING_LAYER_ID, "line-width", DEFAULT_CASING_WIDTH);
   map.setPaintProperty(TRAILS_CASING_LAYER_ID, "line-color", "#fff");
   map.setFilter(TRAILS_LAYER_ID, null);
