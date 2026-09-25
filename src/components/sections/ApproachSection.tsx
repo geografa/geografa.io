@@ -26,7 +26,7 @@ export function ApproachSection() {
           </p>
           <p>
             And we leave you the code, the docs, and a clear way to keep going
-            without us.
+            with your own team.
           </p>
           <div className="approach-signature">{approachSection.signature}</div>
         </div>

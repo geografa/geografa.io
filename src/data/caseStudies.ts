@@ -104,6 +104,7 @@ export const caseStudies: CaseStudy[] = [
       { src: "/img/vital-signs/vs-commute.png", alt: "Vital Signs MTC Commute Mode" },
       { src: "/img/vital-signs/vs-jobs.png", alt: "Vital Signs MTC Jobs" },
       { src: "/img/vital-signs/jobs.gif", alt: "Vital Signs MTC Jobs" },
+      { src: "/img/vital-signs/convert-mapbox.png", alt: "Vital Signs MTC Convert Mapbox" },
     ],
     externalHref: "https://vitalsigns.mtc.ca.gov/",
     externalLabel: "Visit Vital Signs →",

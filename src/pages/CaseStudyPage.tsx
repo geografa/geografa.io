@@ -17,7 +17,7 @@ export function CaseStudyPage() {
       <Nav />
       <main className="case-study">
         <header className="case-study__header">
-          <Link to={{ pathname: "/", hash: "selected" }} className="case-study__back">
+          <Link to={{ pathname: "/", hash: "#selected" }} className="case-study__back">
             ← Selected work
           </Link>
           <p className="case-study__meta">

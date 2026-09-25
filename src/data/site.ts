@@ -23,7 +23,6 @@ export const navLinks: NavLink[] = [
 
 export const footerLinks: NavLink[] = [
   { label: "Work", href: "/#work" },
-  { label: "Archive", href: "https://geografa.github.io/portfolio/", external: true },
   { label: "Approach", href: "/#approach" },
   { label: "About", href: "/#about" },
   { label: "GitHub", href: "https://github.com/geografa", external: true },
@@ -68,8 +67,8 @@ export const services: Service[] = [
 export const selectedWorkSection = {
   label: "02 · Selected work",
   title: "Maps in production,\n and a few in the wild.",
-  // intro:
-  //   "A mix of client work, demos, prototypes, and experiments.",  
+  intro:
+    "A mix of client work, demos, prototypes, and experiments.",  
 };
 
 export const featuredWork: WorkItem[] = [
@@ -287,7 +286,7 @@ export const aboutSection = {
   label: "05 · About",
   title: "Over twenty years of geospatial engineering.",
   intro:
-    "With 20 years of geospatial engineering experience, Portland-based Rafa Gutierrez runs Geografa, a dedicated web-mapping dev shop. His background includes serving as a GIS manager in environmental consulting and helping scale Mapbox's technical support team from local startup to global product. For larger builds, Geografa leverages a reliable network of experienced on-call collaborators.",
+    "With 20+ years of geospatial engineering experience, Portland-based Rafa Gutierrez runs Geografa, a dedicated web-mapping dev shop. His background includes serving as a GIS manager in environmental consulting and helping scale Mapbox's technical support team from local startup to global product. For larger builds, Geografa leverages a reliable network of experienced on-call collaborators.",
 };
 
 export const timeline: TimelineEntry[] = [
@@ -316,10 +315,10 @@ export const timeline: TimelineEntry[] = [
 export const contactSection = {
   label: "06 · Get in touch",
   titleBefore: "Let's ",
-  titleEmphasis: "start mapping",
+  titleEmphasis: "get mapping",
   titleAfter: ".",
   body:
-    "Whether you're optimizing a stack you already have, scoping a new product, or just trying to figure out which basemap to use — drop a note. Most replies come within a day.",
+    "Drop a note! Whether you're optimizing the stack you already have, scoping new products, or just trying to figure out which tech to use, we'll get back to you within a day.",
   links: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/geografa", external: true },
     { label: "GitHub", href: "https://github.com/geografa", external: true },

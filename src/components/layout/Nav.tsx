@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { navLinks } from "@/data/site";
 
 function hashFromHref(href: string): string | undefined {
@@ -6,7 +6,14 @@ function hashFromHref(href: string): string | undefined {
   return href.slice(2);
 }
 
+function scrollToSection(id: string): void {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
+
 export function Nav() {
+  const { pathname, hash } = useLocation();
+  const onLanding = pathname === "/";
+
   return (
     <nav>
       <Link to="/" className="nav-logo">
@@ -15,12 +22,21 @@ export function Nav() {
       </Link>
       <div className="nav-links">
         {navLinks.map((link) => {
-          const hash = hashFromHref(link.href);
-          if (hash) {
+          const sectionId = hashFromHref(link.href);
+          if (sectionId) {
+            const targetHash = `#${sectionId}`;
             return (
               <Link
                 key={link.label}
-                to={{ pathname: "/", hash }}
+                to={{ pathname: "/", hash: targetHash }}
+                onClick={(event) => {
+                  if (!onLanding) return;
+                  // Same-hash re-clicks don't update location; scroll manually.
+                  if (hash === targetHash) {
+                    event.preventDefault();
+                    scrollToSection(sectionId);
+                  }
+                }}
               >
                 {link.label}
               </Link>
