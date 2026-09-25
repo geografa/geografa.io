@@ -14,18 +14,18 @@ export const siteMeta = {
 };
 
 export const navLinks: NavLink[] = [
-  { label: "Work", href: "#work" },
-  { label: "Portfolio", href: "#selected" },
-  { label: "Approach", href: "#approach" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/#work" },
+  { label: "Portfolio", href: "/#selected" },
+  { label: "Approach", href: "/#approach" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const footerLinks: NavLink[] = [
-  { label: "Work", href: "#work" },
+  { label: "Work", href: "/#work" },
   { label: "Archive", href: "https://geografa.github.io/portfolio/", external: true },
-  { label: "Approach", href: "#approach" },
-  { label: "About", href: "#about" },
+  { label: "Approach", href: "/#approach" },
+  { label: "About", href: "/#about" },
   { label: "GitHub", href: "https://github.com/geografa", external: true },
   { label: "Email", href: "mailto:rafa@geografa.io" },
 ];
@@ -67,31 +67,31 @@ export const services: Service[] = [
 
 export const selectedWorkSection = {
   label: "02 · Selected work",
-  title: "Maps in production, and a few in the wild.",
-  intro:
-    "A mix of client work and personal experiments — most of the experiments end up teaching us something we use the next time around.",  
+  title: "Maps in production,\n and a few in the wild.",
+  // intro:
+  //   "A mix of client work, demos, prototypes, and experiments.",  
 };
 
 export const featuredWork: WorkItem[] = [
   {
-    image: "/img/uber.png",
+    image: "/img/uber/uber.png",
     imageAlt: "Uber Design",
     tag: "Navigation · Client",
     title: "Uber Map Design",
     description:
       "Various projects across Uber's map design team including map tooling, brand map prototyping, Map UI kit component development, and more.",
-    href: "https://uber.design/",
-    linkLabel: "Visit Uber Design →",
+    href: "/work/uber",
+    linkLabel: "Read case study →",
   },
   {
-    image: "/img/nyc-marathon.png",
+    image: "/img/nyc/nyc-marathon.png",
     imageAlt: "NYC Marathon map",
     tag: "Recreation · Client",
     title: "NYC Marathon",
     description:
       "The NYC Marathon course, built with Mapbox GL and React. The map is used to display the course and the runners' progress. Broadcasted live on TV and online.",
-    href: "https://www.youtube.com/live/fB5r6lHKyOc?si=KCI8j4LhcpoqSYbr&t=9445",
-    linkLabel: "View broadcast →",
+    href: "/work/nyc-marathon",
+    linkLabel: "Read case study →",
   },
   {
     image: "/img/mtc.png",
@@ -100,8 +100,8 @@ export const featuredWork: WorkItem[] = [
     title: "Vital Signs - MTC",
     description:
       "Vital Signs is an interactive website by the Metropolitan Transportation Commission (MTC) and Association of Bay Area Governments (ABAG) that offers data, visualizations, and contextualized narratives on important trends in the San Francisco Bay Area related to land use, transportation, the environment, the economy and equity.",
-    href: "https://vitalsigns.mtc.ca.gov/",
-    linkLabel: "Visit Vital Signs →",
+    href: "/work/vital-signs",
+    linkLabel: "Read case study →",
   },
   {
     image: "/img/ri-nyc.png",
@@ -174,12 +174,12 @@ export const featuredWork: WorkItem[] = [
     linkLabel: "Open demo →",
   },
   {
-    image: "/img/boise-lights.png",
+    image: "/img/boise/boise-lights.png",
     imageAlt: "Boise streetlights glowing at night",
     tag: "Cartography · Demo",
     title: "Boise Lights",
     description:
-      "Every streetlight in Boise mapped at night — a soft glow at city scale built from open infrastructure data, City of Boise.",
+      "Every streetlight in Boise mapped at night. Using animated emissivity to create a soft glow at city scale built from open infrastructure data, City of Boise.",
     href: "/portfolio/boise-lights",
     linkLabel: "Open demo →",
   },

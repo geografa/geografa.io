@@ -1,0 +1,211 @@
+.case-study-page {
+  min-height: 100vh;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.case-study {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.case-study__header {
+  margin-bottom: 2rem;
+}
+
+.case-study__back {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.case-study__back:hover {
+  color: rgba(22, 35, 33, 0.65);
+}
+
+.case-study__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.75rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(22, 35, 33, 0.7);
+}
+
+.case-study__tag {
+  color: var(--ink);
+}
+
+.case-study__meta-sep {
+  opacity: 0.45;
+}
+
+.case-study__title {
+  margin: 0 0 1rem;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.case-study__summary {
+  margin: 0;
+  max-width: 42rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(22, 35, 33, 0.8);
+}
+
+.case-study__hero {
+  margin: 0 0 2.5rem;
+  overflow: hidden;
+}
+
+.case-study__hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+.case-study__body {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.case-study__body p {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(22, 35, 33, 0.88);
+}
+
+.case-study__scope,
+.case-study__gallery,
+.case-study__video {
+  margin-bottom: 2.5rem;
+}
+
+.case-study__scope h2,
+.case-study__gallery h2,
+.case-study__video h2 {
+  margin: 0 0 1rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.case-study__video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.case-study__video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.case-study__scope ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.case-study__scope li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(22, 35, 33, 0.88);
+}
+
+.case-study__scope li::before {
+  content: "";
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.case-study__gallery-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.case-study__gallery-item {
+  margin: 0;
+  overflow: hidden;
+}
+
+.case-study__gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.case-study__external {
+  margin: 0;
+}
+
+.case-study__external a {
+  font-family: "Oswald", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(22, 35, 33, 0.25);
+}
+
+.case-study__external a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+@media (min-width: 720px) {
+  .case-study {
+    padding: 4rem 2rem 6rem;
+  }
+
+  .case-study__gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .case-study__gallery-item:first-child {
+    grid-column: 1 / -1;
+  }
+}

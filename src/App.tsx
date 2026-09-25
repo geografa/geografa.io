@@ -3,6 +3,7 @@ import { DemoLayer } from "@/components/layout/DemoLayer";
 import { ErrorBoundary } from "@/components/layout/ErrorBoundary";
 import { RouteEffects } from "@/components/layout/RouteEffects";
 import { LandingPage } from "@/pages/LandingPage";
+import { CaseStudyPage } from "@/pages/CaseStudyPage";
 import { SimpleLineDesignerDemo } from "@/demos/simple-line-designer/SimpleLineDesignerDemo";
 import { FwcTravelTimesDemo } from "@/demos/fwc/FwcTravelTimesDemo";
 import { ModelMapperDemo } from "@/demos/model-mapper/ModelMapperDemo";
@@ -17,20 +18,26 @@ function isDemoPath(pathname: string): boolean {
   return pathname.startsWith("/portfolio/");
 }
 
+function isCaseStudyPath(pathname: string): boolean {
+  return pathname.startsWith("/work/");
+}
+
 export function App() {
   const { pathname } = useLocation();
   const isDemo = isDemoPath(pathname);
+  const isCaseStudy = isCaseStudyPath(pathname);
+  const hideLanding = isDemo || isCaseStudy;
 
   return (
     <>
-      <RouteEffects isDemo={isDemo} />
+      <RouteEffects isDemo={isDemo} isOverlay={hideLanding} />
       <div
         className={
-          isDemo ? "landing-page landing-page--inactive" : "landing-page"
+          hideLanding ? "landing-page landing-page--inactive" : "landing-page"
         }
-        aria-hidden={isDemo}
+        aria-hidden={hideLanding}
       >
-        <LandingPage inactive={isDemo} />
+        <LandingPage inactive={hideLanding} />
       </div>
       {isDemo ? (
         <ErrorBoundary key={pathname}>
@@ -65,6 +72,13 @@ export function App() {
               <Route path="/portfolio/fwc" element={<FwcTravelTimesDemo />} />
             </Routes>
           </DemoLayer>
+        </ErrorBoundary>
+      ) : null}
+      {isCaseStudy ? (
+        <ErrorBoundary key={pathname}>
+          <Routes>
+            <Route path="/work/:slug" element={<CaseStudyPage />} />
+          </Routes>
         </ErrorBoundary>
       ) : null}
     </>

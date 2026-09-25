@@ -19,6 +19,29 @@ export interface WorkItem {
   linkLabel: string;
 }
 
+export interface CaseStudyImage {
+  src: string;
+  alt: string;
+}
+
+export interface CaseStudy {
+  slug: string;
+  title: string;
+  tag: string;
+  client: string;
+  year: string;
+  heroImage: string;
+  heroImageAlt: string;
+  summary: string;
+  body: string[];
+  scope: string[];
+  gallery: CaseStudyImage[];
+  videoEmbedUrl?: string;
+  videoTitle?: string;
+  externalHref?: string;
+  externalLabel?: string;
+}
+
 export interface ArchiveChip {
   label: string;
   image: string;

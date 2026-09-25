@@ -7,17 +7,21 @@ import {
 
 interface RouteEffectsProps {
   isDemo: boolean;
+  isOverlay: boolean;
 }
 
-/** Reset scroll and page chrome when moving between landing and map demos. */
-export function RouteEffects({ isDemo }: RouteEffectsProps) {
+/** Reset scroll and page chrome when moving between landing, demos, and case studies. */
+export function RouteEffects({ isDemo, isOverlay }: RouteEffectsProps) {
   const navigate = useNavigate();
-  const { hash } = useLocation();
+  const { hash, pathname } = useLocation();
   const wasDemoRef = useRef(isDemo);
+  const wasOverlayRef = useRef(isOverlay);
 
   useEffect(() => {
     const wasDemo = wasDemoRef.current;
+    const wasOverlay = wasOverlayRef.current;
     wasDemoRef.current = isDemo;
+    wasOverlayRef.current = isOverlay;
 
     if (wasDemo && !isDemo) {
       if (hash || window.location.hash) {
@@ -29,14 +33,26 @@ export function RouteEffects({ isDemo }: RouteEffectsProps) {
       return;
     }
 
-    if (isDemo) {
+    if (wasOverlay && !isOverlay) {
+      const targetHash = (hash || window.location.hash || "").replace(/^#/, "");
+      if (targetHash) {
+        requestAnimationFrame(() => {
+          document.getElementById(targetHash)?.scrollIntoView();
+        });
+      } else {
+        window.scrollTo(0, 0);
+      }
+      return;
+    }
+
+    if (isOverlay) {
       window.scrollTo(0, 0);
     }
-  }, [isDemo, hash, navigate]);
+  }, [isDemo, isOverlay, hash, navigate, pathname]);
 
   useEffect(() => {
     const onPageShow = (event: PageTransitionEvent) => {
-      if (!event.persisted || isDemo) return;
+      if (!event.persisted || isOverlay) return;
       if (window.location.hash) {
         navigate({ pathname: "/", hash: "" }, { replace: true });
       }
@@ -47,7 +63,7 @@ export function RouteEffects({ isDemo }: RouteEffectsProps) {
 
     window.addEventListener("pageshow", onPageShow);
     return () => window.removeEventListener("pageshow", onPageShow);
-  }, [isDemo, navigate]);
+  }, [isOverlay, navigate]);
 
   return null;
 }
