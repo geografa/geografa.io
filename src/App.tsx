@@ -13,6 +13,7 @@ import { BoiseLightsDemo } from "@/demos/boise-lights/BoiseLightsDemo";
 import { HexVotesDemo } from "@/demos/hexvotes/HexVotesDemo";
 import { WillamettePaddlesDemo } from "@/demos/willamette-paddles/WillamettePaddlesDemo";
 import { WashingtonParkTrailsDemo } from "@/demos/washington-park-trails/WashingtonParkTrailsDemo";
+import { WinterWonderlandDemo } from "@/demos/winter-wonderland/WinterWonderlandDemo";
 
 function isDemoPath(pathname: string): boolean {
   return pathname.startsWith("/portfolio/");
@@ -70,6 +71,10 @@ export function App() {
               />
               <Route path="/portfolio/hexvotes" element={<HexVotesDemo />} />
               <Route path="/portfolio/fwc" element={<FwcTravelTimesDemo />} />
+              <Route
+                path="/portfolio/winter-wonderland"
+                element={<WinterWonderlandDemo />}
+              />
             </Routes>
           </DemoLayer>
         </ErrorBoundary>

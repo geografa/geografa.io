@@ -66,7 +66,7 @@ export const services: Service[] = [
 
 export const selectedWorkSection = {
   label: "02 · Selected work",
-  title: "Maps in production,\n and a few in the wild.",
+  title: "Maps in production and a few in the wild.",
   intro:
     "A mix of client work, demos, prototypes, and experiments.",  
 };
@@ -230,6 +230,15 @@ export const featuredWork: WorkItem[] = [
     description:
       "Estimated travel times between host cities, hotels, and stadiums for the FIFA World Cup 2026.",
     href: "/portfolio/fwc",
+    linkLabel: "Open demo →",
+  },
+  {
+    image: "/img/winter.png",
+    imageAlt: "Winter Wonderland map of Park City, Utah",
+    tag: "Cartography · Demo",
+    title: "Winter Wonderland",
+    description: "Park City, Utah winter terrain map.",
+    href: "/portfolio/winter-wonderland",
     linkLabel: "Open demo →",
   },
   {
