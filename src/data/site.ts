@@ -108,7 +108,7 @@ export const featuredWork: WorkItem[] = [
     tag: "Recreation · Client",
     title: "Visit Roosevelt Island",
     description:
-      "Explore what Roosevelt Island has to offer, from local events to businesses and community resources, all in one place.",
+      "Provided Mapbox GL JS and API techincal support for the NYC Department of Parks & Recreation, Visit Roosevelt Island application. Devloped as a comprehensive guide to the island's attractions, events, and amenities.",
     href: "https://visitri.nyc/",
     linkLabel: "Visit site →",
   },
@@ -118,9 +118,19 @@ export const featuredWork: WorkItem[] = [
     tag: "Healthcare · Client",
     title: "Firefly Health",
     description:
-      "We're continually adding new partner locations to offer our members more convenient and accessible options for in-person care.",
+      "Provided Mapbox GL JS map style and data services for Firefly Health's Nearby map use to locate partner locations for in-person care.",
     href: "https://www.fireflyhealth.com/firefly-nearby/",
     linkLabel: "Visit Firefly Nearby →",
+  },
+  {
+    image: "/img/model-mapper.png",
+    imageAlt: "Model Mapper",
+    tag: "Cartography · Utility",
+    title: "Model Mapper",
+    description:
+      "A utility for pressure-testing 3D models using Mapbox GL JS.",
+    href: "/portfolio/model-mapper",
+    linkLabel: "Open tool →",
   },
   {
     image: "/img/card-sld.png",
@@ -130,16 +140,6 @@ export const featuredWork: WorkItem[] = [
     description:
       "A utility for styling line features using Mapbox GL JS and the style spec.",
     href: "/portfolio/simple-line-designer",
-    linkLabel: "Open tool →",
-  },
-  {
-    image: "/img/model-mapper.png",
-    imageAlt: "Model Mapper",
-    tag: "Cartography · Utility",
-    title: "Model Mapper",
-    description:
-      "A utility for testing 3D models using Mapbox GL JS.",
-    href: "/portfolio/model-mapper",
     linkLabel: "Open tool →",
   },
   {

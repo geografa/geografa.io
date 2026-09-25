@@ -109,11 +109,11 @@
   transition: 0.25s;
 }
 
-.hexvotes-switch input:checked + .hexvotes-switch__slider {
+.hexvotes-switch input:checked+.hexvotes-switch__slider {
   background: #1da0e2;
 }
 
-.hexvotes-switch input:checked + .hexvotes-switch__slider::before {
+.hexvotes-switch input:checked+.hexvotes-switch__slider::before {
   transform: translateX(24px);
 }
 
@@ -122,32 +122,53 @@
   inset: 0;
   z-index: 20;
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.2);
   font-family: "DM Sans", sans-serif;
 }
 
 .hexvotes-modal__content {
   position: relative;
   width: min(520px, 90%);
-  padding: 1.25rem 1.5rem;
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem 1.75rem;
+  border-radius: 16px;
   text-align: center;
-  color: #222;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+  border-top: 2px solid rgba(225, 225, 225, 0.35);
+  border-left: 1px solid rgba(225, 225, 225, 0.15);
+  border-right: 1px solid rgba(225, 225, 225, 0.4);
+  border-bottom: 1px solid rgba(225, 225, 225, 0.12);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
 }
 
 .hexvotes-modal__content h2 {
   margin: 0 0 0.5rem;
-  font-family: "Playfair Display", serif;
+  font-family: "Oswald", sans-serif;
   font-size: 1.4rem;
+  color: #fff;
 }
 
 .hexvotes-modal__content p {
   margin: 0 0 1rem;
   font-size: 1rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.hexvotes-modal__content .hexvotes-panel__button {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.hexvotes-modal__content .hexvotes-panel__button:hover {
+  background: rgba(255, 255, 255, 0.32);
 }
 
 .hexvotes-modal__close {
@@ -159,5 +180,10 @@
   font-size: 1.6rem;
   line-height: 1;
   cursor: pointer;
-  color: #444;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.hexvotes-modal__close:hover {
+  color: #fff;
 }
