@@ -242,7 +242,7 @@ export const featuredWork: WorkItem[] = [
     linkLabel: "Open demo →",
   },
   {
-    image: "/img/willamette-tour.png",
+    image: "/img/willamette-river-cover.png",
     imageAlt: "Bathymetry of the Willamette River in Portland, Oregon",
     tag: "Cartography · Demo",
     title: "Willamette River Bathymetry",
