@@ -1,0 +1,282 @@
+.willamette-tour-nav {
+  position: absolute;
+  top: 3.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: min(920px, calc(100vw - 1.5rem));
+  min-height: 4.75rem;
+  padding: 1.1rem 1rem 1.15rem;
+  border-radius: 12px;
+  background: rgba(14, 22, 24, 0.72);
+  border: 1px solid rgba(201, 147, 58, 0.22);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.willamette-tour-nav__track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.willamette-tour-nav__stop {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.willamette-tour-nav__stop:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  /* Align with dot centers (button pad + half of 0.7rem) */
+  top: 0.5rem;
+  left: calc(50% + 0.55rem);
+  right: calc(-50% + 0.55rem);
+  height: 1px;
+  background: rgba(201, 147, 58, 0.35);
+  pointer-events: none;
+}
+
+.willamette-tour-nav__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.15rem 0.25rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: rgba(245, 241, 232, 0.72);
+  font: inherit;
+}
+
+.willamette-tour-nav__dot {
+  flex-shrink: 0;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: rgba(245, 241, 232, 0.35);
+  border: 1.5px solid rgba(201, 147, 58, 0.55);
+  box-shadow: 0 0 0 3px rgba(14, 22, 24, 0.55);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.willamette-tour-nav__label {
+  font-family: "Oswald", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.25;
+  transition: color 0.2s ease;
+}
+
+.willamette-tour-nav__button:hover .willamette-tour-nav__dot,
+.willamette-tour-nav__button--active .willamette-tour-nav__dot {
+  background: var(--gold);
+  border-color: var(--gold-light);
+  transform: scale(1.15);
+}
+
+.willamette-tour-nav__button:hover .willamette-tour-nav__label,
+.willamette-tour-nav__button--active .willamette-tour-nav__label {
+  color: var(--gold-light);
+}
+
+@media (max-width: 640px) {
+  .willamette-tour-nav {
+    top: 3.5rem;
+    min-height: 4.5rem;
+    padding: 0.95rem 0.65rem 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .willamette-tour-nav__track {
+    width: max-content;
+    min-width: 100%;
+    gap: 0;
+  }
+
+  .willamette-tour-nav__stop {
+    flex: 0 0 auto;
+    width: 6.75rem;
+  }
+
+  .willamette-tour-nav__label {
+    font-size: 10px;
+  }
+}
+
+.willamette-tour-legend {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1rem;
+  z-index: 2;
+  width: min(168px, calc(100vw - 2rem));
+  padding: 0.85rem 0.9rem 0.95rem;
+  border-radius: 12px;
+  background: rgba(14, 22, 24, 0.72);
+  border: 1px solid rgba(201, 147, 58, 0.22);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: rgba(245, 241, 232, 0.88);
+}
+
+.willamette-tour-legend__title {
+  margin: 0;
+  font-family: "Oswald", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.willamette-tour-legend__subtitle {
+  margin: 0.25rem 0 0.35rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  line-height: 1.35;
+  color: rgba(245, 241, 232, 0.7);
+}
+
+.willamette-tour-legend__source {
+  margin: 0 0 0.7rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  line-height: 1.35;
+  color: rgba(245, 241, 232, 0.55);
+}
+
+.willamette-tour-legend__source a {
+  color: var(--gold-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.willamette-tour-legend__source a:hover {
+  color: var(--gold);
+}
+
+.willamette-tour-legend__scale {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 0.55rem;
+  align-items: stretch;
+}
+
+.willamette-tour-legend__ramp {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 140px;
+}
+
+.willamette-tour-legend__labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  line-height: 1;
+  color: rgba(245, 241, 232, 0.78);
+}
+
+.willamette-tour-legend__hint {
+  margin: 0.7rem 0 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  line-height: 1.35;
+  color: rgba(245, 241, 232, 0.55);
+}
+
+.willamette-tour-tooltip .mapboxgl-popup-content {
+  padding: 0.65rem 0.8rem;
+  border-radius: 10px;
+  background: rgba(14, 22, 24, 0.88);
+  border: 1px solid rgba(201, 147, 58, 0.28);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  color: rgba(245, 241, 232, 0.92);
+}
+
+.willamette-tour-tooltip .mapboxgl-popup-tip {
+  border-top-color: rgba(14, 22, 24, 0.88);
+}
+
+.willamette-tour-tooltip__body {
+  font-family: "DM Sans", sans-serif;
+}
+
+.willamette-tour-tooltip__title {
+  margin: 0 0 0.4rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.willamette-tour-tooltip__body dl {
+  margin: 0;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.willamette-tour-tooltip__body dl > div {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 0.4rem;
+  font-size: 12px;
+}
+
+.willamette-tour-tooltip__body dt {
+  margin: 0;
+  color: rgba(245, 241, 232, 0.55);
+}
+
+.willamette-tour-tooltip__body dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  color: rgba(245, 241, 232, 0.95);
+}
+
+@media (max-width: 640px) {
+  .willamette-tour-legend {
+    bottom: 0.75rem;
+    left: 0.75rem;
+    width: min(148px, calc(100vw - 1.5rem));
+  }
+
+  .willamette-tour-legend__ramp {
+    min-height: 110px;
+  }
+
+  .willamette-tour-legend__labels li:nth-child(even) {
+    display: none;
+  }
+}

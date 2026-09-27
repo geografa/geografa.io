@@ -242,6 +242,16 @@ export const featuredWork: WorkItem[] = [
     linkLabel: "Open demo →",
   },
   {
+    image: "/img/willamette-tour.png",
+    imageAlt: "Bathymetry of the Willamette River in Portland, Oregon",
+    tag: "Cartography · Demo",
+    title: "Willamette River Bathymetry",
+    description:
+      "Fly the Willamette from Oregon City to Kelley Point to inspect the bathymetry of the river from 2001.",
+    href: "/portfolio/willamette-tour",
+    linkLabel: "Open demo →",
+  },
+  {
     image: "/img/card-leftfut.png",
     imageAlt: "Leftfut",
     tag: "Cartography · Demo",
