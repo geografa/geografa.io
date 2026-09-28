@@ -84,7 +84,7 @@ export const caseStudies: CaseStudy[] = [
     tag: "Transportation · Client",
     client: "Metropolitan Transportation Commission",
     year: "2024",
-    heroImage: "/img/vital-signs/cover.png",
+    heroImage: "/img/vital-signs/mtc-cover.png",
     heroImageAlt: "Vital Signs MTC interactive map",
     summary:
       "Under contract with Peak Digital, Geografa redesigned thematic maps for Metropolitan Transportation Commission's Vital Signs platform, a consumer-facing regional data dashboard serving Bay Area residents with land use, transportation, environmental, and equity indicators.",
