@@ -83,6 +83,16 @@ export const featuredWork: WorkItem[] = [
     linkLabel: "Read case study →",
   },
   {
+    image: "/img/vital-signs/mtc-cover.png",
+    imageAlt: "Vital Signs - MTC",
+    tag: "Transportation · Client",
+    title: "Vital Signs - MTC",
+    description:
+      "Vital Signs is an interactive website by the Metropolitan Transportation Commission (MTC) and Association of Bay Area Governments (ABAG) that offers data, visualizations, and contextualized narratives on important trends in the San Francisco Bay Area related to land use, transportation, the environment, the economy and equity.",
+    href: "/work/vital-signs",
+    linkLabel: "Read case study →",
+  },
+  {
     image: "/img/nyc/nyc-marathon.png",
     imageAlt: "NYC Marathon map",
     tag: "Recreation · Client",
@@ -90,16 +100,6 @@ export const featuredWork: WorkItem[] = [
     description:
       "The NYC Marathon course, built with Mapbox GL and React. The map is used to display the course and the runners' progress. Broadcasted live on TV and online.",
     href: "/work/nyc-marathon",
-    linkLabel: "Read case study →",
-  },
-  {
-    image: "/img/mtc.png",
-    imageAlt: "Vital Signs - MTC",
-    tag: "Transportation · Client",
-    title: "Vital Signs - MTC",
-    description:
-      "Vital Signs is an interactive website by the Metropolitan Transportation Commission (MTC) and Association of Bay Area Governments (ABAG) that offers data, visualizations, and contextualized narratives on important trends in the San Francisco Bay Area related to land use, transportation, the environment, the economy and equity.",
-    href: "/work/vital-signs",
     linkLabel: "Read case study →",
   },
   {
@@ -257,7 +257,7 @@ export const featuredWork: WorkItem[] = [
     tag: "Cartography · Demo",
     title: "Leftfut",
     description:
-      "Stadiums of the world by capacity.",
+      "The science, art, and politics of the beautiful game.",
     href: "https://leftfut.com/",
     linkLabel: "Visit Leftfut →",
   },
