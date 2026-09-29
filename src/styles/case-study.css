@@ -17,7 +17,7 @@
 .case-study__back {
   display: inline-block;
   margin-bottom: 1.5rem;
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -35,7 +35,7 @@
   align-items: center;
   gap: 0.5rem;
   margin: 0 0 0.75rem;
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -108,7 +108,7 @@
 .case-study__gallery h2,
 .case-study__video h2 {
   margin: 0 0 1rem;
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.16em;
@@ -182,7 +182,7 @@
 }
 
 .case-study__external a {
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 13px;
   letter-spacing: 0.12em;
   text-transform: uppercase;

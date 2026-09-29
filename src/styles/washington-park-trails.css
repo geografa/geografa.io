@@ -26,7 +26,7 @@
 
 .trails-panel__header h2 {
   margin: 0;
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 15px;
   font-weight: 400;
   letter-spacing: 0.06em;
@@ -43,7 +43,7 @@
 
 .trails-panel__close,
 .trails-panel__reopen {
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -117,7 +117,7 @@
 
 .trails-panel__item--all {
   border-bottom: 1px solid rgba(87, 89, 88, 0.12);
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;

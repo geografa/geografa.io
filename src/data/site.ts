@@ -35,12 +35,12 @@ export const hero = {
   subtitle:
     "Over twenty five years of geospatial work in one collective. We're web mapping experts, GIS professionals, and web developers helping teams ship maps that hold up under pressure.",
   primaryCta: { label: "See the work →", href: "#selected" },
-  secondaryCta: { label: "Start a conversation", href: "#contact" },
+  secondaryCta: { label: "get in touch", href: "#contact" },
   videoSrc: "/img/maphero.mp4",
 };
 
 export const workSection = {
-  label: "01 · The work",
+  label: "HOW WE WORK",
   title: "A small studio that scales like a collective.",
   intro:
     "Geografa runs lean by default and assembles the right team from a trusted network of engineers, designers, and developers. You're connected with one project manager so support and continuity stay high-touch.",
@@ -65,7 +65,7 @@ export const services: Service[] = [
 ];
 
 export const selectedWorkSection = {
-  label: "02 · Selected work",
+  label: "PORTFOLIO",
   title: "Maps in production and a few in the wild.",
   intro:
     "A mix of client work, demos, prototypes, and experiments.",  
@@ -264,7 +264,7 @@ export const featuredWork: WorkItem[] = [
 ];
 
 export const approachSection = {
-  label: "03 · How we work",
+  label: "APPROACH",
   title: "Customer-centered, from first call to handoff.",
   signature: "— Rafa",
   photo: {
@@ -274,7 +274,7 @@ export const approachSection = {
 };
 
 export const testimonialsSection = {
-  label: "04 · Kind words",
+  label: "TESTIMONIALS",
   title: "From the people we've worked alongside.",
   intro:
     "A few notes from former teammates at Mapbox.",
@@ -302,7 +302,7 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const aboutSection = {
-  label: "05 · About",
+  label: "ABOUT",
   title: "Over twenty years of geospatial engineering.",
   intro:
     "With 20+ years of geospatial engineering experience, Portland-based Rafa Gutierrez runs Geografa, a dedicated web-mapping dev shop. His background includes serving as a GIS manager in environmental consulting and helping scale Mapbox's technical support team from local startup to global product. For larger builds, Geografa leverages a reliable network of experienced on-call collaborators.",
@@ -332,7 +332,7 @@ export const timeline: TimelineEntry[] = [
 ];
 
 export const contactSection = {
-  label: "06 · Get in touch",
+  label: "CONTACT",
   titleBefore: "Let's ",
   titleEmphasis: "get mapping",
   titleAfter: ".",

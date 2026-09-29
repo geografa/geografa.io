@@ -41,7 +41,7 @@ body.demo-open {
 }
 
 .error-fallback button {
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -71,7 +71,7 @@ body.demo-open {
 .map-demo-shell__back {
   grid-column: 1;
   justify-self: start;
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -86,7 +86,7 @@ body.demo-open {
 .map-demo-shell__title {
   grid-column: 2;
   margin: 0;
-  font-family: "Oswald", serif;
+  font-family: "Saira Condensed", serif;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.12em;
@@ -155,7 +155,7 @@ body.demo-open {
 }
 
 .map-sidebar__title {
-  font-family: "Oswald", serif;
+  font-family: "Saira Condensed", serif;
   font-size: 16px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -164,7 +164,7 @@ body.demo-open {
 }
 
 .map-sidebar__section {
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -197,7 +197,7 @@ body.demo-open {
   align-items: center;
   gap: 0.75rem;
   margin: 1rem 0;
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;

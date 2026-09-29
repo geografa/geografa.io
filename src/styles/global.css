@@ -49,7 +49,7 @@ nav {
 }
 
 .nav-logo span {
-  font-family: "Oswald", serif;
+  font-family: "Saira Condensed", serif;
   font-size: 14px;
   font-weight: 400;
   color: var(--gold-light);
@@ -63,7 +63,7 @@ nav {
 }
 
 .nav-links a {
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.25em;
@@ -133,7 +133,7 @@ nav {
 }
 
 .hero-tag {
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 11px;
   letter-spacing: 0.15em;
   color: var(--gold);
@@ -183,7 +183,7 @@ nav {
 
 .btn-primary,
 .btn-ghost {
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.12em;
@@ -226,7 +226,7 @@ nav {
   transform: translateX(-50%);
   color: rgba(245, 240, 232, 0.3);
   font-size: 11px;
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   letter-spacing: 0.1em;
   animation: pulse 2s ease-in-out infinite;
   z-index: 1;
@@ -252,7 +252,7 @@ nav {
 }
 
 .section-label {
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 10px;
   font-weight: 400;
   letter-spacing: 0.25em;
@@ -386,7 +386,7 @@ hr.divider {
 }
 
 .work-tag {
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 9px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -411,7 +411,7 @@ hr.divider {
 }
 
 .work-link {
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -542,7 +542,7 @@ hr.divider {
 }
 
 .quote-author {
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 10px;
   letter-spacing: 0.08em;
   color: var(--gold-light);
@@ -622,7 +622,7 @@ hr.divider {
 }
 
 .timeline-year {
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: clamp(1.25rem, 3vw, 1.5rem);
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -676,7 +676,7 @@ hr.divider {
   background: rgba(201, 147, 58, 0.15);
   border: 1px solid rgba(201, 147, 58, 0.3);
   color: var(--gold-light);
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 12px;
   letter-spacing: 0.15em;
   padding: 0.65rem 1.4rem;
@@ -713,7 +713,7 @@ hr.divider {
   text-align: center;
   padding: 3rem 2rem;
   color: rgba(245, 240, 232, 0.3);
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 10px;
   letter-spacing: 0.12em;
 }

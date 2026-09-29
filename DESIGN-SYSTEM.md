@@ -1,6 +1,6 @@
 # Geografa design system
 
-**Warm paper** — an editorial layout system for Geografa marketing pages. Serif headlines, Oswald labels, and a sage-and-parchment palette with pale gold accents. Reads like a well-typeset document, not a typical SaaS landing page.
+**Warm paper** — an editorial layout system for Geografa marketing pages. Serif headlines, Saira Condensed labels, and a sage-and-parchment palette with pale gold accents. Reads like a well-typeset document, not a typical SaaS landing page.
 
 **Primary implementation:** React app in [`src/`](src/)  
 **Theme tokens:** [`src/theme/colors.ts`](src/theme/colors.ts) (canonical) → injected as CSS vars + [`src/styles/global.css`](src/styles/global.css)  
@@ -16,7 +16,7 @@ npm run build  # production bundle → dist/
 
 ## Principles
 
-1. **Editorial hierarchy** — Numbered section labels, serif titles, and Oswald metadata create a magazine-like rhythm.
+1. **Editorial hierarchy** — Numbered section labels, serif titles, and Saira Condensed metadata create a magazine-like rhythm.
 2. **Warm contrast** — Dark ink sections alternate with cream and green backgrounds; pale gold ties accents together.
 3. **Human-centered** — Copy and layout prioritize the people who use maps — their needs, contexts, and workflows.
 4. **Restraint** — Light font weights, generous line-height, and subtle borders. Shadows only on hover or photos.
@@ -70,7 +70,7 @@ Loaded from Google Fonts:
 
 ```html
 <link
-  href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=Oswald:wght@200..700&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=Saira+Condensed:wght@200;300;400;500;600;700&display=swap"
   rel="stylesheet"
 />
 ```
@@ -79,7 +79,7 @@ Loaded from Google Fonts:
 | --- | --- |
 | **Playfair Display** | Headlines, card titles, signatures, `<em>` emphasis in section titles |
 | **DM Sans** | Body copy (weights 300, 400, 500) |
-| **Oswald** | Labels, tags, buttons, nav, metadata, footer (weights 200–700) |
+| **Saira Condensed** | Labels, tags, buttons, nav, metadata, footer (weights 200–700) |
 
 ### Type roles
 
@@ -88,15 +88,15 @@ Loaded from Google Fonts:
 | Hero headline | Playfair Display | 900 | `clamp(2.5rem, 8vw, 5.5rem)` | `--cream`; line-height 1.0 |
 | Hero emphasis | Playfair Display | italic | — | `--gold-light`; optional second line in `<em>` |
 | Section title | Playfair Display | 700 | `clamp(2rem, 5vw, 3.2rem)` | Line-height 1.1 |
-| Section label (dark bg) | Oswald | 400 | 10px | Uppercase; `--gold`; rule line `rgba(201, 147, 58, 0.25)` via `.ink-bg` |
-| Section label (light bg) | Oswald | 400 | 10px | `.section-label--dark` → `--muted` text, `--border` rule |
-| Hero tag | Oswald | 400 | 11px | Uppercase; may include inline logo `<img>` at 12px height |
-| Nav wordmark | Oswald | 400 | 14px | Uppercase; `--gold-light`; `letter-spacing: 0.15em` |
-| Nav links | Oswald | 400 | 12px | Uppercase; `letter-spacing: 0.25em` |
+| Section label (dark bg) | Saira Condensed | 400 | 10px | Uppercase; `--gold`; rule line `rgba(201, 147, 58, 0.25)` via `.ink-bg` |
+| Section label (light bg) | Saira Condensed | 400 | 10px | `.section-label--dark` → `--muted` text, `--border` rule |
+| Hero tag | Saira Condensed | 400 | 11px | Uppercase; may include inline logo `<img>` at 12px height |
+| Nav wordmark | Saira Condensed | 400 | 14px | Uppercase; `--gold-light`; `letter-spacing: 0.15em` |
+| Nav links | Saira Condensed | 400 | 12px | Uppercase; `letter-spacing: 0.25em` |
 | Body / intro | DM Sans | 300 | 15px | Line-height 1.7–1.75 |
 | Card body | DM Sans | 300 | 13px | `--muted` on cream |
-| Tags / links | Oswald | 400 | 9–12px | Uppercase, tracked |
-| Footer | Oswald | 400–500 | 10px | `--gold` for emphasis |
+| Tags / links | Saira Condensed | 400 | 9–12px | Uppercase, tracked |
+| Footer | Saira Condensed | 400–500 | 10px | `--gold` for emphasis |
 
 ### Section label variants
 
@@ -148,8 +148,8 @@ Landing page section map:
 ### Navigation (`nav`)
 
 - Fixed top bar, `z-index: 100`
-- Logo: SVG mark + Oswald uppercase wordmark (`eografa`) in `--gold-light`
-- Links: uppercase Oswald, muted cream, `--gold-light` on hover
+- Logo: SVG mark + Saira Condensed uppercase wordmark (`eografa`) in `--gold-light`
+- Links: uppercase Saira Condensed, muted cream, `--gold-light` on hover
 - **Mobile (≤640px):** `.nav-links` hidden
 
 ### Hero (`.hero`)
@@ -160,7 +160,7 @@ Full-viewport intro on `--ink`. Landing page layers:
 - `.hero-overlay` — ink gradient + radial glow + 40px grid
 - `.hero-content` — centered, `max-width: 720px`, `z-index: 1`
 - `.hero-tag` — optional inline logo before tagline text
-- `.scroll-hint` — bottom-centered Oswald text with `pulse` animation (2s ease-in-out)
+- `.scroll-hint` — bottom-centered Saira Condensed text with `pulse` animation (2s ease-in-out)
 
 Mexico page uses a static hero with the grid in `::before` instead of video.
 
@@ -173,7 +173,7 @@ Mexico page uses a static hero with the grid in `::before` instead of video.
 | `.contact-pill` | Ghost pill, `border-radius: 10px` |
 | `.contact-pill.primary` | Gold fill for email CTA; mixed case allowed |
 
-All use Oswald, uppercase (except `.contact-pill.primary` email), 0.2s transitions.
+All use Saira Condensed, uppercase (except `.contact-pill.primary` email), 0.2s transitions.
 
 ### Section shell
 
@@ -201,7 +201,7 @@ Inside `.ink-bg`. Grid: `repeat(auto-fit, minmax(260px, 1fr))`. Gold-tinted surf
 
 ### Work cards (`.work-card`)
 
-`.work-featured-grid` — 3 columns, 1 on mobile. Image top (160px). `.work-tag` (Oswald), `.work-link` (Oswald, `--ink` text with underline).
+`.work-featured-grid` — 3 columns, 1 on mobile. Image top (160px). `.work-tag` (Saira Condensed), `.work-link` (Saira Condensed, `--ink` text with underline).
 
 ### Archive chips (`.work-chip`)
 
@@ -213,11 +213,11 @@ Two-column grid (prose + photo). `.approach-signature` — Playfair italic. Stac
 
 ### Quote cards (`.quote-card`)
 
-Inside `.transit-bg`. Left `--gold` border (3px), italic blockquote, Oswald author + muted role.
+Inside `.transit-bg`. Left `--gold` border (3px), italic blockquote, Saira Condensed author + muted role.
 
 ### Timeline (`.timeline`)
 
-Vertical spine on the left (`::before`), each `.timeline-item` with a stub + dot (`.timeline-marker`). `.timeline-year` — Oswald, large. `.timeline-title` — DM Sans medium. `.timeline-desc` — muted, optional.
+Vertical spine on the left (`::before`), each `.timeline-item` with a stub + dot (`.timeline-marker`). `.timeline-year` — Saira Condensed, large. `.timeline-title` — DM Sans medium. `.timeline-desc` — muted, optional.
 
 ### Contact (`.contact-section`)
 
@@ -225,7 +225,7 @@ Centered in `.ink-bg`. Title `<em>` in `--gold-light`. Pills in `.contact-links`
 
 ### Footer (`.footer`)
 
-`--ink` background, centered Oswald. `.footer-links` echo nav. Tagline: *made on warm paper*.
+`--ink` background, centered Saira Condensed. `.footer-links` echo nav. Tagline: *made on warm paper*.
 
 ---
 

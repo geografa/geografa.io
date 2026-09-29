@@ -26,7 +26,7 @@
 
 .model-mapper-intro h2 {
   margin: 0 0 1rem;
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 1.15rem;
   font-weight: 400;
   letter-spacing: 0.08em;
@@ -43,7 +43,7 @@
 
 .model-mapper-intro button {
   margin-top: 1rem;
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -88,7 +88,7 @@
 
 .model-mapper-replace__button {
   align-self: flex-start;
-  font-family: "Oswald", sans-serif;
+  font-family: "Saira Condensed", sans-serif;
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
